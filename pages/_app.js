@@ -1,5 +1,17 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import { Ubuntu } from "@next/font/google";
+
+const ubuntu = Ubuntu({
+  weight: ['400', '700'],
+	subsets: ["latin"],
+	variable: "--font-ubuntu",
+});
+
+export default function MyApp({ Component, pageProps }) {
+	return (
+		<main className={`${ubuntu.variable} font-sans`}>
+			<Component {...pageProps} />
+		</main>
+	);
 }
