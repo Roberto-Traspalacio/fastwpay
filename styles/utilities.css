@@ -1,0 +1,28 @@
+.top-line {
+	position: relative;
+}
+.top-line::before {
+	content: "";
+	background-color: #295bb7;
+	display: inline-block;
+	position: absolute;
+	height: 2px;
+	width: 38px;
+	top: -75%;
+}
+@media only screen and (min-width: 601px) {
+	.top-line::before {
+		top: -25%;
+		left: 200%;
+	}
+}
+
+.full-bleed-2 {
+	box-shadow: 0 0 0 100vmax #f0f6ff;
+	clip-path: inset(0 -100vmax);
+}
+
+.full-bleed-1 {
+	box-shadow: 0 0 0 100vmax #d7e1f3;
+	clip-path: inset(0 -100vmax);
+}

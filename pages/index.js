@@ -31,47 +31,51 @@ export default function Home() {
 			<main className={"px-[18px]"}>
 				<section className='grid grid-cols-4 gap-x-3'>
 					<Image
-						className='col-span-full plugin-icon mb-6'
+						className='col-span-full plugin-icon mb-6 xs:mb-4 sm:mb-10 justify-self-center'
 						src={hero}
 						alt='Girl waving with payment messages around'
 					/>
-					<div className='typo-display-2 col-span-full font-main font-bold text-center text-text-1'>
+					<div className='typo-display-2 col-span-full font-main text-center text-text-1 sm:font-medium'>
 						Receive payments from your stores safely
 					</div>
-					<div className='col-span-full text-center mt-[18px] text-text-2 typo-body-1'>
+					<div className='col-span-full text-center mt-[18px] sm:mt-8 text-text-2 typo-body-1 leading-[165%]'>
 						Implement a payment gateway for your online store. fast, safe and
 						hassle-free. Start billing today without having any requirements.
 					</div>
 
-					<div className='flex col-span-full justify-evenly mt-[18px] '>
+					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-16'>
 						<Button>Download</Button>
 						<ButtonInverse>contact</ButtonInverse>
 					</div>
 				</section>
 				<section className='flex flex-col justify-center mt-[50px]'>
-					<div className='typo-body-1 text-primary-blue text-center mb-[12px]'>
+					<div className='typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]'>
 						supported banks
 					</div>
-					<div className='full-bleed-2 bg-background-2 flex justify-evenly py-[12px]'>
-						<Image src={santander} alt='santander bank logo' />
+					<div className='full-bleed-2 bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
+						<div className='relative h-'>
+							<Image className='' src={santander} alt='santander bank logo' />
+						</div>
 						<Image src={hsbc} alt='hsbc bank logo' />
 						<Image src={bbva} alt='bbva logo' />
 					</div>
 				</section>
-				<section className='grid grid-cols-4 mt-[52px] font-bold gap-x-3'>
+				<section className='grid grid-cols-4 mt-[52px] font-bold gap-x-[18px]'>
 					<div className='typo-heading-1 col-span-3'>
 						<span className='top-line'>The</span> best payment solutions for you
 					</div>
 					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify'>
-						Fastwpay is an exclusive payment gateway plugin for{" "}
-						<span className='font-bold text-primary-blue'>Woocommerce</span>,
+						Fastwpay is an exclusive payment gateway plugin for
+						<span className='font-bold text-primary-blue'> Woocommerce</span>,
 						made for all those entrepreneurs, startups and companies that would
 						like to start charging for their online business without having to
 						comply with all the bureaucracy involved in hiring any provider of
 						this service.
 					</div>
 
-					<ButtonInverse className='mt-[18px]'>Get started</ButtonInverse>
+					<ButtonInverse className='mt-[18px] col-span-2 self-start text-left'>
+						Get started
+					</ButtonInverse>
 				</section>
 
 				<section className='section-features grid grid-cols-4 gap-x-3 gap-y-5 mt-16'>
@@ -114,18 +118,20 @@ export default function Home() {
 					<ButtonInverse className='mt-4'>Get started</ButtonInverse>
 
 					<Image
-						className='-translate-x-11 mt-9'
+						className='-translate-x-5 mt-9'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
 
-					<div className='grid grid-cols-1 gap-y-8'>
+					<div className='grid grid-cols-1 gap-y-8 mt-14'>
 						<NumberItem
 							className='grid grid-cols-4 gap-x-[18px]'
 							number={"01."}
 							title={"Download the file"}
 							content={[
-								<span className='font-bold text-primary-blue'>Download </span>,
+								<span className='font-bold text-primary-blue underline'>
+									<a href='#'>Download </a>
+								</span>,
 								"the fastwpay.zip file on your computer.",
 							]}
 						/>
@@ -184,7 +190,9 @@ export default function Home() {
 						<span className='font-bold text-primary-blue'> France</span>, or
 						<span className='font-bold text-primary-blue'> Germany</span>.
 					</div>
-					<ButtonInverse className=''>Get started</ButtonInverse>
+					<ButtonInverse className='col-span-2 text-left'>
+						Get started
+					</ButtonInverse>
 					<Image
 						className='col-span-full justify-self-center mt-11'
 						src={countries}

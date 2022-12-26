@@ -21,14 +21,9 @@ module.exports = {
 				text: { 1: "#353C46", 2: "#626263" },
 				background: { 1: "#F9FCFF", 2: "#F0F6FF", 3: "#D7E1F3" },
 			},
-			breakpoints: {
-				sc1: "320px",
-				sc3: "375px",
-				sc2: "360px",
-				sc5: "768px",
-				sc4: "601px",
-				sc7: "1280px",
-				sc6: "1024px",
+			screens: {
+				xsm: "375px",
+				sm: "601px",
 			},
 		},
 	},

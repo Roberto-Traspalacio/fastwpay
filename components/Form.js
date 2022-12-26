@@ -8,9 +8,15 @@ export default function Form() {
 				Get in touch with us
 			</div>
 			<div className='label-name typo-body-2 mb-2'>Name</div>
-			<input type='text' className='input-name col-span-full rounded-md' />
+			<input
+				type='text'
+				className='input-name col-span-full rounded-md mb-[18px]'
+			/>
 			<div className='label-email typo-body-2 mb-2'>Email</div>
-			<input type='text' className='input-email col-span-full rounded-md' />
+			<input
+				type='text'
+				className='input-email col-span-full rounded-md mb-[18px]'
+			/>
 			<div className='label-message typo-body-2 mb-2'>Message</div>
 			<textarea
 				type='text'
