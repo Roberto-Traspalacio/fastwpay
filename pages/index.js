@@ -34,8 +34,6 @@ export default function Home() {
 						className='mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
 						src={heroTest}
 						alt='Girl waving with payment messages around '
-						width={565}
-						height={604}
 					/>
 					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium'>
 						Receive payments from your stores safely
