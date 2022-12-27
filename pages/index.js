@@ -9,7 +9,7 @@ import flagIcon from "../assets/flag-icon.svg";
 import supportIcon from "../assets/support-icon.svg";
 import walletIcon from "../assets/wallet-icon.svg";
 import lockIcon from "../assets/lock-icon.svg";
-import laptop from "../assets/laptop.png";
+import laptop from "../assets/laptop.svg";
 import countries from "../assets/countries.svg";
 
 import Button from "../components/Button";
@@ -129,7 +129,7 @@ export default function Home() {
 					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 sm:-translate-x-10 col-span-full img-laptop'
+						className='-translate-x-5 sm:-translate-x-10 col-span-full align-self-center img-laptop'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
