@@ -176,38 +176,38 @@ export default function Home() {
 						/>
 					</div>
 				</section>
-				<section
-					className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid grid-cols-4 gap-x-[18px] pb-8'
-					id='Free'
-				>
-					<div className='typo-heading-1 font-bold text-center mb-[18px] col-span-full'>
+				<section className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid-main pb-8 gap-y-6'>
+					<div className='typo-heading-1 font-bold text-center  col-span-full'>
 						Free to install & use
 					</div>
-					<div className='typo-body-1 leading-[165%] text-center text-text-2 mb-[18px] col-span-full'>
+					<div className='typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2'>
 						To use it you don't need to buy it, it's completely free, and you
 						can use it in all the online stores you want. Fastwpay only charges
 						a small commission of 1.5% per purchase made.
 					</div>
-					<Button className='self-center col-span-2 col-start-2'>
+					<Button className='self-center col-span-2 col-start-2 '>
 						Download
 					</Button>
 				</section>
-				<section className='grid grid-cols-4 gap-x-3' id='countries'>
-					<div className='typo-heading-1 font-bold mt-[84px] mb-[18px] col-span-full'>
-						<span className='top-line'>Countries</span> where it works
+				<section className='grid-main grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px]'>
+					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center'>
+						Countries where it works
 					</div>
-					<div className='typo-body-1 leading-[165%] mb-[18px] col-span-full'>
+					<div className='typo-body-1 leading-[165%] mb-[18px] col-span-full sm:col-span-4'>
 						To have an account in Fastwpay, the bank account of the owner of the
 						online store must be located in
 						<span className='font-bold text-primary-blue'> Spain</span>,
 						<span className='font-bold text-primary-blue'> France</span>, or
 						<span className='font-bold text-primary-blue'> Germany</span>.
 					</div>
-					<ButtonInverse arrow={true} className='col-span-2 text-left'>
+					<ButtonInverse
+						arrow={true}
+						className='col-span-2 text-left row-start-3'
+					>
 						Get started
 					</ButtonInverse>
 					<Image
-						className='col-span-full justify-self-center mt-11'
+						className='overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 sm:translate-x-24  sm:w-[100%] self-center'
 						src={countries}
 						alt='image with spain france and germany orbitating'
 					/>

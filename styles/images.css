@@ -12,6 +12,11 @@
 		height: clamp(1rem, 0.88vw + 0.79rem, 1.13rem);
 		width: auto;
 	}
+
+	.img-countries {
+		width: clamp(17.063rem, 19.469vw + 12.499rem, 19.813rem);
+		height: auto;
+	}
 }
 
 @media only screen and (min-width: 601px) {
