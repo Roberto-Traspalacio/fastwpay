@@ -82,7 +82,7 @@ export default function Home() {
 					</ButtonInverse>
 				</section>
 
-				<section className='mt-16 grid-main section-features sm:gap-y-[88px] gap-y-[77px]'>
+				<section className='mt-16 grid-main mb-28 sm:mb-16 section-features sm:gap-y-[88px] gap-y-[77px]'>
 					<FeatureItem
 						className='sm:col-start-2 col-span-2'
 						src={flagIcon}
@@ -132,7 +132,7 @@ export default function Home() {
 						alt='laptop with screenshot'
 					/>
 
-					<div className='flex flex-col mt-14 col-span-full gap-y-8'>
+					<div className='flex flex-col mt-14 col-span-full gap-y-12'>
 						<NumberItem
 							shifted={true}
 							number={"01."}
