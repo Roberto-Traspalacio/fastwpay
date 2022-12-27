@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	@apply font-ubuntu;
+}
 @layer components {
 	.section {
 		@apply grid grid-cols-4 sm:grid-cols-8 mt-[52px] sm:mt-20 font-bold gap-x-[18px];

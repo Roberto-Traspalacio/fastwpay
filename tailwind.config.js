@@ -8,12 +8,10 @@ module.exports = {
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		fontFamily: {
-			main: ["var(--font-ubuntu)", ...fontFamily.sans],
-		},
+		fontFamily: {},
 		extend: {
 			fontFamily: {
-				main: ["var(--font-ubuntu)", ...fontFamily.sans],
+				ubuntu: ["Ubuntu"],
 			},
 			colors: {
 				primary: { blue: "#295BB7", yellow: "#F8BD4F" },

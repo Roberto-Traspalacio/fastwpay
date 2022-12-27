@@ -28,43 +28,44 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main className={"px-[18px] sm:px-10"}>
-				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
+			<main className={"px-[18px]"}>
+				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8' id='Hero'>
 					<Image
-						className='mb-6 img-hero col-span-full plugin-icon xs:mb-4 sm:mb-10 justify-self-center'
+						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
 						src={hero}
 						alt='Girl waving with payment messages around '
 					/>
 					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium'>
 						Receive payments from your stores safely
 					</div>
-					<div className='col-span-full text-center mt-[18px] sm:mt-8 text-text-2 typo-body-1 leading-[165%]'>
+					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 typo-body-1 leading-[165%]'>
 						Implement a payment gateway for your online store. fast, safe and
 						hassle-free. Start billing today without having any requirements.
 					</div>
 
-					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-16 sm:justify-center'>
+					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-[57px] sm:justify-center'>
 						<Button>Download</Button>
 						<ButtonInverse className='ml-5'>contact</ButtonInverse>
 					</div>
 				</section>
-				<section className='flex flex-col justify-center mt-[50px]'>
+				<section
+					className='flex flex-col justify-center mt-[50px] sm:mt-[64px]'
+					id='Banks'
+				>
 					<div className='typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]'>
 						supported banks
 					</div>
 					<div className='full-bleed-2 bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
-						<div className='relative h-'>
-							<Image className='' src={santander} alt='santander bank logo' />
-						</div>
-						<Image src={hsbc} alt='hsbc bank logo' />
-						<Image src={bbva} alt='bbva logo' />
+						<Image className='img-banks' src={santander} alt='santander logo' />
+						<Image className='img-banks' src={hsbc} alt='hsbc bank logo' />
+						<Image className='img-banks' src={bbva} alt='bbva logo' />
 					</div>
 				</section>
 				<section className='section'>
 					<div className='section-title typo-heading-1'>
 						<span className='top-line'>The</span> best payment solutions for you
 					</div>
-					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center'>
+					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center leading-[165%]'>
 						Fastwpay is an exclusive payment gateway plugin for
 						<span className='font-bold text-primary-blue'> Woocommerce</span>,
 						made for all those entrepreneurs, startups and companies that would
@@ -78,29 +79,32 @@ export default function Home() {
 					</ButtonInverse>
 				</section>
 
-				<section className='mt-16 grid-main section-features gap-y-5'>
+				<section
+					className='mt-16 grid-main section-features gap-y-[88px]'
+					id='Features'
+				>
 					<FeatureItem
-						className='col-span-2'
+						className='col-start-2 col-span-2'
 						src={flagIcon}
 						title={"Start now"}
 						content={"You only need basic information."}
 					/>
 					<FeatureItem
-						className='col-span-2'
+						className='col-start-6 col-span-2'
 						src={lockIcon}
 						title={"Security"}
 						content={"Security system with high level of data encryption."}
 					/>
 
 					<FeatureItem
-						className='col-span-2'
+						className='col-start-2 col-span-2'
 						src={walletIcon}
 						title={"Admin Panel"}
 						content={"Manage your information and API keys from your account."}
 					/>
 
 					<FeatureItem
-						className='col-span-2'
+						className='col-start-6 col-span-2'
 						src={supportIcon}
 						title={"Support"}
 						content={"Contact us for information and usage support."}
@@ -108,8 +112,8 @@ export default function Home() {
 				</section>
 
 				<section className='section'>
-					<div className='typo-heading-1 section-title'>
-						<span className='top-line'>How</span> to install & activate
+					<div className='typo-heading-1 section-title top-line'>
+						How to install & activate
 					</div>
 					<div className='section-content'>
 						If it is the first time that you install a plugin for wordpress,
@@ -120,7 +124,7 @@ export default function Home() {
 					</ButtonInverse>
 
 					<Image
-						className='grid -translate-x-5 sm:-translate-x-10 col-span-full img-laptop'
+						className='-translate-x-5 sm:-translate-x-10 col-span-full img-laptop'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
@@ -168,7 +172,10 @@ export default function Home() {
 						/>
 					</div>
 				</section>
-				<section className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid grid-cols-4 gap-x-[18px] pb-8'>
+				<section
+					className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid grid-cols-4 gap-x-[18px] pb-8'
+					id='Free'
+				>
 					<div className='typo-heading-1 font-bold text-center mb-[18px] col-span-full'>
 						Free to install & use
 					</div>
@@ -181,7 +188,7 @@ export default function Home() {
 						Download
 					</Button>
 				</section>
-				<section className='grid grid-cols-4 gap-x-3'>
+				<section className='grid grid-cols-4 gap-x-3' id='countries'>
 					<div className='typo-heading-1 font-bold mt-[84px] mb-[18px] col-span-full'>
 						<span className='top-line'>Countries</span> where it works
 					</div>

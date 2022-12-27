@@ -10,9 +10,9 @@ export default function FeatureItem({
 	return (
 		<div className={`${className} flex flex-col items-center`}>
 			<Image className='mb-4' src={src} alt='' />
-			<div className='typo-heading-4 font-bold'>{title}</div>
+			<div className='font-bold typo-heading-4'>{title}</div>
 			<div className='bg-primary-blue w-14 h-[2px] my-4' />
-			<div className='typo-body-1 text-text-2 text-center'>{content}</div>
+			<div className='text-center typo-body-1 text-text-2'>{content}</div>
 		</div>
 	);
 }

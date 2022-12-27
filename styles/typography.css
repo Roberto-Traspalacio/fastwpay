@@ -51,6 +51,10 @@
 		font-size: clamp(0.75rem, 1.77vw + 0.34rem, 1rem);
 	}
 
+	.typo-number {
+		font-size: clamp(2.25rem, 5.31vw + 1.01rem, 3rem);
+	}
+
 	.typo-number-title {
 		font-size: clamp(1rem, 1.77vw + 0.59rem, 1.25rem);
 	}
@@ -65,12 +69,6 @@
 
 	.typo-display-2 {
 		font-size: clamp(1.5rem, 7.08vw + -0.16rem, 2.5rem);
-	}
-}
-
-@media only screen and (min-width: 601px) {
-	.typo-number {
-		font-size: clamp(2.25rem, 7.19vw + -0.45rem, 3rem);
 	}
 }
 
