@@ -4,7 +4,7 @@ import location from "../assets/location-icon.svg";
 import phone from "../assets/phone-icon.svg";
 import email from "../assets/email-icon.svg";
 
-export default function contact({ className }) {
+export default function contact({ className = "" }) {
 	return (
 		<div
 			className={`${className} sm:flex sm:justify-evenly grid-main gap-x-3 justify-items-center pt-9 gap-y-8 bg-background-2 full-bleed-2`}

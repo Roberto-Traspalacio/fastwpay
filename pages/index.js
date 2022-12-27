@@ -209,11 +209,9 @@ export default function Home() {
 						Get started
 					</ButtonInverse>
 					<Image
-						className='overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 sm:translate-x-[55px] self-center'
+						className='sm:overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 sm:translate-x-[55px] self-center'
 						src={countries}
 						alt='image with spain france and germany orbitating'
-						width={317}
-						height={317}
 					/>
 				</section>
 				<section className='mt-20'>
