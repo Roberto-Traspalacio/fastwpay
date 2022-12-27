@@ -1,24 +1,26 @@
 import React from "react";
 
-export default function NumberItem({ number, title, content, startCol = 2 }) {
+export default function NumberItem({ number, title, content, shifted }) {
 	return (
-		<div className={`col-span-full grid-main gap-y-2 gap-x-[18px]`}>
+		<div className={`col-span-full grid-main gap-y-2 gap-x-[18px] `}>
 			<div
-				className={`typo-number font-bold self-end leading-[100%] col-start-${startCol} col-span-1 font-ubuntu`}
+				className={`typo-number font-bold self-end leading-[100%] ${
+					shifted ? "sm:col-start-2" : ""
+				} col-span-1`}
 			>
 				{number}
 			</div>
 			<div
-				className={`font-bold typo-number-title font-ubuntu sm:col-start-${
-					startCol + 1
-				} col-span-5 self-end leading-[135%]`}
+				className={`font-bold typo-number-title col-start-2 ${
+					shifted ? "sm:col-start-3" : ""
+				} col-span-full self-end leading-[135%] sm:self-center `}
 			>
 				{title}
 			</div>
 			<div
-				className={`typo-body-1 font-ubuntu font-normal col-start-${
-					startCol + 1
-				} col-span-full mt-2 text-text-2`}
+				className={`typo-body-1 col-start-2 font-normal ${
+					shifted ? "sm:col-start-3" : ""
+				} col-span-full  mt-2 text-text-2`}
 			>
 				{content}
 			</div>

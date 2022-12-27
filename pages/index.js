@@ -62,8 +62,8 @@ export default function Home() {
 					</div>
 				</section>
 				<section className='section'>
-					<div className='section-title typo-heading-1'>
-						<span className='top-line'>The</span> best payment solutions for you
+					<div className='section-title typo-heading-1 top-line'>
+						The best payment solutions for you
 					</div>
 					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center leading-[165%]'>
 						Fastwpay is an exclusive payment gateway plugin for
@@ -74,37 +74,37 @@ export default function Home() {
 						this service.
 					</div>
 
-					<ButtonInverse className='mt-[18px] col-span-full self-start text-left sm:text-center '>
+					<ButtonInverse
+						arrow={true}
+						className='mt-[18px] col-span-full self-start text-left sm:text-center '
+					>
 						Get started
 					</ButtonInverse>
 				</section>
 
-				<section
-					className='mt-16 grid-main section-features gap-y-[88px]'
-					id='Features'
-				>
+				<section className='mt-16 grid-main section-features sm:gap-y-[88px] gap-y-[77px]'>
 					<FeatureItem
-						className='col-start-2 col-span-2'
+						className='sm:col-start-2 col-span-2'
 						src={flagIcon}
 						title={"Start now"}
 						content={"You only need basic information."}
 					/>
 					<FeatureItem
-						className='col-start-6 col-span-2'
+						className='sm:col-start-6 col-span-2'
 						src={lockIcon}
 						title={"Security"}
 						content={"Security system with high level of data encryption."}
 					/>
 
 					<FeatureItem
-						className='col-start-2 col-span-2'
+						className='sm:col-start-2 col-span-2'
 						src={walletIcon}
 						title={"Admin Panel"}
 						content={"Manage your information and API keys from your account."}
 					/>
 
 					<FeatureItem
-						className='col-start-6 col-span-2'
+						className='sm:col-start-6 col-span-2'
 						src={supportIcon}
 						title={"Support"}
 						content={"Contact us for information and usage support."}
@@ -115,11 +115,14 @@ export default function Home() {
 					<div className='typo-heading-1 section-title top-line'>
 						How to install & activate
 					</div>
-					<div className='section-content'>
+					<div className='section-content typo-body-1 my-6'>
 						If it is the first time that you install a plugin for wordpress,
 						then we explain in 3 simple steps how you can do it.
 					</div>
-					<ButtonInverse className='mt-[18px] col-span-full self-start text-left sm:text-center '>
+					<ButtonInverse
+						arrow={true}
+						className='col-span-2 sm:col-start-4 arrow'
+					>
 						Get started
 					</ButtonInverse>
 
@@ -131,7 +134,7 @@ export default function Home() {
 
 					<div className='flex flex-col mt-14 col-span-full gap-y-8'>
 						<NumberItem
-							startCol={2}
+							shifted={true}
 							number={"01."}
 							title={"Download the file"}
 							content={[
@@ -159,6 +162,7 @@ export default function Home() {
 						/>
 
 						<NumberItem
+							shifted={true}
 							startCol={2}
 							number={"03."}
 							title={"Insert the api key"}
@@ -199,7 +203,7 @@ export default function Home() {
 						<span className='font-bold text-primary-blue'> France</span>, or
 						<span className='font-bold text-primary-blue'> Germany</span>.
 					</div>
-					<ButtonInverse className='col-span-2 text-left'>
+					<ButtonInverse arrow={true} className='col-span-2 text-left'>
 						Get started
 					</ButtonInverse>
 					<Image
