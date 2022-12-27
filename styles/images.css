@@ -1,0 +1,22 @@
+.img-hero {
+	width: clamp(20.25rem, 27.27vw + 14.8rem, 21.19rem);
+	height: auto;
+}
+
+@media only screen and (min-width: 375px) {
+	.img-hero {
+		width: clamp(21.19rem, 100vw + -2.25rem, 35.31rem);
+		height: 604px;
+	}
+
+	.img-laptop {
+		width: clamp(20.19rem, 115.04vw + -6.78rem, 36.44rem);
+		height: auto;
+	}
+}
+
+@media only screen and (min-width: 601px) {
+}
+
+@media only screen and (min-width: 768px) {
+}

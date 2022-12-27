@@ -48,7 +48,7 @@
 	}
 
 	.typo-body-1 {
-		font-size: clamp(0.75rem, 0.88vw + 0.54rem, 0.88rem);
+		font-size: clamp(0.75rem, 1.77vw + 0.34rem, 1rem);
 	}
 
 	.typo-number-title {
@@ -60,29 +60,17 @@
 	}
 
 	.typo-heading-1 {
-		font-size: clamp(1.25rem, 1.77vw + 0.84rem, 1.5rem);
+		font-size: clamp(1.25rem, 8.85vw + -0.82rem, 2.5rem);
 	}
 
 	.typo-display-2 {
-		font-size: clamp(1.5rem, 2.65vw + 0.88rem, 1.88rem);
+		font-size: clamp(1.5rem, 7.08vw + -0.16rem, 2.5rem);
 	}
 }
 
 @media only screen and (min-width: 601px) {
-	.typo-body-1 {
-		font-size: clamp(0.88rem, 1.2vw + 0.43rem, 1rem);
-	}
-
 	.typo-number {
 		font-size: clamp(2.25rem, 7.19vw + -0.45rem, 3rem);
-	}
-
-	.typo-heading-1 {
-		font-size: clamp(1.5rem, 9.58vw + -2.1rem, 2.5rem);
-	}
-
-	.typo-display-2 {
-		font-size: clamp(1.88rem, 5.99vw + -0.37rem, 2.5rem);
 	}
 }
 

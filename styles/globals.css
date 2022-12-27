@@ -1,5 +1,26 @@
 @import "./typography";
+@import "./images.css";
 @import "./utilities.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.section {
+		@apply grid grid-cols-4 sm:grid-cols-8 mt-[52px] sm:mt-20 font-bold gap-x-[18px];
+	}
+
+	.section-title {
+		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center;
+	}
+
+	.section-content {
+		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center;
+	}
+}
+
+@layer utilities {
+	.grid-main {
+		@apply grid grid-cols-4 gap-x-3 sm:grid-cols-8;
+	}
+}

@@ -28,14 +28,14 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main className={"px-[18px]"}>
-				<section className='grid grid-cols-4 gap-x-3'>
+			<main className={"px-[18px] sm:px-10"}>
+				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
-						className='col-span-full plugin-icon mb-6 xs:mb-4 sm:mb-10 justify-self-center'
+						className='mb-6 img-hero col-span-full plugin-icon xs:mb-4 sm:mb-10 justify-self-center'
 						src={hero}
-						alt='Girl waving with payment messages around'
+						alt='Girl waving with payment messages around '
 					/>
-					<div className='typo-display-2 col-span-full font-main text-center text-text-1 sm:font-medium'>
+					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium'>
 						Receive payments from your stores safely
 					</div>
 					<div className='col-span-full text-center mt-[18px] sm:mt-8 text-text-2 typo-body-1 leading-[165%]'>
@@ -43,9 +43,9 @@ export default function Home() {
 						hassle-free. Start billing today without having any requirements.
 					</div>
 
-					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-16'>
+					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-16 sm:justify-center'>
 						<Button>Download</Button>
-						<ButtonInverse>contact</ButtonInverse>
+						<ButtonInverse className='ml-5'>contact</ButtonInverse>
 					</div>
 				</section>
 				<section className='flex flex-col justify-center mt-[50px]'>
@@ -60,11 +60,11 @@ export default function Home() {
 						<Image src={bbva} alt='bbva logo' />
 					</div>
 				</section>
-				<section className='grid grid-cols-4 mt-[52px] font-bold gap-x-[18px]'>
-					<div className='typo-heading-1 col-span-3'>
+				<section className='section'>
+					<div className='section-title typo-heading-1'>
 						<span className='top-line'>The</span> best payment solutions for you
 					</div>
-					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify'>
+					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center'>
 						Fastwpay is an exclusive payment gateway plugin for
 						<span className='font-bold text-primary-blue'> Woocommerce</span>,
 						made for all those entrepreneurs, startups and companies that would
@@ -73,12 +73,12 @@ export default function Home() {
 						this service.
 					</div>
 
-					<ButtonInverse className='mt-[18px] col-span-2 self-start text-left'>
+					<ButtonInverse className='mt-[18px] col-span-full self-start text-left sm:text-center '>
 						Get started
 					</ButtonInverse>
 				</section>
 
-				<section className='section-features grid grid-cols-4 gap-x-3 gap-y-5 mt-16'>
+				<section className='mt-16 grid-main section-features gap-y-5'>
 					<FeatureItem
 						className='col-span-2'
 						src={flagIcon}
@@ -107,36 +107,38 @@ export default function Home() {
 					/>
 				</section>
 
-				<section className=''>
-					<div className='typo-heading-1 font-bold mt-[86px]'>
+				<section className='section'>
+					<div className='typo-heading-1 section-title'>
 						<span className='top-line'>How</span> to install & activate
 					</div>
-					<div className='content text-justify mt-4 typo-body-1 font-normal text-text-color-2'>
+					<div className='section-content'>
 						If it is the first time that you install a plugin for wordpress,
 						then we explain in 3 simple steps how you can do it.
 					</div>
-					<ButtonInverse className='mt-4'>Get started</ButtonInverse>
+					<ButtonInverse className='mt-[18px] col-span-full self-start text-left sm:text-center '>
+						Get started
+					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 mt-9'
+						className='grid -translate-x-5 sm:-translate-x-10 col-span-full img-laptop'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
 
-					<div className='grid grid-cols-1 gap-y-8 mt-14'>
+					<div className='flex flex-col mt-14 col-span-full gap-y-8'>
 						<NumberItem
-							className='grid grid-cols-4 gap-x-[18px]'
+							startCol={2}
 							number={"01."}
 							title={"Download the file"}
 							content={[
-								<span className='font-bold text-primary-blue underline'>
+								<span className='font-bold underline text-primary-blue'>
 									<a href='#'>Download </a>
 								</span>,
 								"the fastwpay.zip file on your computer.",
 							]}
 						/>
 						<NumberItem
-							className='grid grid-cols-4 gap-x-[18px]'
+							startCol={1}
 							number={"02."}
 							title={"Upload the plugin in wordpress"}
 							content={[
@@ -153,7 +155,7 @@ export default function Home() {
 						/>
 
 						<NumberItem
-							className='grid grid-cols-4 gap-x-[18px]'
+							startCol={2}
 							number={"03."}
 							title={"Insert the api key"}
 							content={[
