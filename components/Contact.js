@@ -9,7 +9,7 @@ export default function contact({ className = "" }) {
 		<div
 			className={`${className} sm:flex sm:justify-evenly grid-main gap-x-3 justify-items-center pt-9 gap-y-8 bg-background-2 full-bleed-2`}
 		>
-			<div className='typo-body-1 col-span-2 flex  flex-col items-center'>
+			<div className='typo-body-1 col-span-2 flex  flex-col items-center '>
 				<Image className='mb-2' src={phone} alt='Phone icon' />
 				<div className='font-bold leading-[165%] text-color-2 text-text-2'>
 					Phone number
@@ -18,7 +18,7 @@ export default function contact({ className = "" }) {
 					+34674397122
 				</div>
 			</div>
-			<div className='typo-body-1 col-span-2 col-start-2 flex  flex-col items-center'>
+			<div className='typo-body-1 col-span-2 col-start-2 flex  flex-col items-center pt-[2px]'>
 				<Image className='mb-2' src={location} alt='Phone icon' />
 				<div className='font-bold leading-[165%] text-text-2 text-center'>
 					Address
@@ -27,8 +27,8 @@ export default function contact({ className = "" }) {
 					Puerta del Angel 28011 Madrid, España
 				</div>
 			</div>
-			<div className='typo-body-1 flex flex-col col-span-2 col-start-3 row-start-1 sm:flex  sm:flex-col items-center sm:w-[150px] '>
-				<Image className='mb-2' src={email} alt='Phone icon' />
+			<div className='typo-body-1 flex flex-col col-span-2 col-start-3 row-start-1 sm:flex  sm:flex-col items-center sm:w-[150px] pt-[2px]'>
+				<Image className='mb-2' quality={100} src={email} alt='Phone icon' />
 				<div className='font-bold leading-[165%] text-text-2 text-center'>
 					Email
 				</div>
