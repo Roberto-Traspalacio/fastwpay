@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import hero from "../assets/heroimage320.png";
+import heroTest from "../assets/hero-test.svg";
 import hsbc from "../assets/hsbc-logo.svg";
 import santander from "../assets/santander-logo.svg";
 import bbva from "../assets/bbva-logo.svg";
@@ -10,7 +10,7 @@ import supportIcon from "../assets/support-icon.svg";
 import walletIcon from "../assets/wallet-icon.svg";
 import lockIcon from "../assets/lock-icon.svg";
 import laptop from "../assets/laptop.png";
-import countries from "../assets/countries.png";
+import countries from "../assets/countries.svg";
 
 import Button from "../components/Button";
 import ButtonInverse from "../components/ButtonInverse";
@@ -29,11 +29,13 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={"px-[18px]"}>
-				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8' id='Hero'>
+				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
-						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
-						src={hero}
+						className='mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
+						src={heroTest}
 						alt='Girl waving with payment messages around '
+						width={565}
+						height={604}
 					/>
 					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium'>
 						Receive payments from your stores safely
@@ -76,7 +78,7 @@ export default function Home() {
 
 					<ButtonInverse
 						arrow={true}
-						className='mt-[18px] col-span-full self-start text-left sm:text-center '
+						className='mt-[18px] col-span-full self-start text-left sm:text-center  sm:col-span-2 sm:col-start-4 arrow'
 					>
 						Get started
 					</ButtonInverse>
@@ -207,9 +209,11 @@ export default function Home() {
 						Get started
 					</ButtonInverse>
 					<Image
-						className='overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 sm:translate-x-24  sm:w-[100%] self-center'
+						className='overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 sm:translate-x-[55px] self-center'
 						src={countries}
 						alt='image with spain france and germany orbitating'
+						width={317}
+						height={317}
 					/>
 				</section>
 				<section className='mt-20'>
