@@ -6,7 +6,7 @@ export default function Footer() {
 	return (
 		<footer className='bg-primary-blue full-bleed-primary-blue'>
 			<div className='h-16 typo-body-3 text-white flex flex-col items-center'>
-				<Image className='h-5 my-3' src={logo}></Image>
+				<Image className='h-5 sm:h-6 w-auto my-3 ' src={logo}></Image>
 				Copyright © 2022 Fastwpay, Inc | All rights reserved
 			</div>
 		</footer>
