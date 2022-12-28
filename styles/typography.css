@@ -64,7 +64,7 @@
 	}
 
 	.typo-heading-1 {
-		font-size: clamp(1.25rem, 8.8495575221vw + -0.8241150442rem, 2.5rem);
+		font-size: clamp(1.25rem, 8.8495575221vw + -0.8241150442rem, 2.33rem);
 	}
 
 	.typo-display-2 {

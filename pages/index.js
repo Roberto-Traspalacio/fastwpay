@@ -5,12 +5,15 @@ import heroTest from "../assets/hero-test.svg";
 import hsbc from "../assets/hsbc-logo.svg";
 import santander from "../assets/santander-logo.svg";
 import bbva from "../assets/bbva-logo.svg";
+import unicredit from "../assets/unicredit-logo.svg";
+import societe from "../assets/societe-logo.svg";
 import flagIcon from "../assets/flag-icon.svg";
 import supportIcon from "../assets/support-icon.svg";
 import walletIcon from "../assets/wallet-icon.svg";
 import lockIcon from "../assets/lock-icon.svg";
 import laptop from "../assets/laptop.svg";
 import countries from "../assets/countries.svg";
+import pointing from "../assets/man-pointing.png";
 
 import Button from "../components/Button";
 import ButtonInverse from "../components/ButtonInverse";
@@ -39,7 +42,7 @@ export default function Home() {
 						src={heroTest}
 						alt='Girl waving with payment messages around '
 					/>
-					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium'>
+					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6'>
 						Receive payments from your stores safely
 					</div>
 					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 typo-body-1 leading-[165%]'>
@@ -62,14 +65,24 @@ export default function Home() {
 					<div className='full-bleed-2 bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
 						<Image className='img-banks' src={santander} alt='santander logo' />
 						<Image className='img-banks' src={hsbc} alt='hsbc bank logo' />
-						<Image className='img-banks' src={bbva} alt='bbva logo' />
+						<Image className='img-banks' src={unicredit} alt='bbva logo' />
+						<Image
+							className='img-banks hidden sm:flex'
+							src={bbva}
+							alt='unicredit logo'
+						/>
+						<Image
+							className='img-banks hidden md:flex'
+							src={societe}
+							alt='bbva logo'
+						/>
 					</div>
 				</section>
 				<section className='section'>
-					<div className='section-title typo-heading-1 top-line'>
+					<div className='section-title typo-heading-1 top-line '>
 						The best payment solutions for you
 					</div>
-					<div className='typo-body-1 font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center leading-[165%]'>
+					<div className='typo-body-1 section-content'>
 						Fastwpay is an exclusive payment gateway plugin for
 						<span className='font-bold text-primary-blue'> Woocommerce</span>,
 						made for all those entrepreneurs, startups and companies that would
@@ -78,65 +91,64 @@ export default function Home() {
 						this service.
 					</div>
 
-					<ButtonInverse
-						arrow={true}
-						className='mt-[18px] col-span-full self-start text-left sm:text-center  sm:col-span-2 sm:col-start-4 arrow'
-					>
+					<ButtonInverse arrow={true} className='button-started arrow'>
 						Get started
 					</ButtonInverse>
-				</section>
 
-				<section className='mt-16 grid-main mb-28 sm:mb-16 section-features sm:gap-y-[88px] gap-y-[77px]'>
-					<FeatureItem
-						className='sm:col-start-2 col-span-2'
-						src={flagIcon}
-						title={"Start now"}
-						content={"You only need basic information."}
-					/>
-					<FeatureItem
-						className='sm:col-start-6 col-span-2'
-						src={lockIcon}
-						title={"Security"}
-						content={"Security system with high level of data encryption."}
-					/>
+					<div className='lg:col-start-5 col-span-full lg:col-span-4 mt-16 grid-main mb-28 sm:mb-16 sm:gap-y-[88px] gap-y-[77px] lg:row-start-1 lg:row-span-4 lg:mt-0'>
+						<FeatureItem
+							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2'
+							src={flagIcon}
+							title={"Start now"}
+							content={"You only need basic information."}
+						/>
+						<FeatureItem
+							className='sm:col-start-6 lg:col-span-4 lg:col-start-5  col-span-2'
+							src={lockIcon}
+							title={"Security"}
+							content={"Security system with high level of data encryption."}
+						/>
 
-					<FeatureItem
-						className='sm:col-start-2 col-span-2'
-						src={walletIcon}
-						title={"Admin Panel"}
-						content={"Manage your information and API keys from your account."}
-					/>
+						<FeatureItem
+							className='sm:col-start-2 lg:col-span-4 lg:col-start-1  col-span-2'
+							src={walletIcon}
+							title={"Admin Panel"}
+							content={
+								"Manage your information and API keys from your account."
+							}
+						/>
 
-					<FeatureItem
-						className='sm:col-start-6 col-span-2'
-						src={supportIcon}
-						title={"Support"}
-						content={"Contact us for information and usage support."}
-					/>
+						<FeatureItem
+							className='sm:col-start-6 md:col-span-4 md:col-start-5  col-span-2'
+							src={supportIcon}
+							title={"Support"}
+							content={"Contact us for information and usage support."}
+						/>
+					</div>
 				</section>
 
 				<section className='section'>
-					<div className='typo-heading-1 section-title top-line'>
+					<div className='typo-heading-1 section-title-inverse top-line lg:row-start-2'>
 						How to install & activate
 					</div>
-					<div className='section-content typo-body-1 my-6'>
+					<div className='section-content-inverse typo-body-1 my-6 lg:row-start-3'>
 						If it is the first time that you install a plugin for wordpress,
 						then we explain in 3 simple steps how you can do it.
 					</div>
 					<ButtonInverse
 						arrow={true}
-						className='col-span-2 sm:col-start-4 arrow'
+						className='button-started-inverse arrow lg:row-start-4'
 					>
 						Get started
 					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop'
+						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop lg:row-span-5 lg:row-start-1 lg:col-span-4'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
 
-					<div className='flex flex-col mt-14 col-span-full gap-y-12'>
+					<div className='flex flex-col mt-14 col-span-full gap-y-12 lg:row-start-6'>
 						<NumberItem
 							shifted={true}
 							number={"01."}
@@ -179,6 +191,10 @@ export default function Home() {
 							]}
 						/>
 					</div>
+					<Image
+						className='col-start-5 col-span-4 row-start-6 hidden lg:inline'
+						src={pointing}
+					/>
 				</section>
 				<section className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid-main pb-8 gap-y-6'>
 					<div className='typo-heading-1 font-bold text-center  col-span-full'>
