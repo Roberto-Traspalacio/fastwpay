@@ -18,6 +18,8 @@ import FeatureItem from "../components/FeatureItem";
 import NumberItem from "../components/NumberItem";
 import Form from "../components/Form";
 import Contact from "../components/Contact";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Home() {
 	return (
@@ -28,7 +30,9 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
+
 			<main className={"px-[18px]"}>
+				<Navbar className={"full-bleed-primary-blue"} />
 				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
 						className='mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
@@ -214,8 +218,9 @@ export default function Home() {
 				</section>
 				<section className='mt-20'>
 					<Form />
-					<Contact />
+					<Contact className='pb-8' />
 				</section>
+				<Footer />
 			</main>
 		</>
 	);

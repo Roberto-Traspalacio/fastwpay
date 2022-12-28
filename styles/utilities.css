@@ -30,3 +30,8 @@
 	box-shadow: 0 0 0 100vmax #d7e1f3;
 	clip-path: inset(0 -100vmax);
 }
+
+.full-bleed-primary-blue {
+	box-shadow: 0 0 0 100vmax #295bb7;
+	clip-path: inset(0 -100vmax);
+}
