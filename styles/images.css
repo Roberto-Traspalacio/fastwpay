@@ -6,7 +6,7 @@
 @media only screen and (min-width: 375px) {
 	.img-hero {
 		width: clamp(21.19rem, 100vw + -2.25rem, 35.31rem);
-		height: 604px;
+		height: auto;
 	}
 	.img-banks {
 		height: clamp(1rem, 0.88vw + 0.79rem, 1.13rem);

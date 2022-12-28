@@ -31,11 +31,11 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main className={"px-[18px]"}>
+			<main className={"px-[18px] md:px-10"}>
 				<Navbar className={"full-bleed-primary-blue"} />
 				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
-						className='mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
+						className='mb-6 img-hero  col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
 						src={heroTest}
 						alt='Girl waving with payment messages around '
 					/>
@@ -131,7 +131,7 @@ export default function Home() {
 					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 sm:-translate-x-10 col-span-full align-self-center img-laptop'
+						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>

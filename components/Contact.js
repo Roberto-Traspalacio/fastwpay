@@ -7,7 +7,7 @@ import email from "../assets/email-icon.svg";
 export default function contact({ className = "" }) {
 	return (
 		<div
-			className={`${className} sm:flex sm:justify-evenly grid-main gap-x-3 justify-items-center pt-9 gap-y-8 bg-background-2 full-bleed-2`}
+			className={`${className} sm:flex sm:justify-evenly md:justify-between grid-main gap-x-3 justify-items-center pt-9 gap-y-8 bg-background-2 full-bleed-2`}
 		>
 			<div className='typo-body-1 col-span-2 flex  flex-col items-center '>
 				<Image className='mb-2' src={phone} alt='Phone icon' />

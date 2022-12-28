@@ -7,7 +7,10 @@ export default function Navbar({ className }) {
 		<nav
 			className={`py-4 bg-primary-blue ${className} flex items-center justify-center`}
 		>
-			<Image className='h-[18px] sm:h-[24px] w-[auto]' src={logo}></Image>
+			<Image
+				className='h-[18px] sm:h-[24px] md:h-8 w-[auto]'
+				src={logo}
+			></Image>
 		</nav>
 	);
 }
