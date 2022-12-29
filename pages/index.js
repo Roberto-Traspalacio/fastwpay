@@ -38,7 +38,7 @@ export default function Home() {
 				<Navbar className={"full-bleed-primary-blue"} />
 				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
-						className='mb-6 img-hero  col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
+						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
 						src={heroTest}
 						alt='Girl waving with payment messages around '
 					/>
