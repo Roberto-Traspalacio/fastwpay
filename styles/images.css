@@ -1,5 +1,5 @@
 .img-hero {
-	width: clamp(20.25rem, 27.27vw + 14.8rem, 21.19rem);
+	width: 284px;
 	height: auto;
 }
 

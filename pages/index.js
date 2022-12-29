@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import heroTest from "../assets/hero-test.svg";
+import heroSmall from "../assets/hero-small.svg";
 import hsbc from "../assets/hsbc-logo.svg";
 import santander from "../assets/santander-logo.svg";
 import bbva from "../assets/bbva-logo.svg";
@@ -38,8 +38,8 @@ export default function Home() {
 				<Navbar className={"full-bleed-primary-blue"} />
 				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
 					<Image
-						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center'
-						src={heroTest}
+						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto]'
+						src={heroSmall}
 						alt='Girl waving with payment messages around '
 					/>
 					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6'>
