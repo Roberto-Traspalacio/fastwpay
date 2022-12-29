@@ -16,8 +16,17 @@
 	.top-line::before {
 		height: 4px;
 		width: 60px;
-		top: -25%;
+		top: -15%;
 		left: calc(50% - 30px);
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.top-line::before {
+		height: 4px;
+		width: 60px;
+		top: -15%;
+		left: 0;
 	}
 }
 
@@ -34,4 +43,10 @@
 .full-bleed-primary-blue {
 	box-shadow: 0 0 0 100vmax #295bb7;
 	clip-path: inset(0 -100vmax);
+}
+
+@media only screen and (min-width: 1280px) {
+	[class^="full-bleed-"] {
+		box-shadow: none;
+	}
 }

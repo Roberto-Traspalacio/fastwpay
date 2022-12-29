@@ -8,11 +8,11 @@ export default function FeatureItem({
 	src = "null",
 }) {
 	return (
-		<div className={`${className} flex flex-col items-center`}>
+		<div className={`${className} flex flex-col items-center xl:items-start `}>
 			<Image className='mb-4' src={src} alt='' />
 			<div className='font-bold typo-heading-4 text-center'>{title}</div>
 			<div className='bg-primary-blue w-14 h-[2px] my-4' />
-			<div className='text-center typo-body-1 text-text-2 font-normal'>
+			<div className='text-center typo-body-1 text-text-2 font-normal xl:text-left'>
 				{content}
 			</div>
 		</div>

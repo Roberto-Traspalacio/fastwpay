@@ -10,36 +10,36 @@
 }
 @layer components {
 	.section {
-		@apply grid grid-cols-4 sm:grid-cols-8 mt-[52px] sm:mt-20 font-bold gap-x-[18px];
+		@apply mt-[52px] sm:mt-20 font-bold gap-x-[18px];
 	}
 
 	.section-title {
-		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left  lg:justify-self-start;
+		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left  lg:justify-self-start xl:col-span-4 xl:col-start-2 xl:row-start-1;
 	}
 
 	.section-content-inverse {
-		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify lg:col-start-6 md:col-span-6 md:col-start-2;
+		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify lg:col-start-6 md:col-span-6 md:col-start-2 xl:col-start-7 xl:row-start-1 xl:col-span-6;
 	}
 
 	.section-title-inverse {
-		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left  lg:justify-self-start lg:col-start-6;
+		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left lg:justify-self-start lg:col-start-6 xl:col-start-7 xl:row-start-1 xl:col-span-6;
 	}
 
 	.section-content {
-		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2;
+		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2 xl:col-start-2 xl:col-span-4;
 	}
 
 	.button-started {
-		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:col-start-4 md:justify-self-center md:col-span-2 lg:col-start-1 lg:justify-self-start;
+		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:col-start-4 md:justify-self-center md:col-span-2 lg:col-start-1 lg:justify-self-start xl:col-start-2;
 	}
 
 	.button-started-inverse {
-		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:col-start-6;
+		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:col-start-6 xl:col-start-7 xl:justify-self-start;
 	}
 }
 
 @layer utilities {
 	.grid-main {
-		@apply grid grid-cols-4 gap-x-3 sm:grid-cols-8;
+		@apply grid grid-cols-4 gap-x-3 sm:grid-cols-8 xl:grid-cols-12;
 	}
 }

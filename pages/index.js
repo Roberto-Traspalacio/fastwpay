@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import heroSmall from "../assets/hero-small.svg";
+import heroLarge from "../assets/hero-large.svg";
 import hsbc from "../assets/hsbc-logo.svg";
 import santander from "../assets/santander-logo.svg";
 import bbva from "../assets/bbva-logo.svg";
@@ -14,6 +15,8 @@ import lockIcon from "../assets/lock-icon.svg";
 import laptop from "../assets/laptop.svg";
 import countries from "../assets/countries.svg";
 import pointing from "../assets/man-pointing.png";
+import steps from "../assets/steps.svg";
+import plugin from "../assets/plugin.svg";
 
 import Button from "../components/Button";
 import ButtonInverse from "../components/ButtonInverse";
@@ -34,24 +37,42 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main className={"px-[18px] md:px-10"}>
+			<main className={"px-[18px] md:px-10 xl:px-[60px]"}>
 				<Navbar className={"full-bleed-primary-blue"} />
-				<section className='grid grid-cols-4 gap-x-3 sm:grid-cols-8'>
+				<section className='grid-main relative xl:min-h-[728px] auto-rows-min '>
 					<Image
-						className='mb-6 img-hero col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto]'
+						priority={true}
+						className='mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto] xl:hidden'
 						src={heroSmall}
 						alt='Girl waving with payment messages around '
 					/>
-					<div className='text-center typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6'>
+					<Image
+						priority={true}
+						className='mb-6 xl:col-start-3 xl:col-span-8 xs:mb-4 sm:mb-[40px] w-[auto] h-[100%] hidden xl:block xl:top-[66px] absolute xl:row-span-3'
+						src={heroLarge}
+						alt='Girl waving with payment messages around '
+					/>
+
+					<Image
+						className='col-start-12 absolute top-[89px] hidden xl:block'
+						src={plugin}
+					/>
+
+					<Image
+						className='col-start-11 col-span-2 absolute hidden xl:block top-[368px]'
+						src={steps}
+					/>
+
+					<div className='text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6 xl:col-span-4 row-start-1 xl:z-10 xl:text-left xl:mt-[136px]'>
 						Receive payments from your stores safely
 					</div>
-					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 typo-body-1 leading-[165%]'>
+					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 typo-body-1 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
 						Implement a payment gateway for your online store. fast, safe and
 						hassle-free. Start billing today without having any requirements.
 					</div>
 
-					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-[57px] sm:justify-center'>
-						<Button>Download</Button>
+					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start'>
+						<Button className='block'>Download</Button>
 						<ButtonInverse className='ml-5'>contact</ButtonInverse>
 					</div>
 				</section>
@@ -78,7 +99,7 @@ export default function Home() {
 						/>
 					</div>
 				</section>
-				<section className='section'>
+				<section className='section grid-main'>
 					<div className='section-title typo-heading-1 top-line '>
 						The best payment solutions for you
 					</div>
@@ -95,22 +116,22 @@ export default function Home() {
 						Get started
 					</ButtonInverse>
 
-					<div className='lg:col-start-5 col-span-full lg:col-span-4 mt-16 grid-main mb-28 sm:mb-16 sm:gap-y-[88px] gap-y-[77px] lg:row-start-1 lg:row-span-4 lg:mt-0'>
+					<div className='lg:col-start-5 col-span-full lg:col-span-4 mt-16 grid-main mb-28 sm:mb-16 sm:gap-y-[88px] gap-y-[77px] lg:row-start-1 lg:row-span-4 lg:mt-0 xl:col-start-7 xl:col-span-full'>
 						<FeatureItem
-							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2'
+							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2 xl:col-span-4'
 							src={flagIcon}
 							title={"Start now"}
 							content={"You only need basic information."}
 						/>
 						<FeatureItem
-							className='sm:col-start-6 lg:col-span-4 lg:col-start-5  col-span-2'
+							className='sm:col-start-6 lg:col-span-4 lg:col-start-5 col-span-2 xl:col-start-7 xl:col-span-4'
 							src={lockIcon}
 							title={"Security"}
 							content={"Security system with high level of data encryption."}
 						/>
 
 						<FeatureItem
-							className='sm:col-start-2 lg:col-span-4 lg:col-start-1  col-span-2'
+							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2 xl:col-span-4'
 							src={walletIcon}
 							title={"Admin Panel"}
 							content={
@@ -119,7 +140,7 @@ export default function Home() {
 						/>
 
 						<FeatureItem
-							className='sm:col-start-6 md:col-span-4 md:col-start-5  col-span-2'
+							className='sm:col-start-6 md:col-span-4 md:col-start-5 col-span-2 xl:col-start-7 xl:col-span-4'
 							src={supportIcon}
 							title={"Support"}
 							content={"Contact us for information and usage support."}
@@ -127,7 +148,7 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className='section'>
+				<section className='section grid-main'>
 					<div className='typo-heading-1 section-title-inverse top-line lg:row-start-2'>
 						How to install & activate
 					</div>
@@ -143,7 +164,7 @@ export default function Home() {
 					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop lg:row-span-5 lg:row-start-1 lg:col-span-4'
+						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop lg:row-span-5 lg:row-start-1 lg:col-span-4 xl:-translate-x-16 xl:col-span-6'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
@@ -192,7 +213,7 @@ export default function Home() {
 						/>
 					</div>
 					<Image
-						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10'
+						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10 xl:col-start-7'
 						src={pointing}
 					/>
 				</section>
@@ -209,8 +230,8 @@ export default function Home() {
 						Download
 					</Button>
 				</section>
-				<section className='grid-main grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px]'>
-					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center'>
+				<section className='grid-main grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] '>
+					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line'>
 						Countries where it works
 					</div>
 					<div className='typo-body-1 leading-[165%] mb-[18px] col-span-full sm:col-span-4'>
