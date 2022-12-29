@@ -192,7 +192,7 @@ export default function Home() {
 						/>
 					</div>
 					<Image
-						className='col-start-5 col-span-4 row-start-6 hidden lg:inline'
+						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10'
 						src={pointing}
 					/>
 				</section>
