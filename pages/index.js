@@ -17,6 +17,8 @@ import countries from "../assets/countries.svg";
 import pointing from "../assets/man-pointing.png";
 import steps from "../assets/steps.svg";
 import plugin from "../assets/plugin.svg";
+import smile from "../assets/smile.png";
+import rectangle from "../assets/rectangle.svg";
 
 import Button from "../components/Button";
 import ButtonInverse from "../components/ButtonInverse";
@@ -37,7 +39,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main className={"px-[18px] md:px-10 xl:px-[60px]"}>
+			<main className={"px-[18px] md:px-10 xl:px-[60px] overflow-clip"}>
 				<Navbar className={"full-bleed-primary-blue"} />
 				<section className='grid-main relative xl:min-h-[728px] auto-rows-min '>
 					<Image
@@ -66,7 +68,7 @@ export default function Home() {
 					<div className='text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6 xl:col-span-4 row-start-1 xl:z-10 xl:text-left xl:mt-[136px]'>
 						Receive payments from your stores safely
 					</div>
-					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 typo-body-1 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
+					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
 						Implement a payment gateway for your online store. fast, safe and
 						hassle-free. Start billing today without having any requirements.
 					</div>
@@ -83,7 +85,7 @@ export default function Home() {
 					<div className='typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]'>
 						supported banks
 					</div>
-					<div className='full-bleed-2 bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
+					<div className='full-bleed-bar bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
 						<Image className='img-banks' src={santander} alt='santander logo' />
 						<Image className='img-banks' src={hsbc} alt='hsbc bank logo' />
 						<Image className='img-banks' src={unicredit} alt='bbva logo' />
@@ -148,7 +150,7 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className='section grid-main'>
+				<section className='section grid-main xl:mb-60'>
 					<div className='typo-heading-1 section-title-inverse top-line lg:row-start-2'>
 						How to install & activate
 					</div>
@@ -213,28 +215,36 @@ export default function Home() {
 						/>
 					</div>
 					<Image
-						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10 xl:col-start-7'
+						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-16'
 						src={pointing}
 					/>
 				</section>
-				<section className=' bg-background-2 full-bleed-2 mt-12 pt-8 grid-main pb-8 gap-y-6'>
-					<div className='typo-heading-1 font-bold text-center  col-span-full'>
+				<Image
+					src={smile}
+					className='hidden xl:block col-span-5 row-span-5 absolute col-start-2 z-30 -mt-48'
+				/>
+				<section className=' bg-background-2 full-bleed-section mt-12 pt-8 overflow-visible grid-main pb-8 gap-y-6 '>
+					<div className='typo-heading-1 font-bold text-center col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left'>
 						Free to install & use
 					</div>
-					<div className='typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2'>
+					<div className='typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5'>
 						To use it you don't need to buy it, it's completely free, and you
 						can use it in all the online stores you want. Fastwpay only charges
 						a small commission of 1.5% per purchase made.
 					</div>
-					<Button className='self-center col-span-2 col-start-2 '>
+					<Button className='self-center col-span-2 col-start-2 xl:col-start-7 '>
 						Download
 					</Button>
 				</section>
-				<section className='grid-main grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] '>
-					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line'>
+				<section className='grid-main overflow-visible  grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative'>
+					<Image
+						className='hidden xl:block row-span-3 absolute -top-20 -left-20 col-span-4 row-start-1 col-start-1 '
+						src={rectangle}
+					/>
+					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%]'>
 						Countries where it works
 					</div>
-					<div className='typo-body-1 leading-[165%] mb-[18px] col-span-full sm:col-span-4'>
+					<div className='typo-body-1 leading-[165%] col-span-full sm:col-span-4 xl:col-start-4 xl:mb-0'>
 						To have an account in Fastwpay, the bank account of the owner of the
 						online store must be located in
 						<span className='font-bold text-primary-blue'> Spain</span>,
@@ -243,19 +253,21 @@ export default function Home() {
 					</div>
 					<ButtonInverse
 						arrow={true}
-						className='col-span-2 text-left row-start-3'
+						className='col-span-2 text-left row-start-3 xl:col-start-4'
 					>
 						Get started
 					</ButtonInverse>
 					<Image
-						className='sm:overflow-hidden col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-3 self-center'
+						className='col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 self-center xl:col-start-9 xl:scale-125 xl:row-span-3
+						 xl:row-start-1 xl:-right-16 absolute'
 						src={countries}
 						alt='image with spain france and germany orbitating'
 					/>
 				</section>
-				<section className='mt-20'>
-					<Form />
-					<Contact className='pb-8' />
+				<section className='mt-20 mb-16 xl:mt-64'>
+					<Form>
+						<Contact className='pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6' />
+					</Form>
 				</section>
 				<Footer />
 			</main>
