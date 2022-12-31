@@ -236,7 +236,7 @@ export default function Home() {
 						Download
 					</Button>
 				</section>
-				<section className='grid-main overflow-visible  grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative'>
+				<section className='grid-main overflow-visible  grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60'>
 					<Image
 						className='hidden xl:block row-span-3 absolute -top-20 -left-20 col-span-4 row-start-1 col-start-1 '
 						src={rectangle}
@@ -244,7 +244,7 @@ export default function Home() {
 					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%]'>
 						Countries where it works
 					</div>
-					<div className='typo-body-1 leading-[165%] col-span-full sm:col-span-4 xl:col-start-4 xl:mb-0'>
+					<div className='typo-body-1 leading-[165%] col-span-full sm:col-span-4 sm:row-start-2 xl:col-start-4 xl:mb-0'>
 						To have an account in Fastwpay, the bank account of the owner of the
 						online store must be located in
 						<span className='font-bold text-primary-blue'> Spain</span>,
@@ -266,7 +266,7 @@ export default function Home() {
 				</section>
 				<section className='mt-20 mb-16 xl:mt-64'>
 					<Form>
-						<Contact className='pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6' />
+						<Contact className='pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6 lg:col-start-2 lg:col-span-6' />
 					</Form>
 				</section>
 				<Footer />
