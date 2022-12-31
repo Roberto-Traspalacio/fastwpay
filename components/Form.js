@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function Form({ children }) {
 	return (
-		<form className='grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section pb-20 '>
+		<form className='grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 '>
 			<div className='typo-heading-1 font-bold col-span-full mb-6 text-center text-text-1 md:mb-16'>
 				Get in touch with us
 			</div>

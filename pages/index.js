@@ -259,7 +259,7 @@ export default function Home() {
 					</ButtonInverse>
 					<Image
 						className='col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 self-center xl:col-start-9 xl:scale-125 xl:row-span-3
-						 xl:row-start-1 xl:-right-16 absolute'
+						 xl:row-start-1 xl:-right-16 lg:absolute'
 						src={countries}
 						alt='image with spain france and germany orbitating'
 					/>
