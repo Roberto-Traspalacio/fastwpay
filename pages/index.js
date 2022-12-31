@@ -65,7 +65,7 @@ export default function Home() {
 						src={steps}
 					/>
 
-					<div className='text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium md:col-start-2 md:col-span-6 xl:col-span-4 row-start-1 xl:z-10 xl:text-left xl:mt-[136px]'>
+					<div className='text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]'>
 						Receive payments from your stores safely
 					</div>
 					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
@@ -88,11 +88,11 @@ export default function Home() {
 					<div className='full-bleed-bar bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]'>
 						<Image className='img-banks' src={santander} alt='santander logo' />
 						<Image className='img-banks' src={hsbc} alt='hsbc bank logo' />
-						<Image className='img-banks' src={unicredit} alt='bbva logo' />
+						<Image className='img-banks ' src={bbva} alt='unicredit logo' />
 						<Image
-							className='img-banks hidden sm:flex'
-							src={bbva}
-							alt='unicredit logo'
+							className='img-banks hidden sm:block'
+							src={unicredit}
+							alt='bbva logo'
 						/>
 						<Image
 							className='img-banks hidden md:flex'
