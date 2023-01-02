@@ -68,7 +68,7 @@ export default function Home() {
 					<div className='text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]'>
 						Receive payments from your stores safely
 					</div>
-					<div className='col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
+					<div className='typo-body-1 col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left'>
 						Implement a payment gateway for your online store. fast, safe and
 						hassle-free. Start billing today without having any requirements.
 					</div>
@@ -90,12 +90,12 @@ export default function Home() {
 						<Image className='img-banks' src={hsbc} alt='hsbc bank logo' />
 						<Image className='img-banks ' src={bbva} alt='unicredit logo' />
 						<Image
-							className='img-banks hidden sm:block'
+							className='hidden img-banks sm:block'
 							src={unicredit}
 							alt='bbva logo'
 						/>
 						<Image
-							className='img-banks hidden md:flex'
+							className='hidden img-banks md:flex'
 							src={societe}
 							alt='bbva logo'
 						/>
@@ -120,30 +120,34 @@ export default function Home() {
 
 					<div className='lg:col-start-5 col-span-full lg:col-span-4 mt-16 grid-main mb-28 sm:mb-16 sm:gap-y-[88px] gap-y-[77px] lg:row-start-1 lg:row-span-4 lg:mt-0 xl:col-start-7 xl:col-span-full'>
 						<FeatureItem
-							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2 xl:col-span-4'
+							className='col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4'
 							src={flagIcon}
+							shadow='box-ether-blue'
 							title={"Start now"}
 							content={"You only need basic information."}
 						/>
 						<FeatureItem
-							className='sm:col-start-6 lg:col-span-4 lg:col-start-5 col-span-2 xl:col-start-7 xl:col-span-4'
+							className='col-span-2 sm:col-start-6 lg:col-span-4 lg:col-start-5 xl:col-start-7 xl:col-span-4'
 							src={lockIcon}
+							shadow='box-ether-green'
 							title={"Security"}
 							content={"Security system with high level of data encryption."}
 						/>
 
 						<FeatureItem
-							className='sm:col-start-2 lg:col-span-4 lg:col-start-1 col-span-2 xl:col-span-4'
+							className='col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4'
 							src={walletIcon}
 							title={"Admin Panel"}
+							shadow='box-ether-yellow'
 							content={
 								"Manage your information and API keys from your account."
 							}
 						/>
 
 						<FeatureItem
-							className='sm:col-start-6 md:col-span-4 md:col-start-5 col-span-2 xl:col-start-7 xl:col-span-4'
+							className='col-span-2 sm:col-start-6 md:col-span-4 md:col-start-5 xl:col-start-7 xl:col-span-4'
 							src={supportIcon}
+							shadow='box-ether-red'
 							title={"Support"}
 							content={"Contact us for information and usage support."}
 						/>
@@ -154,7 +158,7 @@ export default function Home() {
 					<div className='typo-heading-1 section-title-inverse top-line lg:row-start-2'>
 						How to install & activate
 					</div>
-					<div className='section-content-inverse typo-body-1 my-6 lg:row-start-3'>
+					<div className='section-content-inverse typo-body-1 lg:row-start-3'>
 						If it is the first time that you install a plugin for wordpress,
 						then we explain in 3 simple steps how you can do it.
 					</div>
@@ -166,7 +170,7 @@ export default function Home() {
 					</ButtonInverse>
 
 					<Image
-						className='-translate-x-5 sm:-translate-x-11 col-span-full align-self-center img-laptop lg:row-span-5 lg:row-start-1 lg:col-span-4 xl:-translate-x-16 xl:col-span-6'
+						className='-translate-x-5 mt-9 sm:-translate-x-11 col-span-full align-self-center img-laptop lg:row-span-5 lg:row-start-1 lg:col-span-4 xl:-translate-x-16 xl:col-span-6'
 						src={laptop}
 						alt='laptop with screenshot'
 					/>
@@ -215,16 +219,16 @@ export default function Home() {
 						/>
 					</div>
 					<Image
-						className='col-start-5 col-span-4 row-start-6 hidden lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-16'
+						className='hidden col-span-4 col-start-5 row-start-6 lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-16'
 						src={pointing}
 					/>
 				</section>
 				<Image
 					src={smile}
-					className='hidden xl:block col-span-5 row-span-5 absolute col-start-2 z-30 -mt-48'
+					className='absolute z-30 hidden col-span-5 col-start-2 row-span-5 -mt-48 xl:block'
 				/>
-				<section className=' bg-background-2 full-bleed-section mt-12 pt-8 overflow-visible grid-main pb-8 gap-y-6 '>
-					<div className='typo-heading-1 font-bold text-center col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left'>
+				<section className='pt-8 pb-8 mt-12 overflow-visible bg-background-2 full-bleed-section grid-main gap-y-6'>
+					<div className='font-bold text-center typo-heading-1 col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left'>
 						Free to install & use
 					</div>
 					<div className='typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5'>
@@ -238,7 +242,7 @@ export default function Home() {
 				</section>
 				<section className='grid-main overflow-visible  grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60'>
 					<Image
-						className='hidden xl:block row-span-3 absolute -top-20 -left-20 col-span-4 row-start-1 col-start-1 '
+						className='absolute hidden col-span-4 col-start-1 row-span-3 row-start-1 xl:block -top-20 -left-20 '
 						src={rectangle}
 					/>
 					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%]'>
@@ -253,13 +257,12 @@ export default function Home() {
 					</div>
 					<ButtonInverse
 						arrow={true}
-						className='col-span-2 text-left row-start-3 xl:col-start-4'
+						className='col-span-2 row-start-3 text-left xl:col-start-4'
 					>
 						Get started
 					</ButtonInverse>
 					<Image
-						className='col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 self-center xl:col-start-9 xl:scale-125 xl:row-span-3
-						 xl:row-start-1 xl:-right-16 lg:absolute'
+						className='self-center col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 xl:col-start-9 xl:scale-125 xl:row-span-3 xl:row-start-1 xl:-right-16 lg:absolute'
 						src={countries}
 						alt='image with spain france and germany orbitating'
 					/>
