@@ -19,11 +19,11 @@
 	}
 
 	.section-content-inverse {
-		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify lg:col-start-6 md:col-span-6 md:col-start-2 xl:col-start-7 xl:row-start-1 xl:col-span-4;
+		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify lg:col-start-6 md:col-span-6 md:col-start-2 xl:col-start-8 xl:row-start-1 xl:col-span-4;
 	}
 
 	.section-title-inverse {
-		@apply col-span-4 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left lg:justify-self-start lg:col-start-6 xl:col-start-7 xl:row-start-1 xl:col-span-4;
+		@apply col-span-4 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left lg:justify-self-start lg:col-start-6 xl:col-start-8 xl:row-start-1 xl:col-span-4;
 	}
 
 	.section-content {
@@ -35,7 +35,7 @@
 	}
 
 	.button-started-inverse {
-		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:col-start-6 xl:col-start-7 xl:justify-self-start;
+		@apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:col-start-6 xl:col-start-8 xl:justify-self-start;
 	}
 }
 
