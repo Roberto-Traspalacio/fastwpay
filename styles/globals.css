@@ -15,7 +15,7 @@
 	}
 
 	.section-title {
-		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-center lg:justify-self-start xl:col-span-4 xl:col-start-2 xl:row-start-1;
+		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-center lg:justify-self-start xl:text-left xl:col-span-4 xl:col-start-2 xl:row-start-1;
 	}
 
 	.section-content-inverse {
