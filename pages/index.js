@@ -223,13 +223,9 @@ export default function Home() {
 						src={pointing}
 					/>
 				</section>
-				<Image
-					src={smile}
-					className='absolute z-30 hidden col-span-5 col-start-2 row-span-5 -mt-48 xl:block'
-				/>
-				<section className='pt-8 pb-8 mt-12 overflow-visible bg-background-2 full-bleed-section grid-main gap-y-6'>
+				<section className='pt-8 pb-8 mt-12 overflow-visible md:mt-32 lg:mt-72 bg-background-2 full-bleed-section grid-main gap-y-6'>
 					<div className='font-bold text-center typo-heading-1 col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left'>
-						Free to install & use
+						<span className='stylish-underline'>Free </span>to install & use
 					</div>
 					<div className='typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5'>
 						To use it you don't need to buy it, it's completely free, and you
@@ -240,12 +236,15 @@ export default function Home() {
 						Download
 					</Button>
 				</section>
-				<section className='grid-main overflow-visible  grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60'>
+				<div className='relative hidden xl:block'>
+					<Image src={smile} className='absolute bottom-0 z-10' />
+				</div>
+				<section className='grid-main overflow-visible grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60'>
 					<Image
 						className='absolute hidden col-span-4 col-start-1 row-span-3 row-start-1 xl:block -top-20 -left-20 '
 						src={rectangle}
 					/>
-					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%]'>
+					<div className='typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%] before:left-0'>
 						Countries where it works
 					</div>
 					<div className='typo-body-1 leading-[165%] col-span-full sm:col-span-4 sm:row-start-2 xl:col-start-4 xl:mb-0'>
@@ -267,7 +266,7 @@ export default function Home() {
 						alt='image with spain france and germany orbitating'
 					/>
 				</section>
-				<section className='mt-20 mb-16 xl:mt-64'>
+				<section className='mt-20  xl:mb-[60px] xl:mt-64'>
 					<Form>
 						<Contact className='pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6 lg:col-start-2 lg:col-span-6' />
 					</Form>

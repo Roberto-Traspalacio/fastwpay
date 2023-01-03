@@ -56,3 +56,30 @@
 	box-shadow: 0 0 0 100vmax #295bb7;
 	clip-path: inset(0 -100vmax);
 }
+
+.box-ether-blue {
+	box-shadow: 0px 0px 33.3333px rgba(41, 91, 183, 0.35);
+}
+
+.box-ether-green {
+	box-shadow: 0px 0px 33.3333px rgba(31, 184, 31, 0.35);
+}
+
+.box-ether-yellow {
+	box-shadow: 0px 0px 33.3333px rgba(248, 200, 111, 0.35);
+}
+
+.box-ether-red {
+	box-shadow: 0px 0px 33.3333px rgba(230, 92, 79, 0.35);
+}
+
+.stylish-underline {
+	position: relative;
+}
+
+.stylish-underline:after {
+	content: "";
+	position: absolute;
+	display: inline-blok;
+	width: 100%;
+}

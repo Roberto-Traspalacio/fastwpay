@@ -15,7 +15,7 @@
 	}
 
 	.section-title {
-		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-left  lg:justify-self-start xl:col-span-4 xl:col-start-2 xl:row-start-1;
+		@apply col-span-3 sm:col-start-2 sm:col-span-6 sm:text-center leading-[135%] sm:justify-self-center lg:col-span-3 md:text-center lg:justify-self-start xl:col-span-4 xl:col-start-2 xl:row-start-1;
 	}
 
 	.section-content-inverse {
@@ -27,7 +27,7 @@
 	}
 
 	.section-content {
-		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2 xl:col-start-2 xl:col-span-4;
+		@apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center md:text-justify lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2 xl:col-start-2 xl:col-span-4;
 	}
 
 	.button-started {
@@ -42,21 +42,5 @@
 @layer utilities {
 	.grid-main {
 		@apply grid grid-cols-4 gap-x-3 sm:grid-cols-8 xl:grid-cols-12;
-	}
-
-	.box-ether-blue {
-		box-shadow: 0px 0px 33.3333px rgba(41, 91, 183, 0.35);
-	}
-
-	.box-ether-green {
-		box-shadow: 0px 0px 33.3333px rgba(31, 184, 31, 0.35);
-	}
-
-	.box-ether-yellow {
-		box-shadow: 0px 0px 33.3333px rgba(248, 200, 111, 0.35);
-	}
-
-	.box-ether-red {
-		box-shadow: 0px 0px 33.3333px rgba(230, 92, 79, 0.35);
 	}
 }

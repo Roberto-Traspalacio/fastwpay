@@ -7,10 +7,10 @@ import email from "../assets/email-icon.svg";
 export default function contact({ className = "" }) {
 	return (
 		<div
-			className={`${className} sm:flex sm:justify-evenly md:justify-between grid-main gap-x-3 justify-items-center pt-9 gap-y-8 xl:flex-col xl:pt-0 `}
+			className={`${className} md:justify-between grid-main xl:flex xl:flex-col gap-x-3 justify-items-center pt-9 gap-y-8 xl:pt-0 `}
 		>
-			<div className='hidden xl:block font-bold text-text-1'>INFORMATION</div>
-			<div className='typo-body-1 col-span-2 flex  flex-col items-center xl:items-start '>
+			<div className='hidden font-bold xl:block text-text-1 '>INFORMATION</div>
+			<div className='flex flex-col items-center col-span-2 col-start-1 sm:col-start-2 typo-body-1 xl:items-start'>
 				<Image className='mb-2 xl:hidden' src={phone} alt='Phone icon' />
 				<div className='font-bold leading-[165%] text-color-2 text-text-2'>
 					Phone number
@@ -19,16 +19,16 @@ export default function contact({ className = "" }) {
 					+34674397122
 				</div>
 			</div>
-			<div className='typo-body-1 col-span-2 col-start-2 flex  flex-col items-center xl:items-start pt-[2px] '>
+			<div className='typo-body-1 col-span-2 col-start-2 flex  flex-col items-center sm:col-start-4 xl:items-start pt-[2px] '>
 				<Image className='mb-2 xl:hidden' src={location} alt='Phone icon' />
 				<div className='font-bold leading-[165%] text-text-2 text-center'>
 					Address
 				</div>
 				<div className='text-text-2 leading-[165%] text-center sm:w-[130px] xl:text-left typo-body-1 xl:w-auto'>
-					Puerta del Angel <br /> 28011 Madrid, España
+					Puerta del Angel <br className='xl:hidden' /> 28011 Madrid, España
 				</div>
 			</div>
-			<div className='typo-body-1 flex flex-col col-span-2 col-start-3 row-start-1 sm:flex  sm:flex-col items-center xl:items-start sm:w-[150px] pt-[2px]'>
+			<div className='typo-body-1 flex flex-col col-span-2 col-start-3 row-start-1 sm:flex  sm:flex-col items-center xl:items-start sm:w-[150px] pt-[2px] sm:col-start-6'>
 				<Image
 					className='mb-2 xl:hidden'
 					quality={100}
@@ -38,8 +38,9 @@ export default function contact({ className = "" }) {
 				<div className='font-bold leading-[165%] text-text-2 text-center'>
 					Email
 				</div>
-				<div className='content text-text-2 lh-165 text-center'>
-					info@fastwpay.com
+				<div className='text-center content text-text-2 lh-165'>
+					info <br className='xl:hidden' />
+					@fastwpay.com
 				</div>
 			</div>
 		</div>
