@@ -73,9 +73,9 @@ export default function Home() {
 						hassle-free. Start billing today without having any requirements.
 					</div>
 
-					<div className='flex col-span-full justify-evenly mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start'>
+					<div className='flex col-span-full justify-center mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start'>
 						<Button className='block'>Download</Button>
-						<ButtonInverse className='ml-5'>contact</ButtonInverse>
+						<ButtonInverse>Contact</ButtonInverse>
 					</div>
 				</section>
 				<section
