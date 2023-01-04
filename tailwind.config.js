@@ -20,6 +20,7 @@ module.exports = {
 				background: { 1: "#F9FCFF", 2: "#F0F6FF", 3: "#D7E1F3" },
 			},
 			screens: {
+				esm: "360px",
 				xsm: "375px",
 				sm: "601px",
 			},
