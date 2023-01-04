@@ -50,7 +50,7 @@ export default function Home() {
 					/>
 					<Image
 						priority={true}
-						className='mb-6 xl:col-start-3 xl:col-span-8 xs:mb-4 sm:mb-[40px] w-[auto] h-[100%] hidden xl:block xl:top-[66px] absolute xl:row-span-3'
+						className='mb-6 xl:col-start-3 xl:col-span-8 xs:mb-4 sm:mb-[40px] w-[auto] h-[100%] hidden xl:block xl:top-[66px] absolute xl:row-span-3 md:h-[604px]'
 						src={heroLarge}
 						alt='Girl waving with payment messages around '
 					/>
@@ -219,7 +219,7 @@ export default function Home() {
 						/>
 					</div>
 					<Image
-						className='hidden col-span-4 col-start-5 row-start-6 lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-16'
+						className='hidden col-span-4 col-start-5 row-start-6 lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-48'
 						src={pointing}
 					/>
 				</section>
