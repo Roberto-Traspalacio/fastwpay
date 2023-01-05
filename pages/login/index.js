@@ -23,7 +23,7 @@ export default function Login() {
             src={loginImage1}
           />
         </div>
-        <div className="flex flex-col xl:w-[50%] xl:relative">
+        <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
           <GoHomeButton arrow>Go Home</GoHomeButton>
           <div className="pt-20 sm:pt-[132px] md:pt-[155px] lg:pt-[51px] xl:absolute xl:right-0 xl:left-0 xl:top-[50%] xl:translate-y-[-50%] xl:pt-0">
             <form className="grid-main gap-x-3">
