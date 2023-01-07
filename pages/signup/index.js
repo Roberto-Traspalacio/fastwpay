@@ -69,7 +69,7 @@ export default function Signup() {
               <button className="col-span-full mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-start-3 xl:col-span-8">
                 <div className="typo-body-1">Sign Up</div>
               </button>
-              <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0">
+              <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[122px]">
                 Do you already have an account with us?{' '}
                 <Link href="/login">
                   <span className="text-primary-blue underline">Login</span>
