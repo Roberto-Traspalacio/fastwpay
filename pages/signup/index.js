@@ -13,7 +13,7 @@ export default function Signup() {
     'input-name bg-background-2 h-9 col-span-full rounded-md mb-[14px] esm:mb-[18px] sm:rounded-[10px] sm:mb-5 sm:h-12 py-4 px-5 typo-body-1 sm:col-span-6 sm:col-start-2 xl:col-start-3 xl:col-span-8 lg:col-start-3 lg:col-span-4';
 
   return (
-    <main className="px-[18px] md:px-10 lg:mb-6 lg:min-h-[628px] xl:p-0 xl:mb-0 xl:min-h-screen">
+    <main className="px-[18px] md:px-10 lg:mb-6 lg:min-h-[628px] lg:max-h-screen lg:overflow-auto scrollbar xl:p-0 xl:mb-0 xl:min-h-screen">
       <Navbar className={'full-bleed-primary-blue xl:hidden'} />
       <section className="xl:flex">
         <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
@@ -24,7 +24,7 @@ export default function Signup() {
           />
         </div>
         <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar">
-          <GoHomeButton className="esm:mt-[18px]">Go Home</GoHomeButton>
+          <GoHomeButton>Go Home</GoHomeButton>
           <div className="pt-[26px] esm:pt-[39px] sm:pt-[51px] lg:pt-[51px] xl:pb-[17px] xl:pt-[73px]">
             <form className="grid-main gap-x-3">
               <h2
@@ -69,7 +69,7 @@ export default function Signup() {
               <button className="col-span-full mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-start-3 xl:col-span-8">
                 <div className="typo-body-1">Sign Up</div>
               </button>
-              <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[122px]">
+              <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[40px]">
                 Do you already have an account with us?{' '}
                 <Link href="/login">
                   <span className="text-primary-blue underline">Login</span>
