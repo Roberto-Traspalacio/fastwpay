@@ -6,9 +6,9 @@ import loginLinea from 'assets/login-linea.png';
 import useForm from 'hooks/useForm';
 import Head from 'next/head';
 import Input from 'components/Input';
-import { useValidacionesYup } from './yup';
+import { useValidacionesYup } from '../../modules/auth/new-password/yup';
 import { useFormik } from 'formik';
-import SuccessPswChange from './components/SuccessPswChange';
+import SuccessPswChange from '../../modules/auth/components/SuccessPswChange';
 
 const initialState = {
   newPassword: '',

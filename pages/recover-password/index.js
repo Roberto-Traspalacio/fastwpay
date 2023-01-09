@@ -5,7 +5,7 @@ import loginLinea from 'assets/login-linea.png';
 import Input from 'components/Input';
 import useForm from 'hooks/useForm';
 import { useFormik } from 'formik';
-import { useValidacionesYup } from './yup';
+import { useValidacionesYup } from '../../modules/auth/recover-password/yup';
 import Head from 'next/head';
 
 const initialState = { email: '' };

@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { regexPassword } from 'utils/regexPassword';
-import ValidateInvalidPassword from './validateInvalidPassword';
+import ValidateInvalidPassword from '../components/validateInvalidPassword';
 
 export const useValidacionesYup = () => {
   const validationSchema = yup.object({

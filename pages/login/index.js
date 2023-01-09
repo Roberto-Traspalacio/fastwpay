@@ -6,7 +6,7 @@ import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
 import { useFormik } from 'formik';
 import useForm from 'hooks/useForm';
-import { useValidacionesYup } from './yup';
+import { useValidacionesYup } from '../../modules/auth/login/yup';
 import Input from 'components/Input';
 import Head from 'next/head';
 
