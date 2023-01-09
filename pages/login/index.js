@@ -6,9 +6,13 @@ import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
 import { useFormik } from 'formik';
 import useForm from 'hooks/useForm';
-import { initialState } from './utils';
 import { useValidacionesYup } from './yup';
 import Input from 'components/Input';
+
+const initialState = {
+  email: '',
+  password: '',
+};
 
 export default function Login() {
   const [remember, setRemember] = useState(false);
@@ -50,8 +54,8 @@ export default function Login() {
               >
                 Login
               </h2>
-              <Input type="text" label='Email' name="email" formik={formik} onChange={handleChangeForm} />
-              <Input type="password" label='Password' name="password" formik={formik} onChange={handleChangeForm} />
+              <Input type="text" label="Email" name="email" formik={formik} onChange={handleChangeForm} />
+              <Input type="password" label="Password" name="password" formik={formik} onChange={handleChangeForm} />
               {/* Remember me and recover password */}
               <div className="col-span-full flex items-center justify-between sm:col-start-2 sm:col-end-8 lg:col-start-3 lg:col-span-4 xl:col-span-full">
                 <label className="inline-flex items-center">
