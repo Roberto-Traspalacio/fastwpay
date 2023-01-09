@@ -9,6 +9,12 @@
   @apply font-ubuntu;
 }
 
+:root {
+  --error1: #E65C4F;
+  --error2: #FFF5F4;
+  --redHard: #D31908;
+}
+
 @layer components {
   .section {
     @apply mt-[52px] sm:mt-20 font-bold gap-x-[18px];
@@ -43,6 +49,18 @@
   .grid-main {
     @apply grid grid-cols-4 gap-x-3 sm:grid-cols-8 xl:grid-cols-12;
   }
+}
+
+/* Errors */
+.input-error {
+  border: 1px solid var(--error1);
+  background-color: var(--error2);
+}
+
+.input-error-message {
+  color: var(--redHard);
+  letter-spacing: 5%;
+  margin-left: 4px;
 }
 
 /* Scroll */
