@@ -6,9 +6,10 @@ import loginLinea from 'assets/login-linea.png';
 import useForm from 'hooks/useForm';
 import Head from 'next/head';
 import Input from 'components/Input';
-import { useValidacionesYup } from '../../modules/auth/new-password/yup';
+import { useValidacionesYup } from 'modules/auth/new-password/yup';
 import { useFormik } from 'formik';
-import SuccessPswChange from '../../modules/auth/components/SuccessPswChange';
+import SuccessPswChange from 'modules/auth/components/SuccessPswChange';
+import ErrorPswChange from 'modules/auth/components/ErrorPswChange';
 import InputWithIcon from 'modules/auth/components/InputWithIcon';
 
 const initialState = {
@@ -33,7 +34,8 @@ export default function NewPassword() {
   };
 
   return success ? (
-    <SuccessPswChange />
+    <ErrorPswChange success={success} setSuccess={setSuccess} />
+    // <SuccessPswChange success={success} setSuccess={setSuccess} />
   ) : (
     <>
       <Head>
