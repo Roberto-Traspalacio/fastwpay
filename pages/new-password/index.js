@@ -9,6 +9,7 @@ import Input from 'components/Input';
 import { useValidacionesYup } from '../../modules/auth/new-password/yup';
 import { useFormik } from 'formik';
 import SuccessPswChange from '../../modules/auth/components/SuccessPswChange';
+import InputWithIcon from 'modules/auth/components/InputWithIcon';
 
 const initialState = {
   newPassword: '',
@@ -64,7 +65,7 @@ export default function NewPassword() {
                   formik={formik}
                   onChange={handleChangeForm}
                 />
-                <Input
+                <InputWithIcon
                   type="password"
                   name="repeatNewPassword"
                   label="Repeat new password"

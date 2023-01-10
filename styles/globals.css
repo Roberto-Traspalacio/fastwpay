@@ -57,6 +57,10 @@
   background-color: var(--error2);
 }
 
+.input-error > input {
+  background-color: var(--error2);
+}
+
 .input-error-message {
   color: var(--redHard);
   letter-spacing: 5%;
