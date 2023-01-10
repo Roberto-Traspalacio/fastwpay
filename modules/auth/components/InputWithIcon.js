@@ -3,6 +3,8 @@ import cancelIcon from 'assets/cancel.svg';
 import Image from 'next/image';
 
 export default function InputWithIcon({ formik, type, name, label, onChange, className }) {
+  const newPassword = formik.values?.newPassword;
+  const repeatNewPassword = formik.values?.repeatNewPassword;
   return (
     <>
       <label className="mb-2 sm:mb-[10px] label-name typo-body-2 sm:text-sm sm:tracking-wider sm:col-start-2 col-span-full text-text-1 lg:col-start-3 lg:col-span-4 xl:col-span-full">
@@ -22,9 +24,10 @@ export default function InputWithIcon({ formik, type, name, label, onChange, cla
         {/* {formik.errors[name] && (
           <Image alt="Cancel icon" src={cancelIcon} width="16px" height="16px" className="w-4 h-4" />
         )} */}
-        {formik.values?.newPassword === formik.values?.repeatNewPassword ? (
+        {newPassword === repeatNewPassword && newPassword.length > 0 && repeatNewPassword.length > 0 && (
           <Image alt="Check icon" src={checkIcon} width="16px" height="16px" className="w-4 h-4" />
-        ) : (
+        )}
+        {newPassword !== repeatNewPassword && newPassword.length > 0 && repeatNewPassword.length > 0 && (
           <Image alt="Cancel icon" src={cancelIcon} width="16px" height="16px" className="w-4 h-4" />
         )}
       </div>
