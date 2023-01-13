@@ -12,11 +12,11 @@
         }
             
         .typo-heading-2 {
-            font-size: 2.25rem;
+            font-size: 1.5rem;
         }
             
         .typo-heading-3 {
-            font-size: 1rem;
+            font-size: 1.25rem;
         }
             
         .typo-heading-4 {
@@ -67,7 +67,11 @@
             }
             
             .typo-heading-3 {
-                font-size: clamp(1rem, 1.7699115044vw + 0.5851769912rem, 1.25rem);
+                font-size: clamp(1.25rem, 1.7699115044vw + 0.8351769912rem, 1.5rem);
+            }
+            
+            .typo-heading-2 {
+                font-size: clamp(1.5rem, 3.5398230088vw + 0.6703539823rem, 2rem);
             }
             
             .typo-heading-1 {
@@ -75,7 +79,7 @@
             }
             
             .typo-display-2 {
-                font-size: clamp(1.5rem, 7.0796460177vw + -0.1592920354rem, 2.5rem);
+                font-size: clamp(1.5rem, 2.6548672566vw + 0.8777654867rem, 1.875rem);
             }
             
 }
@@ -84,8 +88,8 @@
             
 @media only screen and (min-width: 601px) {
     
-            .typo-heading-3 {
-                font-size: clamp(1.25rem, 2.3952095808vw + 0.3502994012rem, 1.5rem);
+            .typo-display-2 {
+                font-size: clamp(1.875rem, 5.9880239521vw + -0.374251497rem, 2.5rem);
             }
             
 }
