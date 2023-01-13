@@ -7,6 +7,7 @@ import useForm from 'hooks/useForm';
 import { useFormik } from 'formik';
 import { useValidacionesYup } from '../../modules/auth/recover-password/yup';
 import Head from 'next/head';
+import { Auth } from 'services/Auth.service';
 
 const initialState = { email: '' };
 
@@ -18,10 +19,10 @@ export default function RecoverPassword() {
     validationSchema,
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
+  const auth = new Auth();
 
   const onSubmit = () => {
-    console.log('Reover password!');
-    console.log('Formik: ', formik);
+    auth.sendEmailRecoverPassword(form);
   };
 
   return (
@@ -29,7 +30,7 @@ export default function RecoverPassword() {
       <Head>
         <title>Reset Password</title>
       </Head>
-      <main className="px-[18px] md:px-10 overflow-clip lg:mb-6 lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
+      <main className="px-[18px] md:px-10 overflow-clip lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
         <section className="xl:flex max-h-screen">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
@@ -49,7 +50,14 @@ export default function RecoverPassword() {
                 >
                   Reset password
                 </h2>
-                <Input type="text" label="Email" name="email" formik={formik} onChange={handleChangeForm} className='mb-5 sm:mb-[25px]' />
+                <Input
+                  type="text"
+                  label="Email"
+                  name="email"
+                  formik={formik}
+                  onChange={handleChangeForm}
+                  className="mb-5 sm:mb-[25px]"
+                />
                 <button class="col-span-full sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
                   <div class="typo-body-1">Reset password</div>
                 </button>

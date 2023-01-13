@@ -9,9 +9,10 @@ import { useValidacionesYup } from '../../modules/auth/signup/yup';
 import { useFormik } from 'formik';
 import Input from 'components/Input';
 import Head from 'next/head';
+import { Auth } from 'services/Auth.service';
 
 const initialState = {
-  name: '',
+  firstName: '',
   lastName: '',
   email: '',
   password: '',
@@ -23,14 +24,14 @@ export default function Signup() {
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
     initialValues: initialState,
-    onSubmit: () => onSubmit(form),
+    onSubmit: () => onSubmit(),
     validationSchema,
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
+  const auth = new Auth();
 
   const onSubmit = () => {
-    console.log('Sign Up!');
-    console.log('Formik: ', formik);
+    auth.register(form);
   };
 
   return (
@@ -38,12 +39,13 @@ export default function Signup() {
       <Head>
         <title>Sign Up</title>
       </Head>
-      <main className="px-[18px] md:px-10 lg:mb-6 lg:min-h-[628px] lg:max-h-screen lg:overflow-auto scrollbar xl:p-0 xl:mb-0 xl:min-h-screen">
+      <main className="px-[18px] md:px-10 lg:pb-6 lg:min-h-[628px] lg:max-h-screen lg:overflow-auto scrollbar xl:p-0 xl:mb-0 xl:min-h-screen">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
         <section className="xl:flex">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
-            <Image className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
+            <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
             <Image
+              alt=""
               className="xl:absolute xl:top-[50%] xl:translate-y-[-50%] xl:right-[-5px] xl:w-[82%]"
               src={loginImage1}
             />
@@ -58,7 +60,7 @@ export default function Signup() {
                 >
                   Sign Up
                 </h2>
-                <Input type="text" label="Name" name="name" formik={formik} onChange={handleChangeForm} />
+                <Input type="text" label="Name" name="firstName" formik={formik} onChange={handleChangeForm} />
                 <Input type="text" label="Last Name" name="lastName" formik={formik} onChange={handleChangeForm} />
                 <Input type="text" label="Email" name="email" formik={formik} onChange={handleChangeForm} />
                 <Input type="password" label="Password" name="password" formik={formik} onChange={handleChangeForm} />
@@ -76,10 +78,10 @@ export default function Signup() {
                   <option selected disabled>
                     Choose a country
                   </option>
-                  <option value="ES">España</option>
-                  <option value="IT">Italia</option>
-                  <option value="AL">Alemania</option>
-                  <option value="FR">Francia</option>
+                  <option value="ES">Spain</option>
+                  <option value="IT">Italy</option>
+                  <option value="AL">Germany</option>
+                  <option value="FR">France</option>
                 </select>
                 {formik.errors.country && (
                   <p className="input-error-message col-span-full mb-[14px] sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
@@ -99,7 +101,10 @@ export default function Signup() {
                     </span>
                   </label>
                 </div>
-                <button className="col-span-full mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
+                <button
+                  type="submit"
+                  className="col-span-full mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full"
+                >
                   <div className="typo-body-1">Sign Up</div>
                 </button>
                 <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[40px]">

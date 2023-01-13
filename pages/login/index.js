@@ -9,6 +9,7 @@ import useForm from 'hooks/useForm';
 import { useValidacionesYup } from '../../modules/auth/login/yup';
 import Input from 'components/Input';
 import Head from 'next/head';
+import { Auth } from 'services/Auth.service';
 
 const initialState = {
   email: '',
@@ -24,10 +25,10 @@ export default function Login() {
     validationSchema,
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
+  const auth = new Auth();
 
   const onSubmit = () => {
-    console.log('Login!');
-    console.log('Formik: ', formik);
+    auth.login(form);
   };
   return (
     <>
