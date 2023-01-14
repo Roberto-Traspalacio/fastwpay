@@ -11,14 +11,18 @@ import { useFormik } from 'formik';
 import SuccessPswChange from 'modules/auth/components/SuccessPswChange';
 import ErrorPswChange from 'modules/auth/components/ErrorPswChange';
 import InputWithIcon from 'modules/auth/components/InputWithIcon';
+import { Auth } from 'services/Auth.service';
+import { useRouter } from 'next/router';
 
 const initialState = {
   newPassword: '',
   repeatNewPassword: '',
 };
 
+const SUCCESS_REQUEST_CODE = 200;
+
 export default function NewPassword() {
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null);
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
     initialValues: initialState,
@@ -26,17 +30,18 @@ export default function NewPassword() {
     validationSchema,
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
+  const auth = new Auth();
+  const router = useRouter();
 
-  const onSubmit = () => {
-    console.log('New password!');
-    console.log('Formik: ', formik);
-    setSuccess(true);
+  const onSubmit = async () => {
+    const data = await auth.recoverPassword({ password: form.repeatNewPassword }, router?.query?.token);
+    if (data.status === SUCCESS_REQUEST_CODE) {
+      return setSuccess(true);
+    }
+    setSuccess(false);
   };
 
-  return success ? (
-    <ErrorPswChange success={success} setSuccess={setSuccess} />
-    // <SuccessPswChange success={success} setSuccess={setSuccess} />
-  ) : (
+  return success === null ? (
     <>
       <Head>
         <title>New Password</title>
@@ -83,5 +88,9 @@ export default function NewPassword() {
         </section>
       </main>
     </>
+  ) : success === true ? (
+    <SuccessPswChange success={success} setSuccess={setSuccess} />
+  ) : (
+    success === false && <ErrorPswChange success={success} setSuccess={setSuccess} />
   );
 }

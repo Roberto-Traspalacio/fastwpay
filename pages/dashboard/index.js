@@ -1,11 +1,10 @@
 import AuthNavbar from 'components/AuthNavbar';
-import menuIcon from 'assets/menu.svg';
-import Image from 'next/image';
-import BalanceCard from 'modules/client-dashboard/components/BalanceCard';
+import BalanceCard from 'modules/dashboard/components/BalanceCard';
 import SidebarMenu from 'components/SidebarMenu';
 import { useState } from 'react';
 import Head from 'next/head';
-import BannerBlue from 'modules/client-dashboard/components/BannerBlue';
+import BannerBlue from 'modules/dashboard/components/BannerBlue';
+import MenuButton from 'modules/dashboard/components/MenuButton';
 
 export default function ClientDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
@@ -15,17 +14,11 @@ export default function ClientDashboard() {
         <title>Dashboard</title>
       </Head>
       <AuthNavbar />
-      <main className="grid-main relative">
+      <main className="sm:flex relative content-main">
         {/* Menu button */}
-        <div
-          className="bg-primary-blue w-10 col-span-full h-10 mt-[10px] flex items-center justify-center rounded-r-[7px] sm:hidden"
-          onClick={() => setOpenSidebar(!openSidebar)}
-        >
-          <Image src={menuIcon} alt="Hambuger menu white" className="w-[17px] h-[12px]" />
-        </div>
-        <div className="flex col-span-full max-h-screen overflow-auto">
-          {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
-          {/* <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} /> */}
+        <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+        {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
+        <div className="grid-main col-span-full">
           {/* Center container */}
           <div className="center-container col-span-full sm:px-5">
             <BannerBlue />
@@ -37,10 +30,9 @@ export default function ClientDashboard() {
               <div className="bg-primary-blue rounded-full w-8 h-[3px] absolute left-0 z-10"></div>
             </div>
             {/* Balance */}
-            <div className="px-[18px] pt-9 col-span-full sm:pt-12 md:flex md:flex-row-reverse md:px-0 lg:pt-8 lg:gap-[86px] xl:gap-[47px]">
-              <BalanceCard />
+            <div className="flex flex-col-reverse md:grid-main px-[18px] pt-9 col-span-full sm:pt-12 md:px-0 lg:pt-8">
               {/* Container information */}
-              <div>
+              <div className='md:col-span-full lg:col-span-3 xl:col-span-7 lg:pb-6'>
                 <p className="typo-heading-3 text-primary-blue text-center mt-[33px] font-bold esm:mt-[35px] sm:mt-[58px] md:mt-[41px] lg:mt-0 lg:text-start">
                   Welcome John Constantine!
                 </p>
@@ -65,6 +57,7 @@ export default function ClientDashboard() {
                   amet lectus libero.
                 </p>
               </div>
+              <BalanceCard />
             </div>
           </div>
         </div>
@@ -74,6 +67,11 @@ export default function ClientDashboard() {
           .center-container {
             max-height: calc(100vh - 48px);
             overflow: auto;
+          }
+        }
+        @media (min-width: 1024px) {
+          .content-main {
+            height: calc(100vh - 48px);
           }
         }
       `}</style>

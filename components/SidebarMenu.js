@@ -1,12 +1,13 @@
-import { useRef } from 'react';
 import dashboardIcon from 'assets/dashboard.svg';
 import lockIcon from 'assets/lock_open.svg';
 import personIcon from 'assets/person.svg';
 import logoutIcon from 'assets/logout.svg';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function SidebarMenu({ open, setOpen, className }) {
-  const boxRef = useRef();
+  const router = useRouter();
   const closeSidebar = (e) => {
     if (e.target.className.includes('box')) {
       setOpen(false);
@@ -20,19 +21,31 @@ export default function SidebarMenu({ open, setOpen, className }) {
         onClick={(e) => closeSidebar(e)}
       >
         <div className="w-[110px] h-[100%] bg-primary-blue pt-4 flex flex-col relative xl:w-[216px]">
-          <div className="item flex flex-col items-center justify-center py-[11px]">
-            <Image src={dashboardIcon} alt="Dashboard icon" />
-            <p className="mt-[6px] text-white typo-body-1">Dashboard</p>
-          </div>
-          <div className="item flex flex-col items-center justify-center py-[11px]">
-            <Image src={lockIcon} alt="Dashboard icon" />
-            <p className="mt-[6px] text-white typo-body-1">API key</p>
-          </div>
+          <Link href="/dashboard">
+            <div
+              className={`item flex flex-col items-center justify-center py-[11px] ${
+                router.pathname === '/dashboard' && 'item-active'
+              }`}
+            >
+              <Image src={dashboardIcon} alt="Dashboard icon" />
+              <p className={`mt-[6px] text-white typo-body-1`}>Dashboard</p>
+            </div>
+          </Link>
+          <Link href="/dashboard/api-key">
+            <div
+              className={`item flex flex-col items-center justify-center py-[11px] ${
+                router.pathname === '/dashboard/api-key' && 'item-active'
+              }`}
+            >
+              <Image src={lockIcon} alt="Dashboard icon" />
+              <p className="mt-[6px] text-white typo-body-1">API key</p>
+            </div>
+          </Link>
           <div className="item flex flex-col items-center justify-center py-[11px]">
             <Image src={personIcon} alt="Dashboard icon" />
             <p className="mt-[6px] text-white typo-body-1">Account</p>
           </div>
-          <div className="item flex flex-col items-center justify-center py-[11px] absolute bottom-0 left-0 right-0 xl:pl-8">
+          <div className="item flex flex-col items-center justify-center py-[11px] absolute bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]">
             <Image src={logoutIcon} alt="Logout icon" />
             <p className="mt-[6px] text-white typo-body-1">Logout</p>
           </div>
@@ -48,6 +61,9 @@ export default function SidebarMenu({ open, setOpen, className }) {
         }
         .item:hover {
           background: #5580ce;
+        }
+        .item-active {
+          background: #5580ce !important;
         }
         @media (min-width: 601px) {
           .box {

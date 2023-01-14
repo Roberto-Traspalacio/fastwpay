@@ -28,6 +28,17 @@ const fetch = {
       console.log(error);
     }
   },
+  patch: async (endpoint, data) => {
+    try {
+      const response = await window.fetch(`${API_URL}${endpoint}`, {
+        method: 'PATCH',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
-
 export default fetch;
