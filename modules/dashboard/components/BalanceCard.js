@@ -6,7 +6,7 @@ export default function BalanceCard() {
         <p className="text-white typo-heading-3 font-bold">Balance</p>
       </div>
       <p className="text-white typo-display-2 mt-[10px] font-bold">203,876.34 Є</p>
-      <p className="typo-body-1 mt-[23px] text-white esm:mt-[34px] sm:mt-[44px] xl:mt-[34px]">Next withdrawal thursday 12/15</p>
+      <p className="typo-body-1 mt-[20px] text-white esm:mt-[34px] sm:mt-[44px] xl:mt-[34px]">Next withdrawal thursday 12/15</p>
       {/* Ellipse */}
       <div
         className="w-[225px] h-[180px] rounded-[50%] rotate-90 absolute right-[-105px] top-0 bottom-0 opacity-40 sm:w-[400px] sm:h-[380px] sm:right-[-240px]"
