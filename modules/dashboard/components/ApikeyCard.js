@@ -2,7 +2,7 @@ import contentCopyItem from 'assets/content_copy.svg';
 
 export default function ApikeyCard() {
   return (
-    <div className="bg-background-2 px-[10px] pt-[18px] pb-[23px] rounded-lg flex flex-col">
+    <div className="bg-background-2 px-[10px] pt-[18px] pb-[23px] rounded-lg flex flex-col sm:hidden">
       <div className="flex justify-between">
         <p className="typo-heading-4 font-bold text-text-1">Reference</p>
         <p className="typo-heading-4 text-text-2">Casas Win</p>

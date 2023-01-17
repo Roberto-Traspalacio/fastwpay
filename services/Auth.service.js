@@ -13,4 +13,7 @@ export class Auth {
     const data = await fetch.patch(`/auth/recover-password?token=${token}`, password);
     return data;
   }
+  async verifyEmail(verifyToken) {
+    const data = await fetch.get(`/auth/verify-email?token=${verifyToken}`);
+  }
 }

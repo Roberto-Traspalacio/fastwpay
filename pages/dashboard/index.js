@@ -10,7 +10,7 @@ export default function ClientDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
   return (
     <>
-      <Head>
+      <Head> 
         <title>Dashboard</title>
       </Head>
       <AuthNavbar />
@@ -22,7 +22,7 @@ export default function ClientDashboard() {
           {/* Center container */}
           <div className="center-container col-span-full sm:px-5">
             <BannerBlue />
-            <h3 className="typo-heading-3 col-span-full mt-10 pl-[18px] font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
+            <h3 className="typo-heading-2 col-span-full mt-10 pl-[18px] font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
               Dashboard
             </h3>
             {/* Linea */}
