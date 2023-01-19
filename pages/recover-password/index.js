@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navbar, GoHomeButton } from 'components';
 import Image from 'next/image';
 import loginImage1 from 'assets/login-1.png';
@@ -8,10 +9,11 @@ import { useFormik } from 'formik';
 import { useValidacionesYup } from '../../modules/auth/recover-password/yup';
 import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
+import Loader from 'components/Loader';
 
 const initialState = { email: '' };
-
 export default function RecoverPassword() {
+  const [loading, setLoading] = useState(false);
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
     initialValues: initialState,
@@ -21,8 +23,10 @@ export default function RecoverPassword() {
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
 
-  const onSubmit = () => {
-    auth.sendEmailRecoverPassword(form);
+  const onSubmit = async () => {
+    setLoading(true);
+    await auth.sendEmailRecoverPassword(form);
+    setLoading(false);
   };
 
   return (
@@ -30,9 +34,9 @@ export default function RecoverPassword() {
       <Head>
         <title>Reset Password</title>
       </Head>
-      <main className="px-[18px] md:px-10 overflow-clip lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
+      <main className="px-[18px] md:px-10 xl:min-h-screen xl:max-h-screen xl:p-0 xl:mb-0">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-        <section className="xl:flex max-h-screen">
+        <section className="xl:flex content-main relative">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
             <Image
@@ -58,8 +62,8 @@ export default function RecoverPassword() {
                   onChange={handleChangeForm}
                   className="mb-5 sm:mb-[25px]"
                 />
-                <button class="col-span-full sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
-                  <div class="typo-body-1">Reset password</div>
+                <button class="col-span-full flex items-center justify-center h-[38px] sm:h-[44px] lg:h-[47px] sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full">
+                  {loading ? <Loader /> : <div className="typo-body-1">Reset password</div>}
                 </button>
                 <p className="text-center w-[30ch] m-auto col-span-full mt-[20px] typo-body-1 sm:mt-[25px] lg:pb-0">
                   Enter your email address and we will send you a password reset link
@@ -69,6 +73,21 @@ export default function RecoverPassword() {
           </div>
         </section>
       </main>
+      <style jsx>{`
+        .content-main {
+          height: calc(100vh - 50px);
+        }
+        @media (min-width: 601px) {
+          .content-main {
+            height: calc(100vh - 56px);
+          }
+        }
+        @media (min-width: 768px) {
+          .content-main {
+            height: calc(100vh - 64px);
+          }
+        }
+      `}</style>
     </>
   );
 }

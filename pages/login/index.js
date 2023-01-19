@@ -10,6 +10,8 @@ import { useValidacionesYup } from '../../modules/auth/login/yup';
 import Input from 'components/Input';
 import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
+import Loader from 'components/Loader';
+import { useRouter } from 'next/router';
 
 const initialState = {
   email: '',
@@ -18,6 +20,8 @@ const initialState = {
 
 export default function Login() {
   const [remember, setRemember] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
     initialValues: initialState,
@@ -27,17 +31,23 @@ export default function Login() {
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
 
-  const onSubmit = () => {
-    auth.login(form);
+  const onSubmit = async () => {
+    setLoading(true);
+    const data = await auth.login(form);
+    if (data.data?.token) {
+      window.localStorage.setItem('auth', data.data);
+      router.push('/dashboard');
+    }
+    setLoading(false);
   };
   return (
     <>
       <Head>
         <title>Login</title>
       </Head>
-      <main className="px-[18px] md:px-10 overflow-clip lg:mb-6 lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
+      <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-        <section className="xl:flex max-h-screen">
+        <section className="xl:flex content-main relative">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image
               alt="Dashboard Fastwpay"
@@ -52,7 +62,7 @@ export default function Login() {
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
             <GoHomeButton arrow>Go Home</GoHomeButton>
-            <div className="min-w-[89%] pt-12 esm:min-w-[90.5%] sm:min-w-[94.2%] sm:pt-14 md:pt-16 md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] xl:min-w-[494px] xl:pt-0">
+            <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
               <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                 <h2
                   className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
@@ -79,9 +89,9 @@ export default function Login() {
                 </div>
                 <button
                   type="submit"
-                  className="col-span-full mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full"
+                  className="col-span-full h-[38px] sm:h-[44px] lg:h-[47px] flex items-center justify-center mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full"
                 >
-                  <div className="typo-body-1">Login</div>
+                  {loading ? <Loader /> : <div className="typo-body-1">Login</div>}
                 </button>
                 <p className="text-center col-span-full mt-[18px] typo-body-1 sm:mt-[25px] lg:pb-0">
                   New to this Plataform?{' '}
@@ -94,6 +104,21 @@ export default function Login() {
           </div>
         </section>
       </main>
+      <style jsx>{`
+        .content-main {
+          min-height: calc(100vh - 50px);
+        }
+        @media (min-width: 601px) {
+          .content-main {
+            min-height: calc(100vh - 56px);
+          }
+        }
+        @media (min-width: 768px) {
+          .content-main {
+            min-height: calc(100vh - 64px);
+          }
+        }
+      `}</style>
     </>
   );
 }
