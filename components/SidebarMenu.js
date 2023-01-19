@@ -92,6 +92,11 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
             height: calc(100vh - 48px);
           }
         }
+        @media (min-width: 1024px) {
+          .box {
+            height: calc(100vh - 64px);
+          }
+        }
         @media (min-width: 1280px) {
           .item {
             flex-direction: row;

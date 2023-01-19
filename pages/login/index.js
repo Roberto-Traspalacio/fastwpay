@@ -12,6 +12,7 @@ import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 const initialState = {
   email: '',
@@ -35,7 +36,7 @@ export default function Login() {
     setLoading(true);
     const data = await auth.login(form);
     if (data.data?.token) {
-      window.localStorage.setItem('auth', data.data);
+      Cookies.set('auth', JSON.stringify(data.data));
       router.push('/dashboard');
     }
     setLoading(false);

@@ -16,10 +16,10 @@ export default function ApiKey() {
         <title>Dashboard | API key</title>
       </Head>
       <AuthNavbar />
-      <main className="sm:flex sm:flex-col lg:flex-row relative content-main">
+      <main className="sm:flex sm:flex-row relative content-main overflow-hidden">
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
-        <div>
+        <div className="overflow-auto">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
             <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
@@ -113,7 +113,7 @@ export default function ApiKey() {
         }
         @media (min-width: 1024px) {
           .content-main {
-            height: calc(100vh - 48px);
+            height: calc(100vh - 64px);
           }
         }
       `}</style>

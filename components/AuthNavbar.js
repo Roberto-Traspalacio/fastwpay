@@ -9,7 +9,7 @@ export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
   const [language, setLanguage] = useState('English');
   return (
-    <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
+    <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
       <Image src={mobileLogo} alt="Fastwpay logo" className="w-[34px] h-6 xl:hidden" />
       <Image src={logoBlue} alt="Fastwpay logo" className="w-[154px] h-[33px] hidden xl:block" />
       <div>
@@ -59,7 +59,7 @@ export default function AuthNavbar({ admin }) {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-3">
+            <div className="items-center gap-3 hidden lg:flex">
               <p className="text-text-1 font-medium typo-body-1">John Constantine</p>
               <Image className="sm:w-[38px]" width="32px" src={avatarIcon} alt="Avatar" />
             </div>

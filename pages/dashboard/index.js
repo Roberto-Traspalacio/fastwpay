@@ -10,11 +10,11 @@ export default function ClientDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
   return (
     <>
-      <Head> 
+      <Head>
         <title>Dashboard</title>
       </Head>
       <AuthNavbar />
-      <main className="sm:flex relative content-main">
+      <main className="sm:flex relative content-main overflow-hidden">
         {/* Menu button */}
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
@@ -32,7 +32,7 @@ export default function ClientDashboard() {
             {/* Balance */}
             <div className="flex flex-col-reverse md:grid-main px-[18px] pt-9 col-span-full sm:pt-12 md:px-0 lg:pt-8">
               {/* Container information */}
-              <div className='md:col-span-full lg:col-span-3 xl:col-span-7 lg:pb-6'>
+              <div className="md:col-span-full lg:col-span-3 xl:col-span-7 lg:pb-6">
                 <p className="typo-heading-3 text-primary-blue text-center mt-[33px] font-bold esm:mt-[35px] sm:mt-[58px] md:mt-[41px] lg:mt-0 lg:text-start">
                   Welcome John Constantine!
                 </p>
@@ -71,7 +71,7 @@ export default function ClientDashboard() {
         }
         @media (min-width: 1024px) {
           .content-main {
-            height: calc(100vh - 48px);
+            height: calc(100vh - 64px);
           }
         }
       `}</style>
