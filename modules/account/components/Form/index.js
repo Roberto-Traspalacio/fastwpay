@@ -68,7 +68,11 @@ export default function Form() {
           </div>
         </div>
         {/* Fisrt name & Last name */}
-        <div className="grid-main col-span-full mt-6 lg:mt-[28px] xl:mt-[28px] lg:gap-5">
+        <div
+          className={`grid-main col-span-full mt-6 lg:mt-[28px] xl:mt-[28px] ${
+            formik.errors.firstName || formik.errors.lastName ? 'lg:gap-0' : 'lg:gap-5'
+          } xl:gap-5`}
+        >
           <Input
             disabled={edit === null || edit === 1}
             className="col-span-2 sm:col-span-4 lg:col-span-full xl:col-span-6"
@@ -93,8 +97,8 @@ export default function Form() {
         {/* Email */}
         <Input
           disabled={edit === null || edit === 1}
-          className={`col-span-full ${formik?.errors.email ? 'mt-0' : 'mt-[14px]'} ${
-            formik?.errors.email ? 'lg:mt-0' : 'lg:mt-5'
+          className={`col-span-full ${formik?.errors.email || formik?.errors.lastName ? 'mt-0' : 'mt-[14px]'} ${
+            formik?.errors.email || formik?.errors.lastName ? 'lg:mt-0' : 'lg:mt-5'
           }`}
           type="text"
           label="Email"
