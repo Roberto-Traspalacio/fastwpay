@@ -59,12 +59,14 @@ export default function Form() {
         <div className="col-span-full">
           <div className="flex gap-[14px] items-center">
             <h6 className="typo-heading-4 text-text-1 font-bold">Personal Information</h6>
-            <Image
-              onClick={() => setEdit(edit === 0 ? null : 0)}
-              className="cursor-pointer"
-              src={editIcon}
-              alt="Edit icon"
-            />
+            {edit !== 0 && (
+              <Image
+                onClick={() => setEdit(edit === 0 ? null : 0)}
+                className="cursor-pointer"
+                src={editIcon}
+                alt="Edit icon"
+              />
+            )}
           </div>
         </div>
         {/* Fisrt name & Last name */}
@@ -143,12 +145,14 @@ export default function Form() {
         <div className="col-span-full">
           <div className="flex gap-[14px] items-center">
             <h6 className="typo-heading-4 text-text-1 font-bold">Withdrawal information</h6>
-            <Image
-              onClick={() => setEdit(edit === 1 ? null : 1)}
-              className="cursor-pointer"
-              src={editIcon}
-              alt="Edit icon"
-            />
+            {edit !== 1 && (
+              <Image
+                onClick={() => setEdit(edit === 1 ? null : 1)}
+                className="cursor-pointer"
+                src={editIcon}
+                alt="Edit icon"
+              />
+            )}
           </div>
         </div>
         {/* Bank Select */}
