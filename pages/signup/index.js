@@ -12,6 +12,7 @@ import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
 import MessageModal from 'modules/auth/components/MessageModal';
+import { setValueFormik } from 'utils/setValueFormik';
 
 const initialState = {
   firstName: '',
@@ -19,10 +20,11 @@ const initialState = {
   email: '',
   password: '',
   country: '',
+  privacyPolicy: null,
 };
 
 export default function Signup() {
-  const [remember, setRemember] = useState(false);
+  const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const { validationSchema } = useValidacionesYup();
@@ -34,6 +36,11 @@ export default function Signup() {
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
   const SUCCESS_REQUEST_CODE = 201;
+
+  const acceptPrivacyPolicy = () => {
+    setPrivacyPolicy(!privacyPolicy);
+    setValueFormik(formik, 'privacyPolicy', !privacyPolicy);
+  };
 
   const onSubmit = async () => {
     setLoading(true);
@@ -82,25 +89,33 @@ export default function Signup() {
                       formik={formik}
                       onChange={handleChangeForm}
                     />
-                    <label className="mb-2 sm:mb-[10px] label-name typo-body-2 sm:text-sm sm:tracking-wider sm:col-start-2 col-span-full text-text-1 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-                      Country
-                    </label>
-                    <select
-                      id="countries"
-                      name="country"
-                      onChange={handleChangeForm}
-                      className={`bg-background-2 mb-[18px] col-span-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 sm:h-12 sm:col-span-6 sm:col-start-2 sm:mb-[26px] xl:col-span-full lg:col-start-3 lg:col-span-4 ${
-                        formik.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
-                      }`}
+                    <div
+                      className={`flex flex-col col-span-full ${
+                        formik?.errors.country ? 'mb-0' : 'mb-[18px]'
+                      } sm:col-span-6 sm:col-start-2 ${
+                        formik?.errors.country ? 'sm:mb-0' : 'sm:mb-[26px]'
+                      } lg:col-start-3 lg:col-span-4 xl:col-span-full`}
                     >
-                      <option selected disabled>
-                        Choose a country
-                      </option>
-                      <option value="ES">Spain</option>
-                      <option value="IT">Italy</option>
-                      <option value="AL">Germany</option>
-                      <option value="FR">France</option>
-                    </select>
+                      <label className="mb-2 sm:mb-[10px] label-name typo-body-2 sm:text-sm sm:tracking-wider col-span-full text-text-1 lg:col-start-3 lg:col-span-4 xl:col-span-full">
+                        Country
+                      </label>
+                      <select
+                        id="countries"
+                        name="country"
+                        onChange={handleChangeForm}
+                        className={`bg-background-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 sm:h-12 ${
+                          formik.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
+                        }`}
+                      >
+                        <option selected disabled>
+                          Choose a country
+                        </option>
+                        <option value="ES">Spain</option>
+                        <option value="IT">Italy</option>
+                        <option value="AL">Germany</option>
+                        <option value="FR">France</option>
+                      </select>
+                    </div>
                     {formik.errors.country && (
                       <p className="input-error-message col-span-full mb-[14px] sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
                         {formik.errors.country}
@@ -111,13 +126,17 @@ export default function Signup() {
                         <input
                           type="checkbox"
                           className="form-checkbox cursor-pointer outline-none w-[18px] h-[18px] shadow-inner[box-shadow: 0px 0px 4px 0px #00000040 inset] text-gray-600"
-                          checked={remember}
-                          onChange={() => setRemember(!remember)}
+                          checked={privacyPolicy}
+                          onChange={acceptPrivacyPolicy}
                         />
-                        <span className="ml-3 text-text-2 typo-body-1">
+                        <span
+                          className={`ml-3 text-text-2 typo-body-1 ${
+                            formik?.errors?.privacyPolicy && 'text-secondary-redHard'
+                          }`}
+                        >
                           Accept the{' '}
                           <Link href="/privacy-policy">
-                            <span className="underline cursor-pointer">privacy policy</span>
+                            <span className={`underline cursor-pointer`}>privacy policy</span>
                           </Link>
                           ?
                         </span>
