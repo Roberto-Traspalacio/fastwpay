@@ -1,13 +1,20 @@
 import AuthNavbar from 'components/AuthNavbar';
 import BalanceCard from 'modules/dashboard/components/BalanceCard';
 import SidebarMenu from 'components/SidebarMenu';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Head from 'next/head';
 import BannerBlue from 'modules/dashboard/components/BannerBlue';
 import MenuButton from 'modules/dashboard/components/MenuButton';
+import { UserContext } from 'context/user/context';
 
 export default function ClientDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
+  const { userInfo, getUserInfo } = useContext(UserContext);
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+
   return (
     <>
       <Head>
@@ -34,7 +41,7 @@ export default function ClientDashboard() {
               {/* Container information */}
               <div className="md:col-span-full lg:col-span-3 xl:col-span-7 lg:pb-6">
                 <p className="typo-heading-3 text-primary-blue text-center mt-[33px] font-bold esm:mt-[35px] sm:mt-[58px] md:mt-[41px] lg:mt-0 lg:text-start">
-                  Welcome John Constantine!
+                  Welcome {userInfo.firstName + ' ' + userInfo.lastName}!
                 </p>
                 <p className="typo-body-1 text-center mt-[10px] esm:mt-[7px] text-text-4 sm:mt-[2px] lg:text-start">
                   Lorem ipsum dolor sit amet consectetur. Donec sagittis netus vulputate.
@@ -46,7 +53,7 @@ export default function ClientDashboard() {
                   dolor nunc fermentum scelerisque enim consequat enim.
                 </p>
                 <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Information</h6>
-                <p className="mt-3 typo-body-1 text-text-4">
+                <p className="mt-3 typo-body-1 text-text-4 pb-6">
                   Lorem ipsum dolor sit amet consectetur. Vulputate cras consectetur maecenas enim pretium iaculis.
                   Lacus purus orci egestas sit id adipiscing adipiscing ultricies. Cum magna sem diam ultrices elit
                   donec. Proin a feugiat orci nec at ut facilisis. Posuere pellentesque eu velit ornare. Risus egestas

@@ -3,11 +3,14 @@ import mobileLogo from 'assets/mobile-logo.svg';
 import logoBlue from 'assets/logoBlue.svg';
 import avatarIcon from 'assets/avatar.svg';
 import polygonIcon from 'assets/polygon.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from 'context/user/context';
 
 export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
   const [language, setLanguage] = useState('English');
+  const { userInfo } = useContext(UserContext);
+
   return (
     <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
       <Image src={mobileLogo} alt="Fastwpay logo" className="w-[34px] h-6 xl:hidden" />
@@ -60,7 +63,7 @@ export default function AuthNavbar({ admin }) {
               )}
             </div>
             <div className="items-center gap-3 hidden lg:flex">
-              <p className="text-text-1 font-medium typo-body-1">John Constantine</p>
+              <p className="text-text-1 font-medium typo-body-1">{userInfo?.firstName + ' ' + userInfo?.lastName}</p>
               <Image className="sm:w-[38px]" width="32px" src={avatarIcon} alt="Avatar" />
             </div>
           </div>

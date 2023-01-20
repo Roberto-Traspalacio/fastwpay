@@ -6,6 +6,7 @@ import summaryIcon from 'assets/summarize.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 export default function SidebarMenu({ open, setOpen, className, admin }) {
   const router = useRouter();
@@ -14,6 +15,12 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
       setOpen(false);
     }
   };
+
+  const logout = () => {
+    Cookies.remove('auth');
+    router.push('/login');
+  };
+
   return (
     <>
       <div
@@ -67,7 +74,10 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               </div>
             </Link>
           )}
-          <div className="item flex flex-col items-center justify-center py-[11px] absolute bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]">
+          <div
+            className="item flex flex-col items-center justify-center py-[11px] absolute bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]"
+            onClick={logout}
+          >
             <Image src={logoutIcon} alt="Logout icon" />
             <p className="mt-[6px] text-white typo-body-1">Logout</p>
           </div>

@@ -10,12 +10,12 @@ export default function Input({ formik, type, name, label, onChange, className }
         name={name}
         onChange={onChange}
         className={`input-name bg-background-2 h-9 col-span-full rounded-md mb-[18px] sm:rounded-[10px] sm:mb-5 sm:h-12 py-4 px-5 typo-body-1 sm:col-span-6 sm:col-start-2  xl:col-span-full lg:col-start-3 lg:col-span-4 ${
-          formik.errors[name] && 'input-error mb-[4px] sm:mb-[4px] xl:mb-[5px]'
+          formik?.errors[name] && 'input-error mb-[4px] sm:mb-[4px] xl:mb-[5px]'
         } ${className}`}
       />
-      {formik.errors[name] && (
+      {formik?.errors[name] && (
         <p className="input-error-message col-span-full mb-[14px] sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-          {formik.errors[name]}
+          {formik?.errors[name]}
         </p>
       )}
     </>

@@ -51,7 +51,7 @@ export default function Signup() {
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative h-screen">
+        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
             <Image
@@ -115,7 +115,11 @@ export default function Signup() {
                           onChange={() => setRemember(!remember)}
                         />
                         <span className="ml-3 text-text-2 typo-body-1">
-                          Accept the <span className="underline">privacy policy</span>?
+                          Accept the{' '}
+                          <Link href="/privacy-policy">
+                            <span className="underline cursor-pointer">privacy policy</span>
+                          </Link>
+                          ?
                         </span>
                       </label>
                     </div>

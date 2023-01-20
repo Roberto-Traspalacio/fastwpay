@@ -6,10 +6,28 @@ import Head from 'next/head';
 import BannerBlue from 'modules/dashboard/components/BannerBlue';
 import { Button } from 'components';
 import ListApikeys from 'modules/dashboard/components/ListApikeys';
+import useForm from 'hooks/useForm';
+import { useFormik } from 'formik';
+import { useYupValidations } from 'modules/dashboard/api-key/yup';
+import { Apikey } from 'services/Apikey.service';
 
 export default function ApiKey() {
   const [openSidebar, setOpenSidebar] = useState(true);
   const [tab, setTab] = useState(0);
+  const { validationSchema } = useYupValidations();
+  const formik = useFormik({
+    initialValues: { reference: '' },
+    onSubmit: () => onSubmit(form),
+    validationSchema,
+  });
+  const { form, handleChangeForm } = useForm({ reference: '' }, formik);
+  const apiKey = new Apikey();
+
+  const onSubmit = async () => {
+    const data = await apiKey.generate(form);
+    console.log('🚀 ~ file: index.js:28 ~ onSubmit ~ data', data);
+  };
+
   return (
     <>
       <Head>
@@ -66,17 +84,32 @@ export default function ApiKey() {
                     disable or delete API keys that are no longer in use and those sites will no longer receive updates.
                     You can create as many API keys as you need, but you can only use one per store.
                   </p>
-                  {/* Box input */}
-                  <div className="flex flex-col col-span-full mt-3 sm:flex-row sm:items-center sm:gap-5 lg:px-0 xl:justify-between">
-                    <input
-                      type="text"
-                      placeholder="Add name for reference..."
-                      className="w-[100%] rounded-[10px] typo-body-1 py-[11px] pl-6 bg-background-6 sm:w-[239px] xl:w-[314px]"
-                    />
-                    <Button className="min-w-[157px] m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]">
+
+                  <form
+                    className="flex flex-col col-span-full mt-3 sm:flex-row sm:items-start sm:gap-5 lg:px-0 xl:justify-between"
+                    onSubmit={formik.handleSubmit}
+                  >
+                    <div className="relative">
+                      <input
+                        name="reference"
+                        onChange={handleChangeForm}
+                        type="text"
+                        placeholder="Add name for reference..."
+                        className="w-[100%] rounded-[10px] typo-body-1 py-[11px] pl-6 bg-background-6 sm:w-[239px] xl:w-[314px]"
+                      />
+                      {formik.errors?.reference && (
+                        <p className="input-error-message col-span-full l-2 sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
+                          {formik.errors?.reference}
+                        </p>
+                      )}
+                    </div>
+                    <Button
+                      type="submit"
+                      className="min-w-[157px] m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
+                    >
                       Generate Api key
                     </Button>
-                  </div>
+                  </form>
                 </div>
               </div>
             ) : (

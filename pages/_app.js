@@ -1,9 +1,12 @@
-import "../styles/globals.css";
+import UserProvider from 'context/user/provider';
+import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }) {
-	return (
-		<main className={`font-sans`}>
-			<Component {...pageProps} />
-		</main>
-	);
+  return (
+    <UserProvider>
+      <main className={`font-sans`}>
+        <Component {...pageProps} />
+      </main>
+    </UserProvider>
+  );
 }

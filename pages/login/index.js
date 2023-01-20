@@ -48,7 +48,7 @@ export default function Login() {
       </Head>
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-        <section className="xl:flex content-main relative">
+        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image
               alt="Dashboard Fastwpay"
@@ -108,15 +108,24 @@ export default function Login() {
       <style jsx>{`
         .content-main {
           min-height: calc(100vh - 50px);
+          height: calc(100vh - 50px);
         }
         @media (min-width: 601px) {
           .content-main {
-            min-height: calc(100vh - 56px);
+            min-height: calc(625px - 56px);
+            height: calc(100vh - 56px);
           }
         }
         @media (min-width: 768px) {
           .content-main {
-            min-height: calc(100vh - 64px);
+            min-height: calc(625px - 64px);
+            height: calc(100vh - 64px);
+          }
+        }
+        @media (min-width: 1280px) {
+          .content-main {
+            min-height: 100vh;
+            height: 100vh;
           }
         }
       `}</style>

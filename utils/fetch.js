@@ -14,11 +14,14 @@ const fetch = {
       console.log(error);
     }
   },
-  post: async (endpoint, body) => {
+  post: async (endpoint, body, token) => {
     try {
       const response = await window.fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: {
+          'Content-Type': 'Application/json',
+          [token && 'Authorization']: `Bearer ${token}`,
+        },
         body: JSON.stringify(body),
       });
       const data = await response.json();
