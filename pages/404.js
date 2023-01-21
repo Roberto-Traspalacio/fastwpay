@@ -10,7 +10,7 @@ export default function Custom404() {
         <div className="hidden lg:flex items-center justify-center lg:col-span-3 lg:col-start-2 xl:col-span-6 xl:col-start-1">
           <Image className="w-full xl:h-[80vh]" src={notFound} alt="404" />
         </div>
-        <div className="w-full flex flex-col justify-center items-center px-[18px] lg:col-span-4 lg:px-0 xl:col-start-8 xl:col-end-12">
+        <div className="w-full col-span-full flex flex-col justify-center items-center px-[18px] lg:col-span-4 lg:px-0 xl:col-start-8 xl:col-end-12">
           <h4 className="typo-display-1 font-medium text-text-1 text-center">404</h4>
           <h5 className="text-text-1 typo-display-2 text-center">Page Not Found</h5>
           <p className="text-center typo-body-1 text-text-2 max-w-[44ch]">
