@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import { useYupValidations } from './yup';
 import { UserContext } from 'context/user/context';
 import { setValueFormik } from 'utils/setValueFormik';
+import { ScreenLoaderContext } from 'context/screenLoader/context';
 
 const initialUserInfo = {
   firstName: '',
@@ -29,6 +30,7 @@ export default function Form() {
   const { form, handleChangeForm } = useForm(initialUserInfo, formik);
   const SUCCESS_REQUEST_CODE = 201;
   const { userInfo, getUserInfo } = useContext(UserContext);
+  const { setShowScreenLoader } = useContext(ScreenLoaderContext);
 
   const cancel = () => {
     setEdit(null);
@@ -37,6 +39,11 @@ export default function Form() {
 
   const onSubmit = async () => {
     console.log('SE ESTA ACTUALIZANDO LA INFORMACION DEL USUARIO');
+    setShowScreenLoader(true);
+    setEdit(null);
+    setTimeout(() => {
+      setShowScreenLoader(false);
+    }, 2500);
   };
 
   useEffect(() => {
