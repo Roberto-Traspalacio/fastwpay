@@ -13,6 +13,7 @@ import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import ErrorToast from 'components/ErrorToast';
 
 const initialState = {
   email: '',
@@ -20,6 +21,10 @@ const initialState = {
 };
 
 export default function Login() {
+  const [error, setError] = useState({
+    show: false,
+    text: '',
+  });
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -31,10 +36,15 @@ export default function Login() {
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
+  const UNATHORIZED_ERROR_CODE = 401;
 
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.login(form);
+    if (data?.response.status === UNATHORIZED_ERROR_CODE) {
+      setError({ show: true, text: 'Invalid username or password' });
+      setTimeout(() => setError({ ...error, show: false }), 4500);
+    }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
       router.push('/dashboard');
@@ -49,6 +59,7 @@ export default function Login() {
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
         <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
+          {error.show && <ErrorToast text={error.text} className="xl:hidden" />}
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image
               alt="Dashboard Fastwpay"
@@ -62,6 +73,7 @@ export default function Login() {
             />
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
+            {error.show && <ErrorToast text={error.text} className="hidden xl:block" />}
             <GoHomeButton arrow>Go Home</GoHomeButton>
             <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
               <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
