@@ -68,7 +68,7 @@ export default function ApiKey() {
             </div>
             {/* Content information */}
             {tab === 0 ? (
-              <div className="lg:px-0 lg:grid-main">
+              <div className="lg:px-0 lg:grid-main pb-4">
                 <div className="col-span-3 xl:col-span-5">
                   <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Activating your plugin</h6>
                   <p className="mt-3 typo-body-1 text-text-4 text-justify">

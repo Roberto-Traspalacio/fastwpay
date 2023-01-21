@@ -103,7 +103,7 @@ export default function Signup() {
                         id="countries"
                         name="country"
                         onChange={handleChangeForm}
-                        className={`bg-background-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 sm:h-12 ${
+                        className={`bg-background-2 text-gray-900 border-r-[20px] border-transparent text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 sm:h-12 ${
                           formik.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
                         }`}
                       >

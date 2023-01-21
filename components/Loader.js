@@ -1,4 +1,4 @@
-export default function Loader() {
+export default function Loader({ width, height, color }) {
   return (
     <>
       <div>
@@ -53,17 +53,17 @@ export default function Loader() {
       </div>
       <style jsx>{`
         .loader {
-          width: 14.82px;
-          height: 14px;
+          width: ${width || '14.82px'};
+          height: ${height || '14px'};
         }
         svg path,
         svg rect {
-          fill: #fff;
+          fill: ${color || '#fff'};
         }
         @media (min-width: 601px) {
           .loader {
-            width: 18px;
-            height: 17px;
+            width: ${width || '18px'};
+            height: ${height || '17px'};
           }
         }
       `}</style>

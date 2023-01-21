@@ -7,9 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import { useContext } from 'react';
+import { ScreenLoaderContext } from 'context/screenLoader/context';
 
 export default function SidebarMenu({ open, setOpen, className, admin }) {
+  const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const router = useRouter();
+
   const closeSidebar = (e) => {
     if (e.target.className.includes('box')) {
       setOpen(false);
@@ -17,8 +21,12 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
   };
 
   const logout = () => {
+    setShowScreenLoader(true);
     Cookies.remove('auth');
     router.push('/login');
+    setTimeout(() => {
+      setShowScreenLoader(false);
+    }, 2500);
   };
 
   return (

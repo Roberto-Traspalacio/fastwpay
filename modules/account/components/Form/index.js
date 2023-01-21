@@ -122,7 +122,7 @@ export default function Form() {
             value={formik.values.country}
             className={`${
               edit === null || edit === 1 ? 'bg-background-7' : 'bg-background-2'
-            } col-span-full text-gray-900 text-sm mt-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 md:col-span-6 md:col-start-2 ${
+            } col-span-full text-gray-900 text-sm border-r-[20px] border-transparent mt-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 md:col-span-6 md:col-start-2 ${
               formik?.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
             }`}
           >
@@ -168,7 +168,7 @@ export default function Form() {
             name="bank"
             className={`${
               edit === null || edit === 0 ? 'bg-background-7' : 'bg-background-2'
-            } col-span-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 lg:mt-[10px]`}
+            } col-span-full text-gray-900 border-r-[20px] border-transparent text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 lg:mt-[10px]`}
           >
             <option selected disabled>
               Choose a bank
