@@ -10,9 +10,12 @@ import { useValidacionesYup } from '../../modules/auth/recover-password/yup';
 import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
+import MessageModal from 'modules/auth/components/MessageModal';
 
 const initialState = { email: '' };
+
 export default function RecoverPassword() {
+  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
@@ -22,11 +25,15 @@ export default function RecoverPassword() {
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
+  const SUCCESS_REQUEST_CODE = 200;
 
   const onSubmit = async () => {
     setLoading(true);
-    await auth.sendEmailRecoverPassword(form);
+    const data = await auth.sendEmailRecoverPassword(form);
     setLoading(false);
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setShowModal(true);
+    }
   };
 
   return (
@@ -46,31 +53,37 @@ export default function RecoverPassword() {
             />
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
-            <GoHomeButton>Go Home</GoHomeButton>
-            <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
-              <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
-                <h2
-                  className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
-                  style={{ color: '#202324' }}
-                >
-                  Reset password
-                </h2>
-                <Input
-                  type="text"
-                  label="Email"
-                  name="email"
-                  formik={formik}
-                  onChange={handleChangeForm}
-                  className="mb-5 sm:mb-[25px]"
-                />
-                <button className="col-span-full flex items-center justify-center h-[38px] sm:h-[44px] lg:h-[47px] sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full">
-                  {loading ? <Loader /> : <div className="typo-body-1">Reset password</div>}
-                </button>
-                <p className="text-center w-[30ch] m-auto col-span-full mt-[20px] typo-body-1 sm:mt-[25px] lg:pb-0">
-                  Enter your email address and we will send you a password reset link
-                </p>
-              </form>
-            </div>
+            {showModal ? (
+              <MessageModal email={form.email} />
+            ) : (
+              <>
+                <GoHomeButton back>Go Back</GoHomeButton>
+                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
+                  <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
+                    <h2
+                      className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
+                      style={{ color: '#202324' }}
+                    >
+                      Reset password
+                    </h2>
+                    <Input
+                      type="text"
+                      label="Email"
+                      name="email"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                      className="mb-5 sm:mb-[25px]"
+                    />
+                    <button className="col-span-full flex items-center justify-center h-[38px] sm:h-[44px] lg:h-[47px] sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full">
+                      {loading ? <Loader /> : <div className="typo-body-1">Reset password</div>}
+                    </button>
+                    <p className="text-center w-[30ch] m-auto col-span-full mt-[20px] typo-body-1 sm:mt-[25px] lg:pb-0">
+                      Enter your email address and we will send you a password reset link
+                    </p>
+                  </form>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </main>

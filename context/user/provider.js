@@ -11,7 +11,7 @@ export default function UserProvider({ children }) {
 
   const getUserInfo = async () => {
     const data = await user.getUser();
-    if (data.response.status === SUCCESS_REQUEST_CODE) {
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
       dispatch({
         type: types.GET_USER_INFO,
         userInfo: data.data,

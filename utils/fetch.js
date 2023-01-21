@@ -30,16 +30,15 @@ const fetch = {
       console.log(error);
     }
   },
-  put: async (endpoint, data) => {
+  put: async (endpoint, body) => {
     try {
       const response = await window.fetch(`${API_URL}${endpoint}`, {
         method: 'PUT',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
       });
-      const responseParsed = await response.json();
-      console.log('Data: ', responseParsed);
-      return responseParsed;
+      const data = await response.json();
+      return { data, response };
     } catch (error) {
       console.log(error);
     }

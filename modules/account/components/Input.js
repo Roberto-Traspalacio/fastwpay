@@ -8,7 +8,9 @@ export default function Input({ className, formik, type, name, label, onChange, 
         name={name}
         onChange={onChange}
         disabled={disabled}
-        className={`w-[100%] h-9 mt-2 bg-background-7 rounded-lg text-text-2 pl-[14px] typo-body-1 sm:h-12 lg:mt-[10px] ${
+        className={`w-[100%] h-9 mt-2 ${
+          disabled ? 'bg-background-7' : 'bg-background-2'
+        } rounded-lg text-text-2 pl-[14px] typo-body-1 sm:h-12 lg:mt-[10px] ${
           formik?.errors[name] && 'input-error mb-[4px] sm:mb-[4px] xl:mb-[5px]'
         }`}
         type={type}

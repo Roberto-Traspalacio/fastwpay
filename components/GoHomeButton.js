@@ -1,16 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import arrowIcon from '/assets/arrow-icon.svg';
 
-export default function GoHomeButton({ className = '' }) {
+export default function GoHomeButton({ className = '', children, back }) {
+  const router = useRouter();
+
   return (
-    <Link href="/">
-      <button
-        className={`${className} flex items-center gap-[14px] xsm:gap-[18px] esm:mt-[18px] cursor-pointer mt-[14px] sm:mt-[24px] sm:gap-[24px] lg:gap-[20px] lg:ml-[40px] xl:gap-[24px]`}
-      >
-        <Image alt="Arrow left" src={arrowIcon} className={`typo-body-1 rotate-180`} />
-        <p className="typo-body-1 text-primary-blue esm:text-sm sm:text-base">Go Home</p>
-      </button>
-    </Link>
+    <button
+      onClick={() => (back ? router.back() : router.push('/'))}
+      className={`${className} flex items-center gap-[14px] xsm:gap-[18px] esm:mt-[18px] cursor-pointer mt-[14px] sm:mt-[24px] sm:gap-[24px] lg:gap-[20px] lg:ml-[40px] xl:gap-[24px]`}
+    >
+      <Image alt="Arrow left" src={arrowIcon} className={`typo-body-1 rotate-180`} />
+      <p className="typo-body-1 text-primary-blue esm:text-sm sm:text-base">{children}</p>
+    </button>
   );
 }

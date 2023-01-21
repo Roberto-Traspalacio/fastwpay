@@ -10,6 +10,7 @@ export class Auth {
   }
   async sendEmailRecoverPassword(email) {
     const data = await fetch.put('/auth/forgot-password', email);
+    return data;
   }
   async recoverPassword(password, token) {
     const data = await fetch.patch(`/auth/recover-password?token=${token}`, password);
