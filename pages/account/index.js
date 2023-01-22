@@ -5,6 +5,7 @@ import BannerBlue from 'modules/dashboard/components/BannerBlue';
 import MenuButton from 'modules/dashboard/components/MenuButton';
 import Head from 'next/head';
 import Form from 'modules/account/components/Form';
+import IntlMessages from 'utils/IntlMessages';
 
 export default function Account() {
   const [openSidebar, setOpenSidebar] = useState(true);
@@ -21,7 +22,7 @@ export default function Account() {
         <div className="w-[100%] center-container sm:pb-6 lg:px-5 overflow-auto">
           <BannerBlue className="sm:mx-5 lg:mx-0" />
           <h3 className="typo-heading-2 col-span-full mt-8 pl-[18px] sm:pl-5 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
-            Account
+            <IntlMessages id="account.title" />
           </h3>
           {/* Linea */}
           <div className="ml-[18px] h-[3px] bg-background-4 col-span-full relative mt-2 sm:ml-5 md:mt-5 lg:ml-0">

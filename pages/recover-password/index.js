@@ -11,6 +11,7 @@ import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
 import MessageModal from 'modules/auth/components/MessageModal';
+import IntlMessages from 'utils/IntlMessages';
 
 const initialState = { email: '' };
 
@@ -54,31 +55,39 @@ export default function RecoverPassword() {
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
             {showModal ? (
-              <MessageModal email={form.email} />
+              <MessageModal email={form.email} text={<IntlMessages id="auth.text.resetPasswordEmail" />} />
             ) : (
               <>
-                <GoHomeButton back>Go Back</GoHomeButton>
+                <GoHomeButton back>
+                  <IntlMessages id="common.goBack" />
+                </GoHomeButton>
                 <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
                   <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                     <h2
                       className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
                       style={{ color: '#202324' }}
                     >
-                      Reset password
+                      <IntlMessages id="auth.resetPassword" />
                     </h2>
                     <Input
                       type="text"
-                      label="Email"
+                      label={<IntlMessages id="common.email" />}
                       name="email"
                       formik={formik}
                       onChange={handleChangeForm}
                       className="mb-5 sm:mb-[25px]"
                     />
                     <button className="col-span-full flex items-center justify-center h-[38px] sm:h-[44px] lg:h-[47px] sm:col-start-2 sm:col-span-6 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full">
-                      {loading ? <Loader /> : <div className="typo-body-1">Reset password</div>}
+                      {loading ? (
+                        <Loader />
+                      ) : (
+                        <div className="typo-body-1">
+                          <IntlMessages id="auth.resetPassword" />
+                        </div>
+                      )}
                     </button>
                     <p className="text-center w-[30ch] m-auto col-span-full mt-[20px] typo-body-1 sm:mt-[25px] lg:pb-0">
-                      Enter your email address and we will send you a password reset link
+                      <IntlMessages id="auth.resetPassword.text" />
                     </p>
                   </form>
                 </div>

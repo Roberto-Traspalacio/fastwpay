@@ -1,25 +1,46 @@
-export default function ApikeyColumn() {
+import { useRef } from 'react';
+import IntlMessages from 'utils/IntlMessages';
+
+export default function ApikeyColumn({ reference, date, status, apiKey }) {
+  const apiKeyRef = useRef();
+
+  function copy(ref) {
+    let text = ref.current;
+    text.select();
+    text.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(text.value);
+  }
+
   return (
     <div className="grid-main col-span-full border-t border-background-4 min-w-[874px] overflow-auto">
       {/* Reference */}
-      <p className="col-span-1 pt-[29px] pb-[26px] typo-body-1 text-text-1">Casas Win</p>
+      <p className="col-span-1 pt-[29px] pb-[26px] typo-body-1 text-text-1">{reference}</p>
       {/* Date */}
-      <p className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 text-text-1 xl:col-span-2 xl:col-start-3">11/04/2022</p>
+      <p className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 text-text-1 xl:col-span-2 xl:col-start-3">
+        {date}
+      </p>
       {/* Status */}
-      <p
-        className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 font-medium"
-        style={{ color: '#1FB81F' }}
-      >
-        Active
+      <p className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 font-medium" style={{ color: '#1FB81F' }}>
+        {status}
       </p>
       {/* API key */}
       <div className="col-span-2 text-center flex justify-center pt-[29px] pb-[26px] xl:col-span-3">
         <div
-          className="col-span-full w-[100%] h-[38px] rounded-[10px] flex gap-[5px] items-center justify-around"
+          className="col-span-full w-[100%] h-[38px] rounded-[10px] flex gap-[5px] pr-[16px] items-center justify-around"
           style={{ background: '#EEF2F5' }}
         >
-          <p className="typo-body-1 text-text-2">2hnd864hkm94ed...</p>
+          <p className="">
+            <input
+              disabled
+              className="pl-4 w-[100%] typo-body-1 text-text-2"
+              type="text"
+              // disabled
+              ref={apiKeyRef}
+              value={apiKey}
+            />
+          </p>
           <svg
+            onClick={() => copy(apiKeyRef)}
             className="cursor-pointer"
             width="13"
             height="16"
@@ -37,10 +58,10 @@ export default function ApikeyColumn() {
       {/* Actions */}
       <div className="flex justify-between col-span-2 col-start-7 w-[100%] xl:col-span-3 xl:col-start-10">
         <button className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1 ">
-          Deactivate
+          <IntlMessages id="common.deactivate" />
         </button>
         <button className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1 ">
-          Delete
+          <IntlMessages id="common.delete" />
         </button>
       </div>
     </div>

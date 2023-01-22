@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { useContext } from 'react';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
+import IntlMessages from 'utils/IntlMessages';
 
 export default function SidebarMenu({ open, setOpen, className, admin }) {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
@@ -46,7 +47,9 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
                   }`}
                 >
                   <Image src={dashboardIcon} alt="Dashboard icon" />
-                  <p className={`mt-[6px] text-white typo-body-1`}>Dashboard</p>
+                  <p className={`mt-[6px] text-white typo-body-1`}>
+                    <IntlMessages id="dashboard.title" />
+                  </p>
                 </div>
               </Link>
               <Link href="/dashboard/api-key">
@@ -56,7 +59,9 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
                   }`}
                 >
                   <Image src={lockIcon} alt="Dashboard icon" />
-                  <p className="mt-[6px] text-white typo-body-1">API key</p>
+                  <p className="mt-[6px] text-white typo-body-1">
+                    <IntlMessages id="apiKey.title" />
+                  </p>
                 </div>
               </Link>
               <Link href="/account">
@@ -66,7 +71,9 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
                   }`}
                 >
                   <Image src={personIcon} alt="Dashboard icon" />
-                  <p className="mt-[6px] text-white typo-body-1">Account</p>
+                  <p className="mt-[6px] text-white typo-body-1">
+                    <IntlMessages id="account.title" />
+                  </p>
                 </div>
               </Link>
             </>
@@ -87,7 +94,9 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
             onClick={logout}
           >
             <Image src={logoutIcon} alt="Logout icon" />
-            <p className="mt-[6px] text-white typo-body-1">Logout</p>
+            <p className="mt-[6px] text-white typo-body-1">
+              <IntlMessages id="common.logout" />
+            </p>
           </div>
         </div>
       </div>

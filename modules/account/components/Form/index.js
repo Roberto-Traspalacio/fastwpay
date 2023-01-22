@@ -9,6 +9,7 @@ import { useYupValidations } from './yup';
 import { UserContext } from 'context/user/context';
 import { setValueFormik } from 'utils/setValueFormik';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
+import IntlMessages from 'utils/IntlMessages';
 
 const initialUserInfo = {
   firstName: '',
@@ -65,7 +66,9 @@ export default function Form() {
         {/* Personal Information */}
         <div className="col-span-full">
           <div className="flex gap-[14px] items-center">
-            <h6 className="typo-heading-4 text-text-1 font-bold">Personal Information</h6>
+            <h6 className="typo-heading-4 text-text-1 font-bold">
+              <IntlMessages id="account.personalInformation" />
+            </h6>
             {edit !== 0 && (
               <Image
                 onClick={() => setEdit(edit === 0 ? null : 0)}
@@ -86,7 +89,7 @@ export default function Form() {
             disabled={edit === null || edit === 1}
             className="col-span-2 sm:col-span-4 lg:col-span-full xl:col-span-6"
             type="text"
-            label="First Name"
+            label={<IntlMessages id="common.firstName" />}
             name="firstName"
             formik={formik}
             value={formik.values.firstName}
@@ -96,7 +99,7 @@ export default function Form() {
             disabled={edit === null || edit === 1}
             className="col-span-2 sm:col-span-4 lg:col-span-full xl:col-span-6"
             type="text"
-            label="Last Name"
+            label={<IntlMessages id="common.lastName" />}
             name="lastName"
             formik={formik}
             value={formik.values.lastName}
@@ -110,7 +113,7 @@ export default function Form() {
             formik?.errors.email || formik?.errors.lastName ? 'lg:mt-0' : 'lg:mt-5'
           }`}
           type="text"
-          label="Email"
+          label={<IntlMessages id="common.email" />}
           name="email"
           formik={formik}
           value={formik.values.email}
@@ -119,7 +122,7 @@ export default function Form() {
         {/* Country Select */}
         <div className="col-span-full mt-[14px] lg:mt-5">
           <label className="typo-body-2 mb-2 ml-[8px] text-text-1" htmlFor="countries">
-            Country
+            <IntlMessages id="common.country" />
           </label>
           <select
             disabled={edit === null || edit === 1}
@@ -134,7 +137,7 @@ export default function Form() {
             }`}
           >
             <option className="typo-body-1" selected disabled>
-              Choose a country
+              <IntlMessages id="common.chooseCountry" />
             </option>
             <option value="ES">Spain</option>
             <option value="IT">Italy</option>
@@ -153,7 +156,9 @@ export default function Form() {
         {/* Withdrawal information */}
         <div className="col-span-full">
           <div className="flex gap-[14px] items-center">
-            <h6 className="typo-heading-4 text-text-1 font-bold">Withdrawal information</h6>
+            <h6 className="typo-heading-4 text-text-1 font-bold">
+              <IntlMessages id="account.withdrawalInformation" />
+            </h6>
             {edit !== 1 && (
               <Image
                 onClick={() => setEdit(edit === 1 ? null : 1)}
@@ -167,7 +172,7 @@ export default function Form() {
         {/* Bank Select */}
         <div className="col-span-full mt-[18px] sm:mt-6 xl:mt-[28px]">
           <label className="typo-body-2 mb-2 ml-[8px] text-text-1" htmlFor="countries">
-            Bank
+            <IntlMessages id="common.bank" />
           </label>
           <select
             disabled={edit === null || edit === 0}
@@ -178,7 +183,7 @@ export default function Form() {
             } col-span-full text-gray-900 border-r-[20px] border-transparent text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 lg:mt-[10px]`}
           >
             <option selected disabled>
-              Choose a bank
+              <IntlMessages id="common.chooseBank" />
             </option>
             <option value="ES">BBVA</option>
             <option value="IT">Banesco</option>
@@ -191,7 +196,7 @@ export default function Form() {
           disabled={edit === null || edit === 0}
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
-          label="Account number"
+          label={<IntlMessages id="account.accountNumber" />}
         />
         {edit === 1 && <EditButtons className="mt-5" edit={edit} setEdit={setEdit} />}
       </form>

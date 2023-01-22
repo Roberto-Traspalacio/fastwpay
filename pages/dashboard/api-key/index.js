@@ -10,17 +10,20 @@ import useForm from 'hooks/useForm';
 import { useFormik } from 'formik';
 import { useYupValidations } from 'modules/dashboard/api-key/yup';
 import { Apikey } from 'services/Apikey.service';
+import IntlMessages from 'utils/IntlMessages';
+
+const initialForm = { reference: '' };
 
 export default function ApiKey() {
   const [openSidebar, setOpenSidebar] = useState(true);
   const [tab, setTab] = useState(0);
   const { validationSchema } = useYupValidations();
   const formik = useFormik({
-    initialValues: { reference: '' },
+    initialValues: initialForm,
     onSubmit: () => onSubmit(form),
     validationSchema,
   });
-  const { form, handleChangeForm } = useForm({ reference: '' }, formik);
+  const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
 
   const onSubmit = async () => {
@@ -34,14 +37,14 @@ export default function ApiKey() {
         <title>Dashboard | API key</title>
       </Head>
       <AuthNavbar />
-      <main className="sm:flex sm:flex-row relative content-main overflow-hidden">
+      <main className="sm:flex sm:flex-row relative content-main">
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
         <div className="overflow-auto">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
             <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
-              API key
+              <IntlMessages id="apiKey.title" />
             </h3>
             {/* Linea */}
             <div className="h-[3px] bg-background-4 col-span-full relative mt-2 md:mt-5 lg:ml-0">
@@ -52,7 +55,7 @@ export default function ApiKey() {
                   tab === 0 ? 'tab-active' : 'tab'
                 } absolute right-[113px] top-[-38px] xsm:top-[-40px] typo-body-1 py-[10px] px-[13px] sm:top-[-44px] sm:right-[150px]`}
               >
-                Create
+                <IntlMessages id="common.create" />
               </button>
               <button
                 onClick={() => setTab(1)}
@@ -60,7 +63,7 @@ export default function ApiKey() {
                   tab === 1 ? 'tab-active' : 'tab'
                 } flex items-center gap-1 absolute py-[10px] px-[13px] top-[-38px] xsm:top-[-40px] right-0 typo-body-1 text-text-2 font-normal sm:top-[-44px]`}
               >
-                List Api Keys
+                <IntlMessages id="apiKey.listApikeys" />
                 <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
                   7
                 </p>
@@ -70,19 +73,19 @@ export default function ApiKey() {
             {tab === 0 ? (
               <div className="lg:px-0 lg:grid-main pb-4">
                 <div className="col-span-3 xl:col-span-5">
-                  <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Activating your plugin</h6>
+                  <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">
+                    <IntlMessages id="apiKey.activatingYourPlugin" />
+                  </h6>
                   <p className="mt-3 typo-body-1 text-text-4 text-justify">
-                    API keys are used to activate your plugins after installing them on your online store. To activate
-                    your product and enable plugin updates, simply enter your API Key in the "settings" tab within your
-                    WordPress Dashboard of your online store.
+                    <IntlMessages id="apiKey.activatingYourPlugin.text" />
                   </p>
                 </div>
                 <div className="col-start-5 col-span-4 xl:col-start-7 xl:col-span-6">
-                  <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Your API keys</h6>
+                  <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">
+                    <IntlMessages id="apiKey.yourApikeys" />
+                  </h6>
                   <p className="mt-3 typo-body-1 text-text-4 text-justify">
-                    They can create new API Keys for different Online Stores and/or different clients. You can also
-                    disable or delete API keys that are no longer in use and those sites will no longer receive updates.
-                    You can create as many API keys as you need, but you can only use one per store.
+                    <IntlMessages id="apiKey.yourApikeys.text" />
                   </p>
 
                   <form
@@ -107,7 +110,7 @@ export default function ApiKey() {
                       type="submit"
                       className="min-w-[157px] m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
                     >
-                      Generate Api key
+                      <IntlMessages id="apiKey.generate" />
                     </Button>
                   </form>
                 </div>
@@ -140,8 +143,10 @@ export default function ApiKey() {
         }
         @media (min-width: 601px) {
           .center-container {
-            max-height: calc(100vh - 48px);
-            overflow: auto;
+            /* border: 1px solid red; */
+            /* max-height: calc(100vh - 48px); */
+            /* overflow: auto; */
+            /* overflow: hidden; */
           }
         }
         @media (min-width: 1024px) {

@@ -14,6 +14,7 @@ import Loader from 'components/Loader';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import ErrorToast from 'components/ErrorToast';
+import IntlMessages from 'utils/IntlMessages';
 
 const initialState = {
   email: '',
@@ -74,17 +75,31 @@ export default function Login() {
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
             {error.show && <ErrorToast text={error.text} className="hidden xl:block" />}
-            <GoHomeButton arrow>Go Home</GoHomeButton>
+            <GoHomeButton arrow>
+              <IntlMessages id="common.goHome" />
+            </GoHomeButton>
             <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
               <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                 <h2
                   className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
                   style={{ color: '#202324' }}
                 >
-                  Login
+                  <IntlMessages id="auth.login" />
                 </h2>
-                <Input type="text" label="Email" name="email" formik={formik} onChange={handleChangeForm} />
-                <Input type="password" label="Password" name="password" formik={formik} onChange={handleChangeForm} />
+                <Input
+                  type="text"
+                  label={<IntlMessages id="common.email" />}
+                  name="email"
+                  formik={formik}
+                  onChange={handleChangeForm}
+                />
+                <Input
+                  type="password"
+                  label={<IntlMessages id="common.password" />}
+                  name="password"
+                  formik={formik}
+                  onChange={handleChangeForm}
+                />
                 {/* Remember me and recover password */}
                 <div className="col-span-full flex items-center justify-between sm:col-start-2 sm:col-end-8 lg:col-start-3 lg:col-span-4 xl:col-span-full">
                   <label className="inline-flex items-center">
@@ -94,22 +109,32 @@ export default function Login() {
                       checked={remember}
                       onChange={() => setRemember(!remember)}
                     />
-                    <span className="ml-2 text-text-2 typo-body-1">Remember me</span>
+                    <span className="ml-2 text-text-2 typo-body-1">
+                      <IntlMessages id="auth.login.rememberMe" />
+                    </span>
                   </label>
                   <Link className="text-text-2 typo-body-1 underline" href="/recover-password">
-                    Forgot your password?
+                    <IntlMessages id="auth.login.forgotYourPassword" />
                   </Link>
                 </div>
                 <button
                   type="submit"
                   className="col-span-full h-[38px] sm:h-[44px] lg:h-[47px] flex items-center justify-center mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full"
                 >
-                  {loading ? <Loader /> : <div className="typo-body-1">Login</div>}
+                  {loading ? (
+                    <Loader />
+                  ) : (
+                    <div className="typo-body-1">
+                      <IntlMessages id="auth.login" />
+                    </div>
+                  )}
                 </button>
                 <p className="text-center col-span-full mt-[18px] typo-body-1 sm:mt-[25px] lg:pb-0">
-                  New to this Plataform?{' '}
+                  <IntlMessages id="auth.login.newToThisPlatform" />{' '}
                   <Link href="/signup">
-                    <span className="text-primary-blue underline">Sign Up</span>
+                    <span className="text-primary-blue underline">
+                      <IntlMessages id="auth.signup" />
+                    </span>
                   </Link>
                 </p>
               </form>

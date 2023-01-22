@@ -5,11 +5,19 @@ import avatarIcon from 'assets/avatar.svg';
 import polygonIcon from 'assets/polygon.svg';
 import { useContext, useState } from 'react';
 import { UserContext } from 'context/user/context';
+import IntlMessages from 'utils/IntlMessages';
+import { useRouter } from 'next/router';
 
 export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
   const [language, setLanguage] = useState('English');
   const { userInfo } = useContext(UserContext);
+  const router = useRouter();
+
+  const selectLanguage = (language, acronim) => {
+    setLanguage(language);
+    router.push(`/${acronim}/${router.pathname}`);
+  };
 
   return (
     <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
@@ -19,7 +27,7 @@ export default function AuthNavbar({ admin }) {
         {!admin ? (
           <div className="flex items-center h-6 gap-[14px]">
             <p className="typo-body-1 text-text-1 font-bold">
-              Balance: <span className="text-primary-blue typo-body-1">203,876.34 Є</span>
+              <IntlMessages id="common.balance" />: <span className="text-primary-blue typo-body-1">203,876.34 Є</span>
             </p>
             <div className="flex items-center h-full cursor-pointer relative" onClick={() => setShowList(!showList)}>
               <p className="typo-body-1 text-text-1">{language}</p>
@@ -30,31 +38,31 @@ export default function AuthNavbar({ admin }) {
                   <ul className="flex flex-col gap-4">
                     <li
                       className={`typo-body-1 ${language === 'English' && 'text-primary-blue'}`}
-                      onClick={() => setLanguage('English')}
+                      onClick={() => selectLanguage('English', 'en')}
                     >
                       English
                     </li>
                     <li
                       className={`typo-body-1 ${language === 'Spanish' && 'text-primary-blue'}`}
-                      onClick={() => setLanguage('Spanish')}
+                      onClick={() => selectLanguage('Spanish', 'es')}
                     >
                       Spanish
                     </li>
                     <li
                       className={`typo-body-1 ${language === 'French' && 'text-primary-blue'}`}
-                      onClick={() => setLanguage('French')}
+                      onClick={() => selectLanguage('French', 'fr')}
                     >
                       French
                     </li>
                     <li
                       className={`typo-body-1 ${language === 'Italian' && 'text-primary-blue'}`}
-                      onClick={() => setLanguage('Italian')}
+                      onClick={() => selectLanguage('Italian', 'it')}
                     >
                       Italian
                     </li>
                     <li
                       className={`typo-body-1 ${language === 'German' && 'text-primary-blue'}`}
-                      onClick={() => setLanguage('German')}
+                      onClick={() => selectLanguage('Germany', 'DE')}
                     >
                       German
                     </li>

@@ -8,7 +8,7 @@ export default function GoHomeButton({ className = '', children, back }) {
 
   return (
     <button
-      onClick={() => (back ? router.back() : router.push('/'))}
+      onClick={() => (back ? router.push('/login', '/login', { locale: 'es' }) : router.push('/'))}
       className={`${className} flex items-center gap-[14px] xsm:gap-[18px] esm:mt-[18px] cursor-pointer mt-[14px] sm:mt-[24px] sm:gap-[24px] lg:gap-[20px] lg:ml-[40px] xl:gap-[24px]`}
     >
       <Image alt="Arrow left" src={arrowIcon} className={`typo-body-1 rotate-180`} />

@@ -13,6 +13,7 @@ import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
 import MessageModal from 'modules/auth/components/MessageModal';
 import { setValueFormik } from 'utils/setValueFormik';
+import IntlMessages from 'utils/IntlMessages';
 
 const initialState = {
   firstName: '',
@@ -54,7 +55,7 @@ export default function Signup() {
   return (
     <>
       <Head>
-        <title>Sign Up</title>
+        <title>SIgn Up</title>
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
@@ -70,21 +71,41 @@ export default function Signup() {
           <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar">
             {!showModal ? (
               <>
-                <GoHomeButton>Go Home</GoHomeButton>
+                <GoHomeButton>
+                  <IntlMessages id="common.goHome" />
+                </GoHomeButton>
                 <div className="pt-[26px] esm:pt-[39px] sm:pt-[51px] lg:pt-[51px] xl:m-auto xl:max-w-[494px] xl:min-w-[494px] xl:pb-[17px] xl:pt-[73px]">
                   <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                     <h2
                       className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
                       style={{ color: '#202324' }}
                     >
-                      Sign Up
+                      <IntlMessages id="auth.signup" />
                     </h2>
-                    <Input type="text" label="Name" name="firstName" formik={formik} onChange={handleChangeForm} />
-                    <Input type="text" label="Last Name" name="lastName" formik={formik} onChange={handleChangeForm} />
-                    <Input type="text" label="Email" name="email" formik={formik} onChange={handleChangeForm} />
+                    <Input
+                      type="text"
+                      label={<IntlMessages id="common.name" />}
+                      name="firstName"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                    />
+                    <Input
+                      type="text"
+                      label={<IntlMessages id="common.lastName" />}
+                      name="lastName"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                    />
+                    <Input
+                      type="text"
+                      label={<IntlMessages id="common.email" />}
+                      name="email"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                    />
                     <Input
                       type="password"
-                      label="Password"
+                      label={<IntlMessages id="common.password" />}
                       name="password"
                       formik={formik}
                       onChange={handleChangeForm}
@@ -97,7 +118,7 @@ export default function Signup() {
                       } lg:col-start-3 lg:col-span-4 xl:col-span-full`}
                     >
                       <label className="mb-2 sm:mb-[10px] label-name typo-body-2 sm:text-sm sm:tracking-wider col-span-full text-text-1 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-                        Country
+                        <IntlMessages id="common.country" />
                       </label>
                       <select
                         id="countries"
@@ -108,7 +129,7 @@ export default function Signup() {
                         }`}
                       >
                         <option selected disabled>
-                          Choose a country
+                          <IntlMessages id="common.chooseCountry" />
                         </option>
                         <option value="ES">Spain</option>
                         <option value="IT">Italy</option>
@@ -134,9 +155,11 @@ export default function Signup() {
                             formik?.errors?.privacyPolicy && 'text-secondary-redHard'
                           }`}
                         >
-                          Accept the{' '}
+                          <IntlMessages id="auth.signup.acceptPrivacyPolicy.1" />{' '}
                           <Link href="/privacy-policy">
-                            <span className={`underline cursor-pointer`}>privacy policy</span>
+                            <span className={`underline cursor-pointer`}>
+                              <IntlMessages id="auth.signup.acceptPrivacyPolicy.2" />
+                            </span>
                           </Link>
                           ?
                         </span>
@@ -146,19 +169,27 @@ export default function Signup() {
                       type="submit"
                       className="col-span-full h-[38px] sm:h-[44px] lg:h-[47px] flex items-center justify-center mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full"
                     >
-                      {loading ? <Loader /> : <div className="typo-body-1">Sign Up</div>}
+                      {loading ? (
+                        <Loader />
+                      ) : (
+                        <div className="typo-body-1">
+                          <IntlMessages id="auth.signup" />
+                        </div>
+                      )}
                     </button>
                     <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[40px]">
-                      Do you already have an account with us?{' '}
+                      <IntlMessages id="auth.signup.alReadyAccount" />{' '}
                       <Link href="/login">
-                        <span className="text-primary-blue underline">Login</span>
+                        <span className="text-primary-blue underline">
+                          <IntlMessages id="auth.login" />
+                        </span>
                       </Link>
                     </p>
                   </form>
                 </div>
               </>
             ) : (
-              <MessageModal email={form.email} />
+              <MessageModal email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
             )}
           </div>
         </section>

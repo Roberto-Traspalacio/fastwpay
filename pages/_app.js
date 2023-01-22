@@ -5,9 +5,16 @@ import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import ScreenLoaderProvider from 'context/screenLoader/provider';
 import ScreenLoaderLayout from 'layouts/ScreenLoader.layout';
+import { IntlProvider } from 'react-intl';
+import en from 'locales/en.json';
+import es from 'locales/es.json';
+import { useRouter } from 'next/router';
 
 export default function MyApp({ Component, pageProps }) {
   const [showCookiesBanner, setShowCookiesBanner] = useState(false);
+  const { locale } = useRouter();
+  const currentLanguage = locale === 'es' ? es : en;
+  console.log('Current language: ', currentLanguage);
 
   const acceptCookies = () => {
     Cookies.set('cookiesAccept', true);
@@ -21,15 +28,17 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ScreenLoaderProvider>
-      <UserProvider>
-        <main className={`font-sans relative max-h-screen`}>
-          <ScreenLoaderLayout>
-            <Component {...pageProps} />
-            {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
-          </ScreenLoaderLayout>
-        </main>
-      </UserProvider>
-    </ScreenLoaderProvider>
+    <IntlProvider locale={locale} messages={currentLanguage}>
+      <ScreenLoaderProvider>
+        <UserProvider>
+          <main className={`font-sans relative max-h-screen`}>
+            <ScreenLoaderLayout>
+              <Component {...pageProps} />
+              {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
+            </ScreenLoaderLayout>
+          </main>
+        </UserProvider>
+      </ScreenLoaderProvider>
+    </IntlProvider>
   );
 }

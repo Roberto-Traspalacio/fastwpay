@@ -31,6 +31,7 @@ import Contact from '../components/Contact';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useEffect } from 'react';
+import IntlMessages from 'utils/IntlMessages';
 
 export default function Home() {
   const router = useRouter();
@@ -58,8 +59,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar />
       <main className={'px-[18px] md:px-10 xl:px-[60px] overflow-clip'}>
-        <Navbar className={'full-bleed-primary-blue'} />
         <section className="grid-main relative xl:min-h-[728px] auto-rows-min ">
           <Image
             priority={true}
@@ -79,20 +80,25 @@ export default function Home() {
           <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} />
 
           <div className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]">
-            Receive payments from your stores safely
+            <IntlMessages id="landing.header.title" />
           </div>
           <div className="typo-body-1 col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left">
-            Implement a payment gateway for your online store. fast, safe and hassle-free. Start billing today without
-            having any requirements.
+            <IntlMessages id="landing.header.description" />
           </div>
 
           <div className="flex col-span-full justify-center mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start">
-            <Button className="block">Download</Button>
-            <ButtonInverse>Contact</ButtonInverse>
+            <Button className="block">
+              <IntlMessages id="common.download" />
+            </Button>
+            <ButtonInverse>
+              <IntlMessages id="common.contact" />
+            </ButtonInverse>
           </div>
         </section>
         <section className="flex flex-col justify-center mt-[50px] sm:mt-[64px]" id="Banks">
-          <div className="typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]">supported banks</div>
+          <div className="typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]">
+            <IntlMessages id="landing.supported.banks" />
+          </div>
           <div className="full-bleed-bar bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]">
             <Image className="img-banks" src={santander} alt="santander logo" />
             <Image className="img-banks" src={hsbc} alt="hsbc bank logo" />
@@ -102,16 +108,17 @@ export default function Home() {
           </div>
         </section>
         <section className="section grid-main">
-          <div className="section-title typo-heading-1 top-line ">The best payment solutions for you</div>
+          <div className="section-title typo-heading-1 top-line ">
+            <IntlMessages id="landing.section.two.title" />
+          </div>
           <div className="typo-body-1 section-content">
-            Fastwpay is an exclusive payment gateway plugin for
-            <span className="font-bold text-primary-blue"> Woocommerce</span>, made for all those entrepreneurs,
-            startups and companies that would like to start charging for their online business without having to comply
-            with all the bureaucracy involved in hiring any provider of this service.
+            <IntlMessages id="landing.section.two.description.1" />
+            <span className="font-bold text-primary-blue">Woocommerce</span>,
+            <IntlMessages id="landing.section.two.description.2" />
           </div>
 
           <ButtonInverse arrow={true} className="button-started arrow">
-            Get started
+            <IntlMessages id="common.getStarted" />
           </ButtonInverse>
 
           <div className="lg:col-start-5 col-span-full lg:col-span-4 mt-16 grid-main mb-28 sm:mb-16 sm:gap-y-[88px] gap-y-[77px] lg:row-start-1 lg:row-span-4 lg:mt-0 xl:col-start-7 xl:col-span-full">
@@ -119,43 +126,44 @@ export default function Home() {
               className="col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4"
               src={flagIcon}
               shadow="box-ether-blue"
-              title={'Start now'}
-              content={'You only need basic information.'}
+              title={<IntlMessages id="landing.section.two.startNow.title" />}
+              content={<IntlMessages id="landing.section.two.startNow.content" />}
             />
             <FeatureItem
               className="col-span-2 sm:col-start-6 lg:col-span-4 lg:col-start-5 xl:col-start-7 xl:col-span-4"
               src={lockIcon}
               shadow="box-ether-green"
-              title={'Security'}
-              content={'Security system with high level of data encryption.'}
+              title={<IntlMessages id="landing.section.two.security.title" />}
+              content={<IntlMessages id="landing.section.two.security.content" />}
             />
 
             <FeatureItem
               className="col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4"
               src={walletIcon}
-              title={'Admin Panel'}
               shadow="box-ether-yellow"
-              content={'Manage your information and API keys from your account.'}
+              title={<IntlMessages id="landing.section.two.adminPanel.title" />}
+              content={<IntlMessages id="landing.section.two.adminPanel.content" />}
             />
 
             <FeatureItem
               className="col-span-2 sm:col-start-6 md:col-span-4 md:col-start-5 xl:col-start-7 xl:col-span-4"
               src={supportIcon}
               shadow="box-ether-red"
-              title={'Support'}
-              content={'Contact us for information and usage support.'}
+              title={<IntlMessages id="landing.section.two.support.title" />}
+              content={<IntlMessages id="landing.section.two.support.content" />}
             />
           </div>
         </section>
 
         <section className="section grid-main xl:mb-60">
-          <div className="typo-heading-1 section-title-inverse top-line lg:row-start-2">How to install & activate</div>
+          <div className="typo-heading-1 section-title-inverse top-line lg:row-start-2">
+            <IntlMessages id="landing.section.three.title" />
+          </div>
           <div className="section-content-inverse typo-body-1 lg:row-start-3">
-            If it is the first time that you install a plugin for wordpress, then we explain in 3 simple steps how you
-            can do it.
+            <IntlMessages id="landing.section.three.description" />
           </div>
           <ButtonInverse arrow={true} className="button-started-inverse arrow lg:row-start-4">
-            Get started
+            <IntlMessages id="common.getStarted" />
           </ButtonInverse>
 
           <Image
@@ -168,24 +176,30 @@ export default function Home() {
             <NumberItem
               shifted={true}
               number={'01.'}
-              title={'Download the file'}
+              title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
                 <span className="font-bold underline text-primary-blue">
-                  <a href="#">Download </a>
+                  <a href="#">
+                    <IntlMessages id="common.downloadYou" />{' '}
+                  </a>
                 </span>,
-                'the fastwpay.zip file on your computer.',
+                <IntlMessages id="landing.section.four.1.description" />,
               ]}
             />
             <NumberItem
               startCol={1}
               number={'02.'}
-              title={'Upload the plugin in wordpress'}
+              title={<IntlMessages id="landing.section.four.2.title" />}
               content={[
-                'In the WordPress panel of your store website, go to the ',
-                <span className="font-bold text-primary-blue">plugins tab</span>,
-                ', press the ',
-                <span className="font-bold text-primary-blue">upload plugin</span>,
-                ' button and upload the fastwpay.zip file.',
+                <IntlMessages id="landing.section.four.2.1.description" />,
+                <span className="font-bold text-primary-blue">
+                  <IntlMessages id="common.pluginsTabs" />
+                </span>,
+                <IntlMessages id="landing.section.four.2.2.description" />,
+                <span className="font-bold text-primary-blue">
+                  <IntlMessages id="common.uploadPlugin" />
+                </span>,
+                <IntlMessages id="landing.section.four.2.3.description" />,
               ]}
             />
 
@@ -193,11 +207,13 @@ export default function Home() {
               shifted={true}
               startCol={2}
               number={'03.'}
-              title={'Insert the api key'}
+              title={<IntlMessages id="landing.section.four.3.title" />}
               content={[
-                'To activate, create an API key in your Fastwpay account and copy it. Then go to the ',
-                <span className="font-bold text-primary-blue">settings tab</span>,
-                ' in your Wordpress panel of your store, paste in the API key field and save the changes.',
+                <IntlMessages id="landing.section.four.3.1.description" />,
+                <span className="font-bold text-primary-blue">
+                  <IntlMessages id="common.settingsTab" />
+                </span>,
+                <IntlMessages id="landing.section.four.3.2.description" />,
               ]}
             />
           </div>
@@ -208,13 +224,14 @@ export default function Home() {
         </section>
         <section className="pt-8 pb-8 mt-12 overflow-visible md:mt-32 lg:mt-72 bg-background-2 full-bleed-section grid-main gap-y-6">
           <div className="font-bold text-center typo-heading-1 col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left">
-            <span className="stylish-underline">Free </span>to install & use
+            <IntlMessages id="landing.banner.title" />
           </div>
           <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
-            To use it you don't need to buy it, it's completely free, and you can use it in all the online stores you
-            want. Fastwpay only charges a small commission of 1.5% per purchase made.
+            <IntlMessages id="landing.banner.description" />
           </div>
-          <Button className="self-center col-span-2 col-start-2 xl:col-start-7 ">Download</Button>
+          <Button className="self-center col-span-2 col-start-2 xl:col-start-7 ">
+            <IntlMessages id="common.download" />
+          </Button>
         </section>
         <div className="relative hidden xl:block">
           <Image src={smile} className="absolute bottom-0 z-10" />
@@ -225,16 +242,16 @@ export default function Home() {
             src={rectangle}
           />
           <div className="typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%] before:left-0">
-            Countries where it works
+            <IntlMessages id="landing.section.five.title" />
           </div>
           <div className="typo-body-1 leading-[165%] col-span-full sm:col-span-4 sm:row-start-2 xl:col-start-4 xl:mb-0">
-            To have an account in Fastwpay, the bank account of the owner of the online store must be located in
+            <IntlMessages id="landing.section.five.description" />
             <span className="font-bold text-primary-blue"> Spain</span>,
-            <span className="font-bold text-primary-blue"> France</span>, or
+            <span className="font-bold text-primary-blue"> France</span>, <IntlMessages id="common.or" />
             <span className="font-bold text-primary-blue"> Germany</span>.
           </div>
           <ButtonInverse arrow={true} className="col-span-2 row-start-3 text-left xl:col-start-4">
-            Get started
+            <IntlMessages id="common.getStarted" />
           </ButtonInverse>
           <Image
             className="self-center col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 xl:col-start-9 xl:scale-125 xl:row-span-3 xl:row-start-1 xl:-right-16 lg:absolute"
