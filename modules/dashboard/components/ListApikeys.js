@@ -9,6 +9,22 @@ export default function ListApikeys() {
   const apiKey = new Apikey();
   const SUCCESS_REQUEST_CODE = 200;
 
+  async function changeStatus(id) {
+    apiKey.changeStatus(id);
+    const data = await apiKey.list();
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setList(data?.data?.keys);
+    }
+  }
+
+  async function deleteApiKey(id) {
+    await apiKey.deleteKey(id);
+    const data = await apiKey.list();
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setList(data?.data?.keys);
+    }
+  }
+
   useEffect(() => {
     (async () => {
       const data = await apiKey.list();
@@ -50,6 +66,9 @@ export default function ListApikeys() {
               date={apiKey.createdAt}
               status={apiKey.status}
               apiKey={apiKey.key}
+              id={apiKey.id}
+              deleteApiKey={deleteApiKey}
+              changeStatus={changeStatus}
             />
           ))}
         </div>

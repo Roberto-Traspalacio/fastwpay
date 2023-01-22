@@ -15,7 +15,12 @@ export class Apikey {
     return data;
   }
 
-  async changeStatus(idKey, token) {
-    await fetch.get(`/keys/change-status/${idKey}`, token);
+  async changeStatus(idKey) {
+    await fetch.get(`/keys/change-status/${idKey}`, this.auth?.token);
+  }
+
+  async deleteKey(idKey) {
+    const data = await fetch.delete(`/keys/delete/${idKey}`, this.auth?.token);
+    return data;
   }
 }

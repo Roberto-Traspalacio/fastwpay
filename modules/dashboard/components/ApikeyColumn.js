@@ -1,8 +1,14 @@
 import { useRef } from 'react';
 import IntlMessages from 'utils/IntlMessages';
 
-export default function ApikeyColumn({ reference, date, status, apiKey }) {
+export default function ApikeyColumn({ reference, date, status, apiKey, id, deleteApiKey, changeStatus }) {
   const apiKeyRef = useRef();
+
+  const newDate = new Date(date);
+  const day = newDate.getDate().toString().padStart(2, '0');
+  const month = (newDate.getMonth() + 1).toString().padStart(2, '0');
+  const year = newDate.getFullYear().toString();
+  const formattedDate = day + '/' + month + '/' + year;
 
   function copy(ref) {
     let text = ref.current;
@@ -17,10 +23,13 @@ export default function ApikeyColumn({ reference, date, status, apiKey }) {
       <p className="col-span-1 pt-[29px] pb-[26px] typo-body-1 text-text-1">{reference}</p>
       {/* Date */}
       <p className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 text-text-1 xl:col-span-2 xl:col-start-3">
-        {date}
+        {formattedDate}
       </p>
       {/* Status */}
-      <p className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 font-medium" style={{ color: '#1FB81F' }}>
+      <p
+        className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 font-medium"
+        style={{ color: status === 'INACTIVE' ? '#E65C4F' : '#1FB81F' }}
+      >
         {status}
       </p>
       {/* API key */}
@@ -56,11 +65,17 @@ export default function ApikeyColumn({ reference, date, status, apiKey }) {
         </div>
       </div>
       {/* Actions */}
-      <div className="flex justify-between col-span-2 col-start-7 w-[100%] xl:col-span-3 xl:col-start-10">
-        <button className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1 ">
-          <IntlMessages id="common.deactivate" />
+      <div className="flex justify-between col-span-2 col-start-7 w-[100%] items-center xl:col-span-3 xl:col-start-10">
+        <button
+          className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1"
+          onClick={() => changeStatus(id)}
+        >
+          {status === 'INACTIVE' ? <IntlMessages id="common.activate" /> : <IntlMessages id="common.deactivate" />}
         </button>
-        <button className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1 ">
+        <button
+          className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1"
+          onClick={() => deleteApiKey(id)}
+        >
           <IntlMessages id="common.delete" />
         </button>
       </div>

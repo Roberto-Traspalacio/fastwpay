@@ -55,5 +55,18 @@ const fetch = {
       console.log(error);
     }
   },
+  delete: async (endpoint, token) => {
+    try {
+      const response = await window.fetch(`${API_URL}${endpoint}`, {
+        method: 'DELETE',
+        headers: {
+          [token && 'Authorization']: `Bearer ${token}`,
+        },
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 export default fetch;
