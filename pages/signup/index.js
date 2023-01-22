@@ -46,6 +46,10 @@ export default function Signup() {
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.register(form);
+    console.log('🚀 ~ file: index.js:49 ~ onSubmit ~ data', data);
+    if (data?.data?.message === 'Email Registrado') {
+      formik.setFieldError('email', 'This email is already taken. use another');
+    }
     setLoading(false);
     if (data.response?.status === SUCCESS_REQUEST_CODE) {
       setShowModal(true);
@@ -156,7 +160,7 @@ export default function Signup() {
                           }`}
                         >
                           <IntlMessages id="auth.signup.acceptPrivacyPolicy.1" />{' '}
-                          <Link href="/privacy-policy">
+                          <Link target="_blank" href="/privacy-policy">
                             <span className={`underline cursor-pointer`}>
                               <IntlMessages id="auth.signup.acceptPrivacyPolicy.2" />
                             </span>

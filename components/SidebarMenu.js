@@ -24,7 +24,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
   const logout = () => {
     setShowScreenLoader(true);
     Cookies.remove('auth');
-    router.push('/login');
+    router.push('/');
     setTimeout(() => {
       setShowScreenLoader(false);
     }, 2500);

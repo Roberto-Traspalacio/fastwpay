@@ -142,6 +142,9 @@ export default function ApiKey() {
           background: #295bb7;
         }
         @media (min-width: 601px) {
+          .content-main {
+            height: calc(100vh - 48px);
+          }
           .center-container {
             /* border: 1px solid red; */
             /* max-height: calc(100vh - 48px); */

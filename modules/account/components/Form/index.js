@@ -69,14 +69,14 @@ export default function Form() {
             <h6 className="typo-heading-4 text-text-1 font-bold">
               <IntlMessages id="account.personalInformation" />
             </h6>
-            {edit !== 0 && (
+            {/* {edit !== 0 && (
               <Image
                 onClick={() => setEdit(edit === 0 ? null : 0)}
                 className="cursor-pointer"
                 src={editIcon}
                 alt="Edit icon"
               />
-            )}
+            )} */}
           </div>
         </div>
         {/* Fisrt name & Last name */}
@@ -197,6 +197,16 @@ export default function Form() {
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
           label={<IntlMessages id="account.accountNumber" />}
+        />
+        <Input
+          disabled={edit === null || edit === 0}
+          className="col-span-full mt-[18px] lg:mt-5"
+          type="text"
+          label={<IntlMessages id="common.beneficiary" />}
+          name="beneficiary"
+          formik={formik}
+          value={formik.values.beneficiary}
+          onChange={handleChangeForm}
         />
         {edit === 1 && <EditButtons className="mt-5" edit={edit} setEdit={setEdit} />}
       </form>
