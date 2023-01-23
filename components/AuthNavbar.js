@@ -16,7 +16,7 @@ export default function AuthNavbar({ admin }) {
 
   const selectLanguage = (language, acronim) => {
     setLanguage(language);
-    router.push(`/${acronim}/${router.pathname}`);
+    router.push(`/${router.pathname}`, `/${router.pathname}`, { locale: acronim });
   };
 
   return (
