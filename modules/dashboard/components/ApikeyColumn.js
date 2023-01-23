@@ -1,14 +1,29 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import Loader from 'components/Loader';
 import IntlMessages from 'utils/IntlMessages';
+import { Apikey } from 'services/Apikey.service';
 
-export default function ApikeyColumn({ reference, date, status, apiKey, id, deleteApiKey, changeStatus }) {
+export default function ApikeyColumn({ reference, date, status, apiKey, id, setList, deleteApiKey }) {
+  const [loading, setLoading] = useState(false);
   const apiKeyRef = useRef();
+  const apiKeyService = new Apikey();
+  const SUCCESS_REQUEST_CODE = 200;
 
   const newDate = new Date(date);
   const day = newDate.getDate().toString().padStart(2, '0');
   const month = (newDate.getMonth() + 1).toString().padStart(2, '0');
   const year = newDate.getFullYear().toString();
   const formattedDate = day + '/' + month + '/' + year;
+
+  async function changeStatus(id) {
+    setLoading(true);
+    await apiKeyService.changeStatus(id);
+    setLoading(false);
+    const data = await apiKeyService.list();
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setList(data?.data?.keys);
+    }
+  }
 
   function copy(ref) {
     let text = ref.current;
@@ -67,10 +82,16 @@ export default function ApikeyColumn({ reference, date, status, apiKey, id, dele
       {/* Actions */}
       <div className="flex justify-between col-span-2 col-start-7 w-[100%] items-center xl:col-span-3 xl:col-start-10">
         <button
-          className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1"
+          className=" my-auto w-[47%] py-[10px] px-[9.5px] h-[38px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1"
           onClick={() => changeStatus(id)}
         >
-          {status === 'INACTIVE' ? <IntlMessages id="common.activate" /> : <IntlMessages id="common.deactivate" />}
+          {loading ? (
+            <Loader />
+          ) : status === 'INACTIVE' ? (
+            <IntlMessages id="common.activate" />
+          ) : (
+            <IntlMessages id="common.deactivate" />
+          )}
         </button>
         <button
           className=" my-auto w-[47%] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1"

@@ -48,14 +48,14 @@ export default function Form() {
   };
 
   useEffect(() => {
+    getUserInfo(false);
+  }, []);
+
+  useEffect(() => {
     intialUserInfoArray.map((e) => {
       setValueFormik(formik, e, userInfo[e]);
     });
   }, [userInfo]);
-
-  useEffect(() => {
-    getUserInfo();
-  }, []);
 
   return (
     <div className="grid-main">

@@ -11,10 +11,12 @@ import { useFormik } from 'formik';
 import { useYupValidations } from 'modules/dashboard/api-key/yup';
 import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
+import Loader from 'components/Loader';
 
 const initialForm = { reference: '' };
 
 export default function ApiKey() {
+  const [loading, setLoading] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(true);
   const [tab, setTab] = useState(0);
   const { validationSchema } = useYupValidations();
@@ -27,8 +29,9 @@ export default function ApiKey() {
   const apiKey = new Apikey();
 
   const onSubmit = async () => {
+    setLoading(true);
     const data = await apiKey.generate(form);
-    console.log('🚀 ~ file: index.js:28 ~ onSubmit ~ data', data);
+    setLoading(false);
   };
 
   return (
@@ -40,7 +43,7 @@ export default function ApiKey() {
       <main className="sm:flex sm:flex-row relative content-main">
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
-        <div className="overflow-auto">
+        <div className="overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
             <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
@@ -64,9 +67,9 @@ export default function ApiKey() {
                 } flex items-center gap-1 absolute py-[10px] px-[13px] top-[-38px] xsm:top-[-40px] right-0 typo-body-1 text-text-2 font-normal sm:top-[-44px]`}
               >
                 <IntlMessages id="apiKey.listApikeys" />
-                <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
+                {/* <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
                   7
-                </p>
+                </p> */}
               </button>
             </div>
             {/* Content information */}
@@ -89,7 +92,7 @@ export default function ApiKey() {
                   </p>
 
                   <form
-                    className="flex flex-col col-span-full mt-3 sm:flex-row sm:items-start sm:gap-5 lg:px-0 xl:justify-between"
+                    className="flex flex-col col-span-full mt-3 sm:flex-row sm:items-start sm:gap-5 lg:px-0 xl:justify-between lg:items-center"
                     onSubmit={formik.handleSubmit}
                   >
                     <div className="relative">
@@ -108,9 +111,9 @@ export default function ApiKey() {
                     </div>
                     <Button
                       type="submit"
-                      className="min-w-[157px] m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
+                      className="min-w-[157px] h-[36px] sm:h-[38px] flex items-center justify-center m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
                     >
-                      <IntlMessages id="apiKey.generate" />
+                      {loading ? <Loader /> : <IntlMessages id="apiKey.generate" />}
                     </Button>
                   </form>
                 </div>

@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { UserContext } from 'context/user/context';
+import { useContext, useState } from 'react';
 import { ScreenLoaderContext } from './context';
 
 export default function ScreenLoaderProvider({ children }) {
-  const [showScreenLoader, setShowScreenLoader] = useState(false);
+  const { userInfo } = useContext(UserContext);
+  const [showScreenLoader, setShowScreenLoader] = useState(userInfo?.firstName ? false : true);
 
   return (
     <ScreenLoaderContext.Provider value={{ showScreenLoader, setShowScreenLoader }}>
