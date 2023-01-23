@@ -13,6 +13,7 @@ import ErrorPswChange from 'modules/auth/components/ErrorPswChange';
 import InputWithIcon from 'modules/auth/components/InputWithIcon';
 import { Auth } from 'services/Auth.service';
 import { useRouter } from 'next/router';
+import Loader from 'components/Loader';
 
 const initialState = {
   newPassword: '',
@@ -23,6 +24,7 @@ const SUCCESS_REQUEST_CODE = 200;
 
 export default function NewPassword() {
   const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
     initialValues: initialState,
@@ -34,7 +36,9 @@ export default function NewPassword() {
   const router = useRouter();
 
   const onSubmit = async () => {
+    setLoading(true);
     const data = await auth.recoverPassword({ password: form.repeatNewPassword }, router?.query?.token);
+    setLoading(false);
     if (data.status === SUCCESS_REQUEST_CODE) {
       return setSuccess(true);
     }
@@ -79,8 +83,8 @@ export default function NewPassword() {
                   formik={formik}
                   onChange={handleChangeForm}
                 />
-                <button className="col-span-full sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white lg:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
-                  <div className="typo-body-1">Update password</div>
+                <button className="col-span-full h-[30px] flex items-center justify-center sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white sm:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
+                  {loading ? <Loader /> : <div className="typo-body-1">Update password</div>}
                 </button>
               </form>
             </div>
