@@ -10,9 +10,11 @@ import Cookies from 'js-cookie';
 import { useContext } from 'react';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
+import { UserContext } from 'context/user/context';
 
 export default function SidebarMenu({ open, setOpen, className, admin }) {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
+  const { reset } = useContext(UserContext);
   const router = useRouter();
 
   const closeSidebar = (e) => {
@@ -25,6 +27,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
     setShowScreenLoader(true);
     Cookies.remove('auth');
     router.push('/');
+    reset();
     setTimeout(() => {
       setShowScreenLoader(false);
     }, 2500);

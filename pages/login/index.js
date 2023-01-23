@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Navbar, GoHomeButton } from 'components';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,6 +15,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import ErrorToast from 'components/ErrorToast';
 import IntlMessages from 'utils/IntlMessages';
+import { ScreenLoaderContext } from 'context/screenLoader/context';
 
 const initialState = {
   email: '',
@@ -36,6 +37,7 @@ export default function Login() {
     validationSchema,
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
+  const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const auth = new Auth();
   const UNATHORIZED_ERROR_CODE = 401;
 
@@ -51,6 +53,7 @@ export default function Login() {
       router.push('/dashboard');
     }
     setLoading(false);
+    setShowScreenLoader(true);
   };
   return (
     <>

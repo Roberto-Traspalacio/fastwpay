@@ -3,7 +3,7 @@ import ScreenLoader from 'components/ScreenLoader';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 
 export default function ScreenLoaderLayout({ children }) {
-  const { showScreenLoader, setShowScreenLoader } = useContext(ScreenLoaderContext);
+  const { showScreenLoader } = useContext(ScreenLoaderContext);
   return (
     <>
       {children}

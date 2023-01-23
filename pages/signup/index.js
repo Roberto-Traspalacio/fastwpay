@@ -72,7 +72,7 @@ export default function Signup() {
               src={loginImage1}
             />
           </div>
-          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar">
+          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar ">
             {!showModal ? (
               <>
                 <GoHomeButton>
