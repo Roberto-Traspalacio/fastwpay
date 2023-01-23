@@ -1,5 +1,8 @@
+import Cookies from 'js-cookie';
 import fetch from 'utils/fetch';
 export class Auth {
+  auth = Cookies.get('auth') && JSON.parse(Cookies.get('auth'));
+
   async register(userData) {
     const data = await fetch.post(`/auth/register`, userData);
     return data;
@@ -18,6 +21,10 @@ export class Auth {
   }
   async verifyEmail(verifyToken) {
     const data = await fetch.get(`/auth/verify-email?token=${verifyToken}`);
+    return data;
+  }
+  async resendEmailVerification({ email }) {
+    const data = await fetch.post('/auth/send-verify-email', email);
     return data;
   }
 }

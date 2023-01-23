@@ -16,6 +16,8 @@ import Cookies from 'js-cookie';
 import ErrorToast from 'components/ErrorToast';
 import IntlMessages from 'utils/IntlMessages';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
+import ModalUnverificated from 'modules/auth/components/ModalUnverificated';
+import MessageModal from 'modules/auth/components/MessageModal';
 
 const initialState = {
   email: '',
@@ -29,6 +31,8 @@ export default function Login() {
   });
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showModalVerificate, setShowModalVerificate] = useState(false);
+  const [showModalMessage, setShowModalMessage] = useState(false);
   const router = useRouter();
   const { validationSchema } = useValidacionesYup();
   const formik = useFormik({
@@ -47,6 +51,9 @@ export default function Login() {
     if (data?.response.status === UNATHORIZED_ERROR_CODE) {
       setError({ show: true, text: 'Invalid username or password' });
       setTimeout(() => setError({ ...error, show: false }), 4500);
+    }
+    if (data?.response.status === 500) {
+      setShowModalVerificate(true);
     }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
@@ -77,71 +84,86 @@ export default function Login() {
             />
           </div>
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
-            {error.show && <ErrorToast text={error.text} className="hidden xl:block" />}
-            <GoHomeButton arrow>
-              <IntlMessages id="common.goHome" />
-            </GoHomeButton>
-            <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
-              <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
-                <h2
-                  className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
-                  style={{ color: '#202324' }}
-                >
-                  <IntlMessages id="auth.login" />
-                </h2>
-                <Input
-                  type="text"
-                  label={<IntlMessages id="common.email" />}
-                  name="email"
-                  formik={formik}
-                  onChange={handleChangeForm}
-                />
-                <Input
-                  type="password"
-                  label={<IntlMessages id="common.password" />}
-                  name="password"
-                  formik={formik}
-                  onChange={handleChangeForm}
-                />
-                {/* Remember me and recover password */}
-                <div className="col-span-full flex items-center justify-between sm:col-start-2 sm:col-end-8 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-                  <label className="inline-flex items-center">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox cursor-pointer outline-none w-[18px] h-[18px] shadow-inner[box-shadow: 0px 0px 4px 0px #00000040 inset] text-gray-600"
-                      checked={remember}
-                      onChange={() => setRemember(!remember)}
-                    />
-                    <span className="ml-2 text-text-2 typo-body-1">
-                      <IntlMessages id="auth.login.rememberMe" />
-                    </span>
-                  </label>
-                  <Link className="text-text-2 typo-body-1 underline" href="/recover-password">
-                    <IntlMessages id="auth.login.forgotYourPassword" />
-                  </Link>
-                </div>
-                <button
-                  type="submit"
-                  className="col-span-full h-[38px] sm:h-[44px] lg:h-[47px] flex items-center justify-center mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full"
-                >
-                  {loading ? (
-                    <Loader />
-                  ) : (
-                    <div className="typo-body-1">
+            {showModalVerificate ? (
+              <ModalUnverificated
+                email={formik.values?.email}
+                setShowModalVerificate={setShowModalVerificate}
+                setShowModalMessage={setShowModalMessage}
+              />
+            ) : showModalMessage ? (
+              <MessageModal
+                email={formik.values?.email}
+                text="We have sent you an email so that you can verify your email and you can finish the registration!!"
+              />
+            ) : (
+              <>
+                {error.show && <ErrorToast text={error.text} className="hidden xl:block" />}
+                <GoHomeButton arrow>
+                  <IntlMessages id="common.goHome" />
+                </GoHomeButton>
+                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
+                  <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
+                    <h2
+                      className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
+                      style={{ color: '#202324' }}
+                    >
                       <IntlMessages id="auth.login" />
+                    </h2>
+                    <Input
+                      type="text"
+                      label={<IntlMessages id="common.email" />}
+                      name="email"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                    />
+                    <Input
+                      type="password"
+                      label={<IntlMessages id="common.password" />}
+                      name="password"
+                      formik={formik}
+                      onChange={handleChangeForm}
+                    />
+                    {/* Remember me and recover password */}
+                    <div className="col-span-full flex items-center justify-between sm:col-start-2 sm:col-end-8 lg:col-start-3 lg:col-span-4 xl:col-span-full">
+                      <label className="inline-flex items-center">
+                        <input
+                          type="checkbox"
+                          className="form-checkbox cursor-pointer outline-none w-[18px] h-[18px] shadow-inner[box-shadow: 0px 0px 4px 0px #00000040 inset] text-gray-600"
+                          checked={remember}
+                          onChange={() => setRemember(!remember)}
+                        />
+                        <span className="ml-2 text-text-2 typo-body-1">
+                          <IntlMessages id="auth.login.rememberMe" />
+                        </span>
+                      </label>
+                      <Link className="text-text-2 typo-body-1 underline" href="/recover-password">
+                        <IntlMessages id="auth.login.forgotYourPassword" />
+                      </Link>
                     </div>
-                  )}
-                </button>
-                <p className="text-center col-span-full mt-[18px] typo-body-1 sm:mt-[25px] lg:pb-0">
-                  <IntlMessages id="auth.login.newToThisPlatform" />{' '}
-                  <Link href="/signup">
-                    <span className="text-primary-blue underline">
-                      <IntlMessages id="auth.signup" />
-                    </span>
-                  </Link>
-                </p>
-              </form>
-            </div>
+                    <button
+                      type="submit"
+                      className="col-span-full h-[38px] sm:h-[44px] lg:h-[47px] flex items-center justify-center mt-5 sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white px-[24px] py-[10px] rounded-full xl:col-span-full"
+                    >
+                      {loading ? (
+                        <Loader />
+                      ) : (
+                        <div className="typo-body-1">
+                          <IntlMessages id="auth.login" />
+                        </div>
+                      )}
+                    </button>
+                    <p className="text-center col-span-full mt-[18px] typo-body-1 sm:mt-[25px] lg:pb-0">
+                      <IntlMessages id="auth.login.newToThisPlatform" />{' '}
+                      <Link href="/signup">
+                        <span className="text-primary-blue underline">
+                          <IntlMessages id="auth.signup" />
+                        </span>
+                      </Link>
+                    </p>
+                  </form>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </main>
