@@ -28,9 +28,19 @@ export default function ListApikeys() {
 
   return (
     <div className="pt-[18px] pb-5 flex flex-col gap-[18px] lg:pt-0">
-      <ApikeyCard />
-      <ApikeyCard />
-      <div className="hidden sm:grid-main max-w-[100%]">
+      {list.map((apiKey) => (
+        <ApikeyCard
+          key={apiKey.id}
+          reference={apiKey.reference}
+          date={apiKey.createdAt}
+          status={apiKey.status}
+          apiKey={apiKey.key}
+          id={apiKey.id}
+          deleteApiKey={deleteApiKey}
+          setList={setList}
+        />
+      ))}
+      <div className="hidden sm:grid-main max-w-[100%] overflow-auto">
         {/* Header */}
         <header className="col-span-full min-w-[874px] mt-10 grid-main pb-[14px]">
           <h5 className="col-span-1 typo-heading-4 text-text-1 font-bold text-start">
