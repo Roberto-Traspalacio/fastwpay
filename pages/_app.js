@@ -8,12 +8,15 @@ import { IntlProvider } from 'react-intl';
 import en from 'locales/en.json';
 import es from 'locales/es.json';
 import fr from 'locales/fr.json';
+import it from 'locales/it.json';
+import de from 'locales/de.json';
 import { useRouter } from 'next/router';
 
 export default function MyApp({ Component, pageProps }) {
   const [showCookiesBanner, setShowCookiesBanner] = useState(false);
   const { locale } = useRouter();
-  const currentLanguage = locale === 'es' ? es : locale === 'fr' ? fr : en;
+  const currentLanguage =
+    locale === 'es' ? es : locale === 'fr' ? fr : locale === 'it' ? it : locale === 'de' ? de : en;
 
   const acceptCookies = () => {
     Cookies.set('cookiesAccept', true);
