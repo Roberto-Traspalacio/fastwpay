@@ -27,10 +27,14 @@ export default function ApiKey() {
   });
   const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
+  const SUCCESS_REQUEST_CODE = 201;
 
   const onSubmit = async () => {
     setLoading(true);
     const data = await apiKey.generate(form);
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setTab(1);
+    }
     setLoading(false);
   };
 
