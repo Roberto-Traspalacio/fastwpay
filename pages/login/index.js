@@ -68,7 +68,7 @@ export default function Login() {
         <title>Login</title>
       </Head>
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
-        <Navbar className={'full-bleed-primary-blue xl:hidden'} />
+        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
         <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
           {error.show && <ErrorToast text={error.text} className="xl:hidden" />}
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
@@ -101,7 +101,7 @@ export default function Login() {
                 <GoHomeButton arrow>
                   <IntlMessages id="common.goHome" />
                 </GoHomeButton>
-                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
+                <div className="min-w-[100%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
                   <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                     <h2
                       className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
@@ -115,6 +115,7 @@ export default function Login() {
                       name="email"
                       formik={formik}
                       onChange={handleChangeForm}
+                      className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="password"

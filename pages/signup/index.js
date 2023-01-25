@@ -61,7 +61,7 @@ export default function Signup() {
         <title>SIgn Up</title>
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
-        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 xl:hidden'} />
+        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
         <section className="xl:flex lg:pb-6 xl:p-0 relative">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue max-h-screen">
             <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
@@ -77,10 +77,10 @@ export default function Signup() {
                 <GoHomeButton>
                   <IntlMessages id="common.goHome" />
                 </GoHomeButton>
-                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] md:pb-6 lg:pb-0 xl:pt-0 content-main items-center flex justify-center">
+                <div className="min-w-[100%] md:pb-6 lg:pb-0 xl:pt-0 content-main items-center flex justify-center">
                   <form
                     // className="grid-main gap-x-3 absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%]"
-                    className="grid-main gap-x-3"
+                    className="grid-main gap-x-3 min-w-[100%] lg:min-w-[494px]"
                     onSubmit={formik.handleSubmit}
                   >
                     <h2
@@ -95,7 +95,7 @@ export default function Signup() {
                       name="firstName"
                       formik={formik}
                       onChange={handleChangeForm}
-                      className="sm:min-w-[421px] md:min-w-[513px] lg:min-w-[466px] xl:min-w-[494px]"
+                      className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="text"
@@ -103,7 +103,7 @@ export default function Signup() {
                       name="lastName"
                       formik={formik}
                       onChange={handleChangeForm}
-                      className="md:min-w-[466px] xl:min-w-[494px]"
+                      className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="text"
@@ -111,7 +111,7 @@ export default function Signup() {
                       name="email"
                       formik={formik}
                       onChange={handleChangeForm}
-                      className="md:min-w-[466px] xl:min-w-[494px]"
+                      className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="password"
@@ -119,7 +119,7 @@ export default function Signup() {
                       name="password"
                       formik={formik}
                       onChange={handleChangeForm}
-                      className="md:min-w-[466px] xl:min-w-[494px]"
+                      className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <div
                       className={`flex flex-col col-span-full ${
@@ -200,7 +200,9 @@ export default function Signup() {
                 </div>
               </>
             ) : (
-              <MessageModal email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
+              <div className="h-screen">
+                <MessageModal email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
+              </div>
             )}
           </div>
         </section>
@@ -217,6 +219,11 @@ export default function Signup() {
         @media (min-width: 414px) {
           .content-main {
             min-height: calc(125vh - 112px);
+          }
+        }
+        @media (min-width: 375px) and (min-height: 700px) and (max-width: 600px) {
+          .content-main {
+            min-height: calc(100vh - 112px);
           }
         }
         @media (min-width: 768px) {
