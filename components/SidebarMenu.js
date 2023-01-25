@@ -45,6 +45,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
             <>
               <Link href="/dashboard">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/dashboard' && 'item-active'
                   }`}
@@ -57,6 +58,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               </Link>
               <Link href="/dashboard/api-key">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/dashboard/api-key' && 'item-active'
                   }`}
@@ -69,6 +71,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               </Link>
               <Link href="/account">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/account' && 'item-active'
                   }`}
@@ -83,6 +86,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
           ) : (
             <Link href="/admin/dashboard">
               <div
+                onClick={() => setOpen(false)}
                 className={`item flex flex-col items-center justify-center py-[11px] ${
                   router.pathname === '/account' && 'item-active'
                 }`}

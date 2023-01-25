@@ -9,7 +9,7 @@ import IntlMessages from 'utils/IntlMessages';
 import ScreenLoaderLayout from 'layouts/ScreenLoader.layout';
 
 export default function Account() {
-  const [openSidebar, setOpenSidebar] = useState(true);
+  const [openSidebar, setOpenSidebar] = useState(false);
   return (
     <ScreenLoaderLayout>
       <>
@@ -20,7 +20,12 @@ export default function Account() {
         <main className="relative content-main max-h-screen sm:flex lg:flex-row lg:overflow-hidden">
           {/* Menu button */}
           <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-          {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
+
+          <SidebarMenu
+            className={`${!openSidebar ? 'hidden' : 'flex'} sm:flex`}
+            open={openSidebar}
+            setOpen={setOpenSidebar}
+          />
           <div className="w-[100%] center-container sm:pb-6 lg:px-5 overflow-auto">
             <BannerBlue className="sm:mx-5 lg:mx-0" />
             <h3 className="typo-heading-2 col-span-full mt-8 pl-[18px] sm:pl-5 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
