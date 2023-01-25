@@ -46,7 +46,6 @@ export default function Signup() {
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.register(form);
-    console.log('🚀 ~ file: index.js:49 ~ onSubmit ~ data', data);
     if (data?.data?.message === 'Email Registrado') {
       formik.setFieldError('email', 'This email is already taken. use another');
     }
@@ -63,8 +62,8 @@ export default function Signup() {
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
         <Navbar className={'full-bleed-primary-blue px-0 md:px-0 xl:hidden'} />
-        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative">
-          <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
+        <section className="xl:flex lg:pb-6 xl:p-0 relative">
+          <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue max-h-screen">
             <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
             <Image
               alt=""
@@ -72,14 +71,18 @@ export default function Signup() {
               src={loginImage1}
             />
           </div>
-          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar relative content-main">
+          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar relative">
             {!showModal ? (
               <>
                 <GoHomeButton>
                   <IntlMessages id="common.goHome" />
                 </GoHomeButton>
-                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
-                  <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
+                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] md:pb-6 lg:pb-0 xl:pt-0 content-main items-center flex justify-center">
+                  <form
+                    // className="grid-main gap-x-3 absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%]"
+                    className="grid-main gap-x-3"
+                    onSubmit={formik.handleSubmit}
+                  >
                     <h2
                       className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
                       style={{ color: '#202324' }}
@@ -92,6 +95,7 @@ export default function Signup() {
                       name="firstName"
                       formik={formik}
                       onChange={handleChangeForm}
+                      className="sm:min-w-[421px] md:min-w-[513px] lg:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="text"
@@ -99,6 +103,7 @@ export default function Signup() {
                       name="lastName"
                       formik={formik}
                       onChange={handleChangeForm}
+                      className="md:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="text"
@@ -106,6 +111,7 @@ export default function Signup() {
                       name="email"
                       formik={formik}
                       onChange={handleChangeForm}
+                      className="md:min-w-[466px] xl:min-w-[494px]"
                     />
                     <Input
                       type="password"
@@ -113,6 +119,7 @@ export default function Signup() {
                       name="password"
                       formik={formik}
                       onChange={handleChangeForm}
+                      className="md:min-w-[466px] xl:min-w-[494px]"
                     />
                     <div
                       className={`flex flex-col col-span-full ${
@@ -200,61 +207,31 @@ export default function Signup() {
       </main>
       <style jsx>{`
         .content-main {
-          min-height: calc(160vh - 56px);
-          height: calc(160vh - 56px);
+          min-height: calc(150vh - 96px);
         }
-        @media (min-height: 600px) {
+        @media (min-width: 360px) {
           .content-main {
-            min-height: calc(130vh - 56px);
-            height: calc(130vh - 56px);
+            min-height: calc(135vh - 112px);
           }
         }
-        @media (min-height: 700px) {
+        @media (min-width: 414px) {
           .content-main {
-            min-height: calc(100vh - 56px);
-            height: calc(100vh - 56px);
+            min-height: calc(125vh - 112px);
           }
         }
-        @media (min-height: 852px) {
+        @media (min-width: 768px) {
           .content-main {
-            min-height: calc(120vh - 56px);
-            height: calc(120vh - 56px);
+            min-height: calc(100vh - 112px);
           }
         }
-        @media (min-height: 1000px) {
+        @media (min-width: 1024px) {
           .content-main {
-            min-height: calc(100vh - 64px);
-            height: calc(100vh - 64px);
+            min-height: calc(780px);
           }
         }
-        @media (min-width: 1000px) and (min-height: 600px) {
+        @media (min-width: 1280px) {
           .content-main {
-            min-height: calc(150vh - 64px);
-            height: calc(150vh - 64px);
-          }
-        }
-        @media (min-width: 1200px) and (min-height: 600px) {
-          .content-main {
-            min-height: calc(160vh - 64px);
-            height: calc(160vh - 64px);
-          }
-        }
-        @media (min-width: 1400px) and (min-height: 700px) {
-          .content-main {
-            min-height: 130vh;
-            height: 130vh;
-          }
-        }
-        @media (min-height: 1000px) {
-          .content-main {
-            min-height: 100vh;
-            height: 100vh;
-          }
-        }
-        @media (min-width: 901px) and (min-height: 491px) and (max-height: 500px) {
-          .content-main {
-            min-height: calc(220vh - 56px);
-            height: calc(220vh - 56px);
+            min-height: calc(1000px - 24px);
           }
         }
       `}</style>
