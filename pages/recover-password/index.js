@@ -43,7 +43,7 @@ export default function RecoverPassword() {
         <title>Reset Password</title>
       </Head>
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
-        <Navbar className={'full-bleed-primary-blue xl:hidden'} />
+        <Navbar auth className={'full-bleed-primary-blue xl:hidden'} />
         <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image alt="Line" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />

@@ -68,7 +68,7 @@ export default function Login() {
         <title>Login</title>
       </Head>
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
-        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
+        <Navbar auth className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
         <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
           {error.show && <ErrorToast text={error.text} className="xl:hidden" />}
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">

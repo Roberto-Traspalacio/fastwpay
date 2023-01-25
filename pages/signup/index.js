@@ -61,7 +61,7 @@ export default function Signup() {
         <title>SIgn Up</title>
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
-        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
+        <Navbar auth className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />
         <section className="xl:flex lg:pb-6 xl:p-0 relative">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue max-h-screen">
             <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
