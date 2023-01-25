@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { Auth } from 'services/Auth.service';
 
 import heroSmall from '../assets/hero-small.svg';
 import heroLarge from '../assets/hero-large.svg';
@@ -30,26 +28,9 @@ import Form from '../components/Form';
 import Contact from '../components/Contact';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useEffect } from 'react';
 import IntlMessages from 'utils/IntlMessages';
 
 export default function Home() {
-  const router = useRouter();
-  const auth = new Auth();
-  const SUCCESS_REQUEST_CODE = 200;
-
-  useEffect(() => {
-    (async () => {
-      const token = router?.asPath.split('token=')[1];
-      if (token) {
-        const data = await auth.verifyEmail(token);
-        if (data?.response.status === SUCCESS_REQUEST_CODE) {
-          router.push('/login');
-        }
-      }
-    })();
-  }, []);
-
   return (
     <>
       <Head>

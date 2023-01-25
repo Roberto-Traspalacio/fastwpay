@@ -62,8 +62,8 @@ export default function Signup() {
         <title>SIgn Up</title>
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
-        <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative content-main">
+        <Navbar className={'full-bleed-primary-blue px-0 md:px-0 xl:hidden'} />
+        <section className="xl:flex lg:overflow-auto scrollbar lg:pb-6 xl:p-0 relative">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image alt="" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
             <Image
@@ -72,13 +72,13 @@ export default function Signup() {
               src={loginImage1}
             />
           </div>
-          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar ">
+          <div className="flex flex-col xl:w-[50%] xl:max-h-screen xl:overflow-auto scrollbar relative content-main">
             {!showModal ? (
               <>
                 <GoHomeButton>
                   <IntlMessages id="common.goHome" />
                 </GoHomeButton>
-                <div className="pt-[26px] esm:pt-[39px] sm:pt-[51px] lg:pt-[51px] xl:m-auto xl:max-w-[494px] xl:min-w-[494px] xl:pb-[17px] xl:pt-[73px]">
+                <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] md:pb-6 lg:pb-0 xl:min-w-[494px] xl:pt-0">
                   <form className="grid-main gap-x-3" onSubmit={formik.handleSubmit}>
                     <h2
                       className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
@@ -128,7 +128,7 @@ export default function Signup() {
                         id="countries"
                         name="country"
                         onChange={handleChangeForm}
-                        className={`bg-background-2 text-gray-900 border-r-[20px] border-transparent text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 sm:h-12 ${
+                        className={`bg-background-2 text-gray-900 border-r-[20px] border-transparent text-sm rounded-lg block w-full p-2.5 sm:h-12 ${
                           formik.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
                         }`}
                       >
@@ -181,7 +181,7 @@ export default function Signup() {
                         </div>
                       )}
                     </button>
-                    <p className="text-center col-span-full mt-[18px] pb-28 typo-body-1 sm:mt-[25px] lg:pb-0 xl:pb-[40px]">
+                    <p className="text-center col-span-full mt-[18px] typo-body-1 sm:mt-[25px] lg:pb-0">
                       <IntlMessages id="auth.signup.alReadyAccount" />{' '}
                       <Link href="/login">
                         <span className="text-primary-blue underline">
@@ -198,6 +198,66 @@ export default function Signup() {
           </div>
         </section>
       </main>
+      <style jsx>{`
+        .content-main {
+          min-height: calc(160vh - 56px);
+          height: calc(160vh - 56px);
+        }
+        @media (min-height: 600px) {
+          .content-main {
+            min-height: calc(130vh - 56px);
+            height: calc(130vh - 56px);
+          }
+        }
+        @media (min-height: 700px) {
+          .content-main {
+            min-height: calc(100vh - 56px);
+            height: calc(100vh - 56px);
+          }
+        }
+        @media (min-height: 852px) {
+          .content-main {
+            min-height: calc(120vh - 56px);
+            height: calc(120vh - 56px);
+          }
+        }
+        @media (min-height: 1000px) {
+          .content-main {
+            min-height: calc(100vh - 64px);
+            height: calc(100vh - 64px);
+          }
+        }
+        @media (min-width: 1000px) and (min-height: 600px) {
+          .content-main {
+            min-height: calc(150vh - 64px);
+            height: calc(150vh - 64px);
+          }
+        }
+        @media (min-width: 1200px) and (min-height: 600px) {
+          .content-main {
+            min-height: calc(160vh - 64px);
+            height: calc(160vh - 64px);
+          }
+        }
+        @media (min-width: 1400px) and (min-height: 700px) {
+          .content-main {
+            min-height: 130vh;
+            height: 130vh;
+          }
+        }
+        @media (min-height: 1000px) {
+          .content-main {
+            min-height: 100vh;
+            height: 100vh;
+          }
+        }
+        @media (min-width: 901px) and (min-height: 491px) and (max-height: 500px) {
+          .content-main {
+            min-height: calc(220vh - 56px);
+            height: calc(220vh - 56px);
+          }
+        }
+      `}</style>
     </>
   );
 }
