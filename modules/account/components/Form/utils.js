@@ -8,13 +8,12 @@ export const initialUserInfo = {
 export const intialUserInfoArray = ['firstName', 'lastName', 'email', 'country'];
 
 export const intialBankInformation = {
-  country: '',
   bankName: '',
   accountNumber: '',
   beneficiary: '',
 };
 
-export const intialBankInformationArray = ['country', 'bank', 'accountNumber', 'Beneficiary'];
+export const intialBankInformationArray = ['bankName', 'accountNumber', 'beneficiary'];
 
 export const listCountries = [
   {

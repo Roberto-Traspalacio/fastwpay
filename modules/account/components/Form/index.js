@@ -10,7 +10,14 @@ import { UserContext } from 'context/user/context';
 import { setValueFormik } from 'utils/setValueFormik';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
-import { initialUserInfo, intialBankInformation, intialUserInfoArray, listBanks, listCountries } from './utils';
+import {
+  initialUserInfo,
+  intialBankInformation,
+  intialBankInformationArray,
+  intialUserInfoArray,
+  listBanks,
+  listCountries,
+} from './utils';
 import { Bank } from 'services/Bank.service';
 import Link from 'next/link';
 
@@ -65,24 +72,24 @@ export default function Form() {
   };
 
   useEffect(() => {
-    (async () => {
-      getUserInfo(false);
-      const data = await bank.getinfo();
-      setForm(data?.data);
-    })();
-  }, []);
-
-  useEffect(() => {
     intialUserInfoArray.map((e) => {
       setValueFormik(formik, e, userInfo[e]);
     });
   }, [userInfo]);
 
   useEffect(() => {
-    setValueFormik(formikBank, 'bankName', bankInfoForm?.bankName);
-    setValueFormik(formikBank, 'accountNumber', bankInfoForm?.accountNumber);
-    setValueFormik(formikBank, 'beneficiary', bankInfoForm?.beneficiary);
+    intialBankInformationArray.map((e) => {
+      setValueFormik(formikBank, e, bankInfoForm[e]);
+    });
   }, [bankInfoForm]);
+
+  useEffect(() => {
+    (async () => {
+      getUserInfo(false);
+      const data = await bank.getinfo();
+      setForm(data?.data);
+    })();
+  }, []);
 
   return (
     <div className="grid-main">
