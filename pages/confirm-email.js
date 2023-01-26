@@ -19,5 +19,13 @@ export default function ConfirmEmail() {
     })();
   }, []);
 
-  return <div>confirm-email</div>;
+  return (
+    <div className="h-screen flex justify-center items-center">
+      <h3 className="typo-heading-1 m-auto text-center">
+        Email confirmed successfully
+        <br />
+        You will be redirected to login shortly
+      </h3>
+    </div>
+  );
 }
