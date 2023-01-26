@@ -40,11 +40,12 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
         style={{ background: 'rgba(0, 0, 0, 0.2)' }}
         onClick={(e) => closeSidebar(e)}
       >
-        <div className="w-[110px] h-[100%] bg-primary-blue pt-4 flex flex-col relative xl:w-[216px]">
+        <div className="w-[110px] h-full bg-primary-blue pt-4 flex flex-col relative xl:w-[216px]">
           {!admin ? (
             <>
               <Link href="/dashboard">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/dashboard' && 'item-active'
                   }`}
@@ -57,6 +58,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               </Link>
               <Link href="/dashboard/api-key">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/dashboard/api-key' && 'item-active'
                   }`}
@@ -69,6 +71,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               </Link>
               <Link href="/account">
                 <div
+                  onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
                     router.pathname === '/account' && 'item-active'
                   }`}
@@ -83,6 +86,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
           ) : (
             <Link href="/admin/dashboard">
               <div
+                onClick={() => setOpen(false)}
                 className={`item flex flex-col items-center justify-center py-[11px] ${
                   router.pathname === '/account' && 'item-active'
                 }`}
@@ -93,7 +97,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
             </Link>
           )}
           <div
-            className="item flex flex-col items-center justify-center py-[11px] absolute bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]"
+            className="item flex flex-col items-center justify-center py-[11px] absolute bottom-16 sm:bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]"
             onClick={logout}
           >
             <Image src={logoutIcon} alt="Logout icon" />

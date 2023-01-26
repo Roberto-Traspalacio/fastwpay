@@ -3,7 +3,7 @@ import ScreenLoaderLayout from 'layouts/ScreenLoader.layout';
 import Dashboard from 'modules/dashboard';
 import { useContext, useEffect } from 'react';
 
-export default function Index() {
+export default function Index({ openSidebar, setOpenSidebar }) {
   const { userInfo, getUserInfo } = useContext(UserContext);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Index() {
 
   return (
     <ScreenLoaderLayout>
-      <Dashboard />
+      <Dashboard openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
     </ScreenLoaderLayout>
   );
 }

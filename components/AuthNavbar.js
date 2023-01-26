@@ -10,7 +10,18 @@ import { useRouter } from 'next/router';
 
 export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
-  const [language, setLanguage] = useState('English');
+  const { push, locale } = useRouter();
+  const [language, setLanguage] = useState(
+    locale === 'es'
+      ? 'Spanish'
+      : locale === 'en'
+      ? 'English'
+      : locale === 'fr'
+      ? 'French'
+      : locale === 'it'
+      ? 'Italian'
+      : 'Germany'
+  );
   const { userInfo } = useContext(UserContext);
   const router = useRouter();
 
@@ -61,10 +72,10 @@ export default function AuthNavbar({ admin }) {
                       Italian
                     </li>
                     <li
-                      className={`typo-body-1 ${language === 'German' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('Germany', 'DE')}
+                      className={`typo-body-1 ${language === 'Germany' && 'text-primary-blue'}`}
+                      onClick={() => selectLanguage('Germany', 'de')}
                     >
-                      German
+                      Germany
                     </li>
                   </ul>
                 </div>

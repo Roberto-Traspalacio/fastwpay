@@ -1,6 +1,6 @@
 import { Button, GoHomeButton, Navbar } from 'components';
 import Image from 'next/image';
-import check from 'assets/check.svg';
+import checkIcon from 'assets/check.svg';
 import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
 import { useRouter } from 'next/router';
@@ -10,7 +10,7 @@ export default function SuccessPswChange() {
   return (
     <>
       <Navbar className={'full-bleed-primary-blue xl:hidden'} />
-      <main className="px-[18px] md:px-10 overflow-clip lg:mb-6 lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
+      <main className="px-[18px] md:px-10 overflow-clip xl:p-0 xl:mb-0 content-main">
         <section className="xl:flex max-h-screen">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
             <Image alt="White line" className="h-screen xl:w-[60%] xl:absolute xl:top-0 xl:left-0" src={loginLinea} />
@@ -27,13 +27,34 @@ export default function SuccessPswChange() {
                 <h2 className="typo-heading-1 text-center col-span-full max-w-[14ch] m-auto">
                   Password update successfully
                 </h2>
-                <Image alt='Green check icon' width="80px" height="80px" className="m-auto mt-12 col-span-full" src={check} />
-                <Button onClick={() => router.push('/login')} className="col-span-full mt-10 sm:h-[47px]">Go to login</Button>
+                <Image
+                  alt="Cancel icon"
+                  width="80px"
+                  height="80px"
+                  className="m-auto mt-12 col-span-full w-[80px]"
+                  src={checkIcon}
+                />
+                <Button
+                  onClick={() => router.push('/login')}
+                  className="col-span-full sm:col-span-6 sm:col-start-2 lg:col-span-4 lg:col-start-3 xl:col-span-full mt-10 sm:h-[47px]"
+                >
+                  Go to login
+                </Button>
               </div>
             </div>
           </div>
         </section>
       </main>
+      <style jsx>{`
+        .content-main {
+          min-height: calc(100vh - 56px);
+        }
+        @media (min-width: 700px) {
+          .content-main {
+            min-height: calc(100vh - 64px);
+          }
+        }
+      `}</style>
     </>
   );
 }

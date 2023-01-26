@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import arrowDown from 'assets/polygon.svg';
+
 export default function Summary({ className }) {
   return (
     <>
@@ -11,7 +14,7 @@ export default function Summary({ className }) {
         {/* Button */}
         <div className="button w-[181px] h-[34px] mt-[14px] bg-white rounded-[20px] pl-5 mx-auto relative flex items-center border-2 border-primary-blue sm:mt-5 sm:w-[212px] sm:h-[38px] lg:ml-6 lg:mt-[30px]">
           <p className="text-primary-blue typo-body-1">Only export data</p>
-          <p className="absolute right-5 text-text-1 typo-body-1">▼</p>
+          <Image src={arrowDown} className="w-[12px] h-[10px] absolute right-5 cursor-pointer typo-body-1" />
         </div>
         {/* Card  profit, pay & total */}
         <div className="card grid-main col-span-full mx-[18px] pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:w-[386px] sm:mx-auto lg:ml-[59px] lg:my-auto">

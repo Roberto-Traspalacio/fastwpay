@@ -1,15 +1,14 @@
 import AuthNavbar from 'components/AuthNavbar';
 import BalanceCard from 'modules/dashboard/components/BalanceCard';
 import SidebarMenu from 'components/SidebarMenu';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Head from 'next/head';
 import BannerBlue from 'modules/dashboard/components/BannerBlue';
 import MenuButton from 'modules/dashboard/components/MenuButton';
 import { UserContext } from 'context/user/context';
 import IntlMessages from 'utils/IntlMessages';
 
-export default function Dashboard() {
-  const [openSidebar, setOpenSidebar] = useState(true);
+export default function Dashboard({ openSidebar, setOpenSidebar }) {
   const { userInfo } = useContext(UserContext);
 
   return (
@@ -21,7 +20,11 @@ export default function Dashboard() {
       <main className="sm:flex relative content-main overflow-hidden">
         {/* Menu button */}
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-        {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
+        <SidebarMenu
+          open={openSidebar}
+          setOpen={setOpenSidebar}
+          className={`${!openSidebar ? 'hidden' : 'flex'} sm:flex`}
+        />
         <div className="grid-main col-span-full">
           {/* Center container */}
           <div className="center-container col-span-full sm:px-5">

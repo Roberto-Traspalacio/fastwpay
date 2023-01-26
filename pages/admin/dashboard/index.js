@@ -11,7 +11,7 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Fastwpay | Dashboard</title>
+        <title>Fastwpay | Admin Dashboard</title>
       </Head>
       <AuthNavbar admin />
       <main className="content-main sm:flex">
@@ -35,7 +35,9 @@ export default function AdminDashboard() {
                   Total
                 </h5>
                 <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center">Profit</h5>
-                <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center lg:col-span-3 xl:col-span-2">Pay</h5>
+                <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center lg:col-span-3 xl:col-span-2">
+                  Pay
+                </h5>
               </header>
               {/* List */}
               <SummaryColumn />
@@ -54,7 +56,7 @@ export default function AdminDashboard() {
         }
         @media (min-width: 1024px) {
           .content-main {
-            height: calc(100vh - 48px);
+            height: calc(100vh - 64px);
           }
         }
       `}</style>

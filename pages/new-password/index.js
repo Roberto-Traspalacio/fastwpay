@@ -31,7 +31,7 @@ export default function NewPassword() {
     onSubmit: () => onSubmit(form),
     validationSchema,
   });
-  const { form, handleChangeForm } = useForm(initialState, formik);
+  const { form, setForm, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
   const router = useRouter();
 
@@ -43,6 +43,9 @@ export default function NewPassword() {
       return setSuccess(true);
     }
     setSuccess(false);
+    formik.setFieldValue('newPassword', '');
+    formik.setFieldValue('repeatNewPassword', '');
+    setForm(initialState);
   };
 
   return success === null ? (
@@ -50,7 +53,7 @@ export default function NewPassword() {
       <Head>
         <title>New Password</title>
       </Head>
-      <main className="px-[18px] md:px-10 overflow-clip lg:mb-6 lg:min-h-[628px] xl:p-0 xl:mb-0 min-h-screen">
+      <main className="px-[18px] md:px-10 overflow-clip xl:p-0 xl:mb-0 min-h-screen h-screen">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
         <section className="xl:flex max-h-screen">
           <div className="hidden min-h-screen xl:flex xl:w-[50%] xl:relative bg-primary-blue">
@@ -93,8 +96,8 @@ export default function NewPassword() {
       </main>
     </>
   ) : success === true ? (
-    <SuccessPswChange success={success} setSuccess={setSuccess} />
+    <SuccessPswChange />
   ) : (
-    success === false && <ErrorPswChange success={success} setSuccess={setSuccess} />
+    success === false && <ErrorPswChange formik={formik} success={success} setSuccess={setSuccess} />
   );
 }

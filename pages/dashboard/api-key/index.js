@@ -15,9 +15,8 @@ import Loader from 'components/Loader';
 
 const initialForm = { reference: '' };
 
-export default function ApiKey() {
+export default function ApiKey({ openSidebar, setOpenSidebar }) {
   const [loading, setLoading] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(true);
   const [tab, setTab] = useState(0);
   const { validationSchema } = useYupValidations();
   const formik = useFormik({
@@ -27,10 +26,14 @@ export default function ApiKey() {
   });
   const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
+  const SUCCESS_REQUEST_CODE = 201;
 
   const onSubmit = async () => {
     setLoading(true);
     const data = await apiKey.generate(form);
+    if (data?.response.status === SUCCESS_REQUEST_CODE) {
+      setTab(1);
+    }
     setLoading(false);
   };
 
@@ -42,7 +45,11 @@ export default function ApiKey() {
       <AuthNavbar />
       <main className="sm:flex sm:flex-row relative content-main">
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-        {openSidebar && <SidebarMenu open={openSidebar} setOpen={setOpenSidebar} />}
+        <SidebarMenu
+          className={`${!openSidebar ? 'hidden' : 'flex'} sm:flex`}
+          open={openSidebar}
+          setOpen={setOpenSidebar}
+        />
         <div className="overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">

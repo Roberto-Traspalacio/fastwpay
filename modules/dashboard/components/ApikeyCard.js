@@ -5,6 +5,7 @@ import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
 
 export default function ApikeyCard({ reference, date, status, apiKey, id, deleteApiKey, setList = { setList } }) {
+  const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const apiKeyRef = useRef();
   const apiKeyService = new Apikey();
@@ -27,10 +28,13 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
   }
 
   function copy(ref) {
-    let text = ref.current;
-    text.select();
-    text.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(text.value);
+    const text = apiKeyRef.current.textContent;
+    navigator.clipboard.writeText(text);
+    console.log(apiKeyRef.current.textContent);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
   }
 
   return (
@@ -58,11 +62,25 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
             <IntlMessages id="apiKey.title" />
           </p>
           <div className="flex items-center justify-between w-[180px] esm:w-[230px] bg-white rounded-lg px-3 py-[11px]">
-            <p className="slice-text typo-body-1 text-text-2" style={{ textOverflow: 'auto' }}>
+            <p className="slice-text typo-body-1 text-text-2" style={{ textOverflow: 'auto' }} ref={apiKeyRef}>
               {apiKey}
             </p>
             <svg
-              className="cursor-pointer"
+              className={`transition-opacity ${copied ? 'block' : 'hidden'}`}
+              width="13"
+              height="16"
+              viewBox="0 0 18 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.54961 13.0001L0.849609 7.3001L2.27461 5.8751L6.54961 10.1501L15.7246 0.975098L17.1496 2.4001L6.54961 13.0001Z"
+                fill="#1FB81F"
+              />
+            </svg>
+            <svg
+              onClick={() => copy(apiKeyRef)}
+              className={`cursor-pointer transition-opacity ${!copied ? 'flex' : 'hidden'}`}
               width="13"
               height="16"
               viewBox="0 0 13 16"
