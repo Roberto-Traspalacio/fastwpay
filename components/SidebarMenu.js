@@ -36,7 +36,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
   return (
     <>
       <div
-        className={`box z-10 fixed top-0 left-0 right-0 bottom-0 sm:relative ${className} z-20`}
+        className={`box z-10 fixed top-0 left-0 right-0 bottom-0 sm:relative ${className}`}
         style={{ background: 'rgba(0, 0, 0, 0.2)' }}
         onClick={(e) => closeSidebar(e)}
       >
