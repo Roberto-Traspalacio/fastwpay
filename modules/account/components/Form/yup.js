@@ -15,7 +15,7 @@ export const useYupValidations = () => {
 // Bank information
 export const useYupValidationsBank = () => {
   const validationSchema = yup.object().shape({
-    bank: yup.string().required(String('Please select a bank')),
+    bankName: yup.string().required(String('Please select a bank')),
     accountNumber: yup.string().required(String('Please enter a account number')),
     beneficiary: yup.string().required(String('Please enter a beneficiary')),
   });

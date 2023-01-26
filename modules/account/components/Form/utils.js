@@ -9,7 +9,7 @@ export const intialUserInfoArray = ['firstName', 'lastName', 'email', 'country']
 
 export const intialBankInformation = {
   country: '',
-  bank: '',
+  bankName: '',
   accountNumber: '',
   beneficiary: '',
 };

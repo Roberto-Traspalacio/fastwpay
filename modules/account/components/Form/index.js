@@ -16,6 +16,8 @@ import Link from 'next/link';
 
 export default function Form() {
   const [edit, setEdit] = useState(null); // null = not edit - 0 = Edit Personal info - 1 = Edit Withdrawal info
+  const [loading, setLoading] = useState(false);
+  const [infoBankPreEdit, setInfoBankPreEdit] = useState({});
   const { validationSchema } = useYupValidations();
   const { validationSchema: validationSchemaBank } = useYupValidationsBank();
   const formik = useFormik({
@@ -29,20 +31,25 @@ export default function Form() {
     validationSchema: validationSchemaBank,
   });
   const { form, handleChangeForm } = useForm(initialUserInfo, formik);
-  const { form: bankInfoForm, handleChangeForm: handleChangeBankInfoForm } = useForm(intialBankInformation, formikBank);
-  const SUCCESS_REQUEST_CODE = 201;
+  const {
+    form: bankInfoForm,
+    handleChangeForm: handleChangeBankInfoForm,
+    setForm,
+  } = useForm(intialBankInformation, formikBank);
   const { userInfo, getUserInfo } = useContext(UserContext);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const bank = new Bank();
 
   const cancel = () => {
     setEdit(null);
-    formik.setErrors({});
     formikBank.setErrors({});
+    setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName);
+    setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
+    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
+    setForm(infoBankPreEdit);
   };
 
   const onSubmit = async () => {
-    console.log('SE ESTA ACTUALIZANDO LA INFORMACION DEL USUARIO');
     setShowScreenLoader(true);
     setEdit(null);
     setTimeout(() => {
@@ -51,12 +58,18 @@ export default function Form() {
   };
 
   const onSubmitBankInfo = async () => {
-    console.log('ENVIANDo INFORMACION BANCARIA DEL USUARIO');
+    setLoading(true);
+    await bank.saveBank(bankInfoForm);
+    setLoading(false);
+    setEdit(null);
   };
 
   useEffect(() => {
-    getUserInfo(false);
-    bank.getinfo();
+    (async () => {
+      getUserInfo(false);
+      const data = await bank.getinfo();
+      setForm(data?.data);
+    })();
   }, []);
 
   useEffect(() => {
@@ -64,6 +77,12 @@ export default function Form() {
       setValueFormik(formik, e, userInfo[e]);
     });
   }, [userInfo]);
+
+  useEffect(() => {
+    setValueFormik(formikBank, 'bankName', bankInfoForm?.bankName);
+    setValueFormik(formikBank, 'accountNumber', bankInfoForm?.accountNumber);
+    setValueFormik(formikBank, 'beneficiary', bankInfoForm?.beneficiary);
+  }, [bankInfoForm]);
 
   return (
     <div className="grid-main">
@@ -172,7 +191,10 @@ export default function Form() {
             </h6>
             {edit !== 1 && (
               <Image
-                onClick={() => setEdit(edit === 1 ? null : 1)}
+                onClick={() => {
+                  setEdit(edit === 1 ? null : 1);
+                  setInfoBankPreEdit(bankInfoForm);
+                }}
                 className="cursor-pointer"
                 src={editIcon}
                 alt="Edit icon"
@@ -186,8 +208,8 @@ export default function Form() {
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
           label={<IntlMessages id="common.bank" />}
-          name="bank"
-          value={formikBank.values?.bank}
+          name="bankName"
+          value={formikBank.values?.bankName}
           formik={formikBank}
           onChange={handleChangeBankInfoForm}
         />
@@ -220,7 +242,7 @@ export default function Form() {
           <br />
           At the moment we only work with WISE banks, we will be adding new methods in the future
         </p>
-        {edit === 1 && <EditButtons className="mt-5" cancel={cancel} />}
+        {edit === 1 && <EditButtons loading={loading} setLoading={setLoading} className="mt-5" cancel={cancel} />}
       </form>
     </div>
   );

@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import arrowDown from 'assets/polygon.svg';
+import { useState } from 'react';
 
 export default function Summary({ className }) {
+  const [openOptionList, setOpenOptionList] = useState(false);
+  const [optionSelected, setOptionSelected] = useState('Only export data');
+
   return (
     <>
       <div
@@ -13,8 +17,40 @@ export default function Summary({ className }) {
         </div>
         {/* Button */}
         <div className="button w-[181px] h-[34px] mt-[14px] bg-white rounded-[20px] pl-5 mx-auto relative flex items-center border-2 border-primary-blue sm:mt-5 sm:w-[212px] sm:h-[38px] lg:ml-6 lg:mt-[30px]">
-          <p className="text-primary-blue typo-body-1">Only export data</p>
-          <Image src={arrowDown} className="w-[12px] h-[10px] absolute right-5 cursor-pointer typo-body-1" />
+          <p className="text-primary-blue typo-body-1">{optionSelected}</p>
+          <Image
+            onClick={() => setOpenOptionList(!openOptionList)}
+            src={arrowDown}
+            className="w-[12px] h-[10px] absolute right-5 cursor-pointer typo-body-1"
+          />
+          {/* Options List */}
+          {openOptionList && (
+            <div className="w-[163px] border z-50 border-background-4 flex flex-col items-center absolute top-10 -left-1">
+              <p
+                className={`w-full text-center py-[7px] bg-white cursor-pointer ${
+                  optionSelected === 'Only export data' ? 'text-text-4' : 'text-text-5'
+                }`}
+                onClick={() => {
+                  setOptionSelected('Only export data');
+                  setOpenOptionList(false);
+                }}
+              >
+                Only export data
+              </p>
+              <hr />
+              <p
+                className={`w-full text-center py-[7px] bg-white cursor-pointer ${
+                  optionSelected === 'Export & clean' ? 'text-text-4' : 'text-text-5'
+                }`}
+                onClick={() => {
+                  setOptionSelected('Export & clean');
+                  setOpenOptionList(false);
+                }}
+              >
+                Export & clean
+              </p>
+            </div>
+          )}
         </div>
         {/* Card  profit, pay & total */}
         <div className="card grid-main col-span-full mx-[18px] pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:w-[386px] sm:mx-auto lg:ml-[59px] lg:my-auto">
