@@ -4,6 +4,7 @@ export const INITIAL_STATE = {
   userInfo: {
     firstName: '',
     lastName: '',
+    balance: '',
   },
 };
 

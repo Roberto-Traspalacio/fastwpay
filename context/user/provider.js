@@ -14,11 +14,19 @@ export default function UserProvider({ children }) {
   const getUserInfo = async (loader = true) => {
     loader && setShowScreenLoader(true);
     const data = await user.getUser();
+    const dataBalance = await user.getCurrentBalance();
+    console.log('🚀 ~ file: provider.js:18 ~ getUserInfo ~ dataBalance', dataBalance);
     setShowScreenLoader(false);
     if (data?.response.status === SUCCESS_REQUEST_CODE) {
       dispatch({
         type: types.GET_USER_INFO,
-        userInfo: data.data,
+        userInfo: { ...state.userInfo, ...data.data },
+      });
+    }
+    if (dataBalance?.response.status === SUCCESS_REQUEST_CODE) {
+      dispatch({
+        type: types.GET_USER_INFO,
+        userInfo: { ...data.data, balance: dataBalance?.data?.result },
       });
     }
   };
