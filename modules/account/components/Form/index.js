@@ -88,6 +88,9 @@ export default function Form() {
       getUserInfo(false);
       const data = await bank.getinfo();
       setForm(data?.data);
+      setValueFormik(formikBank, 'bankName', data?.data?.bankName);
+      setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
+      setValueFormik(formikBank, 'beneficiary', data?.data?.beneficiary);
     })();
   }, []);
 
