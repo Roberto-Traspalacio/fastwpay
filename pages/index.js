@@ -29,8 +29,12 @@ import Contact from '../components/Contact';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import IntlMessages from 'utils/IntlMessages';
+import useDownloader from 'react-use-downloader';
 
 export default function Home() {
+  const { download } = useDownloader();
+  const fileUrl = 'plugin/fastwpay-v0.1.0.zip';
+  const filename = 'fastwpay-v0.1.0.zip';
   return (
     <>
       <Head>
@@ -68,7 +72,7 @@ export default function Home() {
           </div>
 
           <div className="flex col-span-full justify-center mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start">
-            <Button className="block">
+            <Button className="block" onClick={() => download(fileUrl, filename)}>
               <IntlMessages id="common.download" />
             </Button>
             <ButtonInverse>
@@ -160,9 +164,9 @@ export default function Home() {
               title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
                 <span className="font-bold underline text-primary-blue">
-                  <a href="#">
+                  <span className="cursor-pointer underline" onClick={() => download(fileUrl, filename)}>
                     <IntlMessages id="common.downloadYou" />{' '}
-                  </a>
+                  </span>
                 </span>,
                 <IntlMessages id="landing.section.four.1.description" />,
               ]}
@@ -210,7 +214,10 @@ export default function Home() {
           <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
             <IntlMessages id="landing.banner.description" />
           </div>
-          <Button className="self-center col-span-2 col-start-2 xl:col-start-7 ">
+          <Button
+            className="self-center col-span-2 col-start-2 xl:col-start-7"
+            onClick={() => download(fileUrl, filename)}
+          >
             <IntlMessages id="common.download" />
           </Button>
         </section>

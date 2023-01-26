@@ -6,11 +6,15 @@ import { useRouter } from 'next/router';
 import menuPublicIcon from 'assets/menuPublic.svg';
 import IntlMessages from 'utils/IntlMessages';
 import Link from 'next/link';
+import useDownloader from 'react-use-downloader';
 
 export default function Navbar({ className, auth }) {
   const [showList, setShowList] = useState(false);
   const [showListOptions, setShowListOptions] = useState(false);
   const { push, locale } = useRouter();
+  const { download } = useDownloader();
+  const fileUrl = 'plugin/fastwpay-v0.1.0.zip';
+  const filename = 'fastwpay-v0.1.0.zip';
   const [language, setLanguage] = useState(
     locale === 'es'
       ? 'Spanish'
@@ -106,7 +110,10 @@ export default function Navbar({ className, auth }) {
               <IntlMessages id="auth.login" />
             </p>
           </Link>
-          <button className="text-primary-blue bg-white h-8 px-5 rounded-[17px] typo-body-1 flex items-center justify-center ">
+          <button
+            className="text-primary-blue bg-white h-8 px-5 rounded-[17px] typo-body-1 flex items-center justify-center"
+            onClick={() => download(fileUrl, filename)}
+          >
             <IntlMessages id="common.download" />
           </button>
         </div>
