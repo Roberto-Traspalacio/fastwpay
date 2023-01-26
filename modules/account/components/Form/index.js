@@ -12,6 +12,7 @@ import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
 import { initialUserInfo, intialBankInformation, intialUserInfoArray, listBanks, listCountries } from './utils';
 import { Bank } from 'services/Bank.service';
+import Link from 'next/link';
 
 export default function Form() {
   const [edit, setEdit] = useState(null); // null = not edit - 0 = Edit Personal info - 1 = Edit Withdrawal info
@@ -211,6 +212,14 @@ export default function Form() {
           value={formikBank.values?.beneficiary}
           onChange={handleChangeBankInfoForm}
         />
+        <p className="typo-body-1 text-text-2 mt-8">
+          If you don't know the exact name of your bank, check this{' '}
+          <Link className="text-primary-blue" target="_blank" href="https://wise.com/es/swift-codes/countries">
+            link
+          </Link>
+          <br />
+          At the moment we only work with WISE banks, we will be adding new methods in the future
+        </p>
         {edit === 1 && <EditButtons className="mt-5" cancel={cancel} />}
       </form>
     </div>

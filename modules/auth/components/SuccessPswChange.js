@@ -24,7 +24,9 @@ export default function SuccessPswChange() {
             <GoHomeButton>Go Home</GoHomeButton>
             <div className="min-w-[89%] esm:min-w-[90.5%] sm:min-w-[94.2%] md:min-w-[89.6%] lg:w-[494px] absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[50%] xl:min-w-[494px] pt-0">
               <div className="grid-main gap-x-3">
-                <h2 className="typo-heading-1 text-center col-span-full max-w-[14ch] m-auto">Password update error</h2>
+                <h2 className="typo-heading-1 text-center col-span-full max-w-[14ch] m-auto">
+                  Password update successfully
+                </h2>
                 <Image
                   alt="Cancel icon"
                   width="80px"
