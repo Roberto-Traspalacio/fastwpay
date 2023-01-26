@@ -7,4 +7,9 @@ export class User {
     const user = await fetch.get('/user/info', this.auth?.token);
     return user;
   }
+
+  async getCurrentBalance() {
+    const data = await fetch.get('/transaction/actual-amount', this.auth?.token);
+    return data;
+  }
 }

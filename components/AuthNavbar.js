@@ -38,7 +38,8 @@ export default function AuthNavbar({ admin }) {
         {!admin ? (
           <div className="flex items-center h-6 gap-[14px]">
             <p className="typo-body-1 text-text-1 font-bold">
-              <IntlMessages id="common.balance" />: <span className="text-primary-blue typo-body-1">203,876.34 Є</span>
+              <IntlMessages id="common.balance" />:{' '}
+              <span className="text-primary-blue typo-body-1">{userInfo?.balance} Є</span>
             </p>
             <div className="flex items-center h-full cursor-pointer relative" onClick={() => setShowList(!showList)}>
               <p className="typo-body-1 text-text-1">{language}</p>
