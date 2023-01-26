@@ -27,10 +27,9 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
   }
 
   function copy(ref) {
-    let text = ref.current;
-    text.select();
-    text.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(text.value);
+    const text = apiKeyRef.current.textContent;
+    navigator.clipboard.writeText(text);
+    console.log(apiKeyRef.current.textContent);
   }
 
   return (
@@ -58,7 +57,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
             <IntlMessages id="apiKey.title" />
           </p>
           <div className="flex items-center justify-between w-[180px] esm:w-[230px] bg-white rounded-lg px-3 py-[11px]">
-            <p className="slice-text typo-body-1 text-text-2" style={{ textOverflow: 'auto' }}>
+            <p className="slice-text typo-body-1 text-text-2" style={{ textOverflow: 'auto' }} ref={apiKeyRef}>
               {apiKey}
             </p>
             <svg
@@ -67,6 +66,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
               height="16"
               viewBox="0 0 13 16"
               fill="none"
+              onClick={copy}
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
