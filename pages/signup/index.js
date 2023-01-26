@@ -221,7 +221,7 @@ export default function Signup() {
             min-height: calc(125vh - 112px);
           }
         }
-        @media (min-width: 375px) and (min-height: 700px) and (max-width: 600px) {
+        @media (min-width: 360px) and (min-height: 700px) and (max-width: 600px) {
           .content-main {
             min-height: calc(100vh - 112px);
           }

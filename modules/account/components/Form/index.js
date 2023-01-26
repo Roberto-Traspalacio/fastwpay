@@ -11,6 +11,7 @@ import { setValueFormik } from 'utils/setValueFormik';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
 import { initialUserInfo, intialBankInformation, intialUserInfoArray, listBanks, listCountries } from './utils';
+import { Bank } from 'services/Bank.service';
 
 export default function Form() {
   const [edit, setEdit] = useState(null); // null = not edit - 0 = Edit Personal info - 1 = Edit Withdrawal info
@@ -31,6 +32,7 @@ export default function Form() {
   const SUCCESS_REQUEST_CODE = 201;
   const { userInfo, getUserInfo } = useContext(UserContext);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
+  const bank = new Bank();
 
   const cancel = () => {
     setEdit(null);
@@ -53,6 +55,7 @@ export default function Form() {
 
   useEffect(() => {
     getUserInfo(false);
+    bank.getinfo();
   }, []);
 
   useEffect(() => {
@@ -176,69 +179,17 @@ export default function Form() {
             )}
           </div>
         </div>
-        {/* Country Select */}
-        <div className="col-span-full mt-[18px] sm:mt-6 xl:mt-[28px]">
-          <label className="typo-body-2 mb-2 ml-[8px] text-text-1" htmlFor="countries">
-            <IntlMessages id="common.country" />
-          </label>
-          <select
-            disabled={edit === null || edit === 0}
-            id="countries"
-            name="country"
-            onChange={handleChangeBankInfoForm}
-            className={`${
-              edit === null || edit === 0 ? 'bg-background-7' : 'bg-background-2'
-            } col-span-full text-gray-900 text-sm border-r-[20px] border-transparent mt-2 rounded-lg block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 md:col-span-6 md:col-start-2 ${
-              formikBank?.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
-            }`}
-          >
-            <option className="typo-body-1" selected disabled>
-              <IntlMessages id="common.chooseCountry" />
-            </option>
-            {listCountries.map((country) => (
-              <option key={country.name} value={country.name}>
-                {country.name}
-              </option>
-            ))}
-          </select>
-          {formikBank?.errors.country && (
-            <p className="input-error-message col-span-full mb-[14px] sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-              {formikBank?.errors.country}
-            </p>
-          )}
-        </div>
-        {/* Bank Select */}
-        <div className="col-span-full mt-[18px] lg:mt-5">
-          <label className="typo-body-2 mb-2 ml-[8px] text-text-1" htmlFor="countries">
-            <IntlMessages id="common.bank" />
-          </label>
-          <select
-            className={`${
-              edit === null || edit === 0 ? 'bg-background-7' : 'bg-background-2'
-            } col-span-full text-gray-900 text-sm border-r-[20px] border-transparent mt-2 rounded-lg block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 md:col-span-6 md:col-start-2 ${
-              formikBank?.errors.bank && 'input-error mb-[4px] xl:mb-[5px]'
-            }`}
-            disabled={edit === null || edit === 0}
-            id="banks"
-            name="bank"
-            onChange={handleChangeBankInfoForm}
-          >
-            <option selected disabled>
-              <IntlMessages id="common.chooseBank" />
-            </option>
-            {listBanks.map((bank) => {
-              if (bank.country === formikBank.values?.country) {
-                return (
-                  <option key={bank.name} value={bank.name}>
-                    {bank.name}
-                  </option>
-                );
-              } else {
-                return null;
-              }
-            })}
-          </select>
-        </div>
+        {/* Bank Input */}
+        <Input
+          disabled={edit === null || edit === 0}
+          className="col-span-full mt-[18px] lg:mt-5"
+          type="text"
+          label={<IntlMessages id="common.bank" />}
+          name="bank"
+          value={formikBank.values?.bank}
+          formik={formikBank}
+          onChange={handleChangeBankInfoForm}
+        />
         {/* Account Number */}
         <Input
           disabled={edit === null || edit === 0}
