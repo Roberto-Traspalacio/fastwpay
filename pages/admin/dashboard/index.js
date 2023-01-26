@@ -11,7 +11,7 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Fastwpay | Dashboard</title>
+        <title>Fastwpay | Admin Dashboard</title>
       </Head>
       <AuthNavbar admin />
       <main className="content-main sm:flex">
