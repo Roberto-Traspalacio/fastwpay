@@ -15,9 +15,8 @@ import Loader from 'components/Loader';
 
 const initialForm = { reference: '' };
 
-export default function ApiKey() {
+export default function ApiKey({ openSidebar, setOpenSidebar }) {
   const [loading, setLoading] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(false);
   const [tab, setTab] = useState(0);
   const { validationSchema } = useYupValidations();
   const formik = useFormik({

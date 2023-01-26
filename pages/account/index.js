@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import AuthNavbar from 'components/AuthNavbar';
 import SidebarMenu from 'components/SidebarMenu';
 import BannerBlue from 'modules/dashboard/components/BannerBlue';
@@ -8,8 +7,7 @@ import Form from 'modules/account/components/Form';
 import IntlMessages from 'utils/IntlMessages';
 import ScreenLoaderLayout from 'layouts/ScreenLoader.layout';
 
-export default function Account() {
-  const [openSidebar, setOpenSidebar] = useState(false);
+export default function Account({ openSidebar, setOpenSidebar }) {
   return (
     <ScreenLoaderLayout>
       <>

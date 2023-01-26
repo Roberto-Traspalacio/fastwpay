@@ -10,9 +10,9 @@
 }
 
 :root {
-  --error1: #E65C4F;
-  --error2: #FFF5F4;
-  --redHard: #D31908;
+  --error1: #e65c4f;
+  --error2: #fff5f4;
+  --redHard: #d31908;
 }
 
 @layer components {
