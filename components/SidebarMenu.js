@@ -36,7 +36,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
   return (
     <>
       <div
-        className={`box z-10 fixed top-0 left-0 right-0 bottom-0 sm:relative ${className}`}
+        className={`box fixed top-0 left-0 right-0 bottom-0 sm:relative ${className} z-50 max-h-screen`}
         style={{ background: 'rgba(0, 0, 0, 0.2)' }}
         onClick={(e) => closeSidebar(e)}
       >
@@ -110,7 +110,9 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
       <style jsx>{`
         .box {
           /* height: calc(100vh - 48px); */
-          height: 100vh;
+          /* min-height: (100vh - 48px); */
+          /* border: 1px solid red; */
+          /* z-index: 99999999999999999999999999999; */
         }
         .item {
           cursor: pointer;
