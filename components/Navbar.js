@@ -45,7 +45,10 @@ export default function Navbar({ className, auth }) {
               <Image className="ml-2 w-[9px]" src={polygonIcon} alt="Polygon" />
               {/* List of language */}
               {showList && (
-                <div className="absolute top-[24px] right-0 py-4 px-5 bg-white rounded-md z-30">
+                <div
+                  className="absolute top-[24px] right-0 py-4 px-5 bg-white rounded-md z-30"
+                  style={{ boxShadow: '0px 0px 9px 0px #0000001F' }}
+                >
                   <ul className="flex flex-col gap-4 z-50">
                     <li
                       className={`typo-body-1 ${language === 'English' && 'text-primary-blue'}`}

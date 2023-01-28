@@ -1,12 +1,19 @@
+import { useState } from 'react';
 import { Button, GoHomeButton, Navbar } from 'components';
 import Image from 'next/image';
 import checkIcon from 'assets/check.svg';
 import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
 import { useRouter } from 'next/router';
+import Loader from 'components/Loader';
 
 export default function SuccessPswChange() {
+  const [loading, setLoading] = useState();
   const router = useRouter();
+  const goToLogin = () => {
+    setLoading(true);
+    router.push('/login');
+  };
   return (
     <>
       <Navbar className={'full-bleed-primary-blue xl:hidden'} />
@@ -35,10 +42,10 @@ export default function SuccessPswChange() {
                   src={checkIcon}
                 />
                 <Button
-                  onClick={() => router.push('/login')}
-                  className="col-span-full sm:col-span-6 sm:col-start-2 lg:col-span-4 lg:col-start-3 xl:col-span-full mt-10 sm:h-[47px]"
+                  onClick={goToLogin}
+                  className="flex items-center h-[38px] sm:h-[44px] lg:h-[47px] justify-center col-span-full sm:col-span-6 sm:col-start-2 lg:col-span-4 lg:col-start-3 xl:col-span-full mt-10"
                 >
-                  Go to login
+                  {loading ? <Loader /> : 'Go to login'}
                 </Button>
               </div>
             </div>

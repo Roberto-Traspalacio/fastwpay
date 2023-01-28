@@ -46,7 +46,10 @@ export default function AuthNavbar({ admin }) {
               <Image className="ml-2 w-[9px]" src={polygonIcon} alt="Polygon" />
               {/* List of languages */}
               {showList && (
-                <div className="absolute top-[24px] right-0 py-4 px-5 bg-white rounded-md z-10">
+                <div
+                  className="absolute top-[24px] right-0 py-4 px-5 bg-white rounded-md z-10"
+                  style={{ boxShadow: '0px 0px 9px 0px #0000001F' }}
+                >
                   <ul className="flex flex-col gap-4">
                     <li
                       className={`typo-body-1 ${language === 'English' && 'text-primary-blue'}`}

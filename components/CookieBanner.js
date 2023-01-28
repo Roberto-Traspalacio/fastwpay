@@ -25,7 +25,10 @@ export default function CookieBanner({ acceptCookies }) {
             >
               Accept
             </button>
-            <button className="flex items-center justify-center h-[36px] rounded-[19px] typo-body-1 col-span-2 text-primary-blue border border-primary-blue md:col-span-full md:mt-[10px] xl:col-span-6 xl:mt-0">
+            <button
+              className="flex items-center justify-center h-[36px] rounded-[19px] typo-body-1 col-span-2 text-primary-blue border border-primary-blue md:col-span-full md:mt-[10px] xl:col-span-6 xl:mt-0"
+              onClick={acceptCookies}
+            >
               Reject All
             </button>
           </div>
