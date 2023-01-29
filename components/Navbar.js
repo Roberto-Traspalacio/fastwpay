@@ -13,8 +13,7 @@ export default function Navbar({ className, auth }) {
   const [showListOptions, setShowListOptions] = useState(false);
   const { push, locale } = useRouter();
   const { download } = useDownloader();
-  const fileUrl =
-    'https://github.com/Roberto-Traspalacio/fastwpay/blob/19b42d521a37622f7ac8227de20647c7e5a0f69f/plugin/fastwpay-v0.1.0.zip';
+  const fileUrl = '../plugin/fastwpay-v0.1.0.zip';
   const filename = 'fastwpay-v0.1.0.zip';
   const [language, setLanguage] = useState(
     locale === 'es'
