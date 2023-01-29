@@ -131,7 +131,8 @@ export default function Home() {
             />
 
             <FeatureItem
-              className="col-span-2 sm:col-start-6 md:col-span-4 md:col-start-5 xl:col-start-7 xl:col-span-4"
+              className="col-span-2 sm:col-start-6 lg:col-span-4 md:col-start-6 xl:col-start-7 xl:col-span-4"
+              // className="col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4"
               src={supportIcon}
               shadow="box-ether-red"
               title={<IntlMessages id="landing.section.two.support.title" />}
