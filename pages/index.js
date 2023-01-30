@@ -33,7 +33,7 @@ import useDownloader from 'react-use-downloader';
 
 export default function Home() {
   const { download } = useDownloader();
-  const fileUrl = 'plugin/fastwpay-v0.1.0.zip';
+  const fileUrl = 'https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download';
   const filename = 'fastwpay-v0.1.0.zip';
   return (
     <>
