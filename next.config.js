@@ -10,6 +10,14 @@ const nextConfig = {
   env: {
     REACT_NEXT_APP_URL_API: process.env.REACT_NEXT_APP_URL_API,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/drive.google.com/:path*',
+        destination: 'http://localhost:3000/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
