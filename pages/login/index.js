@@ -44,14 +44,16 @@ export default function Login() {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const auth = new Auth();
   const UNATHORIZED_ERROR_CODE = 401;
+  const USER_NOT_FOUND = 404;
 
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.login(form);
-    if (data?.response.status === UNATHORIZED_ERROR_CODE) {
+    if (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === USER_NOT_FOUND) {
       setError({ show: true, text: 'Invalid username or password' });
       setTimeout(() => setError({ ...error, show: false }), 4500);
     }
+
     if (data?.response.status === 500) {
       setShowModalVerificate(true);
     }

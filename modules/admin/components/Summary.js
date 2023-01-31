@@ -9,7 +9,7 @@ export default function Summary({ className }) {
   return (
     <>
       <div
-        className={`${className} bg-background-2 pb-[18px] flex flex-col sm:mt-8 sm:mx-5 sm:rounded-2xl sm:pb-6 lg:flex-row lg:px-4 lg:pb-0 lg:h-[112px]`}
+        className={`${className} bg-background-2 pb-[18px] flex flex-col sm:mt-8 sm:mx-5 sm:rounded-2xl sm:pb-6 lg:flex-row lg:px-4 lg:pb-0 lg:h-[112px] xl:px-8`}
       >
         <div className="flex flex-col">
           <h4 className="text-text-1 typo-heading-2 mt-[22px] text-center sm:mt-6 lg:text-start lg:mt-6">Summary</h4>
@@ -53,18 +53,20 @@ export default function Summary({ className }) {
           )}
         </div>
         {/* Card  profit, pay & total */}
-        <div className="card grid-main col-span-full mx-[18px] pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:w-[386px] sm:mx-auto lg:ml-[59px] lg:my-auto">
-          <div className="col-span-2 flex flex-col items-center">
-            <p className="profit text-text-1 typo-heading-3 font-normal">181,66 Є</p>
-            <p className="typo-body-2 text-text-5">Profit</p>
-          </div>
-          <div className="col-span-2 flex flex-col items-center">
-            <p className="pay text-text-1 typo-heading-3 font-normal">1740,34 Є</p>
-            <p className="typo-body-2 text-text-5">Pay</p>
-          </div>
-          <div className="col-span-full flex flex-col items-center mx-auto mt-[20px] sm:m-0">
-            <p className="text-text-1 typo-heading-3 font-normal">1922 Є</p>
-            <p className="typo-body-2 text-text-5">Total</p>
+        <div className="col-span-full flex px-[18px] sm:px-0 justify-center lg:justify-end">
+          <div className="card grid-main w-full col-span-full pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:w-[386px] sm:mx-auto lg:ml-[59px] lg:my-auto">
+            <div className="col-span-2 flex flex-col items-center">
+              <p className="profit text-text-1 typo-heading-3 font-normal">181,66 Є</p>
+              <p className="typo-body-2 text-text-5">Profit</p>
+            </div>
+            <div className="col-span-2 flex flex-col items-center">
+              <p className="pay text-text-1 typo-heading-3 font-normal">1740,34 Є</p>
+              <p className="typo-body-2 text-text-5">Pay</p>
+            </div>
+            <div className="col-span-full flex flex-col items-center mx-auto mt-[20px] sm:m-0">
+              <p className="text-text-1 typo-heading-3 font-normal">1922 Є</p>
+              <p className="typo-body-2 text-text-5">Total</p>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +78,7 @@ export default function Summary({ className }) {
           height: 32px;
           position: absolute;
           top: 0;
-          right: 50px;
+          right: 21.8%;
         }
         .card {
           box-shadow: 0px 0px 10px 0px #00000012;

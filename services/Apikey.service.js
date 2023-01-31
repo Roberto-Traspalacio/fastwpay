@@ -11,7 +11,6 @@ export class Apikey {
 
   async list() {
     const data = await fetch.get('/keys/my-keys', this.auth?.token);
-    console.log('🚀 ~ file: Apikey.service.js:14 ~ Apikey ~ list ~ data', data);
     return data;
   }
 

@@ -58,26 +58,26 @@ export default function ApiKey({ openSidebar, setOpenSidebar }) {
             </h3>
             {/* Linea */}
             <div className="h-[3px] bg-background-4 col-span-full relative mt-2 md:mt-5 lg:ml-0">
-              <div className="bg-primary-blue rounded-full w-8 h-[3px] absolute left-0 z-10"></div>
-              <button
-                onClick={() => setTab(0)}
-                className={`${
-                  tab === 0 ? 'tab-active' : 'tab'
-                } absolute right-[113px] top-[-38px] xsm:top-[-40px] typo-body-1 py-[10px] px-[13px] sm:top-[-44px] sm:right-[150px]`}
-              >
-                <IntlMessages id="common.create" />
-              </button>
-              <button
-                onClick={() => setTab(1)}
-                className={`${
-                  tab === 1 ? 'tab-active' : 'tab'
-                } flex items-center gap-1 absolute py-[10px] px-[13px] top-[-38px] xsm:top-[-40px] right-0 typo-body-1 text-text-2 font-normal sm:top-[-44px]`}
-              >
-                <IntlMessages id="apiKey.listApikeys" />
-                {/* <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
+              <div className="bg-primary-blue rounded-full w-8 h-[3px] absolute right-0 left-0 z-10"></div>
+              <div className="absolute flex -top-[40px] sm:-top-[45px] lg:-top-[44px] right-0">
+                <button
+                  onClick={() => setTab(0)}
+                  className={`${tab === 0 ? 'tab-active' : 'tab'} typo-body-1 py-[10px] px-[13px]`}
+                >
+                  <IntlMessages id="common.create" />
+                </button>
+                <button
+                  onClick={() => setTab(1)}
+                  className={`${
+                    tab === 1 ? 'tab-active' : 'tab'
+                  } flex items-center gap-1 py-[10px] px-[13px] typo-body-1 text-text-2 font-normal `}
+                >
+                  <IntlMessages id="apiKey.listApikeys" />
+                  {/* <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
                   7
                 </p> */}
-              </button>
+                </button>
+              </div>
             </div>
             {/* Content information */}
             {tab === 0 ? (

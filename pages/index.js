@@ -29,12 +29,9 @@ import Contact from '../components/Contact';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import IntlMessages from 'utils/IntlMessages';
-import useDownloader from 'react-use-downloader';
+import Link from 'next/link';
 
 export default function Home() {
-  const { download } = useDownloader();
-  const fileUrl = 'plugin/fastwpay-v0.1.0.zip';
-  const filename = 'fastwpay-v0.1.0.zip';
   return (
     <>
       <Head>
@@ -72,9 +69,11 @@ export default function Home() {
           </div>
 
           <div className="flex col-span-full justify-center mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start">
-            <Button className="block" onClick={() => download(fileUrl, filename)}>
-              <IntlMessages id="common.download" />
-            </Button>
+            <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+              <Button className="block">
+                <IntlMessages id="common.download" />
+              </Button>
+            </Link>
             <ButtonInverse>
               <IntlMessages id="common.contact" />
             </ButtonInverse>
@@ -131,7 +130,8 @@ export default function Home() {
             />
 
             <FeatureItem
-              className="col-span-2 sm:col-start-6 md:col-span-4 md:col-start-5 xl:col-start-7 xl:col-span-4"
+              className="col-span-2 sm:col-start-6 lg:col-span-4 md:col-start-6 xl:col-start-7 xl:col-span-4"
+              // className="col-span-2 sm:col-start-2 lg:col-span-4 lg:col-start-1 xl:col-span-4"
               src={supportIcon}
               shadow="box-ether-red"
               title={<IntlMessages id="landing.section.two.support.title" />}
@@ -164,9 +164,11 @@ export default function Home() {
               title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
                 <span className="font-bold underline text-primary-blue">
-                  <span className="cursor-pointer underline" onClick={() => download(fileUrl, filename)}>
-                    <IntlMessages id="common.downloadYou" />{' '}
-                  </span>
+                  <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+                    <span className="cursor-pointer underline">
+                      <IntlMessages id="common.downloadYou" />{' '}
+                    </span>
+                  </Link>
                 </span>,
                 <IntlMessages id="landing.section.four.1.description" />,
               ]}
@@ -214,12 +216,14 @@ export default function Home() {
           <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
             <IntlMessages id="landing.banner.description" />
           </div>
-          <Button
+          <Link
             className="self-center col-span-2 col-start-2 xl:col-start-7"
-            onClick={() => download(fileUrl, filename)}
+            href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download"
           >
-            <IntlMessages id="common.download" />
-          </Button>
+            <Button className="w-full">
+              <IntlMessages id="common.download" />
+            </Button>
+          </Link>
         </section>
         <div className="relative hidden xl:block">
           <Image src={smile} className="absolute bottom-0 z-10" />

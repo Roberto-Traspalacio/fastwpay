@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
 
-export default function ApikeyCard({ reference, date, status, apiKey, id, deleteApiKey, setList = { setList } }) {
+export default function ApikeyCard({ reference, date, status, apiKey, id, deleteApiKey, setList }) {
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const apiKeyRef = useRef();

@@ -34,6 +34,8 @@ export default function NewPassword() {
   const { form, setForm, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
   const router = useRouter();
+  const newPassword = formik.values?.newPassword;
+  const repeatNewPassword = formik.values?.repeatNewPassword;
 
   const onSubmit = async () => {
     setLoading(true);
@@ -86,7 +88,16 @@ export default function NewPassword() {
                   formik={formik}
                   onChange={handleChangeForm}
                 />
-                <button className="col-span-full h-[30px] flex items-center justify-center sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 bg-primary-blue text-white sm:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full">
+                <button
+                  disabled={
+                    newPassword !== repeatNewPassword && newPassword.length > 0 && repeatNewPassword.length > 0 && true
+                  }
+                  className={`col-span-full h-[30px] flex items-center justify-center sm:col-start-2 sm:col-span-6 sm:mt-[25px] md:col-start-2 md:col-span-6 xl:mt-6 lg:col-start-3 lg:col-span-4 ${
+                    newPassword !== repeatNewPassword && newPassword.length >= 0 && repeatNewPassword.length >= 0
+                      ? 'bg-text-2'
+                      : 'bg-primary-blue'
+                  } text-white sm:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full`}
+                >
                   {loading ? <Loader /> : <div className="typo-body-1">Update password</div>}
                 </button>
               </form>
