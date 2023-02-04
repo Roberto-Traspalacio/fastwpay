@@ -82,12 +82,12 @@ export default function Summary({ className }) {
             </div>
             {/* Pay */}
             <div className="col-span-2 flex flex-col items-center">
-              <p className="pay text-text-1 typo-heading-3 font-normal">{summary.total} Є</p>
+              <p className="pay text-text-1 typo-heading-3 font-normal">{summary.totalToPay} Є</p>
               <p className="typo-body-2 text-text-5">Pay</p>
             </div>
             {/* Total */}
             <div className="col-span-full flex flex-col items-center mx-auto mt-[20px] sm:m-0">
-              <p className="text-text-1 typo-heading-3 font-normal">{summary.totalToPay} Є</p>
+              <p className="text-text-1 typo-heading-3 font-normal">{summary.total} Є</p>
               <p className="typo-body-2 text-text-5">Total</p>
             </div>
           </div>
