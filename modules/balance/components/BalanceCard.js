@@ -4,7 +4,7 @@ import IntlMessages from 'utils/IntlMessages';
 export default function BalanceCard({ id, reference, balance }) {
   const router = useRouter();
   const goToDetails = () => {
-    router.push(`/balance/${id}`);
+    router.push(`/balance/${id}?rfc=${reference}`);
   };
   return (
     <>

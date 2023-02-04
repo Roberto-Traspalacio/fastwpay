@@ -1,21 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 import BalanceCard from './BalanceCard';
 import Column from './Column';
 
 export default function ListBalance() {
   const [list, setList] = useState([]);
   const apiKey = new Apikey();
-  const SUCCESS_REQUEST_CODE = 200;
-
-  async function deleteApiKey(id) {
-    await apiKey.deleteKey(id);
-    const data = await apiKey.getBalanceList();
-    if (data?.response.status === SUCCESS_REQUEST_CODE) {
-      setList(data?.data?.items);
-    }
-  }
 
   useEffect(() => {
     (async () => {

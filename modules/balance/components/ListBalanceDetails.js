@@ -2,20 +2,20 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 import BalanceDetailsCard from './BalanceDetailsCard';
 import ColumnDetails from './ColumnDetails';
 
 export default function ListBalanceDetails() {
   const [list, setList] = useState([]);
   const apiKey = new Apikey();
-  const SUCCESS_REQUEST_CODE = 200;
   const router = useRouter();
 
   useEffect(() => {
     (async () => {
       const data = router.query?.id && (await apiKey.getTransactionsByApiKey(router.query?.id));
       if (data?.response.status === SUCCESS_REQUEST_CODE) {
-        setList(data?.data?.items);
+        setList(data?.data?.items?.reverse());
       }
     })();
   }, [router.query]);

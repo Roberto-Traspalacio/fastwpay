@@ -15,7 +15,7 @@ export default function AdminDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
   const [list, setList] = useState([]);
   const { getUserInfo } = useContext(UserContext);
-  const { showScreenLoader, setShowScreenLoader } = useContext(ScreenLoaderContext);
+  const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const admin = new Admin();
 
   useEffect(() => {

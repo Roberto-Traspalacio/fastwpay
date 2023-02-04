@@ -10,13 +10,13 @@ export default function ColumnDetails({ order, date, status, balance }) {
     <>
       <div className="grid-main col-span-full border-t border-background-4 w-full overflow-auto">
         {/* Order */}
-        <p className="col-span-2 pt-[29px] pb-[26px] typo-body-1 text-text-1">{order}</p>
+        <p className="col-span-2 pt-[29px] pb-[26px] typo-body-1 text-text-1">#{order}</p>
         {/* Date */}
         <p className="col-span-2 text-center pt-[29px] pb-[26px] typo-body-1 text-text-1">{formattedDate}</p>
         {/* Status */}
         <p
           className={`col-span-2 text-center pt-[29px] pb-[26px] typo-body-1 ${
-            status === 'Complete'
+            status === 'Success'
               ? 'text-secondary-green'
               : status === 'Failed'
               ? 'text-secondary-red'
