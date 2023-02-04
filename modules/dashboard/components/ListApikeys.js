@@ -13,7 +13,7 @@ export default function ListApikeys() {
     await apiKey.deleteKey(id);
     const data = await apiKey.list();
     if (data?.response.status === SUCCESS_REQUEST_CODE) {
-      setList(data?.data?.keys);
+      setList(data?.data?.items);
     }
   }
 
@@ -21,7 +21,7 @@ export default function ListApikeys() {
     (async () => {
       const data = await apiKey.list();
       if (data?.response.status === SUCCESS_REQUEST_CODE) {
-        setList(data?.data?.keys);
+        setList(data?.data?.items);
       }
     })();
   }, []);
@@ -29,18 +29,19 @@ export default function ListApikeys() {
   return (
     <>
       <div className="pt-[18px] pb-5 flex flex-col gap-[18px] lg:pt-0">
-        {list.map((apiKey) => (
-          <ApikeyCard
-            key={apiKey.id}
-            reference={apiKey.reference}
-            date={apiKey.createdAt}
-            status={apiKey.status}
-            apiKey={apiKey.key}
-            id={apiKey.id}
-            deleteApiKey={deleteApiKey}
-            setList={setList}
-          />
-        ))}
+        {list &&
+          list.map((apiKey) => (
+            <ApikeyCard
+              key={apiKey.id}
+              reference={apiKey.reference}
+              date={apiKey.createdAt}
+              status={apiKey.status}
+              apiKey={apiKey.key}
+              id={apiKey.id}
+              deleteApiKey={deleteApiKey}
+              setList={setList}
+            />
+          ))}
         <div className="hidden sm:grid-main max-w-[100%] overflow-auto scrollbar">
           {/* Header */}
           <header className="col-span-full min-w-[874px] mt-10 grid-main pb-[14px]">
@@ -62,18 +63,19 @@ export default function ListApikeys() {
           </header>
           {/* List */}
           <div className="col-span-full">
-            {list.map((apiKey) => (
-              <ApikeyColumn
-                key={apiKey.id}
-                reference={apiKey.reference}
-                date={apiKey.createdAt}
-                status={apiKey.status}
-                apiKey={apiKey.key}
-                id={apiKey.id}
-                deleteApiKey={deleteApiKey}
-                setList={setList}
-              />
-            ))}
+            {list &&
+              list.map((apiKey) => (
+                <ApikeyColumn
+                  key={apiKey.id}
+                  reference={apiKey.reference}
+                  date={apiKey.createdAt}
+                  status={apiKey.status}
+                  apiKey={apiKey.key}
+                  id={apiKey.id}
+                  deleteApiKey={deleteApiKey}
+                  setList={setList}
+                />
+              ))}
           </div>
         </div>
       </div>
