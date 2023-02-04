@@ -24,6 +24,16 @@ export default async function middleware(req) {
         return NextResponse.redirect(url);
       }
     }
+    if (auth?.rol === 'ROLE_ADMIN') {
+      if (auth?.token) {
+        const currentPath = publicRoutes.find((route) => route === url.pathname);
+        const currentPathAuth = authRoutes.find((route) => route === url.pathname);
+        if (currentPath || currentPathAuth) {
+          url.pathname = '/admin/dashboard';
+          return NextResponse.redirect(url);
+        }
+      }
+    }
     return NextResponse.next();
   };
   return redirect();
