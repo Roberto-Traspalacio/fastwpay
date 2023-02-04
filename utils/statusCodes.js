@@ -1,0 +1,1 @@
+export const SUCCESS_REQUEST_CODE = 200;

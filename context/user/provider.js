@@ -4,18 +4,17 @@ import UserReducer, { INITIAL_STATE } from './reducer';
 import { User } from 'services/User.service';
 import types from './types';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
 export default function UserProvider({ children }) {
   const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const user = new User();
-  const SUCCESS_REQUEST_CODE = 200;
 
   const getUserInfo = async (loader = true) => {
     loader && setShowScreenLoader(true);
     const data = await user.getUser();
     const dataBalance = await user.getCurrentBalance();
-    console.log('🚀 ~ file: provider.js:18 ~ getUserInfo ~ dataBalance', dataBalance);
     setShowScreenLoader(false);
     if (data?.response.status === SUCCESS_REQUEST_CODE) {
       dispatch({

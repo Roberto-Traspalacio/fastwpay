@@ -102,7 +102,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
               <div
                 onClick={() => setOpen(false)}
                 className={`item flex flex-col items-center justify-center py-[11px] ${
-                  router.pathname === '/account' && 'item-active'
+                  router.pathname === '/admin/dashboard' && 'item-active'
                 }`}
               >
                 <Image src={summaryIcon} alt="Dashboard icon" />

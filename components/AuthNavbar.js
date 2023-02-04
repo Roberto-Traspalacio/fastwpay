@@ -92,7 +92,9 @@ export default function AuthNavbar({ admin }) {
           </div>
         ) : (
           <div className="flex items-center gap-3">
-            <p className="text-text-1 font-medium typo-body-1">Name Admin</p>
+            <p className="text-text-1 font-medium typo-body-1">
+              {userInfo.firstName} {userInfo.lastName}
+            </p>
             <Image className="sm:w-[38px]" width="32px" src={avatarIcon} alt="Avatar" />
           </div>
         )}

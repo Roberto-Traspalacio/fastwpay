@@ -49,6 +49,7 @@ export default function Login() {
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.login(form);
+    console.log('🚀 ~ file: index.js:52 ~ onSubmit ~ data', data);
     if (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === USER_NOT_FOUND) {
       setError({ show: true, text: 'Invalid username or password' });
       setTimeout(() => setError({ ...error, show: false }), 4500);
@@ -59,7 +60,7 @@ export default function Login() {
     }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
-      router.push('/dashboard');
+      router.push(data?.data?.rol === 'ROLE_CUSTOMER' ? '/dashboard' : '/admin/dashboard');
     }
     setLoading(false);
     setShowScreenLoader(true);

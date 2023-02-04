@@ -1,13 +1,27 @@
+import { useEffect, useState } from 'react';
 import AuthNavbar from 'components/AuthNavbar';
 import SidebarMenu from 'components/SidebarMenu';
 import ReportCard from 'modules/admin/components/ReportCard';
 import Summary from 'modules/admin/components/Summary';
 import SummaryColumn from 'modules/admin/components/SummaryColumn';
 import Head from 'next/head';
-import { useState } from 'react';
+import { Admin } from 'services/Admin.service';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
 export default function AdminDashboard() {
   const [openSidebar, setOpenSidebar] = useState(true);
+  const [list, setList] = useState([]);
+  const admin = new Admin();
+
+  useEffect(() => {
+    (async () => {
+      const data = await admin.listPayByAccount();
+      if (data?.response.status == SUCCESS_REQUEST_CODE) {
+        setList(data?.data?.items);
+      }
+    })();
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,8 +36,16 @@ export default function AdminDashboard() {
           <Summary className="col-span-full" />
           {/* List of reports mobile */}
           <div className="col-span-full flex flex-col gap-[18px] pt-[18px] px-[18px] sm:hidden">
-            <ReportCard />
-            <ReportCard />
+            {list &&
+              list.map((item) => (
+                <ReportCard
+                  key={item.id}
+                  email={item.email}
+                  total={item.total}
+                  profit={item.profit}
+                  totalToPay={item.totalToPay}
+                />
+              ))}
           </div>
           {/* List of report desktop */}
           <div className="pt-[18px] col-span-full pb-5 flex-col gap-[18px] sm:pt-0 sm:mt-10 hidden sm:flex">
@@ -35,14 +57,19 @@ export default function AdminDashboard() {
                   Total
                 </h5>
                 <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center">Profit</h5>
-                <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center lg:col-span-3 xl:col-span-2">
-                  Pay
-                </h5>
+                <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center">Pay</h5>
               </header>
               {/* List */}
-              <SummaryColumn />
-              <SummaryColumn />
-              <SummaryColumn />
+              {list &&
+                list.map((item) => (
+                  <SummaryColumn
+                    key={item.id}
+                    email={item.email}
+                    total={item.total}
+                    profit={item.profit}
+                    totalToPay={item.totalToPay}
+                  />
+                ))}
             </div>
           </div>
         </div>

@@ -30,7 +30,6 @@ export class Apikey {
 
   async getTransactionsByApiKey(id) {
     const data = await fetch.get(`/keys/transactions-by-key/${id}`, this.auth?.token);
-    console.log('🚀 ~ file: Apikey.service.js:34 ~ Apikey ~ getTransactionsByApiKey ~ data', data);
     return data;
   }
 }
