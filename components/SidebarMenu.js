@@ -92,7 +92,7 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
                 >
                   <Image src={balanceIcon} alt="Dashboard icon" />
                   <p className="mt-[6px] text-white typo-body-1">
-                    <IntlMessages id="Balance" />
+                    <IntlMessages id="common.balance" />
                   </p>
                 </div>
               </Link>

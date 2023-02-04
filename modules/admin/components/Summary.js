@@ -41,6 +41,7 @@ export default function Summary({ className }) {
             onClick={() => setOpenOptionList(!openOptionList)}
             src={arrowDown}
             className="w-[12px] h-[10px] absolute right-5 cursor-pointer typo-body-1"
+            alt="Arrow down"
           />
           {/* Options List */}
           {openOptionList && (

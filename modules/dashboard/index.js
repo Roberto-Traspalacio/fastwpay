@@ -1,8 +1,8 @@
+import { useContext } from 'react';
+import Head from 'next/head';
 import AuthNavbar from 'components/AuthNavbar';
 import BalanceCard from 'modules/dashboard/components/BalanceCard';
 import SidebarMenu from 'components/SidebarMenu';
-import { useContext } from 'react';
-import Head from 'next/head';
 import BannerBlue from 'modules/dashboard/components/BannerBlue';
 import MenuButton from 'modules/dashboard/components/MenuButton';
 import { UserContext } from 'context/user/context';
