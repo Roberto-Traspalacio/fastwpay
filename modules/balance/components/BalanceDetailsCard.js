@@ -25,7 +25,7 @@ export default function BalanceDetailsCard({ order, date, status, balance }) {
           <p className="typo-heading-4 font-bold text-text-1">Status</p>
           <p
             className={`typo-heading-4 ${
-              status === 'Complete'
+              status === 'Success'
                 ? 'text-secondary-green'
                 : status === 'Failed'
                 ? 'text-secondary-red'
