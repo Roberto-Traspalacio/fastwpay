@@ -14,6 +14,12 @@ export default function Summary({ className }) {
   });
   const admin = new Admin();
 
+  async function report(option) {
+    const clean = option === 'Only export data' ? false : true;
+    const data = await admin.generateReport(clean);
+    console.log('🚀 ~ file: Summary.js:19 ~ report ~ data', data);
+  }
+
   useEffect(() => {
     (async () => {
       const data = await admin.summary();
@@ -36,7 +42,9 @@ export default function Summary({ className }) {
         </div>
         {/* Button */}
         <div className="button w-[181px] h-[34px] mt-[14px] bg-white rounded-[20px] pl-5 mx-auto relative flex items-center border-2 border-primary-blue sm:mt-5 sm:w-[212px] sm:h-[38px] lg:ml-6 lg:mt-3">
-          <p className="text-primary-blue typo-body-1">{optionSelected}</p>
+          <p className="text-primary-blue cursor-pointer typo-body-1" onClick={() => report(optionSelected)}>
+            {optionSelected}
+          </p>
           <Image
             onClick={() => setOpenOptionList(!openOptionList)}
             src={arrowDown}
@@ -74,16 +82,18 @@ export default function Summary({ className }) {
         </div>
         {/* Card  profit, pay & total */}
         <div className="col-span-full flex px-[18px] sm:px-0 justify-center lg:justify-end">
-          <div className="card grid-main w-full col-span-full pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:mx-auto lg:my-auto">
-            {/* Profit */}
-            <div className="col-span-2 flex flex-col items-center">
-              <p className="profit text-text-1 typo-heading-3 font-normal">{summary.profit} Є</p>
-              <p className="typo-body-2 text-text-5">Profit</p>
-            </div>
-            {/* Pay */}
-            <div className="col-span-2 flex flex-col items-center">
-              <p className="pay text-text-1 typo-heading-3 font-normal">{summary.totalToPay} Є</p>
-              <p className="typo-body-2 text-text-5">Pay</p>
+          <div className="card grid-main w-full col-span-full pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:w-auto sm:mt-5 sm:flex sm:flex-row-reverse sm:px-[18px] sm:rounded-2xl sm:py-3 sm:mx-auto sm:gap-x-3 md:gap-x-8 lg:my-auto">
+            <div className="flex col-span-full mx-auto gap-x-20 sm:row-reverse sm:gap-x-3 md:gap-x-8">
+              {/* Profit */}
+              <div className="col-span-2 flex flex-col items-center">
+                <p className="profit text-text-1 typo-heading-3 font-normal">{summary.profit} Є</p>
+                <p className="typo-body-2 text-text-5">Profit</p>
+              </div>
+              {/* Pay */}
+              <div className="col-span-2 flex flex-col items-center">
+                <p className="pay text-text-1 typo-heading-3 font-normal">{summary.totalToPay} Є</p>
+                <p className="typo-body-2 text-text-5">Pay</p>
+              </div>
             </div>
             {/* Total */}
             <div className="col-span-full flex flex-col items-center mx-auto mt-[20px] sm:m-0">

@@ -7,6 +7,8 @@ import { useContext, useState } from 'react';
 import { UserContext } from 'context/user/context';
 import IntlMessages from 'utils/IntlMessages';
 import { useRouter } from 'next/router';
+import HistorySelect from 'modules/admin/components/HistorySelect';
+import Button from './Button';
 
 export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
@@ -92,6 +94,12 @@ export default function AuthNavbar({ admin }) {
           </div>
         ) : (
           <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-4">
+              <HistorySelect />
+              <Button className="lg:h-[38px] flex items-center">
+                <IntlMessages id="common.download" />
+              </Button>
+            </div> */}
             <p className="text-text-1 font-medium typo-body-1">
               {userInfo.firstName} {userInfo.lastName}
             </p>
