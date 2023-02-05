@@ -14,10 +14,12 @@ import { initialUserInfo, intialBankInformation, intialBankInformationArray, int
 import { Bank } from 'services/Bank.service';
 import Link from 'next/link';
 import CountrySelect from 'components/CountrySelect';
+import SwitchButton from '../SwitchButton';
 
 export default function Form() {
   const [edit, setEdit] = useState(null); // null = not edit - 0 = Edit Personal info - 1 = Edit Withdrawal info
   const [loading, setLoading] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [infoBankPreEdit, setInfoBankPreEdit] = useState({});
   const { validationSchema } = useYupValidations();
   const { validationSchema: validationSchemaBank } = useYupValidationsBank();
@@ -184,21 +186,38 @@ export default function Form() {
               />
             )}
           </div>
+          {edit === 1 && (
+            <div className="flex gap-x-[18px] mt-[27px]">
+              <p className="typo-body-1 text-text-1 font-medium">Add information manually</p>
+              <SwitchButton checked={checked} setChecked={setChecked} />
+            </div>
+          )}
         </div>
-        {/* Country Select */}
+        {/* Country Select
         <CountrySelect
           className="col-span-full mt-[14px] lg:mt-[28px]"
           formik={formikBank}
           disabled={edit === null || edit === 0}
           edit={edit}
           handleChangeForm={handleChangeBankInfoForm}
+        /> */}
+        {/* Country Input */}
+        <Input
+          disabled={edit === null || edit === 0}
+          className="col-span-full mt-[14px] lg:mt-[28px]"
+          type="text"
+          label={<IntlMessages id="common.country" />}
+          name="country"
+          value={formikBank.values?.country}
+          formik={formikBank}
+          onChange={handleChangeBankInfoForm}
         />
         {/* Bank Input */}
         <Input
           disabled={edit === null || edit === 0}
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
-          label={<IntlMessages id="common.bank" />}
+          label={checked ? 'Swift Code' : <IntlMessages id="common.bank" />}
           name="bankName"
           value={formikBank.values?.bankName}
           formik={formikBank}

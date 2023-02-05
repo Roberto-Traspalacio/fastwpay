@@ -4,20 +4,25 @@ import { useEffect, useState } from 'react';
 import { Admin } from 'services/Admin.service';
 import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
-export default function Summary({ className }) {
+const summaryInitialState = {
+  profit: '',
+  total: '',
+  totalToPay: '',
+};
+
+export default function Summary({ className, setList }) {
   const [openOptionList, setOpenOptionList] = useState(false);
   const [optionSelected, setOptionSelected] = useState('Only export data');
-  const [summary, setSummary] = useState({
-    profit: '',
-    total: '',
-    totalToPay: '',
-  });
+  const [summary, setSummary] = useState(summaryInitialState);
   const admin = new Admin();
 
   async function report(option) {
     const clean = option === 'Only export data' ? false : true;
-    const data = await admin.generateReport(clean);
-    console.log('🚀 ~ file: Summary.js:19 ~ report ~ data', data);
+    await admin.generateReport(clean);
+    if (clean) {
+      setList([]);
+      setSummary(summaryInitialState);
+    }
   }
 
   useEffect(() => {

@@ -14,6 +14,7 @@ import Loader from 'components/Loader';
 import MessageModal from 'modules/auth/components/MessageModal';
 import { setValueFormik } from 'utils/setValueFormik';
 import IntlMessages from 'utils/IntlMessages';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
 const initialState = {
   firstName: '',
@@ -36,7 +37,6 @@ export default function Signup() {
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
-  const SUCCESS_REQUEST_CODE = 201;
 
   const acceptPrivacyPolicy = () => {
     setPrivacyPolicy(!privacyPolicy);

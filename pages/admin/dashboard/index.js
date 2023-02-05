@@ -42,7 +42,7 @@ export default function AdminDashboard() {
           {/* <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} /> */}
           {openSidebar && <SidebarMenu className="hidden sm:block" admin open={openSidebar} setOpen={setOpenSidebar} />}
           <div className="sm:w-full center-container">
-            <Summary className="col-span-full" />
+            <Summary className="col-span-full" setList={setList} />
             {/* List of reports mobile */}
             <div className="col-span-full flex flex-col gap-[18px] pt-[18px] px-[18px] sm:hidden">
               {list &&
