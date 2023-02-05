@@ -26,7 +26,7 @@ export default function SwitchButton({ checked, setChecked }) {
         }
 
         input:checked[type='checkbox'] {
-          background: #7da6ff;
+          background: #295bb7;
         }
 
         input[type='checkbox']::after {

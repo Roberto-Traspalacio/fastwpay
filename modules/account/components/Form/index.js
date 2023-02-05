@@ -63,7 +63,7 @@ export default function Form() {
 
   const onSubmitBankInfo = async () => {
     setLoading(true);
-    await bank.saveBank(bankInfoForm);
+    await bank.saveBank({ ...bankInfoForm, isSwiftAccount: checked });
     setLoading(false);
     setEdit(null);
   };
@@ -217,7 +217,7 @@ export default function Form() {
           disabled={edit === null || edit === 0}
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
-          label={checked ? 'Swift Code' : <IntlMessages id="common.bank" />}
+          label={<IntlMessages id="common.bank" />}
           name="bankName"
           value={formikBank.values?.bankName}
           formik={formikBank}
@@ -228,7 +228,7 @@ export default function Form() {
           disabled={edit === null || edit === 0}
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
-          label={<IntlMessages id="account.accountNumber" />}
+          label={checked ? 'Swift Code' : <IntlMessages id="account.accountNumber" />}
           name="accountNumber"
           value={formikBank.values?.accountNumber}
           formik={formikBank}
