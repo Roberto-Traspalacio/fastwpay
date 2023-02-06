@@ -3,6 +3,7 @@ import lockIcon from 'assets/lock_open.svg';
 import personIcon from 'assets/person.svg';
 import logoutIcon from 'assets/logout.svg';
 import summaryIcon from 'assets/summarize.svg';
+import balanceIcon from 'assets/balance.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -82,13 +83,26 @@ export default function SidebarMenu({ open, setOpen, className, admin }) {
                   </p>
                 </div>
               </Link>
+              <Link href="/balance">
+                <div
+                  onClick={() => setOpen(false)}
+                  className={`item flex flex-col items-center justify-center py-[11px] ${
+                    router.pathname === '/balance' && 'item-active'
+                  }`}
+                >
+                  <Image src={balanceIcon} alt="Dashboard icon" />
+                  <p className="mt-[6px] text-white typo-body-1">
+                    <IntlMessages id="common.balance" />
+                  </p>
+                </div>
+              </Link>
             </>
           ) : (
             <Link href="/admin/dashboard">
               <div
                 onClick={() => setOpen(false)}
                 className={`item flex flex-col items-center justify-center py-[11px] ${
-                  router.pathname === '/account' && 'item-active'
+                  router.pathname === '/admin/dashboard' && 'item-active'
                 }`}
               >
                 <Image src={summaryIcon} alt="Dashboard icon" />

@@ -1,27 +1,60 @@
 import Image from 'next/image';
 import arrowDown from 'assets/polygon.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Admin } from 'services/Admin.service';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
-export default function Summary({ className }) {
+const summaryInitialState = {
+  profit: '0',
+  total: '0',
+  totalToPay: '0',
+};
+
+export default function Summary({ className, setList }) {
   const [openOptionList, setOpenOptionList] = useState(false);
   const [optionSelected, setOptionSelected] = useState('Only export data');
+  const [summary, setSummary] = useState(summaryInitialState);
+  const admin = new Admin();
+
+  async function report(option) {
+    const clean = option === 'Only export data' ? false : true;
+    await admin.generateReport(clean);
+    if (clean) {
+      setList([]);
+      setSummary(summaryInitialState);
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      const data = await admin.summary();
+      if (data?.response.status === SUCCESS_REQUEST_CODE) {
+        setSummary({ ...data?.data });
+      }
+    })();
+  }, []);
 
   return (
     <>
       <div
-        className={`${className} bg-background-2 pb-[18px] flex flex-col sm:mt-8 sm:mx-5 sm:rounded-2xl sm:pb-6 lg:flex-row lg:px-4 lg:pb-0 lg:h-[112px] xl:px-8`}
+        className={`${className} bg-background-2 pb-[18px] flex flex-col sm:mt-8 sm:mx-5 sm:rounded-2xl sm:pb-6 lg:flex-row lg:px-4 lg:py-[18px] lg:h-auto xl:px-8`}
       >
         <div className="flex flex-col">
-          <h4 className="text-text-1 typo-heading-2 mt-[22px] text-center sm:mt-6 lg:text-start lg:mt-6">Summary</h4>
+          <h4 className="text-text-1 typo-heading-2 mt-[22px] text-center sm:mt-6 lg:text-start lg:mt-[4px]">
+            Summary
+          </h4>
           <p className="typo-body-2 text-text-2 text-center lg:text-start">November 17 to 23, 2022</p>
         </div>
         {/* Button */}
-        <div className="button w-[181px] h-[34px] mt-[14px] bg-white rounded-[20px] pl-5 mx-auto relative flex items-center border-2 border-primary-blue sm:mt-5 sm:w-[212px] sm:h-[38px] lg:ml-6 lg:mt-[30px]">
-          <p className="text-primary-blue typo-body-1">{optionSelected}</p>
+        <div className="button w-[181px] h-[34px] mt-[14px] bg-white rounded-[20px] pl-5 mx-auto relative flex items-center border-2 border-primary-blue sm:mt-5 sm:w-[212px] sm:h-[38px] lg:ml-6 lg:mt-3">
+          <p className="text-primary-blue cursor-pointer typo-body-1" onClick={() => report(optionSelected)}>
+            {optionSelected}
+          </p>
           <Image
             onClick={() => setOpenOptionList(!openOptionList)}
             src={arrowDown}
             className="w-[12px] h-[10px] absolute right-5 cursor-pointer typo-body-1"
+            alt="Arrow down"
           />
           {/* Options List */}
           {openOptionList && (
@@ -54,17 +87,22 @@ export default function Summary({ className }) {
         </div>
         {/* Card  profit, pay & total */}
         <div className="col-span-full flex px-[18px] sm:px-0 justify-center lg:justify-end">
-          <div className="card grid-main w-full col-span-full pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:mt-5 sm:flex sm:px-[18px] sm:rounded-2xl sm:py-3 sm:justify-between sm:w-[386px] sm:mx-auto lg:ml-[59px] lg:my-auto">
-            <div className="col-span-2 flex flex-col items-center">
-              <p className="profit text-text-1 typo-heading-3 font-normal">181,66 Є</p>
-              <p className="typo-body-2 text-text-5">Profit</p>
+          <div className="card grid-main w-full col-span-full pt-[21px] mt-[22px] pb-[14px] bg-white rounded-lg sm:w-auto sm:mt-5 sm:flex sm:flex-row-reverse sm:px-[18px] sm:rounded-2xl sm:py-3 sm:mx-auto sm:gap-x-3 md:gap-x-8 lg:my-auto">
+            <div className="flex col-span-full mx-auto gap-x-20 sm:row-reverse sm:gap-x-3 md:gap-x-8">
+              {/* Profit */}
+              <div className="col-span-2 flex flex-col items-center">
+                <p className="profit text-text-1 typo-heading-3 font-normal">{summary.profit} Є</p>
+                <p className="typo-body-2 text-text-5">Profit</p>
+              </div>
+              {/* Pay */}
+              <div className="col-span-2 flex flex-col items-center">
+                <p className="pay text-text-1 typo-heading-3 font-normal">{summary.totalToPay} Є</p>
+                <p className="typo-body-2 text-text-5">Pay</p>
+              </div>
             </div>
-            <div className="col-span-2 flex flex-col items-center">
-              <p className="pay text-text-1 typo-heading-3 font-normal">1740,34 Є</p>
-              <p className="typo-body-2 text-text-5">Pay</p>
-            </div>
+            {/* Total */}
             <div className="col-span-full flex flex-col items-center mx-auto mt-[20px] sm:m-0">
-              <p className="text-text-1 typo-heading-3 font-normal">1922 Є</p>
+              <p className="text-text-1 typo-heading-3 font-normal">{summary.total} Є</p>
               <p className="typo-body-2 text-text-5">Total</p>
             </div>
           </div>

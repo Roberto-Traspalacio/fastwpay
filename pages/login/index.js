@@ -59,7 +59,7 @@ export default function Login() {
     }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
-      router.push('/dashboard');
+      router.push(data?.data?.rol === 'ROLE_CUSTOMER' ? '/dashboard' : '/admin/dashboard');
     }
     setLoading(false);
     setShowScreenLoader(true);

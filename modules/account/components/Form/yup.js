@@ -15,8 +15,12 @@ export const useYupValidations = () => {
 // Bank information
 export const useYupValidationsBank = () => {
   const validationSchema = yup.object().shape({
+    country: yup.string().required(String('Please select a country')),
     bankName: yup.string().required(String('Please select a bank')),
-    accountNumber: yup.string().required(String('Please enter a account number')),
+    accountNumber: yup
+      .number()
+      .typeError(String('This field only allows numbers'))
+      .required(String('Please enter a account number')),
     beneficiary: yup.string().required(String('Please enter a beneficiary')),
   });
 

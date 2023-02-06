@@ -10,20 +10,16 @@ import { UserContext } from 'context/user/context';
 import { setValueFormik } from 'utils/setValueFormik';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
-import {
-  initialUserInfo,
-  intialBankInformation,
-  intialBankInformationArray,
-  intialUserInfoArray,
-  listBanks,
-  listCountries,
-} from './utils';
+import { initialUserInfo, intialBankInformation, intialBankInformationArray, intialUserInfoArray } from './utils';
 import { Bank } from 'services/Bank.service';
 import Link from 'next/link';
+import CountrySelect from 'components/CountrySelect';
+import SwitchButton from '../SwitchButton';
 
 export default function Form() {
   const [edit, setEdit] = useState(null); // null = not edit - 0 = Edit Personal info - 1 = Edit Withdrawal info
   const [loading, setLoading] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [infoBankPreEdit, setInfoBankPreEdit] = useState({});
   const { validationSchema } = useYupValidations();
   const { validationSchema: validationSchemaBank } = useYupValidationsBank();
@@ -38,14 +34,21 @@ export default function Form() {
     validationSchema: validationSchemaBank,
   });
   const { form, handleChangeForm } = useForm(initialUserInfo, formik);
+  const { userInfo, getUserInfo } = useContext(UserContext);
   const {
     form: bankInfoForm,
     handleChangeForm: handleChangeBankInfoForm,
     setForm,
-  } = useForm(intialBankInformation, formikBank);
-  const { userInfo, getUserInfo } = useContext(UserContext);
+  } = useForm({ ...intialBankInformation }, formikBank);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const bank = new Bank();
+
+  const handleChecked = () => {
+    setChecked(!checked);
+    setValueFormik(formikBank, 'accountNumber', '');
+    setValueFormik(formikBank, 'isSwiftAccount', !checked);
+    setForm({ ...bankInfoForm, isSwiftAccount: !checked });
+  };
 
   const cancel = () => {
     setEdit(null);
@@ -53,6 +56,9 @@ export default function Form() {
     setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName);
     setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
     setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
+    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.country);
+    setValueFormik(formikBank, 'isSwiftAccount', infoBankPreEdit?.isSwiftAccount);
+    setChecked(infoBankPreEdit?.isSwiftAccount);
     setForm(infoBankPreEdit);
   };
 
@@ -87,10 +93,15 @@ export default function Form() {
     (async () => {
       getUserInfo(false);
       const data = await bank.getinfo();
-      setForm(data?.data);
+      setForm({ ...data?.data, id: +data?.data.id });
       setValueFormik(formikBank, 'bankName', data?.data?.bankName);
       setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
       setValueFormik(formikBank, 'beneficiary', data?.data?.beneficiary);
+      setValueFormik(formikBank, 'country', data?.data?.country);
+      setValueFormik(formikBank, 'isSwiftAccount', data?.data?.isSwiftAccount);
+      if (data?.data.isSwiftAccount) {
+        setChecked(true);
+      }
     })();
   }, []);
 
@@ -157,36 +168,13 @@ export default function Form() {
           onChange={handleChangeForm}
         />
         {/* Country Select */}
-        <div className="col-span-full mt-[14px] lg:mt-5">
-          <label className="typo-body-2 mb-2 ml-[8px] text-text-1" htmlFor="countries">
-            <IntlMessages id="common.country" />
-          </label>
-          <select
-            disabled={edit === null || edit === 1}
-            id="countries"
-            name="country"
-            onChange={handleChangeForm}
-            value={formik.values.country}
-            className={`${
-              edit === null || edit === 1 ? 'bg-background-7' : 'bg-background-2'
-            } col-span-full text-gray-900 text-sm border-r-[20px] border-transparent mt-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-[36px] typo-body-1 sm:h-12 sm:col-span-6 sm:col-start-2 xl:col-span-full lg:col-start-3 lg:col-span-4 md:col-span-6 md:col-start-2 ${
-              formik?.errors.country && 'input-error mb-[4px] xl:mb-[5px]'
-            }`}
-          >
-            <option className="typo-body-1" selected disabled>
-              <IntlMessages id="common.chooseCountry" />
-            </option>
-            <option value="ES">Spain</option>
-            <option value="IT">Italy</option>
-            <option value="AL">Germany</option>
-            <option value="FR">France</option>
-          </select>
-          {formik?.errors.country && (
-            <p className="input-error-message col-span-full mb-[14px] sm:col-start-2 typo-body-2 lg:col-start-3 lg:col-span-4 xl:col-span-full">
-              {formik?.errors.country}
-            </p>
-          )}
-        </div>
+        <CountrySelect
+          className="col-span-full mt-[14px] lg:mt-5"
+          formik={formik}
+          disabled={edit === null || edit === 1}
+          edit={edit}
+          handleChangeForm={handleChangeForm}
+        />
         {edit === 0 && <EditButtons className="mt-5" cancel={cancel} edit={edit} setEdit={setEdit} />}
       </form>
       <form
@@ -204,6 +192,7 @@ export default function Form() {
                 onClick={() => {
                   setEdit(edit === 1 ? null : 1);
                   setInfoBankPreEdit(bankInfoForm);
+                  setChecked(bankInfoForm?.isSwiftAccount);
                 }}
                 className="cursor-pointer"
                 src={editIcon}
@@ -211,7 +200,32 @@ export default function Form() {
               />
             )}
           </div>
+          {edit === 1 && (
+            <div className="flex gap-x-[18px] mt-[27px]">
+              <p className="typo-body-1 text-text-1 font-medium">Add information manually</p>
+              <SwitchButton checked={checked} handleChecked={handleChecked} />
+            </div>
+          )}
         </div>
+        {/* Country Select
+        <CountrySelect
+          className="col-span-full mt-[14px] lg:mt-[28px]"
+          formik={formikBank}
+          disabled={edit === null || edit === 0}
+          edit={edit}
+          handleChangeForm={handleChangeBankInfoForm}
+        /> */}
+        {/* Country Input */}
+        <Input
+          disabled={edit === null || edit === 0}
+          className="col-span-full mt-[14px] lg:mt-[28px]"
+          type="text"
+          label={<IntlMessages id="common.country" />}
+          name="country"
+          value={formikBank.values?.country}
+          formik={formikBank}
+          onChange={handleChangeBankInfoForm}
+        />
         {/* Bank Input */}
         <Input
           disabled={edit === null || edit === 0}
@@ -228,7 +242,7 @@ export default function Form() {
           disabled={edit === null || edit === 0}
           className="col-span-full mt-[18px] lg:mt-5"
           type="text"
-          label={<IntlMessages id="account.accountNumber" />}
+          label={checked ? 'Swift Code' : <IntlMessages id="account.accountNumber" />}
           name="accountNumber"
           value={formikBank.values?.accountNumber}
           formik={formikBank}

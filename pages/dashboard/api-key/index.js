@@ -12,6 +12,7 @@ import { useYupValidations } from 'modules/dashboard/api-key/yup';
 import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
 import Loader from 'components/Loader';
+import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
 const initialForm = { reference: '' };
 
@@ -26,7 +27,6 @@ export default function ApiKey({ openSidebar, setOpenSidebar }) {
   });
   const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
-  const SUCCESS_REQUEST_CODE = 201;
 
   const onSubmit = async () => {
     setLoading(true);

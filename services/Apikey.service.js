@@ -22,4 +22,14 @@ export class Apikey {
     const data = await fetch.delete(`/keys/delete/${idKey}`, this.auth?.token);
     return data;
   }
+
+  async getBalanceList() {
+    const data = await fetch.get('/keys/balance', this.auth?.token);
+    return data;
+  }
+
+  async getTransactionsByApiKey(id) {
+    const data = await fetch.get(`/keys/transactions-by-key/${id}`, this.auth?.token);
+    return data;
+  }
 }

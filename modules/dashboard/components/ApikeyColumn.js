@@ -22,7 +22,7 @@ export default function ApikeyColumn({ reference, date, status, apiKey, id, setL
     setLoading(false);
     const data = await apiKeyService.list();
     if (data?.response.status === SUCCESS_REQUEST_CODE) {
-      setList(data?.data?.keys);
+      setList(data?.data?.items);
     }
   }
 
