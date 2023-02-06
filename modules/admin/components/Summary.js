@@ -5,9 +5,9 @@ import { Admin } from 'services/Admin.service';
 import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 
 const summaryInitialState = {
-  profit: '',
-  total: '',
-  totalToPay: '',
+  profit: '0',
+  total: '0',
+  totalToPay: '0',
 };
 
 export default function Summary({ className, setList }) {
