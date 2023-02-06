@@ -89,6 +89,9 @@ export default function Form() {
       setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
       setValueFormik(formikBank, 'beneficiary', data?.data?.beneficiary);
       setValueFormik(formikBank, 'country', data?.data?.country);
+      if (data?.data.isSwiftAccount) {
+        setChecked(true);
+      }
     })();
   }, []);
 
