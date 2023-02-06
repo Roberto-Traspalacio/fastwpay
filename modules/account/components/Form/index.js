@@ -43,6 +43,13 @@ export default function Form() {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const bank = new Bank();
 
+  const handleChecked = () => {
+    setChecked(!checked);
+    setValueFormik(formikBank, 'accountNumber', '');
+    setValueFormik(formikBank, 'isSwiftAccount', !checked);
+    setForm({ ...bankInfoForm, isSwiftAccount: !checked });
+  };
+
   const cancel = () => {
     setEdit(null);
     formikBank.setErrors({});
@@ -50,6 +57,8 @@ export default function Form() {
     setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
     setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
     setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.country);
+    setValueFormik(formikBank, 'isSwiftAccount', infoBankPreEdit?.isSwiftAccount);
+    setChecked(infoBankPreEdit?.isSwiftAccount);
     setForm(infoBankPreEdit);
   };
 
@@ -63,7 +72,7 @@ export default function Form() {
 
   const onSubmitBankInfo = async () => {
     setLoading(true);
-    await bank.saveBank({ ...bankInfoForm, isSwiftAccount: checked });
+    await bank.saveBank(bankInfoForm);
     setLoading(false);
     setEdit(null);
   };
@@ -89,6 +98,7 @@ export default function Form() {
       setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
       setValueFormik(formikBank, 'beneficiary', data?.data?.beneficiary);
       setValueFormik(formikBank, 'country', data?.data?.country);
+      setValueFormik(formikBank, 'isSwiftAccount', data?.data?.isSwiftAccount);
       if (data?.data.isSwiftAccount) {
         setChecked(true);
       }
@@ -182,6 +192,7 @@ export default function Form() {
                 onClick={() => {
                   setEdit(edit === 1 ? null : 1);
                   setInfoBankPreEdit(bankInfoForm);
+                  setChecked(bankInfoForm?.isSwiftAccount);
                 }}
                 className="cursor-pointer"
                 src={editIcon}
@@ -192,7 +203,7 @@ export default function Form() {
           {edit === 1 && (
             <div className="flex gap-x-[18px] mt-[27px]">
               <p className="typo-body-1 text-text-1 font-medium">Add information manually</p>
-              <SwitchButton checked={checked} setChecked={setChecked} />
+              <SwitchButton checked={checked} handleChecked={handleChecked} />
             </div>
           )}
         </div>

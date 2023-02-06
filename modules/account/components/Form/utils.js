@@ -12,6 +12,7 @@ export const intialBankInformation = {
   bankName: '',
   accountNumber: '',
   beneficiary: '',
+  isSwiftAccount: null,
 };
 
-export const intialBankInformationArray = ['country', 'bankName', 'accountNumber', 'beneficiary'];
+export const intialBankInformationArray = ['country', 'bankName', 'accountNumber', 'beneficiary', 'isSwiftAccount'];

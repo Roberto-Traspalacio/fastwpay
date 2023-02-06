@@ -49,7 +49,6 @@ export default function Login() {
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.login(form);
-    console.log('🚀 ~ file: index.js:52 ~ onSubmit ~ data', data);
     if (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === USER_NOT_FOUND) {
       setError({ show: true, text: 'Invalid username or password' });
       setTimeout(() => setError({ ...error, show: false }), 4500);

@@ -1,8 +1,8 @@
-export default function SwitchButton({ checked, setChecked }) {
+export default function SwitchButton({ checked, handleChecked }) {
   return (
     <>
       <div class="check-box">
-        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+        <input type="checkbox" checked={checked} onChange={handleChecked} />
       </div>
       <style jsx>{`
         .check-box {
