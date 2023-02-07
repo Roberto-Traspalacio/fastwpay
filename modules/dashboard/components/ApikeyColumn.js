@@ -55,14 +55,11 @@ export default function ApikeyColumn({ reference, date, status, apiKey, id, setL
         </p>
         {/* API key */}
         <div className="col-span-2 text-center flex justify-center pt-[29px] pb-[26px] xl:col-span-3">
-          <div
-            className="col-span-full w-[100%] h-[38px] rounded-[10px] flex gap-[5px] pr-[16px] items-center justify-around"
-            style={{ background: '#EEF2F5' }}
-          >
+          <div className="col-span-full w-[100%] h-[38px] rounded-[10px] flex gap-[5px] pr-[16px] items-center justify-around bg-background-7">
             <p className="">
               <input
                 disabled
-                className="pl-4 w-[100%] typo-body-1 text-text-2 slice-text"
+                className="pl-1 w-[100%] typo-body-1 text-text-2 slice-text"
                 type="text"
                 // disabled
                 ref={apiKeyRef}
@@ -122,10 +119,9 @@ export default function ApikeyColumn({ reference, date, status, apiKey, id, setL
       </div>
       <style jsx>{`
         .slice-text {
-          width: 99%;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
+          width: 92%;
+          text-align: left;
+          cursor: text;
         }
       `}</style>
     </>
