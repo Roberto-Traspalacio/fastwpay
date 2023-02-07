@@ -1,5 +1,3 @@
-import IntlMessages from 'utils/IntlMessages';
-
 export default function ColumnDetails({ order, date, status, balance }) {
   const newDate = new Date(date);
   const day = newDate.getDate().toString().padStart(2, '0');

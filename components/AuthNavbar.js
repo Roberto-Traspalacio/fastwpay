@@ -9,6 +9,7 @@ import IntlMessages from 'utils/IntlMessages';
 import { useRouter } from 'next/router';
 import HistorySelect from 'modules/admin/components/HistorySelect';
 import Button from './Button';
+import Link from 'next/link';
 
 export default function AuthNavbar({ admin }) {
   const [showList, setShowList] = useState(false);
@@ -34,8 +35,10 @@ export default function AuthNavbar({ admin }) {
 
   return (
     <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
-      <Image src={mobileLogo} alt="Fastwpay logo" className="w-[34px] h-6 xl:hidden" />
-      <Image src={logoBlue} alt="Fastwpay logo" className="w-[154px] h-[33px] hidden xl:block" />
+      <Link href="dashboard">
+        <Image src={mobileLogo} alt="Fastwpay logo" className="w-[34px] h-6 xl:hidden" />
+        <Image src={logoBlue} alt="Fastwpay logo" className="w-[154px] h-[33px] hidden xl:block" />
+      </Link>
       <div>
         {!admin ? (
           <div className="flex items-center h-6 gap-[14px]">
@@ -88,7 +91,9 @@ export default function AuthNavbar({ admin }) {
               )}
             </div>
             <div className="items-center gap-3 hidden lg:flex">
-              <p className="text-text-1 font-medium typo-body-1">{userInfo?.firstName + ' ' + userInfo?.lastName}</p>
+              <Link href="/account">
+                <p className="text-text-1 font-medium typo-body-1">{userInfo?.firstName + ' ' + userInfo?.lastName}</p>
+              </Link>
               <Image className="sm:w-[38px]" width="32px" src={avatarIcon} alt="Avatar" />
             </div>
           </div>

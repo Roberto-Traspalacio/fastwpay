@@ -1,7 +1,4 @@
-import { useRef, useState } from 'react';
-import Loader from 'components/Loader';
 import IntlMessages from 'utils/IntlMessages';
-import { Apikey } from 'services/Apikey.service';
 import { useRouter } from 'next/router';
 
 export default function Column({ id, reference, balance }) {
