@@ -15,7 +15,7 @@ export default function BalanceCard() {
     const nextThursday = new Date(today.getTime() + daysUntilThursday * 24 * 60 * 60 * 1000);
     const month = (nextThursday.getMonth() + 1).toString().padStart(2, '0');
     const day = nextThursday.getDate().toString().padStart(2, '0');
-    return `thursday ${month}/${day}`;
+    return `thursday ${day}/${month}`;
   }
 
   return (
