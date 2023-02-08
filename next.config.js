@@ -1,14 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n: {
-    locales: ['en', 'es', 'it', 'de', 'fr'],
-    defaultLocale: 'en',
+    locales: ['en', 'es', 'it', 'de', 'fr', 'none'],
+    defaultLocale: 'none',
     localeDetection: false,
   },
   images: {},
   reactStrictMode: true,
   env: {
     REACT_NEXT_APP_URL_API: process.env.REACT_NEXT_APP_URL_API,
+    REACT_NEXT_APP_URL_GD_PLUGIN: process.env.REACT_NEXT_APP_URL_GD_PLUGIN,
   },
   async rewrites() {
     return [

@@ -1,8 +1,7 @@
-import React from 'react';
 import Image from 'next/image';
-import location from '../assets/location-icon.svg';
-import phone from '../assets/phone-icon.svg';
-import email from '../assets/email-icon.svg';
+import location from 'assets/location-icon.svg';
+import phone from 'assets/phone-icon.svg';
+import email from 'assets/email-icon.svg';
 import IntlMessages from 'utils/IntlMessages';
 
 export default function contact({ className = '' }) {

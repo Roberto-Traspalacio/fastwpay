@@ -36,7 +36,7 @@ export default function AdminDashboard() {
         <title>Fastwpay | Admin Dashboard</title>
       </Head>
       <ScreenLoaderLayout>
-        <AuthNavbar admin />
+        <AuthNavbar isAdmin />
         <main className="content-main sm:flex">
           {/* Menu button */}
           {/* <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} /> */}

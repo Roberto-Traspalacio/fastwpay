@@ -1,19 +1,19 @@
+import { useContext } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 import dashboardIcon from 'assets/dashboard.svg';
 import lockIcon from 'assets/lock_open.svg';
 import personIcon from 'assets/person.svg';
 import logoutIcon from 'assets/logout.svg';
 import summaryIcon from 'assets/summarize.svg';
 import balanceIcon from 'assets/balance.svg';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Cookies from 'js-cookie';
-import { useContext } from 'react';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
 import { UserContext } from 'context/user/context';
 
-export default function SidebarMenu({ open, setOpen, className, admin }) {
+export default function SidebarMenu({ setOpen, className, admin }) {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const { reset } = useContext(UserContext);
   const router = useRouter();

@@ -1,27 +1,18 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import logo from '../assets/logo.svg';
-import polygonIcon from 'assets/polygonWhite.svg';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import menuPublicIcon from 'assets/menuPublic.svg';
-import IntlMessages from 'utils/IntlMessages';
+import Image from 'next/image';
 import Link from 'next/link';
+import logo from 'assets/logo.svg';
+import menuPublicIcon from 'assets/menuPublic.svg';
+import polygonIcon from 'assets/polygonWhite.svg';
+import IntlMessages from 'utils/IntlMessages';
+import { DOWNLOAD_PLUGIN_URL, languagesList } from 'utils/common';
 
 export default function Navbar({ className, auth }) {
   const [showList, setShowList] = useState(false);
   const [showListOptions, setShowListOptions] = useState(false);
   const { push, locale } = useRouter();
-  const [language, setLanguage] = useState(
-    locale === 'es'
-      ? 'Spanish'
-      : locale === 'en'
-      ? 'English'
-      : locale === 'fr'
-      ? 'French'
-      : locale === 'it'
-      ? 'Italian'
-      : 'Germany'
-  );
+  const [language, setLanguage] = useState(languagesList.find((l) => l.acronym === locale).country);
 
   const selectLanguage = (language, acronim) => {
     setLanguage(language);
@@ -46,36 +37,15 @@ export default function Navbar({ className, auth }) {
                   style={{ boxShadow: '0px 0px 9px 0px #0000001F' }}
                 >
                   <ul className="flex flex-col gap-4 z-50">
-                    <li
-                      className={`typo-body-1 ${language === 'English' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('English', 'en')}
-                    >
-                      English
-                    </li>
-                    <li
-                      className={`typo-body-1 ${language === 'Spanish' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('Spanish', 'es')}
-                    >
-                      Spanish
-                    </li>
-                    <li
-                      className={`typo-body-1 ${language === 'French' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('French', 'fr')}
-                    >
-                      French
-                    </li>
-                    <li
-                      className={`typo-body-1 ${language === 'Italian' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('Italian', 'it')}
-                    >
-                      Italian
-                    </li>
-                    <li
-                      className={`typo-body-1 ${language === 'Germany' && 'text-primary-blue'}`}
-                      onClick={() => selectLanguage('Germany', 'de')}
-                    >
-                      Germany
-                    </li>
+                    {languagesList.map((l) => (
+                      <li
+                        key={l.acronym}
+                        className={`typo-body-1 ${language === l.country && 'text-primary-blue'}`}
+                        onClick={() => selectLanguage(l.country, l.acronym)}
+                      >
+                        {l.country}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
@@ -87,15 +57,14 @@ export default function Navbar({ className, auth }) {
                 alt="Menu"
                 onClick={() => setShowListOptions(!showListOptions)}
               />
-              {/* List of language */}
               {showListOptions && (
                 <div className="absolute top-[24px] right-0 py-4 px-5 bg-white rounded-md z-30">
                   <ul className="flex flex-col gap-4 z-50">
                     <li className={`typo-body-1 cursor-pointer`} onClick={() => push('/login')}>
                       <IntlMessages id="auth.login" />
                     </li>
-                    <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
-                      <li className={`typo-body-1 cursor-pointer`} onClick={() => selectLanguage('Spanish', 'es')}>
+                    <Link href={DOWNLOAD_PLUGIN_URL}>
+                      <li className={`typo-body-1 cursor-pointer`}>
                         <IntlMessages id="common.download" />
                       </li>
                     </Link>
@@ -111,7 +80,7 @@ export default function Navbar({ className, auth }) {
               <IntlMessages id="auth.login" />
             </p>
           </Link>
-          <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+          <Link href={DOWNLOAD_PLUGIN_URL}>
             <button className="text-primary-blue bg-white h-8 px-5 rounded-[17px] typo-body-1 flex items-center justify-center">
               <IntlMessages id="common.download" />
             </button>
