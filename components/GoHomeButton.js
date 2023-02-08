@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import arrowIcon from 'assets/arrow-icon.svg';
 
 export default function GoHomeButton({ className = '', children, back }) {
-  const { push } = useRouter();
-  const handleClick = () => (back ? push('/login', '/login', { locale: router.locale }) : push('/'));
+  const { push, locale } = useRouter();
+  const handleClick = () => (back ? push('/login', '/login', { locale }) : push('/'));
 
   return (
     <button

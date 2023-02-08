@@ -172,7 +172,6 @@ export default function Form() {
           className="col-span-full mt-[14px] lg:mt-5"
           formik={formik}
           disabled={edit === null || edit === 1}
-          edit={edit}
           handleChangeForm={handleChangeForm}
         />
         {edit === 0 && <EditButtons className="mt-5" cancel={cancel} edit={edit} setEdit={setEdit} />}
