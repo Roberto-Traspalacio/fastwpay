@@ -31,6 +31,7 @@ import Footer from '../components/Footer';
 import IntlMessages from 'utils/IntlMessages';
 import Link from 'next/link';
 
+
 export default function Home() {
   return (
     <>
