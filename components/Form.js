@@ -2,9 +2,9 @@ import React from 'react';
 import IntlMessages from 'utils/IntlMessages';
 import Button from './Button';
 
-export default function Form({ children }) {
+export default function Form({ children, id }) {
   return (
-    <form className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 ">
+    <form id={id} className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 ">
       <div className="mb-6 font-bold text-center typo-heading-1 col-span-full text-text-1 md:mb-16">
         <IntlMessages id="landing.contact.title" />
       </div>

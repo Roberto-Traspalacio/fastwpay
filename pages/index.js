@@ -42,11 +42,11 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <main className={'px-[18px] md:px-10 xl:px-[60px] overflow-clip'}>
+      <main className={'px-[18px] md:px-10 xl:px-[60px] overflow-clip xl:max-w-[1277px] xl:mx-auto'}>
         <section className="grid-main relative xl:min-h-[728px] auto-rows-min ">
           <Image
             priority={true}
-            className="mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto] xl:hidden"
+            className="mb-6 col-span-full xs:mb-4 sm:mb-[40px] lg:w-[705px] justify-self-center w-[100%] h-[auto] xl:hidden"
             src={heroSmall}
             alt="Girl waving with payment messages around "
           />
@@ -57,7 +57,7 @@ export default function Home() {
             alt="Girl waving with payment messages around "
           />
 
-          <Image className="col-start-12 absolute top-[89px] hidden xl:block" src={plugin} />
+          <Image className="xl:col-start-12 absolute top-[89px] col-start-8  " src={plugin} />
 
           <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} />
 
@@ -74,9 +74,11 @@ export default function Home() {
                 <IntlMessages id="common.download" />
               </Button>
             </Link>
-            <ButtonInverse>
-              <IntlMessages id="common.contact" />
-            </ButtonInverse>
+            <a href="#contact">
+              <ButtonInverse>
+                <IntlMessages id="common.contact" />
+              </ButtonInverse>
+            </a>
           </div>
         </section>
         <section className="flex flex-col justify-center mt-[50px] sm:mt-[64px]" id="Banks">
@@ -210,7 +212,7 @@ export default function Home() {
           />
         </section>
         <section className="pt-8 pb-8 mt-12 overflow-visible md:mt-32 lg:mt-72 bg-background-2 full-bleed-section grid-main gap-y-6">
-          <div className="font-bold text-center typo-heading-1 col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left">
+          <div className="font-bold text-center typo-heading-1 col-span-full md:col-span-6 md:col-start-2 md:text-left xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left">
             <IntlMessages id="landing.banner.title" />
           </div>
           <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
@@ -252,12 +254,12 @@ export default function Home() {
           />
         </section>
         <section className="mt-20  xl:mb-[60px] xl:mt-64">
-          <Form>
+          <Form id="contact">
             <Contact className="pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6 lg:col-start-2 lg:col-span-6" />
           </Form>
         </section>
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }
