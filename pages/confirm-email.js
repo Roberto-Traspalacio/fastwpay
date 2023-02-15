@@ -6,7 +6,6 @@ export default function ConfirmEmail() {
   const router = useRouter();
   const auth = new Auth();
   const SUCCESS_REQUEST_CODE = 200;
-
   useEffect(() => {
     (async () => {
       const token = router?.asPath.split('token=')[1];
