@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navbar, GoHomeButton } from 'components';
+import { Navbar, GoHomeButton, Button } from 'components';
 import Link from 'next/link';
 import Image from 'next/image';
 import loginImage1 from 'assets/login-1.png';
@@ -202,7 +202,7 @@ export default function Signup() {
               </>
             ) : (
               <div className="h-screen">
-                <MessageModal email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
+                <MessageModal withButton email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
               </div>
             )}
           </div>

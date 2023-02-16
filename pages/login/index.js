@@ -18,6 +18,7 @@ import IntlMessages from 'utils/IntlMessages';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import ModalUnverificated from 'modules/auth/components/ModalUnverificated';
 import MessageModal from 'modules/auth/components/MessageModal';
+import { UNATHORIZED_ERROR_CODE } from 'utils/statusCodes';
 
 const initialState = {
   email: '',
@@ -43,22 +44,26 @@ export default function Login() {
   const { form, handleChangeForm } = useForm(initialState, formik);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const auth = new Auth();
-  const UNATHORIZED_ERROR_CODE = 401;
   const USER_NOT_FOUND = 404;
+  const ACCOUNT_INACTIVE_MESSAGE = 'Account inactive';
 
   const onSubmit = async () => {
     setLoading(true);
-    const data = await auth.login(form);
-    if (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === USER_NOT_FOUND) {
+    const { data, response } = await auth.login(form);
+    if (
+      (response.status === UNATHORIZED_ERROR_CODE || response.status === USER_NOT_FOUND) &&
+      data?.message !== ACCOUNT_INACTIVE_MESSAGE
+    ) {
       setError({ show: true, text: 'Invalid username or password' });
       setTimeout(() => setError({ ...error, show: false }), 4500);
     }
 
-    if (data?.response.status === 500) {
+    if (data?.message === ACCOUNT_INACTIVE_MESSAGE) {
       setShowModalVerificate(true);
     }
-    if (data.data?.token) {
-      Cookies.set('auth', JSON.stringify(data.data));
+
+    if (data?.token) {
+      Cookies.set('auth', JSON.stringify(data));
       router.push(data?.data?.rol === 'ROLE_CUSTOMER' ? '/dashboard' : '/admin/dashboard');
     }
     setLoading(false);
@@ -88,7 +93,7 @@ export default function Login() {
           <div className="flex flex-col xl:w-[50%] xl:relative overflow-auto scrollbar">
             {showModalVerificate ? (
               <ModalUnverificated
-                email={formik.values?.email}
+                email={{ email: formik.values?.email }}
                 setShowModalVerificate={setShowModalVerificate}
                 setShowModalMessage={setShowModalMessage}
               />

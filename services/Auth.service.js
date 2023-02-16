@@ -8,8 +8,8 @@ export class Auth {
     return data;
   }
   async login(userData) {
-    const data = await fetch.post('/auth/login', userData);
-    return data;
+    const { data, response } = await fetch.post('/auth/login', userData);
+    return { data, response };
   }
   async sendEmailRecoverPassword(email) {
     const data = await fetch.put('/auth/forgot-password', email);
