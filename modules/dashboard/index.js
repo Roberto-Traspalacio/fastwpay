@@ -8,6 +8,7 @@ import BalanceCard from 'modules/dashboard/components/BalanceCard';
 import BannerBlue from 'components/BannerBlue';
 import MenuButton from 'modules/dashboard/components/MenuButton';
 import IntlMessages from 'utils/IntlMessages';
+import LastTransactions from './components/LastTransactions';
 
 export default function Dashboard({ openSidebar, setOpenSidebar }) {
   const { userInfo, getUserInfo } = useContext(UserContext);
@@ -71,7 +72,10 @@ export default function Dashboard({ openSidebar, setOpenSidebar }) {
                   amet lectus libero.
                 </p>
               </div>
-              <BalanceCard />
+              <div className="md:col-span-6 md:row-start-1 md:col-start-2 lg:col-span-4 lg:col-start-5 xl:col-start-9">
+                <BalanceCard />
+                <LastTransactions />
+              </div>
             </div>
           </div>
         </div>
