@@ -37,6 +37,7 @@ export default function Signup() {
   });
   const { form, handleChangeForm } = useForm(initialState, formik);
   const auth = new Auth();
+  const EMAIL_ALREADY_REGISTERED = 400;
 
   const acceptPrivacyPolicy = () => {
     setPrivacyPolicy(!privacyPolicy);
@@ -46,7 +47,7 @@ export default function Signup() {
   const onSubmit = async () => {
     setLoading(true);
     const data = await auth.register(form);
-    if (data?.data?.message === 'Email Registrado') {
+    if (data?.response?.status === EMAIL_ALREADY_REGISTERED) {
       formik.setFieldError('email', 'This email is already taken. use another');
     }
     setLoading(false);
