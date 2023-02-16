@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navbar, GoHomeButton } from 'components';
+import { Navbar, GoHomeButton, Button } from 'components';
 import Link from 'next/link';
 import Image from 'next/image';
 import loginImage1 from 'assets/login-1.png';
