@@ -57,11 +57,11 @@ export default function SidebarMenu({ setOpen, className, admin }) {
                   </p>
                 </div>
               </Link>
-              <Link href="/dashboard/api-key">
+              <Link href="/api-key">
                 <div
                   onClick={() => setOpen(false)}
                   className={`item flex flex-col items-center justify-center py-[11px] ${
-                    router.pathname === '/dashboard/api-key' && 'item-active'
+                    router.pathname === '/api-key' && 'item-active'
                   }`}
                 >
                   <Image src={lockIcon} alt="Dashboard icon" />

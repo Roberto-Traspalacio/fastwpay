@@ -1,18 +1,25 @@
-import { useContext } from 'react';
-import Head from 'next/head';
-import AuthNavbar from 'components/AuthNavbar';
-import BalanceCard from 'modules/dashboard/components/BalanceCard';
-import SidebarMenu from 'components/SidebarMenu';
-import BannerBlue from 'modules/dashboard/components/BannerBlue';
-import MenuButton from 'modules/dashboard/components/MenuButton';
+import { useContext, useEffect } from 'react';
 import { UserContext } from 'context/user/context';
+import Head from 'next/head';
+import ScreenLoaderLayout from 'layouts/ScreenLoader.layout';
+import AuthNavbar from 'components/AuthNavbar';
+import SidebarMenu from 'components/SidebarMenu';
+import BalanceCard from 'modules/dashboard/components/BalanceCard';
+import BannerBlue from 'components/BannerBlue';
+import MenuButton from 'modules/dashboard/components/MenuButton';
 import IntlMessages from 'utils/IntlMessages';
 
 export default function Dashboard({ openSidebar, setOpenSidebar }) {
-  const { userInfo } = useContext(UserContext);
+  const { userInfo, getUserInfo } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!userInfo?.firstName) {
+      getUserInfo();
+    }
+  }, []);
 
   return (
-    <>
+    <ScreenLoaderLayout>
       <Head>
         <title>Dashboard</title>
       </Head>
@@ -82,6 +89,6 @@ export default function Dashboard({ openSidebar, setOpenSidebar }) {
           }
         }
       `}</style>
-    </>
+    </ScreenLoaderLayout>
   );
 }
