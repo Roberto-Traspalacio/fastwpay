@@ -202,7 +202,7 @@ export default function Signup() {
               </>
             ) : (
               <div className="h-screen">
-                <MessageModal email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
+                <MessageModal withButton email={form.email} text={<IntlMessages id="auth.text.sendVerifyEmail" />} />
               </div>
             )}
           </div>
