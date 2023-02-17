@@ -1,4 +1,3 @@
-import React from 'react';
 import IntlMessages from 'utils/IntlMessages';
 import Button from './Button';
 
@@ -20,7 +19,7 @@ export default function Form({ children }) {
       </div>
       <input
         type="text"
-        className="input-email col-span-full rounded-md mb-[18px]   py-4 px-5 typo-body-1 sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5 lg:col-start-3 lg:col-span-4"
+        className="input-email col-span-full rounded-md mb-[18px] py-4 px-5 typo-body-1 sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5 lg:col-start-3 lg:col-span-4"
       />
       <div className="mb-2 label-message typo-body-2 sm:col-start-2 col-span-full xl:col-start-7 text-text-1 lg:col-start-3 lg:col-span-4">
         <IntlMessages id="common.message" />

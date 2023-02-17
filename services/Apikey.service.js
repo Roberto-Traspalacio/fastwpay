@@ -23,6 +23,11 @@ export class Apikey {
     return data;
   }
 
+  async lastTransactions() {
+    const { response, data } = await fetch.get('/keys/last-transactions', this.auth?.token);
+    return { response, data };
+  }
+
   async getBalanceList() {
     const data = await fetch.get('/keys/balance', this.auth?.token);
     return data;

@@ -9,6 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     REACT_NEXT_APP_URL_API: process.env.REACT_NEXT_APP_URL_API,
+    REACT_NEXT_APP_URL_GD_PLUGIN: process.env.REACT_NEXT_APP_URL_GD_PLUGIN,
   },
   async rewrites() {
     return [
