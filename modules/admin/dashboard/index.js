@@ -33,7 +33,8 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Fastwpay | Admin Dashboard</title>
+        <title>FastwPay | Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ScreenLoaderLayout>
         <AuthNavbar isAdmin />

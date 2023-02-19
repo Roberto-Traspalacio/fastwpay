@@ -22,7 +22,8 @@ export default function Dashboard({ openSidebar, setOpenSidebar }) {
   return (
     <ScreenLoaderLayout>
       <Head>
-        <title>Dashboard</title>
+        <title>FastwPay | Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <AuthNavbar />
       <main className="sm:flex relative content-main overflow-hidden">

@@ -57,13 +57,21 @@ export default function Home() {
             alt="Girl waving with payment messages around "
           />
 
-          <Image className="col-start-12 absolute top-[89px] hidden xl:block" src={plugin} />
+          <Image
+            className="col-start-12 absolute top-[89px] hidden xl:block"
+            src={plugin}
+            alt="Square yellow with arrow"
+          />
 
-          <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} />
+          <Image
+            className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]"
+            src={steps}
+            alt="Three steps for to use plugin"
+          />
 
-          <div className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]">
+          <h1 className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]">
             <IntlMessages id="landing.header.title" />
-          </div>
+          </h1>
           <div className="typo-body-1 col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] xl:col-span-3 xl:col-start-1 xl:text-left">
             <IntlMessages id="landing.header.description" />
           </div>
@@ -159,54 +167,58 @@ export default function Home() {
 
           <div className="flex flex-col mt-14 col-span-full gap-y-12 lg:row-start-6">
             <NumberItem
+              key={1}
               shifted={true}
               number={'01.'}
               title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
-                <span className="font-bold underline text-primary-blue">
-                  <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+                <span key={1} className="font-bold underline text-primary-blue">
+                  <Link key={2} href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
                     <span className="cursor-pointer underline">
                       <IntlMessages id="common.downloadYou" />{' '}
                     </span>
                   </Link>
                 </span>,
-                <IntlMessages id="landing.section.four.1.description" />,
+                <IntlMessages key={3} id="landing.section.four.1.description" />,
               ]}
             />
             <NumberItem
+              key={2}
               startCol={1}
               number={'02.'}
               title={<IntlMessages id="landing.section.four.2.title" />}
               content={[
-                <IntlMessages id="landing.section.four.2.1.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key={1} id="landing.section.four.2.1.description" />,
+                <span key={2} className="font-bold text-primary-blue">
                   <IntlMessages id="common.pluginsTabs" />
                 </span>,
-                <IntlMessages id="landing.section.four.2.2.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key={3} id="landing.section.four.2.2.description" />,
+                <span key={4} className="font-bold text-primary-blue">
                   <IntlMessages id="common.uploadPlugin" />
                 </span>,
-                <IntlMessages id="landing.section.four.2.3.description" />,
+                <IntlMessages key={5} id="landing.section.four.2.3.description" />,
               ]}
             />
 
             <NumberItem
+              key={3}
               shifted={true}
               startCol={2}
               number={'03.'}
               title={<IntlMessages id="landing.section.four.3.title" />}
               content={[
-                <IntlMessages id="landing.section.four.3.1.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key={1} id="landing.section.four.3.1.description" />,
+                <span key={2} className="font-bold text-primary-blue">
                   <IntlMessages id="common.settingsTab" />
                 </span>,
-                <IntlMessages id="landing.section.four.3.2.description" />,
+                <IntlMessages key={3} id="landing.section.four.3.2.description" />,
               ]}
             />
           </div>
           <Image
             className="hidden col-span-4 col-start-5 row-start-6 lg:inline lg:translate-x-10 xl:col-start-9 xl:translate-x-16"
             src={pointing}
+            alt="Man sitting with a laptop pointing finger"
           />
         </section>
         <section className="pt-8 pb-8 mt-12 overflow-visible md:mt-32 lg:mt-72 bg-background-2 full-bleed-section grid-main gap-y-6">
@@ -226,12 +238,13 @@ export default function Home() {
           </Link>
         </section>
         <div className="relative hidden xl:block">
-          <Image src={smile} className="absolute bottom-0 z-10" />
+          <Image src={smile} className="absolute bottom-0 z-10" alt="Men with blue t-shirt smiling" />
         </div>
         <section className="grid-main overflow-visible grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60">
           <Image
             className="absolute hidden col-span-4 col-start-1 row-span-3 row-start-1 xl:block -top-20 -left-20 "
             src={rectangle}
+            alt="Blue rectangle"
           />
           <div className="typo-heading-1 font-bold mt-[84px] mb-[12 px] sm:mb-0 sm:mt-0 col-span-full sm:col-span-4 sm:col-start-1 self-center top-line xl:col-start-4 xl:col-span xl:row-start-1 leading-[135%] before:left-0">
             <IntlMessages id="landing.section.five.title" />
@@ -248,7 +261,7 @@ export default function Home() {
           <Image
             className="self-center col-span-full justify-self-center mt-11 sm:mt-0 sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 xl:col-start-9 xl:scale-125 xl:row-span-3 xl:row-start-1 xl:-right-16 lg:absolute"
             src={countries}
-            alt="image with spain france and germany orbitating"
+            alt="image with spain france italy and germany orbitating"
           />
         </section>
         <section className="mt-20  xl:mb-[60px] xl:mt-64">

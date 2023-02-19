@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /404/
+Disallow: /confirm-email
+
+Sitemap: https://fastwpay.com/sitemap.xml
