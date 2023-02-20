@@ -1,5 +1,5 @@
 import IntlMessages from 'utils/IntlMessages';
-import Button from './Button';
+import Button from '../../../components/Button';
 
 export default function Form({ children }) {
   return (

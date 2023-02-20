@@ -3,7 +3,7 @@ import { Navbar, GoHomeButton } from 'components';
 import Image from 'next/image';
 import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
-import Input from 'components/Input';
+import Input from 'modules/auth/components/Input';
 import useForm from 'hooks/useForm';
 import { useFormik } from 'formik';
 import { useValidacionesYup } from 'modules/auth/recover-password/yup';
