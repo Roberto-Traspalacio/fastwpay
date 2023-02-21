@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import IntlMessages from 'utils/IntlMessages';
+import { DOWNLOAD_PLUGIN_URL } from 'utils/common';
 
 export default function BannerBlue({ className }) {
   return (
@@ -9,10 +10,7 @@ export default function BannerBlue({ className }) {
       <h3 className="typo-body-1 text-center m-auto max-w-[32ch] col-span-full text-text-4 sm:max-w-none md:m-0">
         <IntlMessages id="dashboard.bannerBlue.text" />
       </h3>
-      <Link
-        className="col-span-full"
-        href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download"
-      >
+      <Link className="col-span-full" href={DOWNLOAD_PLUGIN_URL}>
         <button className="m-auto flex items-center justify-center bg-primary-blue text-white py-[10px] px-[24px] h-[34px] rounded-full mt-3 sm:mt-[14px] sm:min-h-[38px] md:m-0">
           <p className="typo-body-1">
             <IntlMessages id="common.download" />

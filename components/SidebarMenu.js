@@ -13,10 +13,42 @@ import { ScreenLoaderContext } from 'context/screenLoader/context';
 import IntlMessages from 'utils/IntlMessages';
 import { UserContext } from 'context/user/context';
 
-export default function SidebarMenu({ setOpen, className, admin }) {
+const userViews = [
+  {
+    path: '/dashboard',
+    icon: dashboardIcon,
+    text: <IntlMessages id="dashboard.title" />,
+  },
+  {
+    path: '/api-key',
+    icon: lockIcon,
+    text: <IntlMessages id="apiKey.title" />,
+  },
+  {
+    path: '/account',
+    icon: personIcon,
+    text: <IntlMessages id="account.title" />,
+  },
+  {
+    path: '/balance',
+    icon: balanceIcon,
+    text: <IntlMessages id="common.balance" />,
+  },
+];
+
+const adminViews = [
+  {
+    path: '/admin/dashboard',
+    icon: summaryIcon,
+    text: 'Summary',
+  },
+];
+
+export default function SidebarMenu({ setOpen, className, admin: isAdmin }) {
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const { reset } = useContext(UserContext);
-  const router = useRouter();
+  const { push, pathname } = useRouter();
+  const list = !isAdmin ? userViews : adminViews;
 
   const closeSidebar = (e) => {
     if (e.target.className.includes('box')) {
@@ -27,7 +59,7 @@ export default function SidebarMenu({ setOpen, className, admin }) {
   const logout = () => {
     setShowScreenLoader(true);
     Cookies.remove('auth');
-    router.push('/login');
+    push('/login');
     reset();
     setTimeout(() => {
       setShowScreenLoader(false);
@@ -42,80 +74,25 @@ export default function SidebarMenu({ setOpen, className, admin }) {
         onClick={(e) => closeSidebar(e)}
       >
         <div className="w-[110px] h-full bg-primary-blue pt-4 flex flex-col relative xl:w-[216px]">
-          {!admin ? (
-            <>
-              <Link href="/dashboard">
-                <div
-                  onClick={() => setOpen(false)}
-                  className={`item flex flex-col items-center justify-center py-[11px] ${
-                    router.pathname === '/dashboard' && 'item-active'
-                  }`}
-                >
-                  <Image src={dashboardIcon} alt="Dashboard icon" />
-                  <p className={`mt-[6px] text-white typo-body-1`}>
-                    <IntlMessages id="dashboard.title" />
-                  </p>
-                </div>
-              </Link>
-              <Link href="/api-key">
-                <div
-                  onClick={() => setOpen(false)}
-                  className={`item flex flex-col items-center justify-center py-[11px] ${
-                    router.pathname === '/api-key' && 'item-active'
-                  }`}
-                >
-                  <Image src={lockIcon} alt="Dashboard icon" />
-                  <p className="mt-[6px] text-white typo-body-1">
-                    <IntlMessages id="apiKey.title" />
-                  </p>
-                </div>
-              </Link>
-              <Link href="/account">
-                <div
-                  onClick={() => setOpen(false)}
-                  className={`item flex flex-col items-center justify-center py-[11px] ${
-                    router.pathname === '/account' && 'item-active'
-                  }`}
-                >
-                  <Image src={personIcon} alt="Dashboard icon" />
-                  <p className="mt-[6px] text-white typo-body-1">
-                    <IntlMessages id="account.title" />
-                  </p>
-                </div>
-              </Link>
-              <Link href="/balance">
-                <div
-                  onClick={() => setOpen(false)}
-                  className={`item flex flex-col items-center justify-center py-[11px] ${
-                    router.pathname === '/balance' && 'item-active'
-                  }`}
-                >
-                  <Image src={balanceIcon} alt="Dashboard icon" />
-                  <p className="mt-[6px] text-white typo-body-1">
-                    <IntlMessages id="common.balance" />
-                  </p>
-                </div>
-              </Link>
-            </>
-          ) : (
-            <Link href="/admin/dashboard">
+          {list.map((view) => (
+            <Link href={view.path}>
               <div
                 onClick={() => setOpen(false)}
-                className={`item flex flex-col items-center justify-center py-[11px] ${
-                  router.pathname === '/admin/dashboard' && 'item-active'
+                className={`item cursor-pointer flex flex-col items-center justify-center py-[11px] xl:flex-row xl:items-center xl:gap-6 xl:justify-start xl: pl-8 ${
+                  pathname === view.path && 'item-active'
                 }`}
               >
-                <Image src={summaryIcon} alt="Dashboard icon" />
-                <p className="mt-[6px] text-white typo-body-1">Summary</p>
+                <Image src={view.icon} alt="Sidebar icon" />
+                <p className={`mt-[6px] text-white typo-body-1 xl:m-0`}>{view.text}</p>
               </div>
             </Link>
-          )}
+          ))}
           <div
-            className="item flex flex-col items-center justify-center py-[11px] absolute bottom-16 sm:bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px]"
+            className="item cursor-pointer flex flex-col items-center justify-center py-[11px] absolute bottom-16 sm:bottom-0 left-0 right-0 xl:pl-8 xl:py-[25px] xl:flex-row xl:gap-6 xl:justify-start"
             onClick={logout}
           >
             <Image src={logoutIcon} alt="Logout icon" />
-            <p className="mt-[6px] text-white typo-body-1">
+            <p className="mt-[6px] text-white typo-body-1 xl:m-0">
               <IntlMessages id="common.logout" />
             </p>
           </div>
@@ -123,11 +100,7 @@ export default function SidebarMenu({ setOpen, className, admin }) {
       </div>
       <style jsx>{`
         .box {
-          /* height: calc(100vh - 48px); */
           height: 100vh;
-        }
-        .item {
-          cursor: pointer;
         }
         .item:hover {
           background: #5580ce;
@@ -143,18 +116,6 @@ export default function SidebarMenu({ setOpen, className, admin }) {
         @media (min-width: 1024px) {
           .box {
             height: calc(100vh - 64px);
-          }
-        }
-        @media (min-width: 1280px) {
-          .item {
-            flex-direction: row;
-            align-items: center;
-            column-gap: 24px;
-            justify-content: flex-start;
-            padding-left: 32px;
-          }
-          .item > p {
-            margin: 0;
           }
         }
       `}</style>
