@@ -2,13 +2,9 @@ import types from './types';
 
 export const INITIAL_STATE = {
   userInfo: {
-    id: null,
     firstName: '',
     lastName: '',
-    email: '',
-    password: null,
-    country: '',
-    status: '',
+    balance: '',
   },
 };
 

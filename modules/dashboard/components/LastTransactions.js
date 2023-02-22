@@ -29,7 +29,7 @@ export default function LastTransactions() {
         {lastTransactions?.length > 0 &&
           lastTransactions.map((transaction) => (
             <li
-              key={transaction.key}
+              key={transaction.id}
               className="grid grid-cols-4 items-center px-[10px] pb-[10px] pt-[14px] border-b border-background-4"
             >
               <p className="col-span-1 text-text-1 typo-boyd-1">{transaction.reference}</p>

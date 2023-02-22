@@ -30,6 +30,7 @@ import Navbar from 'components/Navbar';
 import Footer from 'modules/home/components/Footer';
 import IntlMessages from 'utils/IntlMessages';
 import Link from 'next/link';
+import { DOWNLOAD_PLUGIN_URL } from 'utils/common';
 
 export default function Home() {
   return (
@@ -69,7 +70,7 @@ export default function Home() {
           </div>
 
           <div className="flex col-span-full justify-center mt-[18px] sm:mt-[57px] sm:justify-center xl:col-span-3 xl:col-start-1 xl:mt-8 xl:justify-start">
-            <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+            <Link href={DOWNLOAD_PLUGIN_URL}>
               <Button className="block">
                 <IntlMessages id="common.download" />
               </Button>
@@ -164,7 +165,7 @@ export default function Home() {
               title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
                 <span className="font-bold underline text-primary-blue">
-                  <Link href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download">
+                  <Link href={DOWNLOAD_PLUGIN_URL}>
                     <span className="cursor-pointer underline">
                       <IntlMessages id="common.downloadYou" />{' '}
                     </span>
@@ -216,10 +217,7 @@ export default function Home() {
           <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
             <IntlMessages id="landing.banner.description" />
           </div>
-          <Link
-            className="self-center col-span-2 col-start-2 xl:col-start-7"
-            href="https://drive.google.com/uc?id=1yI-okBcvmz-cQMVOZVTP0Bb-3dqWyCND&export=download"
-          >
+          <Link className="self-center col-span-2 col-start-2 xl:col-start-7" href={DOWNLOAD_PLUGIN_URL}>
             <Button className="w-full">
               <IntlMessages id="common.download" />
             </Button>

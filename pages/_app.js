@@ -10,6 +10,7 @@ import fr from 'locales/fr.json';
 import it from 'locales/it.json';
 import de from 'locales/de.json';
 import { useRouter } from 'next/router';
+import UserProvider from 'context/user/provider';
 
 export default function MyApp({ Component, pageProps }) {
   const [showCookiesBanner, setShowCookiesBanner] = useState(false);
