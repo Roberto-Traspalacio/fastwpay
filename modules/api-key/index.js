@@ -117,28 +117,28 @@ export default function ApiKey() {
             )}
           </div>
         </div>
-        <style jsx>{`
-          .tab {
-            border-top: 3px solid transparent;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-          }
-          .tab-active {
-            border-top: 3px solid #e8e8e8;
-            border-left: 3px solid #e8e8e8;
-            border-right: 3px solid #e8e8e8;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            background: #d7e1f3;
-            color: #295bb7;
-          }
-          .tab-active > p {
-            background: #295bb7;
-          }
-        `}</style>
       </AppLayout>
+      <style jsx>{`
+        .tab {
+          border-top: 3px solid transparent;
+          border-left: 3px solid transparent;
+          border-right: 3px solid transparent;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+        .tab-active {
+          border-top: 3px solid #e8e8e8;
+          border-left: 3px solid #e8e8e8;
+          border-right: 3px solid #e8e8e8;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          background: #d7e1f3;
+          color: #295bb7;
+        }
+        .tab-active > p {
+          background: #295bb7;
+        }
+      `}</style>
     </>
   );
 }

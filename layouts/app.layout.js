@@ -4,7 +4,7 @@ import { ScreenLoaderContext } from 'context/screenLoader/context';
 import MenuButton from 'modules/dashboard/components/MenuButton';
 import Head from 'next/head';
 
-export default function AppLayout({ children, title }) {
+export default function AppLayout({ children, title = '' }) {
   const [openSidebar, setOpenSidebar] = useState(false);
   const { showScreenLoader } = useContext(ScreenLoaderContext);
 
@@ -17,7 +17,7 @@ export default function AppLayout({ children, title }) {
   }, [openSidebar]);
 
   return (
-    <>
+    <div>
       <Head>
         <title>{title}</title>
       </Head>
@@ -40,6 +40,6 @@ export default function AppLayout({ children, title }) {
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }
