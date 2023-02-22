@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import CookieBanner from 'components/CookieBanner';
-import UserProvider from 'context/user/provider';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import ScreenLoaderProvider from 'context/screenLoader/provider';
@@ -11,7 +10,6 @@ import fr from 'locales/fr.json';
 import it from 'locales/it.json';
 import de from 'locales/de.json';
 import { useRouter } from 'next/router';
-import SidebarMenu from 'components/SidebarMenu';
 
 export default function MyApp({ Component, pageProps }) {
   const [showCookiesBanner, setShowCookiesBanner] = useState(false);
@@ -42,12 +40,10 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <IntlProvider locale={locale} messages={currentLanguage}>
       <ScreenLoaderProvider>
-        <UserProvider>
-          <main className={`font-sans relative max-h-screen ${openSidebar && 'overflow-hidden'}`}>
-            <Component {...pageProps} openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-            {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
-          </main>
-        </UserProvider>
+        <main className={`font-sans relative max-h-screen ${openSidebar && 'overflow-hidden'}`}>
+          <Component {...pageProps} openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+          {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
+        </main>
       </ScreenLoaderProvider>
     </IntlProvider>
   );

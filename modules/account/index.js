@@ -12,7 +12,8 @@ export default function Account({ openSidebar, setOpenSidebar }) {
     <ScreenLoaderLayout>
       <>
         <Head>
-          <title>Account</title>
+          <title>FastwPay | Account</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <AuthNavbar />
         <main className="relative content-main max-h-screen sm:flex lg:flex-row lg:overflow-hidden">

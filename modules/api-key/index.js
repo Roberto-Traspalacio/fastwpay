@@ -40,7 +40,8 @@ export default function ApiKey({ openSidebar, setOpenSidebar }) {
   return (
     <>
       <Head>
-        <title>Dashboard | API key</title>
+        <title>FastwPay | API key</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <AuthNavbar />
       <main className="sm:flex sm:flex-row relative content-main">

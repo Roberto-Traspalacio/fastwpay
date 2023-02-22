@@ -12,8 +12,8 @@ export default function LastTransactions() {
   useEffect(() => {
     (async () => {
       const data = await apiKey.lastTransactions();
-      if (data?.response.status === SUCCESS_GET_LAST_TRANSACTIONS) {
-        setLastTransactions(LastTransactionsInterceptor(data.data));
+      if (data?.response?.status === SUCCESS_GET_LAST_TRANSACTIONS) {
+        setLastTransactions(LastTransactionsInterceptor(data?.data));
       }
     })();
   }, []);

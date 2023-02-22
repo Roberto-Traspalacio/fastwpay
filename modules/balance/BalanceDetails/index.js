@@ -12,7 +12,8 @@ export default function BalanceDetails({ openSidebar, setOpenSidebar }) {
   return (
     <>
       <Head>
-        <title>Balance</title>
+        <title>FastwPay | Balance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <AuthNavbar />
       <main className="sm:flex sm:flex-row relative content-main">
