@@ -1,8 +1,4 @@
 import { useState } from 'react';
-import AuthNavbar from 'components/AuthNavbar';
-import SidebarMenu from 'components/SidebarMenu';
-import MenuButton from 'modules/dashboard/components/MenuButton';
-import Head from 'next/head';
 import BannerBlue from 'components/BannerBlue';
 import { Button } from 'components';
 import ListApikeys from 'modules/api-key/components/ListApikeys';
@@ -13,10 +9,11 @@ import { Apikey } from 'services/Apikey.service';
 import IntlMessages from 'utils/IntlMessages';
 import Loader from 'components/Loader';
 import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
+import AppLayout from 'layouts/app.layout';
 
 const initialForm = { reference: '' };
 
-export default function ApiKey({ openSidebar, setOpenSidebar }) {
+export default function ApiKey() {
   const [loading, setLoading] = useState(false);
   const [tab, setTab] = useState(0);
   const { validationSchema } = useYupValidations();
@@ -39,18 +36,8 @@ export default function ApiKey({ openSidebar, setOpenSidebar }) {
 
   return (
     <>
-      <Head>
-        <title>Dashboard | API key</title>
-      </Head>
-      <AuthNavbar />
-      <main className="sm:flex sm:flex-row relative content-main">
-        <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-        <SidebarMenu
-          className={`${!openSidebar ? 'hidden' : 'flex'} sm:flex`}
-          open={openSidebar}
-          setOpen={setOpenSidebar}
-        />
-        <div className="overflow-auto w-full">
+      <AppLayout title="Dashboard | API key">
+        <div className="sm:overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
             <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
@@ -130,44 +117,28 @@ export default function ApiKey({ openSidebar, setOpenSidebar }) {
             )}
           </div>
         </div>
-      </main>
-      <style jsx>{`
-        .tab {
-          border-top: 3px solid transparent;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-        }
-        .tab-active {
-          border-top: 3px solid #e8e8e8;
-          border-left: 3px solid #e8e8e8;
-          border-right: 3px solid #e8e8e8;
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          background: #d7e1f3;
-          color: #295bb7;
-        }
-        .tab-active > p {
-          background: #295bb7;
-        }
-        @media (min-width: 601px) {
-          .content-main {
-            height: calc(100vh - 48px);
+        <style jsx>{`
+          .tab {
+            border-top: 3px solid transparent;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
           }
-          .center-container {
-            /* border: 1px solid red; */
-            /* max-height: calc(100vh - 48px); */
-            /* overflow: auto; */
-            /* overflow: hidden; */
+          .tab-active {
+            border-top: 3px solid #e8e8e8;
+            border-left: 3px solid #e8e8e8;
+            border-right: 3px solid #e8e8e8;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: #d7e1f3;
+            color: #295bb7;
           }
-        }
-        @media (min-width: 1024px) {
-          .content-main {
-            height: calc(100vh - 64px);
+          .tab-active > p {
+            background: #295bb7;
           }
-        }
-      `}</style>
+        `}</style>
+      </AppLayout>
     </>
   );
 }

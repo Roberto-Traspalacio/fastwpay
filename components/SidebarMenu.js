@@ -75,10 +75,10 @@ export default function SidebarMenu({ setOpen, className, admin: isAdmin }) {
       >
         <div className="w-[110px] h-full bg-primary-blue pt-4 flex flex-col relative xl:w-[216px]">
           {list.map((view) => (
-            <Link href={view.path}>
+            <Link href={view.path} key={view.path}>
               <div
                 onClick={() => setOpen(false)}
-                className={`item cursor-pointer flex flex-col items-center justify-center py-[11px] xl:flex-row xl:items-center xl:gap-6 xl:justify-start xl: pl-8 ${
+                className={`item cursor-pointer flex flex-col items-center justify-center py-[11px] xl:flex-row xl:items-center xl:gap-6 xl:justify-start xl:pl-8 ${
                   pathname === view.path && 'item-active'
                 }`}
               >

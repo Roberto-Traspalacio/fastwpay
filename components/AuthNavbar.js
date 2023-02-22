@@ -12,17 +12,17 @@ import { languagesList } from 'utils/common';
 
 export default function AuthNavbar({ isAdmin }) {
   const [showList, setShowList] = useState(false);
-  const { push, locale, pathname } = useRouter();
+  const { push, locale, asPath } = useRouter();
   const [language, setLanguage] = useState(languagesList.find((l) => l.acronym === locale).country);
   const { userInfo } = useContext(UserContext);
 
   const selectLanguage = (language, acronym) => {
     setLanguage(language);
-    push(`/${pathname}`, `/${pathname}`, { locale: acronym });
+    push(`${asPath}`, `${asPath}`, { locale: acronym });
   };
 
   return (
-    <nav className="h-12 border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:h-16 lg:pl-[35px] xl:pl-[31px]">
+    <nav className="min-h-[48px] border border-b-slate flex items-center justify-between px-[18px] sm:pl-[38px] lg:min-h-[64px] lg:pl-[35px] xl:pl-[31px]">
       <Link href="/dashboard">
         <Image src={mobileLogo} alt="Fastwpay logo" className="w-[34px] h-6 xl:hidden" />
         <Image src={logoBlue} alt="Fastwpay logo" className="w-[154px] h-[33px] hidden xl:block" />

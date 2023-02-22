@@ -40,10 +40,9 @@ export default function ListBalance() {
           </header>
           {/* List */}
           <div className="col-span-full">
-            {list &&
-              list.map((apiKey) => (
-                <Column key={apiKey.id} id={apiKey.id} reference={apiKey.reference} balance={apiKey.balance} />
-              ))}
+            {list?.map((apiKey) => (
+              <Column key={apiKey.id} id={apiKey.id} reference={apiKey.reference} balance={apiKey.balance} />
+            ))}
           </div>
         </div>
       </div>

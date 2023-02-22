@@ -51,6 +51,10 @@
   }
 }
 
+.center-container {
+  max-height: calc(100vh - 48px);
+}
+
 /* Errors */
 .input-error {
   border: 1px solid var(--error1);

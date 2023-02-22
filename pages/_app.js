@@ -11,11 +11,9 @@ import fr from 'locales/fr.json';
 import it from 'locales/it.json';
 import de from 'locales/de.json';
 import { useRouter } from 'next/router';
-import SidebarMenu from 'components/SidebarMenu';
 
 export default function MyApp({ Component, pageProps }) {
   const [showCookiesBanner, setShowCookiesBanner] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(false);
   const { locale } = useRouter();
   const currentLanguage =
     locale === 'es' ? es : locale === 'fr' ? fr : locale === 'it' ? it : locale === 'de' ? de : en;
@@ -31,20 +29,12 @@ export default function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  useEffect(() => {
-    if (openSidebar) {
-      document.querySelector(':root').style.overflow = 'hidden';
-    } else {
-      document.querySelector(':root').style.overflow = 'initial';
-    }
-  }, [openSidebar]);
-
   return (
     <IntlProvider locale={locale} messages={currentLanguage}>
       <ScreenLoaderProvider>
         <UserProvider>
-          <main className={`font-sans relative max-h-screen ${openSidebar && 'overflow-hidden'}`}>
-            <Component {...pageProps} openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+          <main className={`font-sans relative max-h-screen`}>
+            <Component {...pageProps} />
             {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
           </main>
         </UserProvider>

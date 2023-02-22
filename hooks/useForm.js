@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import { setValueFormik } from 'utils/setValueFormik';
 
 const useForm = (initialForm, formik) => {
-  const [form, setForm] = React.useState(initialForm);
+  const [form, setForm] = useState(initialForm);
 
   const handleChangeForm = (e) => {
     const { name, value } = e.target;
