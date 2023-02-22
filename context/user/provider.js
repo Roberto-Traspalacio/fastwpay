@@ -1,4 +1,4 @@
-import { useContext, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import { UserContext } from './context';
 import { ScreenLoaderContext } from 'context/screenLoader/context';
 import UserReducer, { INITIAL_STATE } from './reducer';
@@ -33,6 +33,10 @@ export default function UserProvider({ children }) {
   const reset = () => {
     dispatch({ type: types.RESET });
   };
+
+  useEffect(() => {
+    getUserInfo(false);
+  }, []);
 
   return (
     <UserContext.Provider value={{ userInfo: state?.userInfo, getUserInfo, reset }}>{children}</UserContext.Provider>
