@@ -13,7 +13,7 @@ export default function ListBalanceDetails() {
 
   useEffect(() => {
     (async () => {
-      const data = router.query?.id && (await apiKey.getTransactionsByApiKey(router.query?.id));
+      const data = router.query?.transactionId && (await apiKey.getTransactionsByApiKey(router.query?.transactionId));
       if (data?.response.status === SUCCESS_REQUEST_CODE) {
         setList(data?.data?.items?.reverse());
       }
@@ -38,7 +38,8 @@ export default function ListBalanceDetails() {
           <header className="col-span-full w-full mt-10 grid-main pb-[14px]">
             {/* Order */}
             <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-start">
-              <IntlMessages id="Order" />
+              {/* <IntlMessages id="Order" /> */}
+              Order
             </h5>
             {/* Date */}
             <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center">

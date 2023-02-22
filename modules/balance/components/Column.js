@@ -21,7 +21,7 @@ export default function Column({ id, reference, balance }) {
             className=" my-auto w-[145px] py-[10px] px-[9.5px] max-h-[38px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1"
             onClick={goToDetails}
           >
-            <IntlMessages id="View Details" />
+            <IntlMessages id="common.viewDetails" />
           </button>
         </div>
       </div>
