@@ -16,7 +16,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <AppLayout title="Dashboard">
+    <AppLayout title="FastwPay | Dashboard">
       <div className="grid-main col-span-full sm:overflow-auto">
         {/* Center container */}
         <div className="center-container col-span-full sm:px-5">

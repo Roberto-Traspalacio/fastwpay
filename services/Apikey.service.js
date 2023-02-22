@@ -24,8 +24,12 @@ export class Apikey {
   }
 
   async lastTransactions() {
-    const { response, data } = await fetch.get('/keys/last-transactions', this.auth?.token);
-    return { response, data };
+    // This request only should will happen at desktop devices
+    if (window.innerWidth >= 1000) {
+      const { response, data } = await fetch.get('/keys/last-transactions', this.auth?.token);
+      return { response, data };
+    }
+    return {};
   }
 
   async getBalanceList() {

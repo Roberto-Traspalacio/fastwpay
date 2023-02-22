@@ -59,6 +59,7 @@ export default function Signup() {
     <>
       <Head>
         <title>SIgn Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
         <Navbar auth className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />

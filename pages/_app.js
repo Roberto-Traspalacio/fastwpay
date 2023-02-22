@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import CookieBanner from 'components/CookieBanner';
-import UserProvider from 'context/user/provider';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import ScreenLoaderProvider from 'context/screenLoader/provider';
@@ -32,12 +31,19 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <IntlProvider locale={locale} messages={currentLanguage}>
       <ScreenLoaderProvider>
+<<<<<<< HEAD
         <UserProvider>
           <main className={`font-sans relative max-h-screen`}>
             <Component {...pageProps} />
             {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
           </main>
         </UserProvider>
+=======
+        <main className={`font-sans relative max-h-screen ${openSidebar && 'overflow-hidden'}`}>
+          <Component {...pageProps} openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+          {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
+        </main>
+>>>>>>> 449f75a2165496590d0250b182eca7146c69b832
       </ScreenLoaderProvider>
     </IntlProvider>
   );

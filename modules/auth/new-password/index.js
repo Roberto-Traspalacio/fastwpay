@@ -54,6 +54,7 @@ export default function NewPassword() {
     <>
       <Head>
         <title>New Password</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="px-[18px] md:px-10 overflow-clip xl:p-0 xl:mb-0 min-h-screen h-screen">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />

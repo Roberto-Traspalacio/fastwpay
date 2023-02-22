@@ -71,6 +71,7 @@ export default function Login() {
     <>
       <Head>
         <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="px-[18px] md:px-10 min-h-screen max-h-screen xl:min-h-0 lg:p-0 xl:mb-0">
         <Navbar auth className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />

@@ -2,13 +2,10 @@ import BannerBlue from 'components/BannerBlue';
 import Form from 'modules/account/components/Form';
 import IntlMessages from 'utils/IntlMessages';
 import AppLayout from 'layouts/app.layout';
-import { useRouter } from 'next/router';
 
 export default function Account() {
-  const router = useRouter();
-  console.log('🚀 ~ file: index.js:9 ~ Account ~ router:', router);
   return (
-    <AppLayout title="Account">
+    <AppLayout title="FastwPay | Account">
       <div className="w-[100%] center-container sm:pb-6 lg:px-5 sm:overflow-auto">
         <BannerBlue className="sm:mx-5 lg:mx-0" />
         <h3 className="typo-heading-2 col-span-full mt-8 pl-[18px] sm:pl-5 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">

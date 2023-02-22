@@ -36,7 +36,7 @@ export default function ApiKey() {
 
   return (
     <>
-      <AppLayout title="Dashboard | API key">
+      <AppLayout title="FastwPay | API key">
         <div className="sm:overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
