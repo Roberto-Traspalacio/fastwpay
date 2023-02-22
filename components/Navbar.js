@@ -7,17 +7,13 @@ import menuPublicIcon from 'assets/menuPublic.svg';
 import polygonIcon from 'assets/polygonWhite.svg';
 import IntlMessages from 'utils/IntlMessages';
 import { DOWNLOAD_PLUGIN_URL, languagesList } from 'utils/common';
+import useLanguage from 'hooks/useLanguage';
 
 export default function Navbar({ className, auth }) {
   const [showList, setShowList] = useState(false);
   const [showListOptions, setShowListOptions] = useState(false);
-  const { push, locale } = useRouter();
-  const [language, setLanguage] = useState(languagesList.find((l) => l.acronym === locale).country);
-
-  const selectLanguage = (language, acronim) => {
-    setLanguage(language);
-    push(`/`, '/', { locale: acronim });
-  };
+  const { push } = useRouter();
+  const { language, selectLanguage } = useLanguage();
 
   return (
     <nav

@@ -7,7 +7,7 @@ import loginLinea from 'assets/login-linea.png';
 import useForm from 'hooks/useForm';
 import { useValidacionesYup } from 'modules/auth/signup/yup';
 import { useFormik } from 'formik';
-import Input from 'components/Input';
+import Input from 'modules/auth/components/Input';
 import Head from 'next/head';
 import { Auth } from 'services/Auth.service';
 import Loader from 'components/Loader';
@@ -59,6 +59,7 @@ export default function Signup() {
     <>
       <Head>
         <title>SIgn Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="flex flex-col px-[18px] md:px-10 lg:p-0 h-screen xl:h-auto">
         <Navbar auth className={'full-bleed-primary-blue px-0 md:px-0 lg:px-10 xl:hidden'} />

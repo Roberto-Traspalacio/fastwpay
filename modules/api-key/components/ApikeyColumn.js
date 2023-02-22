@@ -51,7 +51,7 @@ export default function ApikeyColumn({ reference, date, status, apiKey, id, setL
           className="col-span-1 text-center pt-[29px] pb-[26px] typo-body-1 font-medium"
           style={{ color: status === 'INACTIVE' ? '#E65C4F' : '#1FB81F' }}
         >
-          {status}
+          <IntlMessages id={`common.${status}`} />
         </p>
         {/* API key */}
         <div className="col-span-2 text-center flex justify-center pt-[29px] pb-[26px] xl:col-span-3">

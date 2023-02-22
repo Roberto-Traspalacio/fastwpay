@@ -5,7 +5,7 @@ import loginImage1 from 'assets/login-1.png';
 import loginLinea from 'assets/login-linea.png';
 import useForm from 'hooks/useForm';
 import Head from 'next/head';
-import Input from 'components/Input';
+import Input from 'modules/auth/components/Input';
 import { useValidacionesYup } from 'modules/auth/new-password/yup';
 import { useFormik } from 'formik';
 import SuccessPswChange from 'modules/auth/components/SuccessPswChange';
@@ -54,6 +54,7 @@ export default function NewPassword() {
     <>
       <Head>
         <title>New Password</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="px-[18px] md:px-10 overflow-clip xl:p-0 xl:mb-0 min-h-screen h-screen">
         <Navbar className={'full-bleed-primary-blue xl:hidden'} />
