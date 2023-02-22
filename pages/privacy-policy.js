@@ -1,4 +1,5 @@
-import { Footer, GoHomeButton, Navbar } from 'components';
+import { GoHomeButton, Navbar } from 'components';
+import Footer from 'modules/home/components/Footer';
 import Head from 'next/head';
 import IntlMessages from 'utils/IntlMessages';
 
