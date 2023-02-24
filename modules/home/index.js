@@ -255,7 +255,7 @@ export default function Home() {
           />
         </section>
         <section className="mt-20  xl:mb-[60px] xl:mt-64">
-          <Form>
+          <Form setMessageSended={setMessageSended}>
             <Contact className="pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6 lg:col-start-2 lg:col-span-6" />
           </Form>
         </section>

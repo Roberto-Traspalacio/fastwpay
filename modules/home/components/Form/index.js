@@ -12,7 +12,7 @@ const initialState = {
   message: '',
 };
 
-export default function Form({ children }) {
+export default function Form({ children, setMessageSended }) {
   const [loading, setLoading] = useState(false);
   const { validationSchema } = useYupValidations();
   const formik = useFormik({
@@ -29,7 +29,12 @@ export default function Form({ children }) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(form).toString(),
     })
-      .then(() => console.log('Form successfully submitted'))
+      .then(() => {
+        setMessageSended(true);
+        setTimeout(() => {
+          setMessageSended(false);
+        }, 2500);
+      })
       .catch((error) => alert(error));
     setLoading(false);
     e.preventDefault();
