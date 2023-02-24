@@ -24,18 +24,23 @@ export default function Form({ children }) {
 
   async function onSubmit() {
     setLoading(true);
-    console.log('Enviando formulario...');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(form).toString(),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error));
     setLoading(false);
   }
 
   return (
     <form
       name="contact"
-      action="/#contact?email-sended=true"
       method="POST"
       data-netlify="true"
       className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 xl:items-start"
-      // onSubmit={formik.handleSubmit}
+      onSubmit={formik.handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
       <div className="mb-6 font-bold text-center typo-heading-1 col-span-full text-text-1 md:mb-16">
