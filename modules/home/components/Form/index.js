@@ -32,6 +32,7 @@ export default function Form({ children }) {
       .then(() => console.log('Form successfully submitted'))
       .catch((error) => alert(error));
     setLoading(false);
+    e.preventDefault();
   }
 
   return (
