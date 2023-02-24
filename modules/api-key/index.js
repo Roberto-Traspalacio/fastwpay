@@ -60,9 +60,6 @@ export default function ApiKey() {
                   } flex items-center gap-1 py-[10px] px-[13px] typo-body-1 text-text-2 font-normal `}
                 >
                   <IntlMessages id="apiKey.listApikeys" />
-                  {/* <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
-                  7
-                </p> */}
                 </button>
               </div>
             </div>
@@ -105,7 +102,7 @@ export default function ApiKey() {
                     </div>
                     <Button
                       type="submit"
-                      className="min-w-[157px] h-[36px] sm:h-[38px] flex items-center justify-center m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
+                      className="min-w-[157px] h-[36px] sm:h-[38px] flex items-center justify-center m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px] leading-4"
                     >
                       {loading ? <Loader /> : <IntlMessages id="apiKey.generate" />}
                     </Button>

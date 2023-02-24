@@ -1,3 +1,5 @@
+import IntlMessages from 'utils/IntlMessages';
+
 export default function ColumnDetails({ order, date, status, balance }) {
   const newDate = new Date(date);
   const day = newDate.getDate().toString().padStart(2, '0');
@@ -21,7 +23,7 @@ export default function ColumnDetails({ order, date, status, balance }) {
               : 'text-secondary-yellow'
           }`}
         >
-          {status}
+          <IntlMessages id={`common.${status.replace(/\s+/g, '')}`} />
         </p>
         {/* Balance */}
         <p className="col-span-3 col-start-6 md:col-span-2 text-center pt-[29px] pb-[26px] typo-body-1 text-text-1 xl:col-start-11">

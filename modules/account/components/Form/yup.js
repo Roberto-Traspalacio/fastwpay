@@ -20,7 +20,7 @@ export const useYupValidationsBank = () => {
     accountNumber: yup
       .number()
       .typeError(String('This field only allows numbers'))
-      .required(String('Please enter a account number')),
+      .required(String('Please complete this field')),
     beneficiary: yup.string().required(String('Please enter a beneficiary')),
   });
 

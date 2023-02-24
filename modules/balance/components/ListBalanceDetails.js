@@ -15,7 +15,7 @@ export default function ListBalanceDetails() {
     (async () => {
       const data = router.query?.transactionId && (await apiKey.getTransactionsByApiKey(router.query?.transactionId));
       if (data?.response.status === SUCCESS_REQUEST_CODE) {
-        setList(data?.data?.items?.reverse());
+        setList(data?.data?.items);
       }
     })();
   }, [router.query]);

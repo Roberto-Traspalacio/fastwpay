@@ -22,7 +22,7 @@ export default function AppLayout({ children, title = '' }) {
         <title>{title}</title>
       </Head>
       <AuthNavbar />
-      <section className="sm:flex relative max-h-screen content-main lg:overflow-hidden">
+      <section className="sm:flex relative max-h-screen content-main sm:overflow-hidden">
         {/* Menu button */}
         <MenuButton openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         <SidebarMenu
@@ -34,6 +34,11 @@ export default function AppLayout({ children, title = '' }) {
       </section>
       {showScreenLoader && <ScreenLoader />}
       <style jsx>{`
+        @media (min-width: 601px) {
+          .content-main {
+            height: calc(100vh - 48px);
+          }
+        }
         @media (min-width: 1024px) {
           .content-main {
             height: calc(100vh - 64px);

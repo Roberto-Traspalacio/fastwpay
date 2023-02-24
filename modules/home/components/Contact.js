@@ -34,7 +34,8 @@ export default function contact({ className = '' }) {
           <IntlMessages id="common.email" />
         </div>
         <div className="text-center content text-text-2 lh-165">
-          info <br className="xl:hidden" />
+          info
+          <br className="xl:hidden" />
           @fastwpay.com
         </div>
       </div>

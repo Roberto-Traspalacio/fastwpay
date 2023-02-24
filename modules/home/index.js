@@ -31,8 +31,10 @@ import Footer from 'modules/home/components/Footer';
 import IntlMessages from 'utils/IntlMessages';
 import Link from 'next/link';
 import { DOWNLOAD_PLUGIN_URL } from 'utils/common';
+import { useState } from 'react';
 
 export default function Home() {
+  const [messageSended, setMessageSended] = useState(false);
   return (
     <>
       <Head>
@@ -237,6 +239,7 @@ export default function Home() {
           <div className="typo-body-1 leading-[165%] col-span-full sm:col-span-4 sm:row-start-2 xl:col-start-4 xl:mb-0">
             <IntlMessages id="landing.section.five.description" />
             <span className="font-bold text-primary-blue"> Spain</span>,
+            <span className="font-bold text-primary-blue"> Italy</span>,
             <span className="font-bold text-primary-blue"> France</span>, <IntlMessages id="common.or" />
             <span className="font-bold text-primary-blue"> Germany</span>.
           </div>
@@ -255,6 +258,18 @@ export default function Home() {
           </Form>
         </section>
         <Footer />
+        {messageSended && (
+          <div className="w-full fixed top-[14px] left-0 right-0 px-[18px] md:top-8 md:px-10 xl:w-[849px] xl:mx-auto xl:px-0">
+            <div
+              className="border-b-[3px] rounded-[4px] w-full h-[62px] flex justify-center items-center"
+              style={{ borderColor: '#448E84', backgroundColor: '#E0F6F3' }}
+            >
+              <p className="typo-body-1" style={{ color: '#448E84' }}>
+                Message sent successfully
+              </p>
+            </div>
+          </div>
+        )}
       </main>
     </>
   );
