@@ -77,9 +77,11 @@ export default function Home() {
                 <IntlMessages id="common.download" />
               </Button>
             </Link>
-            <ButtonInverse>
-              <IntlMessages id="common.contact" />
-            </ButtonInverse>
+            <Link href="/#contact">
+              <ButtonInverse>
+                <IntlMessages id="common.contact" />
+              </ButtonInverse>
+            </Link>
           </div>
         </section>
         <section className="flex flex-col justify-center mt-[50px] sm:mt-[64px]" id="Banks">
