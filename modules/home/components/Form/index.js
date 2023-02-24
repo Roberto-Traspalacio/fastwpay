@@ -31,12 +31,13 @@ export default function Form({ children }) {
   return (
     <form
       name="contact"
-      action="/success"
+      action="/#contact?email-sended=true"
       method="POST"
       data-netlify="true"
       className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 xl:items-start"
       // onSubmit={formik.handleSubmit}
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div className="mb-6 font-bold text-center typo-heading-1 col-span-full text-text-1 md:mb-16">
         <IntlMessages id="landing.contact.title" />
       </div>
