@@ -49,7 +49,7 @@ export default function Home() {
         <section className="grid-main relative xl:min-h-[728px] auto-rows-min ">
           <Image
             priority={true}
-            className="mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto] xl:hidden"
+            className="mb-6 col-span-full xs:mb-4 sm:mb-[40px] justify-self-center w-[100%] h-[auto] lg:col-start-2 lg:col-end-8 xl:hidden"
             src={heroSmall}
             alt="Girl waving with payment messages around "
           />
@@ -60,9 +60,13 @@ export default function Home() {
             alt="Girl waving with payment messages around "
           />
 
-          <Image className="col-start-12 absolute top-[89px] hidden xl:block" src={plugin} />
+          <Image
+            className="col-start-12 w-[76px] h-[56px] sm:w-[60px] sm:h-[76px] md:w-[100px] md:h-[132px] absolute top-[28px] sm:top-[32px] lg:top-[50px] xl:top-[89px] right-0"
+            src={plugin}
+            alt="Plugin"
+          />
 
-          <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} />
+          <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} alt="Steps" />
 
           <div className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:font-medium row-start-2 md:col-start-2 md:col-span-6 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]">
             <IntlMessages id="landing.header.title" />
@@ -88,7 +92,7 @@ export default function Home() {
           <div className="typo-body-1 text-primary-blue text-center sm:text-left mb-[12px]">
             <IntlMessages id="landing.supported.banks" />
           </div>
-          <div className="full-bleed-bar bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px]">
+          <div className="full-bleed-bar bg-background-2 flex justify-evenly items-center h-10 sm:h-[70px] not-full-bleed-bar">
             <Image className="img-banks" src={santander} alt="santander logo" />
             <Image className="img-banks" src={hsbc} alt="hsbc bank logo" />
             <Image className="img-banks " src={bbva} alt="unicredit logo" />
@@ -97,14 +101,14 @@ export default function Home() {
           </div>
         </section>
         <section className="section grid-main">
-          <div className="section-title typo-heading-1 top-line ">
+          <h2 className="section-title typo-heading-1 top-line lg:text-start">
             <IntlMessages id="landing.section.two.title" />
-          </div>
-          <div className="typo-body-1 section-content">
+          </h2>
+          <p className="typo-body-1 section-content">
             <IntlMessages id="landing.section.two.description.1" />
             <span className="font-bold text-primary-blue">Woocommerce</span>,
             <IntlMessages id="landing.section.two.description.2" />
-          </div>
+          </p>
 
           <ButtonInverse arrow={true} className="button-started arrow">
             <IntlMessages id="common.getStarted" />
@@ -215,19 +219,19 @@ export default function Home() {
           />
         </section>
         <section className="pt-8 pb-8 mt-12 overflow-visible md:mt-32 lg:mt-72 bg-background-2 full-bleed-section grid-main gap-y-6">
-          <div className="font-bold text-center typo-heading-1 col-span-full xl:col-start-7 xl:text-left lg:col-start-2 lg:col-span-6 lg:text-left">
+          <div className="font-bold text-center typo-heading-1 col-span-full sm:text-start sm:col-start-2 xl:col-start-7 xl:text-left lg:col-start-5 lg:col-span-6 lg:text-left">
             <IntlMessages id="landing.banner.title" />
           </div>
-          <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 xl:col-start-7 xl:col-span-5">
+          <div className="typo-body-1 leading-[165%] text-center sm:text-justify text-text-2 col-span-full sm:col-span-6 sm:col-start-2 lg:col-start-5 xl:col-start-7 xl:col-span-5">
             <IntlMessages id="landing.banner.description" />
           </div>
-          <Link className="self-center col-span-2 col-start-2 xl:col-start-7" href={DOWNLOAD_PLUGIN_URL}>
+          <Link className="self-center col-span-2 col-start-2 lg:col-start-5 xl:col-start-7" href={DOWNLOAD_PLUGIN_URL}>
             <Button className="w-full">
               <IntlMessages id="common.download" />
             </Button>
           </Link>
         </section>
-        <div className="relative hidden xl:block">
+        <div className="relative hidden lg:block">
           <Image src={smile} className="absolute bottom-0 z-10" />
         </div>
         <section className="grid-main overflow-visible grid-cols-4 gap-x-3 sm:gap-y-6 mt-12 sm:mt-[120px] xl:mt-56 relative lg:mt-60 lg:mb-60">
@@ -259,7 +263,6 @@ export default function Home() {
             <Contact className="pb-8 col-span-full xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6 lg:col-start-2 lg:col-span-6" />
           </Form>
         </section>
-        <Footer />
         {messageSended && (
           <div className="w-full fixed top-[14px] left-0 right-0 px-[18px] md:top-8 md:px-10 xl:w-[849px] xl:mx-auto xl:px-0">
             <div
@@ -273,6 +276,7 @@ export default function Home() {
           </div>
         )}
       </main>
+      <Footer />
     </>
   );
 }

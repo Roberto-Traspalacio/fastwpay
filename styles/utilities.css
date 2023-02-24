@@ -34,16 +34,22 @@
   clip-path: inset(0 -100vmax);
 }
 
+.full-bleed-bar {
+  box-shadow: 0 0 0 100vmax #f0f6ff;
+  clip-path: inset(0 -100vmax);
+}
+
+@media (min-width: 1280px) {
+  .full-bleed-bar {
+    clip-path: inset(0);
+  }
+}
+
 @media only screen and (min-width: 1280px) {
   .full-bleed-section {
     box-shadow: none;
     border-radius: 60px;
   }
-}
-
-.full-bleed-bar {
-  box-shadow: 0 0 0 100vmax #f0f6ff;
-  clip-path: inset(0 -100vmax);
 }
 
 .full-bleed-1 {

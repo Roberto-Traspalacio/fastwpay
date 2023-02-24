@@ -29,6 +29,7 @@ module.exports = {
         esm: '360px',
         xsm: '375px',
         sm: '601px',
+        xxl: '1920px',
       },
     },
   },
