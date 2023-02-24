@@ -31,12 +31,15 @@ export default function Form({ children, setMessageSended }) {
     })
       .then(() => {
         setMessageSended(true);
+        setLoading(false);
         setTimeout(() => {
           setMessageSended(false);
         }, 2500);
       })
-      .catch((error) => alert(error));
-    setLoading(false);
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
     e.preventDefault();
   }
 
