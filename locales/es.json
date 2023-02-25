@@ -52,7 +52,7 @@
   "apiKey.yourApikeys.text": "Puedes crear nuevas claves API para diferentes tiendas en línea y/o diferentes clientes. También puedes deshabilitar o eliminar las claves API que ya no estén en uso y esos sitios ya no recibirán actualizaciones. Puedes crear tantas claves API como necesites, pero solo puedes usar una por tienda.",
   "apiKey.generate": "Generar clave API",
   "apiKey.generate.input.placeholder": "Agregar nombre para referencia...",
-  "apiKey.listApikeys": "Listar claves API",
+  "apiKey.listApikeys": "Lista de claves API",
   "account.title": "Cuenta",
   "account.personalInformation": "Información personal",
   "account.withdrawalInformation": "Información de retiro",
