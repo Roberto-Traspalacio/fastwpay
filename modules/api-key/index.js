@@ -10,6 +10,7 @@ import IntlMessages from 'utils/IntlMessages';
 import Loader from 'components/Loader';
 import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 import AppLayout from 'layouts/app.layout';
+import { useIntl } from 'react-intl';
 
 const initialForm = { reference: '' };
 
@@ -24,6 +25,7 @@ export default function ApiKey() {
   });
   const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
+  const { messages } = useIntl();
 
   const onSubmit = async () => {
     setLoading(true);
@@ -91,7 +93,7 @@ export default function ApiKey() {
                         name="reference"
                         onChange={handleChangeForm}
                         type="text"
-                        placeholder="Add name for reference..."
+                        placeholder={String(messages['apiKey.generate.input.placeholder'])}
                         className="w-[100%] rounded-[10px] typo-body-1 py-[11px] pl-6 bg-background-6 sm:w-[239px] xl:w-[314px]"
                       />
                       {formik.errors?.reference && (

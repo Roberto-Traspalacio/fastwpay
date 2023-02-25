@@ -39,7 +39,7 @@ export default function ListBalanceDetails() {
             {/* Order */}
             <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-start">
               {/* <IntlMessages id="Order" /> */}
-              Order
+              <IntlMessages id="common.order" />
             </h5>
             {/* Date */}
             <h5 className="col-span-2 typo-heading-4 text-text-1 font-bold text-center">

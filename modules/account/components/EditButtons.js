@@ -1,4 +1,5 @@
 import Loader from 'components/Loader';
+import IntlMessages from 'utils/IntlMessages';
 
 export default function EditButtons({ className, cancel, loading, setLoading }) {
   return (
@@ -8,13 +9,13 @@ export default function EditButtons({ className, cancel, loading, setLoading }) 
         onClick={cancel}
         className="flex items-center justify-center h-[36px] rounded-[19px] typo-body-1 col-span-2 text-primary-blue border border-primary-blue lg:col-span-3 xl:col-span-4"
       >
-        Cancel
+        <IntlMessages id="common.cancel" />
       </button>
       <button
         type="submit"
         className="flex items-center justify-center h-[36px] rounded-[19px] typo-body-1 col-span-2 text-white bg-primary-blue lg:col-span-3 xl:col-span-4"
       >
-        {loading ? <Loader /> : 'Save'}
+        {loading ? <Loader /> : <IntlMessages id="common.save" />}
       </button>
     </div>
   );

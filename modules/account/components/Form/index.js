@@ -253,12 +253,12 @@ export default function Form() {
           onChange={handleChangeBankInfoForm}
         />
         <p className="typo-body-1 text-text-2 mt-8">
-          If you don't know the exact name of your bank, check this{' '}
+          <IntlMessages id="account.wiseText1" />{' '}
           <Link className="text-primary-blue" target="_blank" href="https://wise.com/es/swift-codes/countries">
             link
           </Link>
           <br />
-          At the moment we only work with WISE banks, we will be adding new methods in the future
+          <IntlMessages id="account.wiseText2" />
         </p>
         {edit === 1 && <EditButtons loading={loading} setLoading={setLoading} className="mt-5" cancel={cancel} />}
       </form>
