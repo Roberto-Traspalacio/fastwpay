@@ -132,5 +132,7 @@
   "validation.bank": "Veuillez sélectionner une banque",
   "validation.beneficiary": "Veuillez entrer un bénéficiaire",
   "validation.fieldOnlyNumbers": "Veuillez entrer seulement des chiffres dans ce champ",
-  "validation.pleaseCompleteThisField": "Veuillez remplir ce champ"
+  "validation.pleaseCompleteThisField": "Veuillez remplir ce champ",
+  "validation.invalidUsernameOrPassoword": "Nom d'utilisateur ou mot de passe invalide",
+  "common.messageSentSuccessfully": "Message envoyé avec succès"
 }

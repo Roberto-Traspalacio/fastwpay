@@ -65,6 +65,7 @@
   "common.create": "Erstellen",
   "common.address": "Adresse",
   "common.logout": "Abmelden",
+  "common.messageSentSuccessfully": "Nachricht erfolgreich gesendet",
   "common.accept": "Akzeptieren",
   "common.Success": "Erfolg",
   "common.Inprogress": "In Bearbeitung",
@@ -93,10 +94,10 @@
   "common.downloadYou": "Herunterladen",
   "common.email": "Email",
   "common.getStarted": "Loslegen",
-  "common.goBack": "Go Back",
-  "common.goHome": "Go Home",
-  "common.goTo": "Go to ",
-  "common.lastName": "Last Name",
+  "common.goBack": "Zurückgehen",
+  "common.goHome": "Nach Hause",
+  "common.goTo": "Gehe zu ",
+  "common.lastName": "Nachname",
   "common.lastTransactions": "Letzte Transaktionen",
   "common.beneficiary": "Beneficiary",
   "common.message": "Message",
@@ -132,5 +133,6 @@
   "validation.bank": "Bitte wählen Sie eine Bank aus",
   "validation.beneficiary": "Bitte geben Sie einen Begünstigten ein",
   "validation.fieldOnlyNumbers": "Bitte geben Sie nur Zahlen in diesem Feld ein",
-  "validation.pleaseCompleteThisField": "Bitte füllen Sie dieses Feld aus"
+  "validation.pleaseCompleteThisField": "Bitte füllen Sie dieses Feld aus",
+  "validation.invalidUsernameOrPassoword": "Ungültiger Benutzername oder Passwort"
 }

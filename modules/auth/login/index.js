@@ -53,7 +53,7 @@ export default function Login() {
       (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === NOT_FOUND) &&
       data?.data?.message !== ACCOUNT_INACTIVE_MESSAGE
     ) {
-      setError({ show: true, text: 'Invalid username or password' });
+      setError({ show: true, text: <IntlMessages id="validation.invalidUsernameOrPassoword" /> });
       setTimeout(() => setError({ ...error, show: false }), 4500);
     }
 

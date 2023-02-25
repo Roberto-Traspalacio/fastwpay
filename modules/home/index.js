@@ -270,7 +270,7 @@ export default function Home() {
               style={{ borderColor: '#448E84', backgroundColor: '#E0F6F3' }}
             >
               <p className="typo-body-1" style={{ color: '#448E84' }}>
-                Message sent successfully
+                <IntlMessages id="messageSentSuccessfully" />
               </p>
             </div>
           </div>
