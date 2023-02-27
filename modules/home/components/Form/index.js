@@ -48,7 +48,7 @@ export default function Form({ children, setMessageSended }) {
       name="contact"
       method="POST"
       data-netlify="true"
-      className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-20 xl:items-start"
+      className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-10 lg:pt-[44px] xl:items-start"
       onSubmit={formik.handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />

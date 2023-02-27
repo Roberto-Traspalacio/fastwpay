@@ -9,6 +9,10 @@
   @apply font-ubuntu;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --error1: #e65c4f;
   --error2: #fff5f4;
@@ -17,7 +21,7 @@
 
 @layer components {
   .section {
-    @apply mt-[52px] sm:mt-20 font-bold gap-x-[18px];
+    @apply mt-[52px] esm:mt-[76px] sm:mt-[84px] lg:mt-[89px] font-bold gap-x-[18px];
   }
 
   .section-title {
@@ -33,7 +37,7 @@
   }
 
   .section-content {
-    @apply font-normal text-text-2 col-span-full mt-[18px] text-justify sm:text-center md:text-justify lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2 xl:col-start-2 xl:col-span-4;
+    @apply font-normal text-text-2 col-span-full mt-[18px] esm:mt-3 text-justify sm:text-center md:text-justify lg:col-span-3 lg:text-justify md:col-span-6 md:col-start-2 xl:col-start-2 xl:col-span-4;
   }
 
   .button-started {
@@ -41,7 +45,7 @@
   }
 
   .button-started-inverse {
-    @apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:col-start-6 xl:col-start-8 xl:justify-self-start;
+    @apply mt-[18px] col-span-full self-start text-left sm:text-center sm:col-span-2 sm:col-start-4 md:justify-self-center md:col-start-4 md:col-span-2 lg:justify-self-start lg:col-start-6 xl:col-start-8 xl:justify-self-start;
   }
 }
 

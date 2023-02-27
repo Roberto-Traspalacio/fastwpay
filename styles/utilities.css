@@ -16,12 +16,12 @@
   .top-line::before {
     height: 4px;
     width: 60px;
-    top: -20px;
+    top: -24px;
     left: calc(50% - 30px);
   }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1024px) {
   .top-line::before {
     height: 4px;
     width: 60px;

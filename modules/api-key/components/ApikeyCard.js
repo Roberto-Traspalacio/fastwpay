@@ -54,7 +54,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
             className="typo-heading-4 text-text-2 font-medium"
             style={{ color: status === 'INACTIVE' ? '#E65C4F' : '#1FB81F' }}
           >
-            {status}
+            <IntlMessages id={`common.${status}`} />
           </p>
         </div>
         <div className="flex justify-between items-center mt-8">

@@ -32,7 +32,7 @@ export default function BalanceDetailsCard({ order, date, status, balance }) {
                 : 'text-secondary-yellow'
             }`}
           >
-            {status}
+            <IntlMessages id={`common.${status.replace(/\s+/g, '')}`} />
           </p>
         </div>
         {/* Balance */}
