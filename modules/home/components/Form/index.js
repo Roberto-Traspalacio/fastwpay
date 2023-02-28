@@ -1,9 +1,14 @@
-import IntlMessages from 'utils/IntlMessages';
-import Button from 'components/Button';
+import { useState } from 'react';
+import Image from 'next/image';
 import { useFormik } from 'formik';
+
+import triangleYellow from 'assets/triangle_yellow.svg';
+import triangleColumn from 'assets/triangle_column.svg';
+
 import { useYupValidations } from './yup';
 import useForm from 'hooks/useForm';
-import { useState } from 'react';
+import IntlMessages from 'utils/IntlMessages';
+import Button from 'components/Button';
 import { Loader } from 'components';
 
 const initialState = {
@@ -48,9 +53,14 @@ export default function Form({ children, setMessageSended }) {
       name="contact"
       method="POST"
       data-netlify="true"
-      className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-10 lg:pt-[44px] xl:items-start"
+      className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-10 lg:pt-[44px] xl:items-start relative"
       onSubmit={formik.handleSubmit}
     >
+      <Image
+        className="w-[26px] absolute top-6 right-0 esm:right-5 esm:w-[20px] sm:w-[45px] sm:right-0 xl:right-[58px] xl:top-[26px]"
+        src={triangleYellow}
+        alt="Triangle yellow"
+      />
       <input type="hidden" name="form-name" value="contact" />
       <div className="mb-6 font-bold text-center typo-heading-1 col-span-full text-text-1 md:mb-16">
         <IntlMessages id="landing.contact.title" />
@@ -116,6 +126,11 @@ export default function Form({ children, setMessageSended }) {
       >
         {loading ? <Loader /> : <IntlMessages id="common.submit" />}
       </Button>
+      <Image
+        className="hidden xl:block absolute bottom-[65px] xl:col-start-2"
+        src={triangleColumn}
+        alt="Triangles yellow column"
+      />
       {children}
     </form>
   );

@@ -3,6 +3,16 @@
   height: auto;
 }
 
+.img-countries {
+  width: 229px;
+}
+
+@media only screen and (min-width: 360px) {
+  .img-countries {
+    width: 273px;
+  }
+}
+
 @media only screen and (min-width: 375px) {
   .img-hero {
     width: clamp(21.19rem, 100vw + -2.25rem, 35.31rem);
@@ -27,6 +37,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .img-countries {
+    width: 400px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -34,6 +47,10 @@
     width: 600px;
     height: auto;
     max-height: 560px;
+  }
+  .rectangle {
+    width: 480px;
+    height: 440px;
   }
 }
 
@@ -45,5 +62,20 @@
     width: clamp(45rem, calc(10rem + 43.75vw), 62.5rem);
     height: auto;
     max-height: 637px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .rectangle {
+    width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    height: clamp(24.75rem, calc(-13.75rem + 47.88vw), 43.5rem);
+    max-height: clamp(24.75rem, calc(-13.75rem + 48.88vw), 43.5rem);
+  }
+  .img-countries {
+    width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    height: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-height: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
   }
 }

@@ -7,7 +7,7 @@ export default function SectionForm() {
   const [messageSended, setMessageSended] = useState(false);
 
   return (
-    <section className="mt-20 xl:mb-[60px] xl:mt-64 lg:px-10 xl:px-0 xl:max-w-[1160px] xl:mx-auto xl2:max-w-[1277px]">
+    <section className="mt-[72px] esm:mt-12 lg:px-10 xl:px-0 xl:max-w-[1160px] xl:mb-[60px] xl:mt-64 xl:mx-auto xl2:max-w-[1277px] xl2:mt-[365px] xxl:mt-[465px]">
       <Form setMessageSended={setMessageSended}>
         <Contact className="pb-8 col-span-full lg:col-start-2 lg:col-span-6 lg:pb-0 xl:col-start-2 xl:col-span-2 xl:row-start-2 xl:row-span-6" />
       </Form>

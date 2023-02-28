@@ -7,7 +7,7 @@ import IntlMessages from 'utils/IntlMessages';
 export default function contact({ className = '' }) {
   return (
     <div
-      className={`${className} md:justify-between grid-main xl:flex xl:flex-col gap-x-3 justify-items-center pt-9 gap-y-8 xl:pt-0 `}
+      className={`${className} md:justify-between grid-main xl:flex xl:flex-col gap-x-3 justify-items-center pt-9 gap-y-8 xl:pt-0`}
     >
       <div className="hidden font-bold xl:block text-text-1 ">
         <IntlMessages id="landing.content.information" />

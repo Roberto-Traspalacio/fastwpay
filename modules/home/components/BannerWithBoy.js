@@ -10,7 +10,7 @@ import { DOWNLOAD_PLUGIN_URL } from 'utils/common';
 export default function BannerWithBoy() {
   return (
     <>
-      <section className="full-bleed-section-banner bg-background-2 py-8 mt-12 relative sm:py-[61px] sm:mt-24 md:mt-[122px] md:py-[74px] lg:mt-[273px] lateral-padding xl:rounded-[60px] grid-main gap-y-6 xl:max-w-[1277px] xl:mx-auto">
+      <section className="full-bleed-section-banner bg-background-2 py-8 mt-12 relative sm:py-[61px] sm:mt-24 md:mt-[122px] md:py-[74px] lg:mt-[273px] lateral-padding xl:rounded-[60px] grid-main gap-y-6 xl:max-w-[1160px] xl2:max-w-[1277px] xl:mx-auto">
         <div className="col-span-full flex flex-col items-center gap-y-[18px] esm:gap-y-3 sm:items-start sm:col-span-6 sm:col-start-2 sm:gap-y-6 lg:col-start-5 lg:col-span-4 xl:col-start-7 xl:col-span-5">
           <div className="font-bold text-center typo-heading-1 sm:text-start xl:text-left lg:text-left">
             <IntlMessages id="landing.banner.title" />
