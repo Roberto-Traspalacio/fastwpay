@@ -5,6 +5,7 @@ import BannerBlue from 'components/BannerBlue';
 import IntlMessages from 'utils/IntlMessages';
 import LastTransactions from './components/LastTransactions';
 import AppLayout from 'layouts/app.layout';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const { userInfo, getUserInfo } = useContext(UserContext);
@@ -42,7 +43,11 @@ export default function Dashboard() {
               <ul>
                 <li className="ml-6 list-disc">
                   <p className="mt-3 typo-body-1 text-text-4">
-                    <IntlMessages id="dashboard.welcome.text2.option1" />
+                    <IntlMessages id="dashboard.welcome.text2.option1.1" />
+                    <Link className="text-primary-blue underline cursor-pointer" href="/account">
+                      <IntlMessages id="common.bankDetails" />
+                    </Link>
+                    <IntlMessages id="dashboard.welcome.text2.option1.2" />
                   </p>
                 </li>
                 <li className="ml-6 list-disc">
