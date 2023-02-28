@@ -36,24 +36,29 @@ export default function Dashboard() {
                 <IntlMessages id="common.welcome" /> {userInfo.firstName + ' ' + userInfo.lastName}!
               </p>
               <p className="typo-body-1 text-center mt-[10px] esm:mt-[7px] text-text-4 sm:mt-[2px] lg:text-start">
-                Lorem ipsum dolor sit amet consectetur. Donec sagittis netus vulputate.
+                <IntlMessages id="dashboard.welcome.text" />
               </p>
               <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Information</h6>
-              <p className="mt-3 typo-body-1 text-text-4">
-                Lorem ipsum dolor sit amet consectetur. Donec sagittis netus vulputate pellentesque a et sapien mauris.
-                Vitae penatibus dui sed pellentesque massa at. Risus orci nunc eu turpis lectus eget. Eget dolor nunc
-                fermentum scelerisque enim consequat enim.
-              </p>
-              <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Information</h6>
-              <p className="mt-3 typo-body-1 text-text-4 pb-6">
-                Lorem ipsum dolor sit amet consectetur. Vulputate cras consectetur maecenas enim pretium iaculis. Lacus
-                purus orci egestas sit id adipiscing adipiscing ultricies. Cum magna sem diam ultrices elit donec. Proin
-                a feugiat orci nec at ut facilisis. Posuere pellentesque eu velit ornare. Risus egestas nec bibendum
-                purus eleifend augue. Netus ut lacus in senectus justo sed purus at. Orci gravida pharetra nisl sit sed.
-                Arcu dictum nisl pretium at dictum ultricies. Aliquet eu elementum lacus sapien nunc pharetra facilisis
-                diam eu. Tortor adipiscing fermentum sed duis. Adipiscing quis ultrices tempus tristique sit urna. Erat
-                nisi tellus diam at viverra velit augue tempus rutrum. Sed accumsan sit ac amet lectus libero.
-              </p>
+              <ul>
+                <li className="ml-6 list-disc">
+                  <p className="mt-3 typo-body-1 text-text-4">
+                    <IntlMessages id="dashboard.welcome.text2.option1" />
+                  </p>
+                </li>
+                <li className="ml-6 list-disc">
+                  <p className="mt-3 typo-body-1 text-text-4">
+                    <IntlMessages id="dashboard.welcome.text2.option2" />
+                  </p>
+                </li>
+              </ul>
+              <h6 className="typo-heading-4 font-bold mt-8 text-text-4 sm:mt-6 lg:mt-8">Suggestions</h6>
+              <ul>
+                <li className="ml-6 list-disc">
+                  <p className="mt-3 typo-body-1 text-text-4 pb-6">
+                    <IntlMessages id="dashboard.welcome.text3.option1" />
+                  </p>
+                </li>
+              </ul>
             </div>
             <div className="md:col-span-6 md:row-start-1 md:col-start-2 lg:col-span-4 lg:col-start-5 xl:col-start-9">
               <BalanceCard />

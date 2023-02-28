@@ -35,10 +35,10 @@ export default function HeaderSection() {
 
         <Image className="col-start-11 col-span-2 absolute hidden xl:block top-[368px]" src={steps} alt="Steps" />
 
-        <h1 className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:max-w-[26ch] sm:mx-auto sm:font-medium row-start-2 xl:col-span-4 xl:row-start-1 xl:z-10 xl:text-left xl:mt-[136px]">
+        <h1 className="text-center leading-[120%] typo-display-2 col-span-full font-main text-text-1 sm:max-w-[26ch] sm:mx-auto sm:font-medium row-start-2 xl:col-span-4 xl:row-start-1 xl:z-10 xl:col-start-1 xl:max-w-[14ch] xl:mr-[34px] xl:text-start xl:mt-[136px]">
           <IntlMessages id="landing.header.title" />
         </h1>
-        <p className="typo-body-1 col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] md:mt-[35px] md:max-w-[58ch] md:mx-auto lg:max-w-[78ch] xl:col-span-3 xl:col-start-1 xl:text-left">
+        <p className="typo-body-1 col-span-full text-center mt-[18px] sm:mt-[30px] text-text-2 leading-[165%] md:mt-[35px] md:max-w-[58ch] md:mx-auto lg:max-w-[78ch] xl:col-span-3 xl:col-start-1 xl:text-left xl2:mt-12">
           <IntlMessages id="landing.header.description" />
         </p>
 

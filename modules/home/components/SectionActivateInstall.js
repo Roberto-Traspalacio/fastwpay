@@ -13,12 +13,12 @@ export default function SectionActivateInstall() {
   return (
     <>
       <section className="section mt-[98px] grid-main esm:mt-[110px] sm:mt-[90px] md:mt-[116px] lg:mt-0 xl:mb-60 lg:px-10 xl:px-0 xl:min-w-[1160px] xl:max-w-[1160px] xl:mx-auto xl2:min-w-[1277px] xl2:max-w-[1277px]">
-        <div className="col-span-full grid-main lg:min-h-[691px] lg:items-center xl2:min-h-[727px]">
+        <div className="col-span-full grid-main lg:items-center content-height">
           <div className="col-span-full grid-main lg:col-span-3 items-center lg:row-start-1 lg:col-start-6 xl:row-start-1 xl:col-start-8 xl:col-span-5 xl2:h-auto">
-            <h2 className="typo-heading-1 w-full section-title-inverse col-span-full sm:text-center top-line lg:col-span-full lg:text-start xl2:col-end-13">
+            <h2 className="typo-heading-1 w-full section-title-inverse col-span-full sm:text-center top-line lg:col-span-full lg:text-start xl2:col-end-13 xl:max-w-[16ch]">
               <IntlMessages id="landing.section.three.title" />
             </h2>
-            <p className="section-content-inverse typo-body-1 esm:mt-3 sm:mt-6 lg:col-span-full lg:text-start xl:row-start-2 xl2:col-end-13 xl2:text-justify">
+            <p className="section-content-inverse typo-body-1 esm:mt-3 sm:mt-6 lg:col-span-full lg:text-start xl:row-start-2 xl2:col-end-13 xl:max-w-[40ch] xl2:text-justify">
               <IntlMessages id="landing.section.three.description" />
             </p>
             <ButtonInverse
@@ -30,13 +30,17 @@ export default function SectionActivateInstall() {
           </div>
 
           <Image
-            className="-translate-x-5 mt-[35px] sm:-translate-x-11 col-span-full align-self-center img-laptop md:mt-0 lg:row-start-1 lg:row-span-4 xl:-translate-x-16 xl:col-span-6 lg:absolute lg:left-0"
+            className="-translate-x-5 mt-[35px] sm:-translate-x-11 col-span-full align-self-center img-laptop md:mt-0 lg:row-start-1 lg:row-span-4 lg:absolute lg:left-0 xl:-translate-x-36 xl:col-span-6"
             src={laptop}
             alt="laptop with screenshot"
           />
         </div>
+        <p className=" hidden lg:block col-span-full text-center typo-heading-2 lg:mt-[30px]">
+          <IntlMessages id="landing.rememberToInstallAndActivate" />{' '}
+          <span className="text-primary-blue">woocommerce</span> <IntlMessages id="common.first" />
+        </p>
         <div className="col-span-full grid-main overflow-hidden">
-          <div className="flex flex-col mt-14 col-span-full gap-y-12 sm:mt-16 lg:row-start-6 lg:mt-[140px] xl:mt-[180px] xl2:mt-[264px]">
+          <div className="flex flex-col mt-14 col-span-full gap-y-12 sm:mt-16 lg:row-start-6 lg:mt-[140px]">
             <NumberItem
               shifted={true}
               number={'01.'}
@@ -84,12 +88,28 @@ export default function SectionActivateInstall() {
             />
           </div>
           <Image
-            className="hidden img-finger lg:flex lg:absolute lg:mt-5 lg:-right-24 xl:translate-y-5 xl:translate-x-[120px] xl2:mt-[80px]"
+            className="hidden img-finger lg:flex lg:absolute lg:mt-5 lg:-right-24 xl:translate-y-5 xl:translate-x-[120px] xl2:-mt-[2%]"
             src={pointing}
             alt="Boy with laptop and pointer wit finger"
           />
         </div>
       </section>
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          .content-height {
+            min-height: 691px;
+          }
+        }
+        @media (min-width: 1281px) {
+          .content-height {
+            min-height: clamp(43.75rem, calc(-13.75rem + 71.88vw), 72.5rem);
+            max-height: clamp(43.75rem, calc(-13.75rem + 71.88vw), 72.5rem);
+          }
+          .steps-margin {
+            margin-top: clamp(8.88rem, calc(-0.87rem + 12.19vw), 13.75rem);
+          }
+        }
+      `}</style>
     </>
   );
 }

@@ -57,7 +57,7 @@ export default function Form() {
     setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName);
     setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
     setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
-    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.country);
+    setValueFormik(formikBank, 'country', infoBankPreEdit?.country);
     setValueFormik(formikBank, 'isSwiftAccount', Boolean(infoBankPreEdit?.isSwiftAccount));
     setChecked(Boolean(infoBankPreEdit?.isSwiftAccount));
     setForm({ ...infoBankPreEdit, isSwiftAccount: Boolean(infoBankPreEdit?.isSwiftAccount) });

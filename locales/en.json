@@ -30,6 +30,7 @@
   "landing.section.five.description": "To have an account in Fastwpay, the bank account of the owner of the online store must be located in",
   "landing.contact.title": "Get in touch with us",
   "landing.content.information": "INFORMATION",
+  "landing.rememberToInstallAndActivate": "Remember to install and activate ",
   "auth.login": "Login",
   "auth.login.rememberMe": "Remember me",
   "auth.login.forgotYourPassword": "Forgot your password?",
@@ -45,6 +46,10 @@
   "dashboard.title": "Dashboard",
   "dashbard.balanceCard.text": "Next withdrawal",
   "dashboard.bannerBlue.text": "This plugin is free and only charges commission per sale",
+  "dashboard.welcome.text": "Today is a new day for your business to invoice",
+  "dashboard.welcome.text2.option1": "As a priority add your bank details where you want the balance to be transferred to you.",
+  "dashboard.welcome.text2.option2": "There is no API Key creation limit.",
+  "dashboard.welcome.text3.option1": "Use an API Key for each online store where you install the plugin. This will allow you to see the balance of your stores separately.",
   "apiKey.title": "API key",
   "apiKey.activatingYourPlugin": "Activating your plugin",
   "apiKey.activatingYourPlugin.text": "API keys are used to activate your plugins after installing them on your online store. To activate your product and enable plugin updates, simply enter your API Key in the settings tab within your WordPress Dashboard of your online store.",
@@ -62,6 +67,7 @@
   "common.link": "link",
   "common.chooseBank": "Choose a bank",
   "common.balance": "Balance",
+  "common.first": "first",
   "common.create": "Create",
   "common.ACTIVE": "Active",
   "common.INACTIVE": "Inactive",
@@ -117,6 +123,7 @@
   "common.order": "Order",
   "common.save": "Save",
   "common.cancel": "Cancel",
+  "common.messageSentSuccessfully": "Message sent successfully",
   "validation.name": "Please enter your name",
   "validation.lastName": "Please enter your last name",
   "validation.email": "Please enter your email",
@@ -133,6 +140,5 @@
   "validation.beneficiary": "Please enter a beneficiary",
   "validation.fieldOnlyNumbers": "Please select a bank",
   "validation.pleaseCompleteThisField": "Please complete this field",
-  "validation.invalidUsernameOrPassoword": "Invalid username or password",
-  "common.messageSentSuccessfully": "Message sent successfully"
+  "validation.invalidUsernameOrPassoword": "Invalid username or password"
 }
