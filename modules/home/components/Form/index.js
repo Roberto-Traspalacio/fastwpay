@@ -10,6 +10,7 @@ import useForm from 'hooks/useForm';
 import IntlMessages from 'utils/IntlMessages';
 import Button from 'components/Button';
 import { Loader } from 'components';
+import { setValueFormik } from 'utils/setValueFormik';
 
 const initialState = {
   name: '',
@@ -25,7 +26,7 @@ export default function Form({ children, setMessageSended }) {
     onSubmit: () => onSubmit(),
     validationSchema,
   });
-  const { form, handleChangeForm } = useForm(initialState, formik);
+  const { form, handleChangeForm, setForm } = useForm(initialState, formik);
 
   async function onSubmit() {
     setLoading(true);
@@ -35,11 +36,17 @@ export default function Form({ children, setMessageSended }) {
       body: new URLSearchParams(form).toString(),
     })
       .then(() => {
-        setMessageSended(true);
-        setLoading(false);
+        setForm(initialState);
+        setValueFormik(formik, 'name', '');
+        setValueFormik(formik, 'email', '');
+        setValueFormik(formik, 'message', '');
         setTimeout(() => {
-          setMessageSended(false);
-        }, 2500);
+          setLoading(false);
+          setMessageSended(true);
+          setTimeout(() => {
+            setMessageSended(false);
+          }, 2500);
+        }, 1000);
       })
       .catch((error) => {
         setLoading(false);

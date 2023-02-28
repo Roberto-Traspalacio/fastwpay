@@ -18,7 +18,7 @@ export default function SectionForm() {
             style={{ borderColor: '#448E84', backgroundColor: '#E0F6F3' }}
           >
             <p className="typo-body-1" style={{ color: '#448E84' }}>
-              <IntlMessages id="messageSentSuccessfully" />
+              <IntlMessages id="common.messageSentSuccessfully" />
             </p>
           </div>
         </div>
