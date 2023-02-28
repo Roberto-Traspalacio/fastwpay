@@ -18,7 +18,7 @@ export default function SectionActivateInstall() {
             <h2 className="typo-heading-1 w-full section-title-inverse col-span-full sm:text-center top-line lg:col-span-full lg:text-start xl2:col-end-13 xl:max-w-[16ch]">
               <IntlMessages id="landing.section.three.title" />
             </h2>
-            <p className="section-content-inverse typo-body-1 esm:mt-3 sm:mt-6 lg:col-span-full lg:text-start xl:row-start-2 xl2:col-end-13 xl:max-w-[40ch] xl2:text-justify">
+            <p className="section-content-inverse typo-body-1 esm:mt-3 sm:mt-6 lg:col-span-full lg:text-start xl:row-start-2 xl2:col-end-13 xl:max-w-[40ch]">
               <IntlMessages id="landing.section.three.description" />
             </p>
             <ButtonInverse

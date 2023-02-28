@@ -12,17 +12,23 @@ export default function BalanceDetailsCard({ order, date, status, balance }) {
       <div className="bg-background-2 px-[10px] pt-[18px] pb-[21px] rounded-lg flex flex-col sm:hidden">
         {/* Order */}
         <div className="flex justify-between">
-          <p className="typo-heading-4 font-bold text-text-1">Order</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.order" />
+          </p>
           <p className="typo-heading-4 text-text-2">#{order}</p>
         </div>
         {/* Data */}
         <div className="flex justify-between mt-6">
-          <p className="typo-heading-4 font-bold text-text-1">Date</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.date" />
+          </p>
           <p className="typo-heading-4 text-text-2">{formattedDate}</p>
         </div>
         {/* Status */}
         <div className="flex justify-between mt-6">
-          <p className="typo-heading-4 font-bold text-text-1">Status</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.status" />
+          </p>
           <p
             className={`typo-heading-4 ${
               status === 'Success'
@@ -37,7 +43,9 @@ export default function BalanceDetailsCard({ order, date, status, balance }) {
         </div>
         {/* Balance */}
         <div className="flex justify-between mt-6">
-          <p className="typo-heading-4 font-bold text-text-1">Balance</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.balance" />
+          </p>
           <p className="typo-heading-4 text-text-2">{balance} Є</p>
         </div>
       </div>

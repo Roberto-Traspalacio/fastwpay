@@ -14,7 +14,7 @@ export default function SectionFeatures() {
         <IntlMessages id="landing.section.two.title" />
       </h2>
 
-      <p className="typo-body-1 section-content sm:mt-6 xl2:col-start-1">
+      <p className="typo-body-1 section-content sm:mt-6 sm:text-center xl2:col-start-1">
         <IntlMessages id="landing.section.two.description.1" />
         <span className="font-bold text-primary-blue">Woocommerce</span>,
         <IntlMessages id="landing.section.two.description.2" />
