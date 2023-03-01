@@ -33,7 +33,7 @@ export default function MyApp({ Component, pageProps }) {
     <IntlProvider locale={locale} messages={currentLanguage}>
       <ScreenLoaderProvider>
         <UserProvider>
-          <main className={`font-sans relative max-h-screen overflow-x-hidden`}>
+          <main className={`font-sans relative max-h-screen overflow-x-hidden scroll-smooth`}>
             <Component {...pageProps} />
             {showCookiesBanner && <CookieBanner acceptCookies={acceptCookies} />}
           </main>

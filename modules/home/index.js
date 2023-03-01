@@ -22,7 +22,7 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <main className={'px-[18px] md:px-10 lg:px-0 overflow-hidden'}>
+      <main className={'px-[18px] md:px-10 lg:px-0 overflow-hidden scroll-smooth'}>
         <HeaderSection />
         <BanksSupportedSection />
         <SectionFeatures />
