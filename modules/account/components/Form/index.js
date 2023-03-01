@@ -54,11 +54,11 @@ export default function Form() {
   const cancel = () => {
     setEdit(null);
     formikBank.setErrors({});
-    setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName);
-    setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
-    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
-    setValueFormik(formikBank, 'country', infoBankPreEdit?.country);
-    setValueFormik(formikBank, 'isSwiftAccount', Boolean(infoBankPreEdit?.isSwiftAccount));
+    setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName || '');
+    setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber || '');
+    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary || '');
+    setValueFormik(formikBank, 'country', infoBankPreEdit?.country || '');
+    setValueFormik(formikBank, 'isSwiftAccount', Boolean(infoBankPreEdit?.isSwiftAccount || null));
     setChecked(Boolean(infoBankPreEdit?.isSwiftAccount));
     setForm({ ...infoBankPreEdit, isSwiftAccount: Boolean(infoBankPreEdit?.isSwiftAccount) });
   };
@@ -74,7 +74,6 @@ export default function Form() {
   const onSubmitBankInfo = async () => {
     setLoading(true);
     const response = await bank.saveBank({ ...bankInfoForm, isSwiftAccount: checked });
-    console.log('🚀 ~ file: index.js:82 ~ onSubmitBankInfo ~ response?.data:', response?.data);
     if (response?.status === SUCCESS_REQUEST_CODE) {
       setInfoBankPreEdit(response?.data);
       setForm(response?.data);
@@ -99,7 +98,6 @@ export default function Form() {
     (async () => {
       getUserInfo(false);
       const data = await bank.getinfo();
-      console.log('🚀 ~ file: index.js:102 ~ data:', data);
       setForm({ ...data?.data, isSwiftAccount: Boolean(data?.data.isSwiftAccount), id: +data?.data.id });
       setValueFormik(formikBank, 'bankName', data?.data?.bankName);
       setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
@@ -190,10 +188,6 @@ export default function Form() {
                 onClick={() => {
                   setEdit(edit === 1 ? null : 1);
                   setInfoBankPreEdit({ ...bankInfoForm, isSwiftAccount: Boolean(bankInfoForm?.isSwiftAccount) });
-                  console.log(
-                    '🚀 ~ file: index.js:193 ~ Form ~ Boolean(bankInfoForm?.isSwiftAccount):',
-                    Boolean(bankInfoForm?.isSwiftAccount)
-                  );
                   setChecked(Boolean(bankInfoForm?.isSwiftAccount));
                 }}
                 className="cursor-pointer"

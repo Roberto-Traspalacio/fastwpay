@@ -51,14 +51,14 @@ export default function SectionActivateInstall() {
               number={'01.'}
               title={<IntlMessages id="landing.section.four.1.title" />}
               content={[
-                <span className="font-bold underline text-primary-blue">
+                <span key="1" className="font-bold underline text-primary-blue">
                   <Link href={DOWNLOAD_PLUGIN_URL}>
                     <span className="cursor-pointer underline">
                       <IntlMessages id="common.downloadYou" />{' '}
                     </span>
                   </Link>
                 </span>,
-                <IntlMessages id="landing.section.four.1.description" />,
+                <IntlMessages key="2" id="landing.section.four.1.description" />,
               ]}
             />
             <NumberItem
@@ -66,15 +66,15 @@ export default function SectionActivateInstall() {
               number={'02.'}
               title={<IntlMessages id="landing.section.four.2.title" />}
               content={[
-                <IntlMessages id="landing.section.four.2.1.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key="1" id="landing.section.four.2.1.description" />,
+                <span key="2" className="font-bold text-primary-blue">
                   <IntlMessages id="common.pluginsTabs" />
                 </span>,
-                <IntlMessages id="landing.section.four.2.2.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key="3" id="landing.section.four.2.2.description" />,
+                <span key="4" className="font-bold text-primary-blue">
                   <IntlMessages id="common.uploadPlugin" />
                 </span>,
-                <IntlMessages id="landing.section.four.2.3.description" />,
+                <IntlMessages key="5" id="landing.section.four.2.3.description" />,
               ]}
             />
 
@@ -84,18 +84,18 @@ export default function SectionActivateInstall() {
               number={'03.'}
               title={<IntlMessages id="landing.section.four.3.title" />}
               content={[
-                <IntlMessages id="landing.section.four.3.1.description" />,
-                <span className="font-bold text-primary-blue">
+                <IntlMessages key="1" id="landing.section.four.3.1.description" />,
+                <span key="2" className="font-bold text-primary-blue">
                   <IntlMessages id="common.settingsTab" />
                 </span>,
-                <IntlMessages id="landing.section.four.3.2.description" />,
+                <IntlMessages key="3" id="landing.section.four.3.2.description" />,
               ]}
             />
           </div>
           <Image
             className="hidden img-finger lg:flex lg:absolute lg:mt-5 lg:-right-24 xl:translate-y-5 xl:translate-x-[120px] xl2:-mt-[2%]"
             src={pointing}
-            alt="Boy with laptop and pointer wit finger"
+            alt="Boy with laptop and pointer with finger"
           />
         </div>
       </section>
