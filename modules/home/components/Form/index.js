@@ -68,7 +68,7 @@ export default function Form({ children, setMessageSended }) {
         src={triangleYellow}
         alt="Triangle yellow"
       />
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="form-name" value="Contact" />
       <div className="mb-6 font-bold text-center typo-heading-1 col-span-full text-text-1 md:mb-16">
         <IntlMessages id="landing.contact.title" />
       </div>
