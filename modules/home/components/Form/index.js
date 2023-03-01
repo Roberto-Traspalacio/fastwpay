@@ -37,9 +37,9 @@ export default function Form({ children, setMessageSended }) {
     })
       .then(() => {
         setForm(initialState);
-        // setValueFormik(formik, 'name', '');
-        // setValueFormik(formik, 'email', '');
-        // setValueFormik(formik, 'message', '');
+        setValueFormik(formik, 'name', '');
+        setValueFormik(formik, 'email', '');
+        setValueFormik(formik, 'message', '');
         setTimeout(() => {
           setLoading(false);
           setMessageSended(true);
