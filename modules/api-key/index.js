@@ -42,8 +42,8 @@ export default function ApiKey() {
         <div className="sm:overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
-            <div className="max-w-[14ch] h-auto px-[1px] lg:max-w-[26ch]">
-              <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
+            <div className="h-auto px-[1px] lg:max-w-[26ch]">
+              <h3 className="typo-heading-2 max-w-[6ch] esm:max-w-[9ch] col-span-full mt-10 font-normal text-text-4 sm:mt-8 sm:max-w-[16ch] md:mt-[41px] lg:pl-0">
                 <IntlMessages id="apiKey.title" />
               </h3>
             </div>

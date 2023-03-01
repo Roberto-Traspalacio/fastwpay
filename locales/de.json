@@ -58,7 +58,7 @@
   "apiKey.yourApikeys.text": "Sie können für verschiedene Online-Shops und/oder verschiedene Kunden neue API-Schlüssel erstellen. Sie können auch API-Schlüssel deaktivieren oder löschen, die nicht mehr verwendet werden, und diese Sites erhalten keine Aktualisierungen mehr. Sie können so viele API-Schlüssel erstellen, wie Sie benötigen, aber Sie können nur einen pro Shop verwenden.",
   "apiKey.generate": "API-Schlüssel erstellen",
   "apiKey.generate.input.placeholder": "Name für Referenz hinzufügen...",
-  "apiKey.listApikeys": "API-Schlüssel auflisten",
+  "apiKey.listApikeys": "Aufführen",
   "account.title": "Konto",
   "account.personalInformation": "Persönliche Angaben",
   "account.withdrawalInformation": "Informationen zur Auszahlung",
