@@ -140,7 +140,7 @@
   "validation.referenceLength": "The reference must have a maximum of 50 characters",
   "validation.bank": "Please select a bank",
   "validation.beneficiary": "Please enter a beneficiary",
-  "validation.fieldOnlyNumbers": "Please select a bank",
+  "validation.fieldOnlyNumbers": "Please enter only numbers in this field.",
   "validation.pleaseCompleteThisField": "Please complete this field",
   "validation.invalidUsernameOrPassoword": "Invalid username or password"
 }
