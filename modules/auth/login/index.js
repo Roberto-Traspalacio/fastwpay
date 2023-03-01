@@ -19,6 +19,7 @@ import { ScreenLoaderContext } from 'context/screenLoader/context';
 import ModalUnverificated from 'modules/auth/components/ModalUnverificated';
 import MessageModal from 'modules/auth/components/MessageModal';
 import { NOT_FOUND, UNATHORIZED_ERROR_CODE } from 'utils/statusCodes';
+import { setValueFormik } from 'utils/setValueFormik';
 
 const initialState = {
   email: '',
@@ -53,7 +54,7 @@ export default function Login() {
       (data?.response.status === UNATHORIZED_ERROR_CODE || data?.response.status === NOT_FOUND) &&
       data?.data?.message !== ACCOUNT_INACTIVE_MESSAGE
     ) {
-      setError({ show: true, text: 'Invalid username or password' });
+      setError({ show: true, text: <IntlMessages id="validation.invalidUsernameOrPassoword" /> });
       setTimeout(() => setError({ ...error, show: false }), 4500);
     }
 
@@ -62,6 +63,8 @@ export default function Login() {
     }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
+      setValueFormik(formik, 'email', '');
+      setValueFormik(formik, 'password', '');
       router.push(data?.data?.rol === 'ROLE_CUSTOMER' ? '/dashboard' : '/admin/dashboard');
     }
     setLoading(false);

@@ -7,14 +7,14 @@ import IntlMessages from 'utils/IntlMessages';
 export default function contact({ className = '' }) {
   return (
     <div
-      className={`${className} md:justify-between grid-main xl:flex xl:flex-col gap-x-3 justify-items-center pt-9 gap-y-8 xl:pt-0 `}
+      className={`${className} md:justify-between grid-main xl:flex xl:flex-col gap-x-3 justify-items-center pt-9 gap-y-8 xl:pt-0`}
     >
       <div className="hidden font-bold xl:block text-text-1 ">
         <IntlMessages id="landing.content.information" />
       </div>
       <div className="flex flex-col items-center col-span-2 col-start-1 sm:col-start-2 typo-body-1 xl:items-start">
         <Image className="mb-2 xl:hidden" src={phone} alt="Phone icon" />
-        <div className="font-bold leading-[165%] text-color-2 text-text-2">
+        <div className="font-bold leading-[165%] text-color-2 text-text-2 text-center">
           <IntlMessages id="common.phone.number" />
         </div>
         <div className="text-color-2 leading-[165%] text-text-2 text-center">+34674397122</div>
@@ -34,7 +34,8 @@ export default function contact({ className = '' }) {
           <IntlMessages id="common.email" />
         </div>
         <div className="text-center content text-text-2 lh-165">
-          info <br className="xl:hidden" />
+          info
+          <br className="xl:hidden" />
           @fastwpay.com
         </div>
       </div>

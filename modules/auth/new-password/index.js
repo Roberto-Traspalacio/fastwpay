@@ -14,6 +14,7 @@ import InputWithIcon from 'modules/auth/components/InputWithIcon';
 import { Auth } from 'services/Auth.service';
 import { useRouter } from 'next/router';
 import Loader from 'components/Loader';
+import IntlMessages from 'utils/IntlMessages';
 
 const initialState = {
   newPassword: '',
@@ -73,19 +74,19 @@ export default function NewPassword() {
                   className="text-center typo-heading-1 col-span-full mb-6 esm:mb-8 sm:mb-10"
                   style={{ color: '#202324' }}
                 >
-                  Enter new password
+                  <IntlMessages id="common.enterNewPassword" />
                 </h2>
                 <Input
                   type="password"
                   name="newPassword"
-                  label="New password"
+                  label={<IntlMessages id="common.newPassword" />}
                   formik={formik}
                   onChange={handleChangeForm}
                 />
                 <InputWithIcon
                   type="password"
                   name="repeatNewPassword"
-                  label="Repeat new password"
+                  label={<IntlMessages id="common.repeatNewPassword" />}
                   formik={formik}
                   onChange={handleChangeForm}
                 />
@@ -99,7 +100,13 @@ export default function NewPassword() {
                       : 'bg-primary-blue'
                   } text-white sm:h-[47px] px-[24px] py-[10px] rounded-full xl:col-span-full`}
                 >
-                  {loading ? <Loader /> : <div className="typo-body-1">Update password</div>}
+                  {loading ? (
+                    <Loader />
+                  ) : (
+                    <div className="typo-body-1">
+                      <IntlMessages id="common.updatePassword" />
+                    </div>
+                  )}
                 </button>
               </form>
             </div>

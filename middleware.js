@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export default async function middleware(req) {
   const auth = req.cookies.get('auth') && JSON.parse(req.cookies.get('auth')?.value);
   const url = req.nextUrl;
-  const authRoutes = ['/admin/dashboard', '/dashboard', '/dashboard/api-key', '/account', '/balance'];
+  const authRoutes = ['/admin/dashboard', '/dashboard', '/api-key', '/account', '/balance'];
   const publicRoutes = ['/login', '/signup', '/recover-password', '/new-password'];
 
   const redirect = () => {
@@ -39,7 +39,7 @@ export const config = {
     '/recover-password',
     '/admin/dashboard',
     '/dashboard',
-    '/dashboard/api-key',
+    '/api-key',
     '/account',
     '/balance',
   ],

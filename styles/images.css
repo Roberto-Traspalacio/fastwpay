@@ -1,30 +1,86 @@
 .img-hero {
-	width: 284px;
-	height: auto;
+  width: 284px;
+  height: auto;
+}
+
+.img-countries {
+  width: 229px;
+}
+
+@media only screen and (min-width: 360px) {
+  .img-countries {
+    width: 273px;
+  }
 }
 
 @media only screen and (min-width: 375px) {
-	.img-hero {
-		width: clamp(21.19rem, 100vw + -2.25rem, 35.31rem);
-		height: auto;
-	}
-	.img-banks {
-		height: clamp(1rem, 0.88vw + 0.79rem, 1.13rem);
-		width: auto;
-	}
+  .img-hero {
+    width: clamp(21.19rem, 100vw + -2.25rem, 35.31rem);
+    height: auto;
+  }
+  .img-banks {
+    height: clamp(1rem, 0.88vw + 0.79rem, 1.13rem);
+    width: auto;
+  }
 
-	.img-countries {
-		width: clamp(17.063rem, 19.469vw + 12.499rem, 19.813rem);
-		height: auto;
-	}
+  .img-countries {
+    width: clamp(17.063rem, 19.469vw + 12.499rem, 19.813rem);
+    height: auto;
+  }
 }
 
 @media only screen and (min-width: 601px) {
-	.img-laptop {
-		width: clamp(20.19rem, 115.04vw + -6.78rem, 36.44rem);
-		height: auto;
-	}
+  .img-laptop {
+    width: clamp(20.19rem, 115.04vw + -6.78rem, 36.44rem);
+    height: auto;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  .img-countries {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .img-finger {
+    width: 600px;
+    height: auto;
+    max-height: 560px;
+  }
+  .rectangle {
+    width: 480px;
+    height: 440px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .img-laptop {
+    width: clamp(46.69rem, calc(35.76rem + 17.08vw), 56.25rem);
+    max-height: 608px;
+  }
+  .img-finger {
+    width: clamp(45rem, calc(10rem + 43.75vw), 62.5rem);
+    height: auto;
+    max-height: 637px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .img-laptop {
+    width: clamp(46.88rem, calc(0.63rem + 57.81vw), 70rem);
+    max-height: clamp(43.75rem, calc(-13.75rem + 71.88vw), 72.5rem);
+  }
+  .rectangle {
+    width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    height: clamp(24.75rem, calc(-13.75rem + 47.88vw), 43.5rem);
+    max-height: clamp(24.75rem, calc(-13.75rem + 48.88vw), 43.5rem);
+  }
+  .img-countries {
+    width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-width: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    height: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+    max-height: clamp(23.75rem, calc(-13.75rem + 46.88vw), 42.5rem);
+  }
 }

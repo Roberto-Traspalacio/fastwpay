@@ -23,7 +23,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
     setLoading(false);
     const data = await apiKeyService.list();
     if (data?.response.status === SUCCESS_REQUEST_CODE) {
-      setList(data?.data?.keys);
+      setList(data?.data?.items);
     }
   }
 
@@ -41,20 +41,26 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
     <>
       <div className="bg-background-2 px-[10px] pt-[18px] pb-[23px] rounded-lg flex flex-col sm:hidden">
         <div className="flex justify-between">
-          <p className="typo-heading-4 font-bold text-text-1">Reference</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.reference" />
+          </p>
           <p className="typo-heading-4 text-text-2">{reference}</p>
         </div>
         <div className="flex justify-between mt-8">
-          <p className="typo-heading-4 font-bold text-text-1">Date</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.date" />
+          </p>
           <p className="typo-heading-4 text-text-2">{formattedDate}</p>
         </div>
         <div className="flex justify-between mt-8">
-          <p className="typo-heading-4 font-bold text-text-1">Status</p>
+          <p className="typo-heading-4 font-bold text-text-1">
+            <IntlMessages id="common.status" />
+          </p>
           <p
             className="typo-heading-4 text-text-2 font-medium"
             style={{ color: status === 'INACTIVE' ? '#E65C4F' : '#1FB81F' }}
           >
-            {status}
+            <IntlMessages id={`common.${status}`} />
           </p>
         </div>
         <div className="flex justify-between items-center mt-8">
@@ -100,7 +106,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
           </p>
           <div className="flex gap-[8px]">
             <button
-              className="py-[6px] px-[13.5px] w-[96px] max-h-[28px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-heading-4"
+              className="py-[6px] px-[18.5px] min-w-[96px] esm:px-[13.5px] flex justify-center items-center bg-primary-blue text-white rounded-[17px] typo-body-1 leading-[14px]"
               onClick={() => changeStatus(id)}
             >
               {loading ? (
@@ -112,7 +118,7 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
               )}
             </button>
             <button
-              className="py-[6px] px-[13.5px] w-[96px] max-h-[28px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-heading-4"
+              className="py-[6px] px-[29.5px] esm:px-[26.5px] flex justify-center items-center border border-primary-blue text-primary-blue rounded-[17px] typo-body-1 leading-[14px]"
               onClick={() => deleteApiKey(id)}
             >
               <IntlMessages id="common.delete" />

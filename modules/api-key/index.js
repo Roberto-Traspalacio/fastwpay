@@ -10,6 +10,7 @@ import IntlMessages from 'utils/IntlMessages';
 import Loader from 'components/Loader';
 import { SUCCESS_REQUEST_CODE } from 'utils/statusCodes';
 import AppLayout from 'layouts/app.layout';
+import { useIntl } from 'react-intl';
 
 const initialForm = { reference: '' };
 
@@ -24,6 +25,7 @@ export default function ApiKey() {
   });
   const { form, handleChangeForm } = useForm(initialForm, formik);
   const apiKey = new Apikey();
+  const { messages } = useIntl();
 
   const onSubmit = async () => {
     setLoading(true);
@@ -40,9 +42,11 @@ export default function ApiKey() {
         <div className="sm:overflow-auto w-full">
           <BannerBlue className="sm:mx-[20px]" />
           <div className="px-[18px] center-container col-span-full sm:px-5 w-[100%]">
-            <h3 className="typo-heading-2 col-span-full mt-10 font-normal text-text-4 sm:mt-8 md:mt-[41px] lg:pl-0">
-              <IntlMessages id="apiKey.title" />
-            </h3>
+            <div className="h-auto px-[1px] lg:max-w-[26ch]">
+              <h3 className="typo-heading-2 max-w-[6ch] esm:max-w-[9ch] col-span-full mt-10 font-normal text-text-4 sm:mt-8 sm:max-w-[16ch] md:mt-[41px] lg:pl-0">
+                <IntlMessages id="apiKey.title" />
+              </h3>
+            </div>
             {/* Linea */}
             <div className="h-[3px] bg-background-4 col-span-full relative mt-2 md:mt-5 lg:ml-0">
               <div className="bg-primary-blue rounded-full w-8 h-[3px] absolute right-0 left-0 z-10"></div>
@@ -60,9 +64,6 @@ export default function ApiKey() {
                   } flex items-center gap-1 py-[10px] px-[13px] typo-body-1 text-text-2 font-normal `}
                 >
                   <IntlMessages id="apiKey.listApikeys" />
-                  {/* <p className="w-4 h-4 flex items-center justify-center rounded-full bg-[#626263] text-white typo-body-3">
-                  7
-                </p> */}
                 </button>
               </div>
             </div>
@@ -94,7 +95,7 @@ export default function ApiKey() {
                         name="reference"
                         onChange={handleChangeForm}
                         type="text"
-                        placeholder="Add name for reference..."
+                        placeholder={String(messages['apiKey.generate.input.placeholder'])}
                         className="w-[100%] rounded-[10px] typo-body-1 py-[11px] pl-6 bg-background-6 sm:w-[239px] xl:w-[314px]"
                       />
                       {formik.errors?.reference && (
@@ -105,7 +106,7 @@ export default function ApiKey() {
                     </div>
                     <Button
                       type="submit"
-                      className="min-w-[157px] h-[36px] sm:h-[38px] flex items-center justify-center m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px]"
+                      className="min-w-[157px] h-[36px] sm:h-[38px] flex items-center justify-center m-auto mt-3 mb-6 sm:mt-0 sm:mb-0 sm:m-0 sm:min-w-[172px] leading-4"
                     >
                       {loading ? <Loader /> : <IntlMessages id="apiKey.generate" />}
                     </Button>
@@ -117,28 +118,28 @@ export default function ApiKey() {
             )}
           </div>
         </div>
-        <style jsx>{`
-          .tab {
-            border-top: 3px solid transparent;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-          }
-          .tab-active {
-            border-top: 3px solid #e8e8e8;
-            border-left: 3px solid #e8e8e8;
-            border-right: 3px solid #e8e8e8;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            background: #d7e1f3;
-            color: #295bb7;
-          }
-          .tab-active > p {
-            background: #295bb7;
-          }
-        `}</style>
       </AppLayout>
+      <style jsx>{`
+        .tab {
+          border-top: 3px solid transparent;
+          border-left: 3px solid transparent;
+          border-right: 3px solid transparent;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+        .tab-active {
+          border-top: 3px solid #e8e8e8;
+          border-left: 3px solid #e8e8e8;
+          border-right: 3px solid #e8e8e8;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          background: #d7e1f3;
+          color: #295bb7;
+        }
+        .tab-active > p {
+          background: #295bb7;
+        }
+      `}</style>
     </>
   );
 }

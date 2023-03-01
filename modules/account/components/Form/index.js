@@ -42,12 +42,13 @@ export default function Form() {
   } = useForm({ ...intialBankInformation }, formikBank);
   const { setShowScreenLoader } = useContext(ScreenLoaderContext);
   const bank = new Bank();
+  const SUCCESS_REQUEST_CODE = 200;
 
   const handleChecked = () => {
+    setForm({ ...bankInfoForm, isSwiftAccount: !checked, accountNumber: '' });
     setChecked(!checked);
     setValueFormik(formikBank, 'accountNumber', '');
     setValueFormik(formikBank, 'isSwiftAccount', !checked);
-    setForm({ ...bankInfoForm, isSwiftAccount: !checked });
   };
 
   const cancel = () => {
@@ -56,10 +57,10 @@ export default function Form() {
     setValueFormik(formikBank, 'bankName', infoBankPreEdit?.bankName);
     setValueFormik(formikBank, 'accountNumber', infoBankPreEdit?.accountNumber);
     setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.beneficiary);
-    setValueFormik(formikBank, 'beneficiary', infoBankPreEdit?.country);
-    setValueFormik(formikBank, 'isSwiftAccount', infoBankPreEdit?.isSwiftAccount);
-    setChecked(infoBankPreEdit?.isSwiftAccount);
-    setForm(infoBankPreEdit);
+    setValueFormik(formikBank, 'country', infoBankPreEdit?.country);
+    setValueFormik(formikBank, 'isSwiftAccount', Boolean(infoBankPreEdit?.isSwiftAccount));
+    setChecked(Boolean(infoBankPreEdit?.isSwiftAccount));
+    setForm({ ...infoBankPreEdit, isSwiftAccount: Boolean(infoBankPreEdit?.isSwiftAccount) });
   };
 
   const onSubmit = async () => {
@@ -72,7 +73,12 @@ export default function Form() {
 
   const onSubmitBankInfo = async () => {
     setLoading(true);
-    await bank.saveBank(bankInfoForm);
+    const response = await bank.saveBank({ ...bankInfoForm, isSwiftAccount: checked });
+    console.log('🚀 ~ file: index.js:82 ~ onSubmitBankInfo ~ response?.data:', response?.data);
+    if (response?.status === SUCCESS_REQUEST_CODE) {
+      setInfoBankPreEdit(response?.data);
+      setForm(response?.data);
+    }
     setLoading(false);
     setEdit(null);
   };
@@ -93,13 +99,14 @@ export default function Form() {
     (async () => {
       getUserInfo(false);
       const data = await bank.getinfo();
-      setForm({ ...data?.data, id: +data?.data.id });
+      console.log('🚀 ~ file: index.js:102 ~ data:', data);
+      setForm({ ...data?.data, isSwiftAccount: Boolean(data?.data.isSwiftAccount), id: +data?.data.id });
       setValueFormik(formikBank, 'bankName', data?.data?.bankName);
       setValueFormik(formikBank, 'accountNumber', data?.data?.accountNumber);
       setValueFormik(formikBank, 'beneficiary', data?.data?.beneficiary);
       setValueFormik(formikBank, 'country', data?.data?.country);
-      setValueFormik(formikBank, 'isSwiftAccount', data?.data?.isSwiftAccount);
-      if (data?.data.isSwiftAccount) {
+      setValueFormik(formikBank, 'isSwiftAccount', Boolean(data?.data?.isSwiftAccount));
+      if (data?.data.isSwiftAccount === true) {
         setChecked(true);
       }
     })();
@@ -117,14 +124,6 @@ export default function Form() {
             <h6 className="typo-heading-4 text-text-1 font-bold">
               <IntlMessages id="account.personalInformation" />
             </h6>
-            {/* {edit !== 0 && (
-              <Image
-                onClick={() => setEdit(edit === 0 ? null : 0)}
-                className="cursor-pointer"
-                src={editIcon}
-                alt="Edit icon"
-              />
-            )} */}
           </div>
         </div>
         {/* Fisrt name & Last name */}
@@ -190,8 +189,12 @@ export default function Form() {
               <Image
                 onClick={() => {
                   setEdit(edit === 1 ? null : 1);
-                  setInfoBankPreEdit(bankInfoForm);
-                  setChecked(bankInfoForm?.isSwiftAccount);
+                  setInfoBankPreEdit({ ...bankInfoForm, isSwiftAccount: Boolean(bankInfoForm?.isSwiftAccount) });
+                  console.log(
+                    '🚀 ~ file: index.js:193 ~ Form ~ Boolean(bankInfoForm?.isSwiftAccount):',
+                    Boolean(bankInfoForm?.isSwiftAccount)
+                  );
+                  setChecked(Boolean(bankInfoForm?.isSwiftAccount));
                 }}
                 className="cursor-pointer"
                 src={editIcon}
@@ -206,14 +209,6 @@ export default function Form() {
             </div>
           )}
         </div>
-        {/* Country Select
-        <CountrySelect
-          className="col-span-full mt-[14px] lg:mt-[28px]"
-          formik={formikBank}
-          disabled={edit === null || edit === 0}
-          edit={edit}
-          handleChangeForm={handleChangeBankInfoForm}
-        /> */}
         {/* Country Input */}
         <Input
           disabled={edit === null || edit === 0}
@@ -258,12 +253,12 @@ export default function Form() {
           onChange={handleChangeBankInfoForm}
         />
         <p className="typo-body-1 text-text-2 mt-8">
-          If you don't know the exact name of your bank, check this{' '}
+          <IntlMessages id="account.wiseText1" />{' '}
           <Link className="text-primary-blue" target="_blank" href="https://wise.com/es/swift-codes/countries">
             link
           </Link>
           <br />
-          At the moment we only work with WISE banks, we will be adding new methods in the future
+          <IntlMessages id="account.wiseText2" />
         </p>
         {edit === 1 && <EditButtons loading={loading} setLoading={setLoading} className="mt-5" cancel={cancel} />}
       </form>

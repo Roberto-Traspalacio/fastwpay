@@ -25,14 +25,6 @@ export default function Column({ id, reference, balance }) {
           </button>
         </div>
       </div>
-      <style jsx>{`
-        .slice-text {
-          width: 99%;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-      `}</style>
     </>
   );
 }

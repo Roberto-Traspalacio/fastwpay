@@ -1,11 +1,14 @@
+import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 
 export const useYupValidations = () => {
+  const { messages } = useIntl();
+
   const validationSchema = yup.object().shape({
     reference: yup
       .string()
-      .max(50, String('The reference must have a maximum of 50 characters'))
-      .required(String('Please enter a reference')),
+      .max(50, String(messages['validation.referenceLength']))
+      .required(String(messages['validation.reference'])),
   });
 
   return { validationSchema };
