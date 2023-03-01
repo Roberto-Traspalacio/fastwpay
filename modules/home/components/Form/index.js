@@ -16,6 +16,7 @@ const initialState = {
   name: '',
   email: '',
   message: '',
+  'form-name': 'Contact',
 };
 
 export default function Form({ children, setMessageSended }) {
@@ -29,12 +30,13 @@ export default function Form({ children, setMessageSended }) {
   const { form, handleChangeForm, setForm } = useForm(initialState, formik);
 
   async function onSubmit() {
+    const REQUEST_PARAMETERS = {
+      method: `POST`,
+      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      body: new URLSearchParams(form).toString(), //your data here. Needs to have your form-name attribute set
+    };
     setLoading(true);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(form).toString(),
-    })
+    fetch('/', REQUEST_PARAMETERS)
       .then(() => {
         setForm(initialState);
         setValueFormik(formik, 'name', '');
