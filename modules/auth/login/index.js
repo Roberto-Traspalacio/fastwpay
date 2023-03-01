@@ -19,6 +19,7 @@ import { ScreenLoaderContext } from 'context/screenLoader/context';
 import ModalUnverificated from 'modules/auth/components/ModalUnverificated';
 import MessageModal from 'modules/auth/components/MessageModal';
 import { NOT_FOUND, UNATHORIZED_ERROR_CODE } from 'utils/statusCodes';
+import { setValueFormik } from 'utils/setValueFormik';
 
 const initialState = {
   email: '',
@@ -62,6 +63,8 @@ export default function Login() {
     }
     if (data.data?.token) {
       Cookies.set('auth', JSON.stringify(data.data));
+      setValueFormik(formik, 'email', '');
+      setValueFormik(formik, 'password', '');
       router.push(data?.data?.rol === 'ROLE_CUSTOMER' ? '/dashboard' : '/admin/dashboard');
     }
     setLoading(false);
