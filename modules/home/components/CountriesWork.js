@@ -5,6 +5,7 @@ import rectangle from 'assets/rectangle.svg';
 
 import { ButtonInverse } from 'components';
 import IntlMessages from 'utils/IntlMessages';
+import Link from 'next/link';
 
 export default function CountriesWork() {
   return (
@@ -24,12 +25,17 @@ export default function CountriesWork() {
         <span className="font-bold text-primary-blue"> France</span>, <IntlMessages id="common.or" />
         <span className="font-bold text-primary-blue"> Germany</span>.
       </p>
-      <ButtonInverse
-        arrow={true}
-        className="col-span-2 row-start-3 text-left mt-[18px] esm:mt-3 lg:col-start-3 xl:col-start-4 xl2:col-start-3"
+      <Link
+        className="col-span-2 row-start-3 text-left lg:col-start-3 xl:col-start-4 xl2:col-start-3 p-0 m-0"
+        href="/signup"
       >
-        <IntlMessages id="common.getStarted" />
-      </ButtonInverse>
+        <ButtonInverse
+          arrow={true}
+          className="button-started-inverse col-span-2 row-start-3 text-left mt-[18px] esm:mt-3 lg:col-start-3 xl:col-start-4 xl2:col-start-3"
+        >
+          <IntlMessages id="common.getStarted" />
+        </ButtonInverse>
+      </Link>
       <Image
         className="self-center img-countries col-span-full justify-self-center mt-11 esm:mt-9 sm:mt-0 sm:ml-[120px] sm:col-start-5 sm:col-span-4 sm:row-start-1 sm:row-span-4 md:ml-[190px] lg:absolute lg:-right-14 xl:col-start-9 xl:scale-125 xl:row-span-3 xl:row-start-1 xl:right-0 xxl:translate-y-28"
         src={countries}

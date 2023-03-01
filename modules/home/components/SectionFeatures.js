@@ -6,6 +6,7 @@ import supportIcon from 'assets/support-icon.svg';
 import walletIcon from 'assets/wallet-icon.svg';
 import lockIcon from 'assets/lock-icon.svg';
 import { ButtonInverse } from 'components';
+import Link from 'next/link';
 
 export default function SectionFeatures() {
   return (
@@ -20,9 +21,11 @@ export default function SectionFeatures() {
         <IntlMessages id="landing.section.two.description.2" />
       </p>
 
-      <ButtonInverse arrow={true} className="button-started arrow py-0 sm:mt-6 xl2:col-start-1">
-        <IntlMessages id="common.getStarted" />
-      </ButtonInverse>
+      <Link href="/signup" className="button-started xl2:col-start-1 p-0 m-0">
+        <ButtonInverse arrow={true} className="button-started arrow py-0 sm:mt-6">
+          <IntlMessages id="common.getStarted" />
+        </ButtonInverse>
+      </Link>
 
       <div className="col-span-full mt-16 grid-main gap-y-[77px] sm:mt-[75px] sm:gap-y-[88px] lg:-mt-5 lg:col-start-5 lg:col-span-4 lg:row-start-1 lg:row-span-4 xl:col-start-7 xl:col-span-full xl2:col-start-8 xl2:col-span-5">
         <FeatureItem

@@ -21,12 +21,17 @@ export default function SectionActivateInstall() {
             <p className="section-content-inverse typo-body-1 esm:mt-3 sm:mt-6 lg:col-span-full lg:text-start xl:row-start-2 xl2:col-end-13 xl:max-w-[40ch]">
               <IntlMessages id="landing.section.three.description" />
             </p>
-            <ButtonInverse
-              arrow={true}
-              className="button-started-inverse arrow md:mt-6 lg:col-span-full p-0 xl2:col-end-13"
+            <Link
+              href="/signup"
+              className="button-started-inverse flex w-full sm:justify-center col-span-full lg:justify-start xl2:col-start-1 p-0 m-0"
             >
-              <IntlMessages id="common.getStarted" />
-            </ButtonInverse>
+              <ButtonInverse
+                arrow={true}
+                className="button-started-inverse arrow md:mt-6 lg:col-span-full p-0 xl2:col-end-13"
+              >
+                <IntlMessages id="common.getStarted" />
+              </ButtonInverse>
+            </Link>
           </div>
 
           <Image
