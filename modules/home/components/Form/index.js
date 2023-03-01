@@ -57,7 +57,7 @@ export default function Form({ children, setMessageSended }) {
 
   return (
     <form
-      name="contact"
+      name="Contact"
       method="POST"
       data-netlify="true"
       className="grid-main bg-background-2 pt-14 gap-x-3 full-bleed-section lg:pb-10 lg:pt-[44px] xl:items-start relative"
