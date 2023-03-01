@@ -12,7 +12,7 @@ import { DOWNLOAD_PLUGIN_URL } from 'utils/common';
 
 export default function HeaderSection() {
   return (
-    <section className="lg:px-10 xl:px-0 xl:max-w-[1160px] xl:mx-auto xl2:max-w-[1277px]">
+    <header className="lg:px-10 xl:px-0 xl:max-w-[1160px] xl:mx-auto xl2:max-w-[1277px]">
       <div className="grid-main relative xl:min-h-[728px] auto-rows-min">
         <Image
           priority={true}
@@ -55,6 +55,6 @@ export default function HeaderSection() {
           </Link>
         </div>
       </div>
-    </section>
+    </header>
   );
 }

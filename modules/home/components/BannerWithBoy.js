@@ -25,7 +25,7 @@ export default function BannerWithBoy() {
           </Link>
         </div>
         <div className="hidden absolute bottom-0 lg:flex xl:col-start-2">
-          <Image src={smile} className="lg:ml-10 xl:ml-0" />
+          <Image src={smile} className="lg:ml-10 xl:ml-0" alt="Boy smiling" />
         </div>
       </section>
       <style jsx>
