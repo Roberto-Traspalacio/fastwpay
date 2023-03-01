@@ -48,7 +48,7 @@ export default function HeaderSection() {
               <IntlMessages id="common.download" />
             </Button>
           </Link>
-          <Link href="/#contact">
+          <Link href="/#Contact">
             <ButtonInverse>
               <IntlMessages id="common.contact" />
             </ButtonInverse>
