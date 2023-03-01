@@ -30,7 +30,6 @@ export default function ApikeyCard({ reference, date, status, apiKey, id, delete
   function copy(ref) {
     const text = apiKeyRef.current.textContent;
     navigator.clipboard.writeText(text);
-    console.log(apiKeyRef.current.textContent);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
