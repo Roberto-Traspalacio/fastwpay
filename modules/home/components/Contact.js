@@ -14,7 +14,7 @@ export default function contact({ className = '' }) {
       </div>
       <div className="flex flex-col items-center col-span-2 col-start-1 sm:col-start-2 typo-body-1 xl:items-start">
         <Image className="mb-2 xl:hidden" src={phone} alt="Phone icon" />
-        <div className="font-bold leading-[165%] text-color-2 text-text-2">
+        <div className="font-bold leading-[165%] text-color-2 text-text-2 text-center">
           <IntlMessages id="common.phone.number" />
         </div>
         <div className="text-color-2 leading-[165%] text-text-2 text-center">+34674397122</div>
