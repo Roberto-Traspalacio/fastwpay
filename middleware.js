@@ -31,7 +31,6 @@ export default async function middleware(req) {
   };
   return redirect();
 }
-
 export const config = {
   matcher: [
     '/login',
