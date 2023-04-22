@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import cookieIcon from 'assets/cookie.svg';
 import IntlMessages from 'utils/IntlMessages';
+import Link from 'next/link';
 
 export default function CookieBanner({ acceptCookies }) {
   return (
@@ -21,7 +22,14 @@ export default function CookieBanner({ acceptCookies }) {
               <IntlMessages id="common.weUseCookiesText1" />{' '}
               <b className="underline">
                 <IntlMessages id="common.cookiePolicy" />
-              </b>
+              </b>{' '}
+              and
+              <Link href="/privacy-policy">
+                <b className="underline">
+                  {' '}
+                  <IntlMessages id="auth.signup.acceptPrivacyPolicy.2" />
+                </b>
+              </Link>
             </p>
           </div>
           <div
