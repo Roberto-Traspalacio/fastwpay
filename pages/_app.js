@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import UserProvider from 'context/user/provider';
 
 export default function MyApp({ Component, pageProps }) {
-  const [showCookiesBanner, setShowCookiesBanner] = useState(true);
+  const [showCookiesBanner, setShowCookiesBanner] = useState(false);
   const { locale } = useRouter();
   const currentLanguage =
     locale === 'es' ? es : locale === 'fr' ? fr : locale === 'it' ? it : locale === 'de' ? de : en;
